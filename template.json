@@ -1,0 +1,107 @@
+{
+  "Actor": {
+      "types": [
+          "protagonist",
+          "antagonist"
+      ],
+      "templates": {
+          "attributes": {
+              "body": 1,
+              "essence": 1,
+              "dexterity": 1,
+              "perception": 1,
+              "influence": 1,
+              "mind": 1
+          },
+          "resistances": {
+              "stamina": 2,
+              "dodge": 2,
+              "will": 2
+          },
+          "others": {
+              "size": "medium",
+              "speed": "normal"
+          },
+          "resources": {
+              "hitPoints": {
+                  "value": 0,
+                  "max": 0
+              },
+              "etherPoints": {
+                  "value": 0,
+                  "max": 0
+              },
+              "narrativePoints": {
+                  "value": 0,
+                  "max": 0
+              }
+          }    
+      },
+      "protagonist": {
+          "templates": [
+              "attributes",
+              "resistances",
+              "others",
+              "resources"
+          ],
+          "afinity": "",
+          "ascendant": "",
+          "aspect": "",
+          "experience": 0,
+          "level": 1,
+          "origin": "",
+          "slots": 0
+      },
+      "antagonist": {
+          "templates": [
+              "attributes",
+              "resistances"
+          ]
+      }
+  },
+  "Item": {
+      "types": [
+          "armor",
+          "consumable",
+          "shield",
+          "weapon"
+      ], 
+      "templates": {
+          "default": {
+              "description": "",
+              "geo": 0,
+              "quantity": 0,
+              "slots": 0,
+              "traits": ""
+          }
+      },
+      "armor": {
+          "templates": [
+              "default"
+          ],
+          "damageResistance": 0,
+          "minimumBody": 0
+      },
+      "consumable": {
+          "templates": [
+              "default"
+          ]
+      },
+      "shield": {
+          "templates": [
+              "default"
+          ],
+          "defenseBonus": 0,
+          "durability": 0,
+          "minimumBody": 0
+      },
+      "weapon": {
+          "templates": [
+              "default"
+          ],
+          "type": "",
+          "damage": 0,
+          "minimumBody": 0
+      }  
+  }
+}

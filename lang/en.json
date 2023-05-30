@@ -1,0 +1,52 @@
+{   
+    "roe": {
+        "armor": {
+            "description": "Descrição",
+            "geo": "Geo",
+            "quantity": "Quantidade",
+            "slots": "Espaços",
+            "traits": "Traços",
+            "damageResistance": "Resistência a Dano",
+            "minimumBody": "Corpo Mínimo"
+        },
+        "consumable": {
+            "description": "Descrição",
+            "geo": "Geo",
+            "quantity": "Quantidade",
+            "slots": "Espaços",
+            "traits": "Traços"
+        },
+        "shield": {
+            "description": "Descrição",
+            "geo": "Geo",
+            "quantity": "Quantidade",
+            "slots": "Espaços",
+            "traits": "Traços",
+            "defenseBonus": "Bônus de Defesa",
+            "durability": "Durabilidade",
+            "minimumBody": "Corpo Mínimo"
+        },
+        "weapon": {
+            "description": "Descrição",
+            "geo": "Geo",
+            "quantity": "Quantidade",
+            "slots": "Espaços",
+            "traits": "Traços",
+            "type": "Tipo da Arma",
+            "damage": "Dano",
+            "minimumBody": "Corpo Mínimo"
+        },
+        "weaponTypes": {
+            "none": "",
+            "unarmed": "Ataques Desarmados",
+            "extensible": "Armas Extensíveis",
+            "light": "Armas Leves",
+            "long": "Armas Longas",
+            "heavy": "Armas Pesadas",
+            "throw": "Armas Arremessáveis",
+            "projectile": "Armas de Projetil",
+            "lightMechanical": "Armas Mecânicas Leves",
+            "heavyMechanical": "Armas Mecânicas Pesadas"
+        }
+    }
+}

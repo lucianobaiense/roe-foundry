@@ -1,0 +1,42 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1>
+            <input name="name" type="text" value="{{item.name}}" placeholder="Nome da Armadura"/>
+        </h1>
+    </header>
+    <div class="sheet-content">
+        <table>
+            <tr>
+                <th>{{localize "roe.armor.damageResistance"}}</th>
+                <th>{{localize "roe.armor.minimumBody"}}</th>
+                <th>{{localize "roe.armor.slots"}}</th>
+                <th>{{localize "roe.armor.quantity"}}</th>
+                <th>{{localize "roe.armor.geo"}}</th>
+            </tr>
+            <tr>
+                <td>
+                    <input name="system.damageResistance" type="number" value="{{data.system.damageResistance}}" />
+                </td>
+                <td>
+                    <input name="system.minimumBody" type="number" value="{{data.system.minimumBody}}" />
+                </td>
+                <td>
+                    <input name="system.slots" type="number" value="{{data.system.slots}}" />
+                </td>
+                <td>
+                    <input name="system.quantity" type="number" value="{{data.system.quantity}}" />
+                </td>
+                <td>
+                    <input name="system.geo" type="number" value="{{data.system.geo}}" />
+                </td>
+            </tr>
+        </table>
+        
+        <p>{{localize "roe.armor.description"}}</p>
+        {{editor content=data.system.description target="system.description" button=true owner=owner editable=editable}}
+
+        <p>{{localize "roe.armor.traits"}}</p>
+        <input name="system.traits" type="text" value="{{data.system.traits}}" />
+    </div>
+</form>
