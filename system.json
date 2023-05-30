@@ -8,8 +8,8 @@
         "verified": "11.299",
         "maximum": "11.299"
     },
-    "manifest": "https://raw.githubusercontent.com/lucianobaiense/roe-foundry/main/system.json?token=GHSAT0AAAAAACCCBMXB3HN5VNBNJ6J6IIXKZDWL7GA",
-    "download": "https://github.com/lucianobaiense/roe-foundry/archive/refs/tags/0.0.1.tar.gz",
+    "manifest": "https://raw.githubusercontent.com/lucianobaiense/roe-foundry/main/system.json",
+    "download": "https://github.com/lucianobaiense/roe-foundry/archive/refs/tags/0.0.1.zip",
     "authors": [
         {
             "name": "Resonance of Ether Developers",
