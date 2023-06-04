@@ -1,0 +1,23 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1>
+            <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'roe.general.skills'}}"/>
+        </h1>
+    </header>
+    <div class="sheet-content">
+        <table>
+            <tr>
+                <th>{{localize "roe.skill.training"}}</th>
+                <th>{{localize "roe.skill.modifier"}}</th>
+            </tr>
+            <tr>
+                <td><input name="system.training" type="number" value="{{data.system.training}}" data-dtype="Number"/></td>
+                <td><input name="system.modifier" type="number" value="{{data.system.modifier}}" data-dtype="Number"/></td>
+            </tr>
+        </table>
+        
+        <p class="mt-1">{{localize "roe.skill.description"}}</p>
+        {{editor content=data.system.description target="system.description" button=false owner=owner editable=editable engine="prosemirror" collaborate=false}}
+    </div>
+</form>

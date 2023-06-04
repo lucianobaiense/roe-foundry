@@ -1,107 +1,156 @@
 {
-  "Actor": {
-      "types": [
-          "protagonist",
-          "antagonist"
-      ],
-      "templates": {
-          "attributes": {
-              "body": 1,
-              "essence": 1,
-              "dexterity": 1,
-              "perception": 1,
-              "influence": 1,
-              "mind": 1
-          },
-          "resistances": {
-              "stamina": 2,
-              "dodge": 2,
-              "will": 2
-          },
-          "others": {
-              "size": "medium",
-              "speed": "normal"
-          },
-          "resources": {
-              "hitPoints": {
-                  "value": 0,
-                  "max": 0
-              },
-              "etherPoints": {
-                  "value": 0,
-                  "max": 0
-              },
-              "narrativePoints": {
-                  "value": 0,
-                  "max": 0
-              }
-          }    
-      },
-      "protagonist": {
-          "templates": [
-              "attributes",
-              "resistances",
-              "others",
-              "resources"
-          ],
-          "afinity": "",
-          "ascendant": "",
-          "aspect": "",
-          "experience": 0,
-          "level": 1,
-          "origin": "",
-          "slots": 0
-      },
-      "antagonist": {
-          "templates": [
-              "attributes",
-              "resistances"
-          ]
-      }
-  },
-  "Item": {
-      "types": [
-          "armor",
-          "consumable",
-          "shield",
-          "weapon"
-      ], 
-      "templates": {
-          "default": {
-              "description": "",
-              "geo": 0,
-              "quantity": 0,
-              "slots": 0,
-              "traits": ""
-          }
-      },
-      "armor": {
-          "templates": [
-              "default"
-          ],
-          "damageResistance": 0,
-          "minimumBody": 0
-      },
-      "consumable": {
-          "templates": [
-              "default"
-          ]
-      },
-      "shield": {
-          "templates": [
-              "default"
-          ],
-          "defenseBonus": 0,
-          "durability": 0,
-          "minimumBody": 0
-      },
-      "weapon": {
-          "templates": [
-              "default"
-          ],
-          "type": "",
-          "damage": 0,
-          "minimumBody": 0
-      }  
-  }
+    "Actor":{
+        "types":[
+            "protagonist",
+            "antagonist"
+        ],
+        "templates":{
+            "attributes":{
+                "body": {
+                    "value": 1,
+                    "modifier": 0
+                },
+                "essence":{
+                    "value": 1,
+                    "modifier": 0
+                },
+                "dexterity":{
+                    "value": 1,
+                    "modifier": 0
+                },
+                "perception":{
+                    "value": 1,
+                    "modifier": 0
+                },
+                "influence":{
+                    "value": 1,
+                    "modifier": 0
+                },
+                "mind":{
+                    "value": 1,
+                    "modifier": 0
+                }
+            },
+            "resistances":{
+                "stamina":{
+                    "value": 0,
+                    "modifier": 0
+                },
+                "dodge":{
+                    "value": 0,
+                    "modifier": 0
+                },
+                "will":{
+                    "value": 0,
+                    "modifier": 0
+                }
+            },
+            "others":{
+                "size":"medium",
+                "speed":"normal"
+            },
+            "resources":{
+                "healthPoints":{
+                    "value":0,
+                    "max":0
+                },
+                "etherPoints":{
+                    "value":0,
+                    "max":0
+                },
+                "narrativePoints":{
+                    "value":0,
+                    "max":5
+                }
+            }
+        },
+        "protagonist":{
+            "templates":[
+                "attributes",
+                "resistances",
+                "others",
+                "resources"
+            ],
+            "afinity":"",
+            "ascendant":"",
+            "aspect":"",
+            "experience":0,
+            "level":1,
+            "origin":"",
+            "impulses":"",
+            "slots":0,
+            "notes":"",
+            "durability":0,
+            "damageResistance":0
+        },
+        "antagonist":{
+            "templates":[
+                "attributes",
+                "resistances"
+            ]
+        }
+    },
+    "Item":{
+        "types":[
+            "ability",
+            "action",
+            "equipment",
+            "skill",
+            "spell"
+        ],
+        "ability":{
+            "action":"",
+            "activation":"",
+            "cost": "",
+            "description": "",
+            "duration":"",
+            "range":"",
+            "target":"",
+            "traits":""
+        },
+        "action":{
+            "damage": "",
+            "damageCritical": "",
+            "hit": "",
+            "traits":""
+        },
+        "equipment":{
+            "damage":0,
+            "damageResistance":0,
+            "defenseBonus":0,
+            "description":"",
+            "durability":0,
+            "equipmentType":"",
+            "geo":0,
+            "minimumBody":0,
+            "quantity":0,
+            "slots":0,
+            "traits":"",
+            "weaponType":""
+        },
+        "skill":{
+            "attribute":"",
+            "attributeList": {
+                "body": "COR",
+                "essence": "ESS",
+                "dexterity": "DES",
+                "perception": "PER",
+                "influence": "INF",
+                "mind": "MEN"
+            },
+            "description": "",
+            "modifier":0,
+            "training":1
+        },
+        "spell":{
+            "action":"",
+            "cost": "",
+            "description": "",
+            "duration":"",
+            "enchants":"",
+            "range":"",
+            "target":"",
+            "traits":""
+        }
+    }
 }

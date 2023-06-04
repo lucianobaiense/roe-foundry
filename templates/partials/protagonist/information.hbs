@@ -1,0 +1,87 @@
+<section>
+    <div class="flex flex-row">
+        <img class="mr-4" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
+
+        <div class="flex flex-col">
+            <div class="flex mb-2">
+                <p class="w-32">{{localize 'roe.general.level'}}</p>
+                <input class="w-24" name="system.level" type="number" value="{{data.system.level}}" data-dtype="Number"/>
+            </div>
+            
+            <div class="flex">
+                <p class="w-32">{{localize 'roe.general.experience'}}</p>
+                <input name="system.experience" type="number" value="{{data.system.experience}}" data-dtype="Number"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex my-2">
+        <p class="w-32">{{localize 'roe.general.name'}}</p>
+        <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'roe.general.protagonist'}}" data-dtype="String"/>
+    </div>
+
+    <div class="flex mb-2">
+        <p class="w-32">{{localize 'roe.general.afinity'}}</p>
+        <select name="system.afinity">
+            {{#select data.system.afinity}}
+                {{#each config.essences as |name essence|}}
+                    <option value="{{essence}}">{{localize name}}</option>
+                {{/each}}
+            {{/select}}
+        </select>
+    </div>
+
+    <div class="flex mb-2">
+        <p class="w-32">{{localize 'roe.general.ascendant'}}</p>
+        <select name="system.ascendant">
+            {{#select data.system.ascendant}}
+                {{#each config.essences as |name essence|}}
+                    <option value="{{essence}}">{{localize name}}</option>
+                {{/each}}
+            {{/select}}
+        </select>
+    </div>
+
+    <div class="flex mb-2">
+        <p class="w-32">{{localize 'roe.general.aspect'}}</p>
+        <select name="system.aspect">
+            {{#select data.system.aspect}}
+                {{#each config.aspects as |name aspect|}}
+                    <option value="{{aspect}}">{{localize name}}</option>
+                {{/each}}
+            {{/select}}
+        </select>
+    </div>
+
+    <div class="flex mb-2">
+        <p class="w-32">{{localize 'roe.general.origin'}}</p>
+        <input name="system.origin" type="text" value="{{data.system.origin}}" data-dtype="String"/>
+    </div>
+
+    <div class="flex mb-2">
+        <p class="w-32">{{localize 'roe.general.size'}}</p>
+        <select name="system.size">
+            {{#select data.system.size}}
+                {{#each config.size as |name size|}}
+                    <option value="{{size}}">{{localize name}}</option>
+                {{/each}}
+            {{/select}}
+        </select>
+    </div>
+
+    <div class="flex mb-2">
+        <p class="w-32">{{localize 'roe.general.speed'}}</p>
+        <select name="system.speed">
+            {{#select data.system.speed}}
+                {{#each config.speed as |name speed|}}
+                    <option value="{{speed}}">{{localize name}}</option>
+                {{/each}}
+            {{/select}}
+        </select>
+    </div>
+
+    <div class="flex">
+        <p class="w-32">{{localize 'roe.general.impulses'}}</p>
+        <textarea name="system.impulses" rows="8">{{data.system.impulses}}</textarea>
+    </div>
+</section>

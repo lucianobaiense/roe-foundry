@@ -1,0 +1,34 @@
+<section>
+    <div class="flex">
+        <h3 class="mb-2">{{localize 'roe.general.skills'}}</h3>
+        <a class="item-create" data-type="skill" title="{{localize 'roe.general.add'}}">
+            <i class="fas fa-plus"></i>
+        </a>
+    </div>
+
+    {{#each skills as |skill|}}
+        <div class="item flex" data-id="{{skill._id}}">
+            <input class="item-edit-inline" data-field="name" type="text" value="{{skill.name}}" data-dtype="String"/>
+
+            <select class="item-edit-inline" data-field="system.attribute">
+                <option></option>
+                {{selectOptions system.attributeList selected=skill.system.attribute localize=true}}
+            </select>
+            
+            <input class="item-edit-inline" data-field="system.training" type="number" value="{{skill.system.training}}" data-dtype="Number"/>
+            <input class="item-edit-inline" data-field="system.modifier" type="number" value="{{skill.system.modifier}}" data-dtype="Number"/>
+
+            <a class="roll" data-roll-type="skill" data-name="{{skill.name}}" data-skill-attribute="{{skill.system.attribute}}" data-skill-training="{{skill.system.training}}" data-skill-modifier="{{skill.system.modifier}}" title="{{localize 'roe.general.roll'}}">
+                <i class="fas fa-dice"></i>
+            </a>
+
+            <a class="item-edit-popup" title="{{localize 'roe.general.edit'}}">
+                <i class="fas fa-edit"></i>
+            </a>
+
+            <a class="item-delete" title="{{localize 'roe.general.delete'}}">
+                <i class="fas fa-trash"></i>
+            </a>
+        </div>
+    {{/each}}
+</section>

@@ -1,0 +1,75 @@
+<div class="flex flex-col">
+    <p class="font-bold text-base">{{name}}</p>
+
+    {{#if (eq system.equipmentType "armor")}}
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.equipmentType"}}:</span> {{localize "roe.general.armor"}}
+        </p>
+
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.damageResistance"}}:</span> {{system.damageResistance}}
+        </p>
+        
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.minimumBody"}}:</span> {{system.minimumBody}}
+        </p>
+    {{/if}}
+
+    {{#if (eq system.equipmentType "consumable")}}
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.equipmentType"}}:</span> {{localize "roe.general.consumable"}}
+        </p>
+    {{/if}}
+
+    {{#if (eq system.equipmentType "shield")}}
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.equipmentType"}}:</span> {{localize "roe.general.shield"}}
+        </p>
+
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.defenseBonus"}}:</span> {{system.defenseBonus}}
+        </p>
+
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.durability"}}:</span> {{system.durability}}
+        </p>
+
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.minimumBody"}}:</span> {{system.minimumBody}}
+        </p>
+    {{/if}}
+
+    {{#if (eq system.equipmentType "weapon")}}
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.equipmentType"}}:</span> {{localize "roe.general.weapon"}}
+        </p>
+
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.weaponType"}}:</span> {{localize (concat "roe.weaponTypes." i system.weaponType)}}
+        </p>
+
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.damage"}}:</span> {{system.damage}}
+        </p>
+
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.minimumBody"}}:</span> {{system.minimumBody}}
+        </p>
+    {{/if}}
+
+    <p>
+        <span class="font-bold">{{localize "roe.equipment.slots"}}:</span> {{system.slots}}
+    </p>
+
+    <p>
+        <span class="font-bold">{{localize "roe.equipment.geo"}}:</span> {{system.geo}}
+    </p>
+
+    <p>
+        <span class="font-bold">{{localize "roe.equipment.traits"}}:</span>{{system.traits}}
+    </p>
+
+    <p>
+        <span class="font-bold">{{localize "roe.equipment.description"}}:</span>{{system.description}}
+    </p>
+</div>

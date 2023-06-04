@@ -1,40 +1,144 @@
 {   
     "roe": {
-        "armor": {
+        "ability": {
+            "action": "Ação",
+            "activation": "Ativação",
+            "cost": "Custo",
             "description": "Descrição",
-            "geo": "Geo",
-            "quantity": "Quantidade",
-            "slots": "Espaços",
-            "traits": "Traços",
-            "damageResistance": "Resistência a Dano",
-            "minimumBody": "Corpo Mínimo"
-        },
-        "consumable": {
-            "description": "Descrição",
-            "geo": "Geo",
-            "quantity": "Quantidade",
-            "slots": "Espaços",
+            "duration": "Duração",
+            "range": "Alcance",
+            "target": "Alvo",
             "traits": "Traços"
         },
-        "shield": {
-            "description": "Descrição",
-            "geo": "Geo",
-            "quantity": "Quantidade",
-            "slots": "Espaços",
-            "traits": "Traços",
-            "defenseBonus": "Bônus de Defesa",
-            "durability": "Durabilidade",
-            "minimumBody": "Corpo Mínimo"
-        },
-        "weapon": {
-            "description": "Descrição",
-            "geo": "Geo",
-            "quantity": "Quantidade",
-            "slots": "Espaços",
-            "traits": "Traços",
-            "type": "Tipo da Arma",
+        "action": {
             "damage": "Dano",
-            "minimumBody": "Corpo Mínimo"
+            "damageCritical": "Dano Ressoante",
+            "hit": "Acerto",
+            "traits": "Traços"
+        },
+        "aspects": {
+            "none": "",
+            "caligem": "Caligem",
+            "etherno": "Etherno",
+            "floral": "Floral",
+            "faun": "Fauno",
+            "lumina": "Lumina",
+            "lump": "Torrão",
+            "lunar": "Lunar",
+            "oceanic": "Oceânico",
+            "vatra": "Vatra",
+            "zephyr": "Zéfiro"
+        },
+        "attributes": {
+            "body": "Corpo",
+            "essence": "Essência",
+            "dexterity": "Destreza",
+            "perception": "Percepção",
+            "influence": "Influência",
+            "mind": "Mente"
+        },
+        "equipment": {
+            "damage": "Dano",
+            "damageResistance": "Resistência a Dano",
+            "defenseBonus": "Bônus de Defesa",
+            "description": "Descrição",
+            "durability": "Durabilidade",
+            "equipmentType": "Tipo de Equipamento",
+            "geo": "Geo",
+            "minimumBody": "Corpo Mínimo",
+            "quantity": "Quantidade",
+            "slots": "Espaços",
+            "traits": "Traços",
+            "weaponType": "Tipo de Arma"
+        },
+        "equipmentTypes": {
+            "none": "",
+            "armor": "Armadura",
+            "consumable": "Consumível",
+            "shield": "Escudo",
+            "weapon": "Armas"
+        },
+        "essences": {
+            "none": "",
+            "air": "Brisa",
+            "darkness": "Escuridão",
+            "earth": "Terra",
+            "ether": "Ether",
+            "fire": "Chama",
+            "light": "Luz",
+            "moon": "Lua",
+            "nature": "Natureza",
+            "water": "Água"
+        },
+        "general": {
+            "abilities": "Habilidades",
+            "actions": "Ações",
+            "add": "Adicionar",
+            "afinity": "Afinidade",
+            "antagonist": "Antagonista",
+            "armor": "Armadura",
+            "ascendant": "Ascendente",
+            "aspect": "Aspecto",
+            "attributes": "Atributos",
+            "consumable": "Consumível",
+            "delete": "Excluir",
+            "edit": "Editar",
+            "equipments": "Equipamentos",
+            "etherPoints": "Pontos de Ether",
+            "experience": "Experiência",
+            "healthPoints": "Pontos de Vida",
+            "impulses": "Impulsos",
+            "level": "Nível",
+            "name": "Nome",
+            "narrativePoints": "Pontos Narrativos",
+            "notes": "Anotações",
+            "origin": "Origem",
+            "protagonist": "Protagonista",
+            "resistances": "Resistências",
+            "resources": "Recursos",
+            "roll": "Rolar",
+            "size": "Tamanho",
+            "shield": "Escudo",
+            "skills": "Perícias",
+            "speed": "Velocidade",
+            "spells": "Sortilégios",
+            "weapon": "Arma"
+        },
+        "resistances": {
+            "stamina": "Vigor",
+            "dodge": "Esquiva",
+            "will": "Vontade"
+        },
+        "size": {
+            "large": "Grande",
+            "medium": "Médio",
+            "small": "Pequeno"
+        },
+        "speed": {
+            "fast": "Rápido",
+            "normal": "Normal",
+            "slow": "Lento"
+        },
+        "skill": {
+            "attribute": "Atributo",
+            "description": "Descrição",
+            "modifier": "Modificador",
+            "training": "Treinamento"
+        },
+        "skillList": {
+            "none": "",
+            "alchemy": "Alquimia",
+            "athletics": "Atletismo"
+        },
+        "spell": {
+            "action": "Ação",
+            "cost": "Custo",
+            "description": "Descrição",
+            "duration": "Duração",
+            "enchants": "Encantos",
+            "range": "Alcance",
+            "target": "Alvo",
+            "traits": "Traços"
         },
         "weaponTypes": {
             "none": "",

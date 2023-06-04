@@ -1,0 +1,204 @@
+<section>
+    <h3 class="mb-2">{{localize 'roe.general.attributes'}}</h3>
+
+    <div class="grid grid-cols-3 gap-4">
+        <div class="flex flex-col">
+            <div class="flex">
+                <p class="font-bold">{{localize 'roe.attributes.body'}}</p>
+                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.body'}}" data-attribute="{{data.system.body.value}}" data-attribute-modifier="{{data.system.body.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    <i class="fas fa-dice"></i>
+                </a>
+            </div>
+            <div class="flex">
+                <label class="mr-2" for="system.body.value">Valor</label>
+                <input name="system.body.value" type="number" value="{{data.system.body.value}}" data-dtype="Number"/>
+            </div>
+            <div class="flex">
+                <label class="mr-2 text-slate-400" for="system.body.modifier">Mod</label>
+                <input name="system.body.modifier" type="number" value="{{data.system.body.modifier}}" data-dtype="Number"/>
+            </div>
+        </div>
+
+        <div class="flex flex-col">
+            <div class="flex">
+                <p class="font-bold">{{localize 'roe.attributes.essence'}}</p>
+                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.essence'}}" data-attribute="{{data.system.essence.value}}" data-attribute-modifier="{{data.system.essence.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    <i class="fas fa-dice"></i>
+                </a>
+            </div>
+            <div class="flex">
+                <label class="mr-2" for="system.essence.value">Valor</label>
+                <input name="system.essence.value" type="number" value="{{data.system.essence.value}}" data-dtype="Number"/>
+            </div>
+            <div class="flex">
+                <label class="mr-2 text-slate-400" for="system.essence.modifier">Mod</label>
+                <input name="system.essence.modifier" type="number" value="{{data.system.essence.modifier}}" data-dtype="Number"/>
+            </div>
+        </div>
+
+        <div class="flex flex-col">
+            <div class="flex">
+                <p class="font-bold">{{localize 'roe.attributes.dexterity'}}</p>
+                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.dexterity'}}" data-attribute="{{data.system.dexterity.value}}" data-attribute-modifier="{{data.system.dexterity.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    <i class="fas fa-dice"></i>
+                </a>
+            </div>
+            <div class="flex">
+                <label class="mr-2" for="system.dexterity.value">Valor</label>
+                <input name="system.dexterity.value" type="number" value="{{data.system.dexterity.value}}" data-dtype="Number"/>
+            </div>
+            <div class="flex">
+                <label class="mr-2 text-slate-400" for="system.dexterity.modifier">Mod</label>
+                <input name="system.dexterity.modifier" type="number" value="{{data.system.dexterity.modifier}}" data-dtype="Number"/>
+            </div>
+        </div>
+
+        <div class="flex flex-col">
+            <div class="flex">
+                <p class="font-bold">{{localize 'roe.attributes.perception'}}</p>
+                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.perception'}}" data-attribute="{{data.system.perception.value}}" data-attribute-modifier="{{data.system.perception.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    <i class="fas fa-dice"></i>
+                </a>
+            </div>
+            <div class="flex">
+                <label class="mr-2" for="system.perception.value">Valor</label>
+                <input name="system.perception.value" type="number" value="{{data.system.perception.value}}" data-dtype="Number"/>
+            </div>
+            <div class="flex">
+                <label class="mr-2 text-slate-400" for="system.perception.modifier">Mod</label>
+                <input name="system.perception.modifier" type="number" value="{{data.system.perception.modifier}}" data-dtype="Number"/>
+            </div>
+        </div>
+
+        <div class="flex flex-col">
+            <div class="flex">
+                <p class="font-bold">{{localize 'roe.attributes.influence'}}</p>
+                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.influence'}}" data-attribute="{{data.system.influence.value}}" data-attribute-modifier="{{data.system.influence.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    <i class="fas fa-dice"></i>
+                </a>
+            </div>
+            <div class="flex">
+                <label class="mr-2" for="system.influence.value">Valor</label>
+                <input name="system.influence.value" type="number" value="{{data.system.influence.value}}" data-dtype="Number"/>
+            </div>
+            <div class="flex">
+                <label class="mr-2 text-slate-400" for="system.influence.modifier">Mod</label>
+                <input name="system.influence.modifier" type="number" value="{{data.system.influence.modifier}}" data-dtype="Number"/>
+            </div>
+        </div>
+
+        <div class="flex flex-col">
+            <div class="flex">
+                <p class="font-bold">{{localize 'roe.attributes.mind'}}</p>
+                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.mind'}}" data-attribute="{{data.system.mind.value}}" data-attribute-modifier="{{data.system.mind.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    <i class="fas fa-dice"></i>
+                </a>
+            </div>
+            <div class="flex">
+                <label class="mr-2" for="system.mind.value">Valor</label>
+                <input name="system.mind.value" type="number" value="{{data.system.mind.value}}" data-dtype="Number"/>
+            </div>
+            <div class="flex">
+                <label class="mr-2 text-slate-400" for="system.mind.modifier">Mod</label>
+                <input name="system.mind.modifier" type="number" value="{{data.system.mind.modifier}}" data-dtype="Number"/>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mb-2 mt-4">{{localize 'roe.general.resources'}}</h3>
+
+    <div class="grid grid-cols-3 gap-4">
+        <div class="flex flex-col">
+            <p class="font-bold">{{localize 'roe.general.healthPoints'}}</p>
+
+            <div class="flex">
+                <label class="mr-1 text-slate-400" for="system.healthPoints.value">Atual</label>
+                <input name="system.healthPoints.value" type="number" value="{{data.system.healthPoints.value}}" data-dtype="Number"/>
+            </div>
+
+            <div class="flex">
+                <label class="mr-1" for="system.healthPoints.max">Máx</label>
+                <input name="system.healthPoints.max" type="number" value="{{data.system.healthPoints.max}}" data-dtype="Number"/>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <p class="font-bold">{{localize 'roe.general.etherPoints'}}</p>
+
+            <div class="flex">
+                <label class="mr-1 text-slate-400" for="system.etherPoints.value">Atual</label>
+                <input name="system.etherPoints.value" type="number" value="{{data.system.etherPoints.value}}" data-dtype="Number"/>
+            </div>
+            <div class="flex">
+                <label class="mr-1" for="system.etherPoints.max">Máx</label>
+                <input name="system.etherPoints.max" type="number" value="{{data.system.etherPoints.max}}" data-dtype="Number"/>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <p class="font-bold">{{localize 'roe.equipment.damageResistance'}}</p>
+            <input name="system.damageResistance" type="number" value="{{data.system.damageResistance}}" data-dtype="Number"/>
+            <p class="font-bold">{{localize 'roe.equipment.durability'}}</p>
+            <input name="system.durability" type="number" value="{{data.system.durability}}" data-dtype="Number"/>
+        </div>     
+    </div>
+
+    <h3 class="my-2">{{localize 'roe.general.resistances'}}</h3>
+
+    <div class="grid grid-cols-3 gap-4">
+        <div class="flex flex-col">
+            <div class="flex">
+                <p class="font-bold">{{localize 'roe.resistances.stamina'}}</p>
+                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.resistances.stamina'}}" data-attribute="{{data.system.stamina.value}}" data-attribute-modifier="{{data.system.stamina.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    <i class="fas fa-dice"></i>
+                </a>
+            </div>
+            <div class="flex">
+                <label class="mr-2" for="system.stamina.value">Valor</label>
+                <input name="system.stamina.value" type="number" value="{{data.system.stamina.value}}" data-dtype="Number"/>
+            </div>
+            <div class="flex">
+                <label class="mr-2 text-slate-400" for="system.stamina.modifier">Mod</label>
+                <input name="system.stamina.modifier" type="number" value="{{data.system.stamina.modifier}}" data-dtype="Number"/>
+            </div>
+        </div>
+        
+        <div class="flex flex-col">
+            <div class="flex">
+                <p class="font-bold">{{localize 'roe.resistances.dodge'}}</p>
+                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.resistances.dodge'}}" data-attribute="{{data.system.dodge.value}}" data-attribute-modifier="{{data.system.dodge.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    <i class="fas fa-dice"></i>
+                </a>
+            </div>
+            <div class="flex">
+                <label class="mr-2" for="system.dodge.value">Valor</label>
+                <input name="system.dodge.value" type="number" value="{{data.system.dodge.value}}" data-dtype="Number"/>
+            </div>
+            <div class="flex">
+                <label class="mr-2 text-slate-400" for="system.dodge.modifier">Mod</label>
+                <input name="system.dodge.modifier" type="number" value="{{data.system.dodge.modifier}}" data-dtype="Number"/>
+            </div>
+        </div>
+
+        <div class="flex flex-col">
+            <div class="flex">
+                <p class="font-bold">{{localize 'roe.resistances.will'}}</p>
+                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.resistances.will'}}" data-attribute="{{data.system.will.value}}" data-attribute-modifier="{{data.system.will.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    <i class="fas fa-dice"></i>
+                </a>
+            </div>
+            <div class="flex">
+                <label class="mr-2" for="system.will.value">Valor</label>
+                <input name="system.will.value" type="number" value="{{data.system.will.value}}" data-dtype="Number"/>
+            </div>
+            <div class="flex">
+                <label class="mr-2 text-slate-400" for="system.will.modifier">Mod</label>
+                <input name="system.will.modifier" type="number" value="{{data.system.will.modifier}}" data-dtype="Number"/>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mb-2 mt-4">{{localize 'roe.general.narrativePoints'}}</h3>
+
+    <div class="flex">
+        <input name="system.narrativePoints" type="number" value="{{data.system.narrativePoints}}" data-dtype="Number"/>
+    </div>
+</section>

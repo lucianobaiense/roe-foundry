@@ -1,0 +1,35 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1>
+            <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'roe.general.spells'}}"/>
+        </h1>
+    </header>
+    <div class="sheet-content">
+        <table>
+            <tr>
+                <th>{{localize "roe.spell.action"}}</th>
+                <th>{{localize "roe.spell.cost"}}</th>
+                <th>{{localize "roe.spell.duration"}}</th>
+                <th>{{localize "roe.spell.range"}}</th>
+                <th>{{localize "roe.spell.target"}}</th>
+            </tr>
+            <tr>
+                <td><input name="system.action" type="text" value="{{data.system.action}}" data-dtype="String"/></td>
+                <td><input name="system.cost" type="text" value="{{data.system.cost}}" data-dtype="String"/></td>
+                <td><input name="system.duration" type="text" value="{{data.system.duration}}" data-dtype="String"/></td>
+                <td><input name="system.range" type="text" value="{{data.system.range}}" data-dtype="String"/></td>
+                <td><input name="system.target" type="text" value="{{data.system.target}}" data-dtype="String"/></td>
+            </tr>
+        </table>
+
+        <p>{{localize "roe.spell.enchants"}}</p>
+        <input name="system.enchants" type="text" value="{{data.system.enchants}}" />
+
+        <p>{{localize "roe.spell.traits"}}</p>
+        <input name="system.traits" type="text" value="{{data.system.traits}}" />
+        
+        <p class="mt-1">{{localize "roe.spell.description"}}</p>
+        {{editor content=data.system.description target="system.description" button=false owner=owner editable=editable engine="prosemirror" collaborate=false}}
+    </div>
+</form>

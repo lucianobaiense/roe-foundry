@@ -1,0 +1,41 @@
+<section>
+    <div class="flex">
+        <h3 class="mb-2">{{localize 'roe.general.equipments'}}</h3>
+        <a class="item-create" data-type="equipment" title="{{localize 'roe.general.add'}}">
+            <i class="fas fa-plus"></i>
+        </a>
+    </div>
+
+    {{#each equipments as |equipment|}}
+        <div class="item flex" data-id="{{equipment._id}}">
+            <input class="item-edit-inline" data-field="name" type="text" value="{{equipment.name}}" data-dtype="String"/>
+
+            <input class="item-edit-inline" data-field="system.quantity" type="number" value="{{equipment.system.quantity}}" data-dtype="Number"/>
+
+            <a class="item-roll" data-type="equipment" data-name="{{equipment.name}}">
+                <i class="fas fa-dice"></i>
+            </a>
+
+            <a class="item-edit-popup" title="{{localize 'roe.general.edit'}}">
+                <i class="fas fa-edit"></i>
+            </a>
+
+            <a class="item-delete" title="{{localize 'roe.general.delete'}}">
+                <i class="fas fa-trash"></i>
+            </a>
+        </div>
+        <div class="flex mt-1 mb-2">
+            {{#if equipment.system.slots}}
+                <p class="bg-stone-400 mr-1 px-1">{{equipment.system.slots}}</p>
+            {{/if}}
+
+            {{#if equipment.system.geo}}
+                <p class="bg-stone-400 mr-1 px-1">G$ {{equipment.system.geo}}</p>
+            {{/if}}     
+
+            {{#if equipment.system.traits}}
+                <p class="bg-stone-400 mr-1 px-1">{{equipment.system.traits}}</p>
+            {{/if}}     
+        </div>
+    {{/each}}
+</section>

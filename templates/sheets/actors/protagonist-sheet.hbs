@@ -1,9 +1,53 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
-        <h1>
-            <input name="name" type="text" value="{{actor.name}}" placeholder="Protagonista"/>
-        </h1>
+        <h1>Ficha de Protagonista</h1>
     </header>
-    <p>Protagonista</p>
+    
+    <h2 class="my-4">Caracteristicas</h2>
+
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            {{> "systems/roe/templates/partials/protagonist/information.hbs"}}
+        </div>
+
+        <div>
+            {{> "systems/roe/templates/partials/protagonist/attributes.hbs"}}
+        </div>
+    </div>
+
+    <h2 class="my-4">Perícias e Ações</h2>
+
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            {{> "systems/roe/templates/partials/protagonist/skills.hbs"}}
+        </div>
+
+        <div>
+            {{> "systems/roe/templates/partials/protagonist/actions.hbs"}}
+        </div>
+    </div>
+
+    <h2 class="my-4">Habilidades e Sortilégios</h2>
+
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            {{> "systems/roe/templates/partials/protagonist/abilities.hbs"}}
+        </div>
+
+        <div>
+            {{> "systems/roe/templates/partials/protagonist/spells.hbs"}}
+        </div>
+    </div>
+
+    <h2 class="my-4">Equipamentos e Anotações</h2>
+
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            {{> "systems/roe/templates/partials/protagonist/equipments.hbs"}}
+        </div>
+
+        <div>
+            {{> "systems/roe/templates/partials/protagonist/notes.hbs"}}
+        </div>
+    </div>
 </form>
