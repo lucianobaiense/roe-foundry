@@ -2,7 +2,7 @@
     "id": "roe",
     "title": "Resonance of Ether",
     "description": "A system for playing Resonance of Ether RPG games in the Foundry Virtual Tabletop environment.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "compatibility": {
         "minimum": "11.300",
         "verified": "11.300",
@@ -14,6 +14,8 @@
             "url": "https://github.com/foundryvtt/roe"
         }
     ],
+    "manifest": "https://raw.githubusercontent.com/lucianobaiense/roe-foundry/main/system.json",
+    "download": "https://github.com/lucianobaiense/roe-foundry/archive/refs/tags/0.0.2.zip",
     "esmodules": [
         "roe.js"
     ],
