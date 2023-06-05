@@ -1,12 +1,11 @@
 import * as Dice from "../dice.js";
 
-export default class roeProtagonistSheet extends ActorSheet {
-    
+export default class roeActorSheet extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             width: 760,
             height: 900,
-            classes: ["roe", "sheet", "protagonist"]
+            classes: ["roe", "sheet", "actor"]
         });
     }
 
@@ -63,6 +62,81 @@ export default class roeProtagonistSheet extends ActorSheet {
             return item.type == "trait"
         });
 
+        // Prepare calculated data for Characters
+        const system = data.data.system
+
+        system.stamina.value = system.body.value + system.body.modifier + system.essence.value + system.essence.modifier
+        system.dodge.value = system.dexterity.value + system.dexterity.modifier + system.perception.value + system.perception.modifier
+        system.will.value = system.influence.value + system.influence.modifier + system.mind.value + system.mind.modifier
+
+        // Prepare calculated data for Protagonist Characters
+        if (data.actor.type == "protagonist") {
+            system.healthPoints.max = (system.body.value * 10) + (system.body.value * system.level) + system.healthPointsModifier
+            system.etherPoints.max = (system.essence.value * 5) + system.level + system.etherPointsModifier
+
+            if (system.size == "small") {
+                system.maxSlots = system.body.value + system.body.modifier + 6
+                system.overweight = 1
+
+            } else if (system.size == "medium") {
+                system.maxSlots = system.body.value + system.body.modifier + 8
+                system.overweight = 2
+
+            } else if (system.size == "large") {
+                system.maxSlots = system.body.value + system.body.modifier + 10
+                system.overweight = 3
+            }
+        }
+
+        // Prepare calculated data for Antagonist Characters
+        if (data.actor.type == "antagonist") {
+
+            if (system.threat == "low") {
+                system.power = 1
+                system.healthPoints.max = 10 + system.level + system.healthPointsModifier
+                system.etherPoints.max = 2 + system.level + system.level + system.etherPointsModifier
+
+            } else if (system.threat == "moderate") {
+                system.power = 2
+                system.healthPoints.max = 20 + (system.level * 2) + system.healthPointsModifier
+                system.etherPoints.max = 4 + system.level + system.level + system.etherPointsModifier
+
+            } else if (system.threat == "dangerous") {
+                system.power = 3
+                system.healthPoints.max = 40 + (system.level * 3) + system.healthPointsModifier
+                system.etherPoints.max = 8 + system.level + system.level + system.etherPointsModifier
+
+            } else if (system.threat == "extreme") {
+                system.power = 4
+                system.healthPoints.max = 80 + (system.level * 4) + system.healthPointsModifier
+                system.etherPoints.max = 16 + system.level + system.level + system.etherPointsModifier
+
+            } else if (system.threat == "deadly") {
+                system.power = 5
+                system.healthPoints.max = 160 + (system.level * 5) + system.healthPointsModifier
+                system.etherPoints.max = 32 + system.level + system.level + system.etherPointsModifier
+            }
+
+            if (system.species == "beasts") {
+                system.traitsInitial = 4
+
+            } else if (system.species == "constructs") {
+                system.traitsInitial = 3
+
+            } else if (system.species == "elementals") {
+                system.traitsInitial = 3
+
+            } else if (system.species == "humanoids") {
+                system.traitsInitial = 3
+
+            } else if (system.species == "inferius") {
+                system.traitsInitial = 3
+
+            } else if (system.species == "monsters") {
+                system.traitsInitial = 4
+            }
+        }
+
         return data;
     }
 
@@ -79,6 +153,7 @@ export default class roeProtagonistSheet extends ActorSheet {
             html.find(".item-edit-inline").change(this._onItemEditInline.bind(this));
             html.find(".item-edit-popup").click(this._onItemEditPopup.bind(this));
             html.find(".item-delete").click(this._onItemDelete.bind(this));
+            html.find(".species").change(this._onSpeciesChange.bind(this));
     
             new ContextMenu(html, ".item", this.itemContextMenu);
         }
@@ -183,5 +258,40 @@ export default class roeProtagonistSheet extends ActorSheet {
         let itemId = element.closest(".item").dataset.id;
 
         return await Item.deleteDocuments([itemId], {parent: this.actor});
+    }
+
+    async _onSpeciesChange(event) {
+        event.preventDefault();
+  
+        const element = event.currentTarget;
+
+        if (element.value == "constructs") {
+            const traits = [
+                { name: "Imunidade a Condição (Envenenado, Sangramento)", type: "trait" },
+                { name: "Resistência a Dano (Escolha dois tipos de dano)", type: "trait" },
+                { name: "Vulnerabilidade (Escolha um tipo de dano)", type: "trait" }
+            ];
+            return await Item.createDocuments(traits, {parent: this.actor});
+
+        } else if (element.value == "elementals") {
+            const traits = [
+                { name: "Imunidade a Dano (Escolha um tipo de dano)", type: "trait" },
+                { name: "Vulnerabilidade (Escolha um tipo de dano)", type: "trait" }
+            ];
+            return await Item.createDocuments(traits, {parent: this.actor});
+
+        } else if (element.value == "humanoids") {
+            const traits = [
+                { name: "Equipamento", type: "trait" }
+            ];
+            return await Item.createDocuments(traits, {parent: this.actor});
+
+        } else if (element.value == "inferius") {
+            const traits = [
+                { name: "Imunidade a Condição (Envenenado, Sangramento)", type: "trait" },
+                { name: "Resistência a Dano (Corte, Perfuração)", type: "trait" }
+            ];
+            return await Item.createDocuments(traits, {parent: this.actor});
+        } 
     }
 }

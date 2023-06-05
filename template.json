@@ -45,6 +45,10 @@
                     "modifier": 0
                 }
             },
+            "resourcesModifier":{
+                "healthPointsModifier": 0,
+                "etherPointsModifier": 0
+            },
             "others":{
                 "size":"",
                 "speed":""
@@ -69,24 +73,28 @@
                 "attributes",
                 "resistances",
                 "others",
-                "resources"
+                "resources",
+                "resourcesModifier"
             ],
             "afinity":"",
             "ascendant":"",
             "aspect":"",
-            "experience":0,
-            "level":1,
-            "origin":"",
-            "impulses":"",
-            "slots":0,
-            "notes":"",
             "durability":0,
-            "damageResistance":0
+            "damageResistance":0,
+            "experience":0,
+            "impulses":"",
+            "level":1,
+            "maxSlots":0,
+            "notes":"",
+            "origin":"",
+            "overweight": 0,
+            "slots":0
         },
         "antagonist":{
             "templates":[
                 "attributes",
-                "resistances"
+                "resistances",
+                "resourcesModifier"
             ],
             "afinity":"",
             "ascendant":"",
@@ -96,7 +104,8 @@
             "power": 1,
             "species": "", 
             "threat":"",
-            "traits": {}
+            "traits": {},
+            "traitsInitial":0
         }
     },
     "Item":{
