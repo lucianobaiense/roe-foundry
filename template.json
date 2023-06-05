@@ -46,8 +46,8 @@
                 }
             },
             "others":{
-                "size":"medium",
-                "speed":"normal"
+                "size":"",
+                "speed":""
             },
             "resources":{
                 "healthPoints":{
@@ -87,7 +87,16 @@
             "templates":[
                 "attributes",
                 "resistances"
-            ]
+            ],
+            "afinity":"",
+            "ascendant":"",
+            "durability":0,
+            "damageResistance":0,
+            "level":1,
+            "power": 1,
+            "species": "", 
+            "threat":"",
+            "traits": {}
         }
     },
     "Item":{
@@ -96,7 +105,8 @@
             "action",
             "equipment",
             "skill",
-            "spell"
+            "spell",
+            "trait"
         ],
         "ability":{
             "action":"",
@@ -151,6 +161,10 @@
             "range":"",
             "target":"",
             "traits":""
+        },
+        "trait":{
+            "description": "",
+            "note": ""
         }
     }
 }

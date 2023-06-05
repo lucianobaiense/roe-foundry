@@ -6,6 +6,8 @@
         </a>
     </div>
 
+    <p class="text-sm text-stone-500">{{localize "roe.equipment.label"}}, {{localize "roe.equipment.quantity"}}</p>
+
     {{#each equipments as |equipment|}}
         <div class="item flex" data-id="{{equipment._id}}">
             <input class="item-edit-inline" data-field="name" type="text" value="{{equipment.name}}" data-dtype="String"/>
