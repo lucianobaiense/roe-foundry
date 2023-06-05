@@ -2,7 +2,7 @@
     "id": "roe",
     "title": "Resonance of Ether",
     "description": "A system for playing Resonance of Ether RPG games in the Foundry Virtual Tabletop environment.",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "compatibility": {
         "minimum": "11.300",
         "verified": "11.300",
