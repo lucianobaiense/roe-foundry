@@ -45,9 +45,13 @@
                     "modifier": 0
                 }
             },
+            "resourcesModifier":{
+                "healthPointsModifier": 0,
+                "etherPointsModifier": 0
+            },
             "others":{
-                "size":"medium",
-                "speed":"normal"
+                "size":"",
+                "speed":""
             },
             "resources":{
                 "healthPoints":{
@@ -69,25 +73,39 @@
                 "attributes",
                 "resistances",
                 "others",
-                "resources"
+                "resources",
+                "resourcesModifier"
             ],
             "afinity":"",
             "ascendant":"",
             "aspect":"",
-            "experience":0,
-            "level":1,
-            "origin":"",
-            "impulses":"",
-            "slots":0,
-            "notes":"",
             "durability":0,
-            "damageResistance":0
+            "damageResistance":0,
+            "experience":0,
+            "impulses":"",
+            "level":1,
+            "maxSlots":0,
+            "notes":"",
+            "origin":"",
+            "overweight": 0,
+            "slots":0
         },
         "antagonist":{
             "templates":[
                 "attributes",
-                "resistances"
-            ]
+                "resistances",
+                "resourcesModifier"
+            ],
+            "afinity":"",
+            "ascendant":"",
+            "durability":0,
+            "damageResistance":0,
+            "level":1,
+            "power": 1,
+            "species": "", 
+            "threat":"",
+            "traits": {},
+            "traitsInitial":0
         }
     },
     "Item":{
@@ -96,7 +114,8 @@
             "action",
             "equipment",
             "skill",
-            "spell"
+            "spell",
+            "trait"
         ],
         "ability":{
             "action":"",
@@ -151,6 +170,10 @@
             "range":"",
             "target":"",
             "traits":""
+        },
+        "trait":{
+            "description": "",
+            "note": ""
         }
     }
 }

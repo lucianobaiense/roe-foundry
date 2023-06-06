@@ -1,0 +1,8 @@
+<div class="sheet-content">
+    <div class="flex">
+        <label for="system.note">{{localize "roe.trait.note"}}</label>
+        <input name="system.note" type="text" value="{{system.note}}"/>
+    </div>
+    <p>{{localize "roe.trait.description"}}</p>
+    {{editor system.description target="system.description" button=true engine="tinymce" collaborate=false}}
+</div>

@@ -1,22 +1,19 @@
 export default class roeItemSheet extends ItemSheet {
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
-            width: 600,
+        return foundry.utils.mergeObject(super.defaultOptions, {
+            classes: ["roe", "sheet", "item"],
             height: 500,
-            classes: ["roe", "sheet", "item"]
+            template: "systems/roe/templates/sheets/items/item-sheet.hbs",
+            width: 600,
         });
     }
 
-    get template() {
-        return `systems/roe/templates/sheets/items/${this.item.data.type}-sheet.hbs`;
-    }
+    async getData(options) {
+        const context = await super.getData(options);
+        context.config = CONFIG.roe
+        context.system = context.data.system;
 
-    getData() {
-        const data = super.getData();
-
-        data.config = CONFIG.roe;
-        
-        return data;
+        return context
     }
 }

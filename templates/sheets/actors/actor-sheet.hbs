@@ -1,0 +1,9 @@
+<form class="{{cssClass}}" autocomplete="off">
+    {{#if (eq data.type "protagonist")}}
+        {{> "systems/roe/templates/partials/protagonist/protagonist-sheet.hbs"}}
+    {{/if}}
+
+    {{#if (eq data.type "antagonist")}}
+        {{> "systems/roe/templates/partials/antagonist/antagonist-sheet.hbs"}}
+    {{/if}}
+</form>

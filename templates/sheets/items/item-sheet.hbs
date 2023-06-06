@@ -1,0 +1,32 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1>
+            <input name="name" type="text" value="{{item.name}}"/>
+        </h1>
+    </header>
+    
+    {{#if (eq data.type "ability")}}
+        {{> "systems/roe/templates/partials/items/ability-sheet.hbs"}}
+    {{/if}}
+
+    {{#if (eq data.type "action")}}
+        {{> "systems/roe/templates/partials/items/action-sheet.hbs"}}
+    {{/if}}
+
+    {{#if (eq data.type "equipment")}}
+        {{> "systems/roe/templates/partials/items/equipment-sheet.hbs"}}
+    {{/if}}
+
+    {{#if (eq data.type "skill")}}
+        {{> "systems/roe/templates/partials/items/skill-sheet.hbs"}}
+    {{/if}}
+
+    {{#if (eq data.type "spell")}}
+        {{> "systems/roe/templates/partials/items/spell-sheet.hbs"}}
+    {{/if}}
+
+    {{#if (eq data.type "trait")}}
+        {{> "systems/roe/templates/partials/items/trait-sheet.hbs"}}
+    {{/if}}
+</form>

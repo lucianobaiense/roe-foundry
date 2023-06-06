@@ -1,0 +1,27 @@
+<div class="sheet-content">
+    <table>
+        <tr>
+            <th>{{localize "roe.spell.action"}}</th>
+            <th>{{localize "roe.spell.cost"}}</th>
+            <th>{{localize "roe.spell.duration"}}</th>
+            <th>{{localize "roe.spell.range"}}</th>
+            <th>{{localize "roe.spell.target"}}</th>
+        </tr>
+        <tr>
+            <td><input name="system.action" type="text" value="{{system.action}}" data-dtype="String"/></td>
+            <td><input name="system.cost" type="text" value="{{system.cost}}" data-dtype="String"/></td>
+            <td><input name="system.duration" type="text" value="{{system.duration}}" data-dtype="String"/></td>
+            <td><input name="system.range" type="text" value="{{system.range}}" data-dtype="String"/></td>
+            <td><input name="system.target" type="text" value="{{system.target}}" data-dtype="String"/></td>
+        </tr>
+    </table>
+
+    <p>{{localize "roe.spell.enchants"}}</p>
+    <input name="system.enchants" type="text" value="{{system.enchants}}" />
+
+    <p>{{localize "roe.spell.traits"}}</p>
+    <input name="system.traits" type="text" value="{{system.traits}}" />
+    
+    <p class="mt-1">{{localize "roe.spell.description"}}</p>
+    {{editor system.description target="system.description" button=true engine="tinymce" collaborate=false}}
+</div>

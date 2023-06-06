@@ -6,6 +6,12 @@
         </a>
     </div>
 
+    {{#if (eq data.type "protagonist")}}
+        <p class="text-xs text-slate-500 mb-2">Limite de Espaços {{ data.system.maxSlots }} | Sobrecarga {{data.system.overweight}}</p>
+    {{/if}}
+
+    <p class="text-sm text-stone-500">{{localize "roe.equipment.label"}}, {{localize "roe.equipment.quantity"}}</p>
+
     {{#each equipments as |equipment|}}
         <div class="item flex" data-id="{{equipment._id}}">
             <input class="item-edit-inline" data-field="name" type="text" value="{{equipment.name}}" data-dtype="String"/>

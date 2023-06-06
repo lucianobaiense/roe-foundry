@@ -6,6 +6,8 @@
         </a>
     </div>
 
+    <p class="text-sm text-stone-500">{{localize "roe.skill.label"}}, {{localize "roe.skill.attribute"}}, {{localize "roe.skill.training"}}, {{localize "roe.skill.modifier"}}</p>
+
     {{#each skills as |skill|}}
         <div class="item flex" data-id="{{skill._id}}">
             <input class="item-edit-inline" data-field="name" type="text" value="{{skill.name}}" data-dtype="String"/>
