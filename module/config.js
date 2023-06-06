@@ -1,7 +1,6 @@
 export const roe = {};
 
 roe.ability = {
-    label: "roe.ability.label",
     action: "roe.ability.action",
     activation: "roe.ability.activation",
     cost: "roe.ability.cost",
@@ -13,7 +12,6 @@ roe.ability = {
 }
 
 roe.action = {
-    label: "roe.action.label",
     damage: "roe.action.damage",
     damageCritical: "roe.action.damageCritical",
     hit: "roe.action.hit",
@@ -44,7 +42,6 @@ roe.attributes = {
 }
 
 roe.equipment = {
-    label: "roe.equipment.label",
     damage: "roe.equipment.damage",
     damageResistance: "roe.equipment.damageResistance",
     defenseBonus: "roe.equipment.defenseBonus",
@@ -111,11 +108,7 @@ roe.general = {
     size: "roe.general.size",
     skills: "roe.general.skills",
     speed: "roe.general.speed",
-    species: "roe.general.species",
     spells: "roe.general.spells",
-    power: "roe.general.power",
-    traits: "roe.general.traits",
-    threat: "roe.general.threat",
     weapon: "roe.general.weapon"
 }
 
@@ -126,40 +119,18 @@ roe.resistances = {
 }
 
 roe.size = {
-    none: "",
-    small: "roe.size.small",
+    large: "roe.size.large",
     medium: "roe.size.medium",
-    large: "roe.size.large"
-}
-
-roe.sizeAntagonist = {
-    none: "",
-    small: "roe.sizeAntagonist.small",
-    medium: "roe.sizeAntagonist.medium",
-    large: "roe.sizeAntagonist.large",
-    huge: "roe.sizeAntagonist.huge",
-    colossal: "roe.sizeAntagonist.colossal"
-}
-
-roe.species = {
-    none: "",
-    beasts: "roe.species.beasts",
-    constructs: "roe.species.constructs",
-    elementals: "roe.species.elementals",
-    humanoids: "roe.species.humanoids",
-    inferius: "roe.species.inferius",
-    monsters: "roe.species.monsters",
+    small: "roe.size.small"
 }
 
 roe.speed = {
-    none: "",
     fast: "roe.speed.fast",
     normal: "roe.speed.normal",
     slow: "roe.speed.slow"
 }
 
 roe.skill = {
-    label: "roe.skill.label",
     attribute: "roe.skill.attribute",
     description: "roe.skill.description",
     modifier: "roe.skill.modifier",
@@ -173,7 +144,6 @@ roe.skillList = {
 }
 
 roe.spell = {
-    label: "roe.spell.label",
     action: "roe.spell.action",
     cost: "roe.spell.cost",
     description: "roe.spell.description",
@@ -182,21 +152,6 @@ roe.spell = {
     range: "roe.spell.range",
     target: "roe.spell.target",
     traits: "roe.spell.traits"
-}
-
-roe.threat = {
-    none: "",
-    low: "roe.threat.low",
-    moderate: "roe.threat.moderate",
-    dangerous: "roe.threat.dangerous",
-    extreme: "roe.threat.extreme",
-    deadly: "roe.threat.deadly"
-}
-
-roe.trait = {
-    label: "roe.trait.label",
-    description: "roe.trait.description",
-    note: "roe.trait.note"
 }
 
 roe.weaponTypes = {

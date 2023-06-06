@@ -1,10 +1,6 @@
 <section>
     <h3 class="mb-2">{{localize 'roe.general.attributes'}}</h3>
 
-    {{#if (eq data.type "antagonist")}}
-        <p class="text-xs text-slate-500 mb-2">Recebe +1 ponto de atributo para cada 5 níveis</p>
-    {{/if}}
-
     <div class="grid grid-cols-3 gap-4">
         <div class="flex flex-col">
             <div class="flex">
@@ -116,7 +112,7 @@
             <p class="font-bold">{{localize 'roe.general.healthPoints'}}</p>
 
             <div class="flex">
-                <label class="mr-1" for="system.healthPoints.value">Atual</label>
+                <label class="mr-1 text-slate-400" for="system.healthPoints.value">Atual</label>
                 <input name="system.healthPoints.value" type="number" value="{{data.system.healthPoints.value}}" data-dtype="Number"/>
             </div>
 
@@ -124,26 +120,17 @@
                 <label class="mr-1" for="system.healthPoints.max">Máx</label>
                 <input name="system.healthPoints.max" type="number" value="{{data.system.healthPoints.max}}" data-dtype="Number"/>
             </div>
-
-            <div class="flex">
-                <label class="mr-1 text-slate-400" for="system.healthPointsModifier">Mod</label>
-                <input name="system.healthPointsModifier" type="number" value="{{data.system.healthPointsModifier}}" data-dtype="Number"/>
-            </div>
         </div>
         <div class="flex flex-col">
             <p class="font-bold">{{localize 'roe.general.etherPoints'}}</p>
 
             <div class="flex">
-                <label class="mr-1" for="system.etherPoints.value">Atual</label>
+                <label class="mr-1 text-slate-400" for="system.etherPoints.value">Atual</label>
                 <input name="system.etherPoints.value" type="number" value="{{data.system.etherPoints.value}}" data-dtype="Number"/>
             </div>
             <div class="flex">
                 <label class="mr-1" for="system.etherPoints.max">Máx</label>
                 <input name="system.etherPoints.max" type="number" value="{{data.system.etherPoints.max}}" data-dtype="Number"/>
-            </div>
-            <div class="flex">
-                <label class="mr-1 text-slate-400" for="system.etherPointsModifier">Mod</label>
-                <input name="system.etherPointsModifier" type="number" value="{{data.system.etherPointsModifier}}" data-dtype="Number"/>
             </div>
         </div>
         <div class="flex flex-col">
@@ -173,7 +160,7 @@
                 <input name="system.stamina.modifier" type="number" value="{{data.system.stamina.modifier}}" data-dtype="Number"/>
             </div>
         </div>
-
+        
         <div class="flex flex-col">
             <div class="flex">
                 <p class="font-bold">{{localize 'roe.resistances.dodge'}}</p>

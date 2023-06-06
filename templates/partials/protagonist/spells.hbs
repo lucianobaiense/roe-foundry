@@ -6,8 +6,6 @@
         </a>
     </div>
 
-    <p class="text-sm text-stone-500">{{localize "roe.spell.label"}}, {{localize "roe.spell.enchants"}}</p>
-
     {{#each spells as |spell|}}
         <div class="item flex" data-id="{{spell._id}}">
             <input class="item-edit-inline" data-field="name" type="text" value="{{spell.name}}" data-dtype="String"/>

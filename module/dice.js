@@ -4,14 +4,7 @@ export async function AttributeRoll({
     attribute = null, 
     attributeModifier = null
 } = {}) {
-    let rollString = ""
-
-    if(actor.type == "antagonist") {
-        rollString = `2d6 + ${attribute} + ${attributeModifier} + ${actor.system.power}`
-    } else {
-        rollString = `2d6 + ${attribute} + ${attributeModifier}`
-    }
-    
+    const rollString = `2d6 + ${attribute} + ${attributeModifier}`
     const roll = await new Roll(rollString).evaluate({"async": true});
 
     roll.toMessage({
@@ -45,22 +38,8 @@ export async function ActionRoll({
     traits = null,
     type = null
 } = {}) {
-    let roll = {}
-
-    if(actor.type == "antagonist") {
-        const power = Number(actor.system.power)
-        
-        hit = Number(hit) + power
-        damage = Number(damage) + power
-        damageCritical = Number(damageCritical) + (power*2)
-
-        roll = {
-            name, actor, hit, damage, damageCritical, traits
-        }
-    } else {
-        roll = {
-            name, actor, hit, damage, damageCritical, traits
-        }
+    const roll = {
+        name, actor, hit, damage, damageCritical, traits
     }
 
     const template = `systems/roe/templates/chat/${type}-item.hbs`
@@ -70,6 +49,19 @@ export async function ActionRoll({
         speaker: ChatMessage.getSpeaker({actor: actor}),
         flavor: `Rolou ${name}`,
     });
+
+    console.log(a)
+
+// #OFICIAL
+
+    // const rollString = `2d6 + ${hit}`
+    // const roll = await new Roll(rollString).evaluate({"async": true});
+
+    // roll.toMessage({
+    //     speaker: ChatMessage.getSpeaker({actor: actor}),
+    //     flavor: `Rolou ${name}`,
+    //     content: "teste"
+    // });
 }
 
 export async function ItemRoll({

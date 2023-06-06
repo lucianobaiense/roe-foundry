@@ -1,7 +1,6 @@
 {   
     "roe": {
         "ability": {
-            "label": "Habilidade",
             "action": "Ação",
             "activation": "Ativação",
             "cost": "Custo",
@@ -12,7 +11,6 @@
             "traits": "Traços"
         },
         "action": {
-            "label": "Ação",
             "damage": "Dano",
             "damageCritical": "Dano Ressoante",
             "hit": "Acerto",
@@ -40,7 +38,6 @@
             "mind": "Mente"
         },
         "equipment": {
-            "label": "Equipamento",
             "damage": "Dano",
             "damageResistance": "Resistência a Dano",
             "defenseBonus": "Bônus de Defesa",
@@ -55,12 +52,14 @@
             "weaponType": "Tipo de Arma"
         },
         "equipmentTypes": {
+            "none": "",
             "armor": "Armadura",
             "consumable": "Consumível",
             "shield": "Escudo",
             "weapon": "Armas"
         },
         "essences": {
+            "none": "",
             "air": "Brisa",
             "darkness": "Escuridão",
             "earth": "Terra",
@@ -102,11 +101,7 @@
             "shield": "Escudo",
             "skills": "Perícias",
             "speed": "Velocidade",
-            "species": "Espécies",
             "spells": "Sortilégios",
-            "power": "Poder",
-            "threat": "Ameaça",
-            "traits": "Traços",
             "weapon": "Arma"
         },
         "resistances": {
@@ -115,24 +110,9 @@
             "will": "Vontade"
         },
         "size": {
-            "small": "Pequeno",
-            "medium": "Médio",
-            "large": "Grande"
-        },
-        "sizeAntagonist": {
-            "small": "Pequeno",
-            "medium": "Médio",
             "large": "Grande",
-            "huge": "Gigante",
-            "colossal": "Colossal"
-        },
-        "species": {
-            "beasts": "Bestas",
-            "constructs": "Construtos",
-            "elementals": "Elementais",
-            "humanoids": "Humanóides",
-            "inferius": "Inferius",
-            "monsters": "Monstros"
+            "medium": "Médio",
+            "small": "Pequeno"
         },
         "speed": {
             "fast": "Rápido",
@@ -140,7 +120,6 @@
             "slow": "Lento"
         },
         "skill": {
-            "label": "Perícia",
             "attribute": "Atributo",
             "description": "Descrição",
             "modifier": "Modificador",
@@ -152,7 +131,6 @@
             "athletics": "Atletismo"
         },
         "spell": {
-            "label": "Sortilégio",
             "action": "Ação",
             "cost": "Custo",
             "description": "Descrição",
@@ -162,19 +140,8 @@
             "target": "Alvo",
             "traits": "Traços"
         },
-        "threat": {
-            "low": "Baixa",
-            "moderate": "Moderada",
-            "dangerous": "Perigosa",
-            "extreme": "Extrema",
-            "deadly": "Mortal"
-        },
-        "trait": {
-            "label": "Traço",
-            "description": "Descrição",
-            "note": "Observações"
-        },
         "weaponTypes": {
+            "none": "",
             "unarmed": "Ataques Desarmados",
             "extensible": "Armas Extensíveis",
             "light": "Armas Leves",

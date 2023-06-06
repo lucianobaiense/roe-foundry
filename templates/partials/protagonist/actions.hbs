@@ -6,8 +6,6 @@
         </a>
     </div>
 
-    <p class="text-sm text-stone-500">{{localize "roe.action.label"}}, {{localize "roe.action.hit"}}, {{localize "roe.action.damage"}}, {{localize "roe.action.damageCritical"}}</p>
-
     {{#each actions as |action|}}
         <div class="item flex" data-id="{{action._id}}">
             <input class="item-edit-inline" data-field="name" type="text" value="{{action.name}}" data-dtype="String"/>
