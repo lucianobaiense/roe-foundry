@@ -69,8 +69,62 @@
     </table>
     
     <p>{{localize "roe.equipment.traits"}}</p>
-    <input name="system.traits" type="text" value="{{system.traits}}" />
 
-    <p class="mt-1">{{localize "roe.equipment.description"}}</p>
+    {{#if (eq system.equipmentType "armor" )}}
+        <select class="trait-selected" name="traits">
+            {{#select traits}}
+                <option value="none"></option>
+                {{#each traits.armor as |trait|}}
+                    <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
+                {{/each}}
+            {{/select}}
+        </select>    
+    {{/if}}
+
+    {{#if (eq system.equipmentType "consumable" )}}
+        <select class="trait-selected" name="traits">
+            {{#select traits}}
+                <option value="none"></option>
+                {{#each traits.consumable as |trait|}}
+                    <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
+                {{/each}}
+            {{/select}}
+        </select>      
+    {{/if}}
+
+    {{#if (eq system.equipmentType "shield" )}}
+        <select class="trait-selected" name="traits">
+            {{#select traits}}
+                <option value="none"></option>
+                {{#each traits.shield as |trait|}}
+                    <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
+                {{/each}}
+            {{/select}}
+        </select>      
+    {{/if}}
+
+    {{#if (eq system.equipmentType "weapon" )}}
+        <select class="trait-selected" name="traits">
+            {{#select traits}}
+                <option value="none"></option>
+                {{#each traits.weapon as |trait|}}
+                    <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
+                {{/each}}
+            {{/select}}
+        </select>  
+    {{/if}}
+
+    <div class="flex flex-wrap my-1">
+        {{#each system.traits as |trait|}}
+            <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
+                <p data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+                <a class="ml-1 trait-delete" data-trait="{{trait.label}}">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </a>
+            </div>
+        {{/each}}
+    </div>
+
+    <p class="my-1">{{localize "roe.equipment.description"}}</p>
     {{editor system.description target="system.description" button=true engine="tinymce" collaborate=false}}
 </div>

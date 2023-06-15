@@ -1,15 +1,15 @@
 <section>
-    <div class="flex">
+    <div class="flex justify-between">
         <h3 class="mb-2">{{localize 'roe.general.skills'}}</h3>
-        <a class="item-create" data-type="skill" title="{{localize 'roe.general.add'}}">
-            <i class="fas fa-plus"></i>
+        <a class="item-create" data-type="skill" title="{{localize 'roe.general.add'}} {{localize 'roe.general.skills'}}">
+            <i class="fas fa-square-plus"></i>
         </a>
     </div>
 
     <p class="text-sm text-stone-500">{{localize "roe.skill.label"}}, {{localize "roe.skill.attribute"}}, {{localize "roe.skill.training"}}, {{localize "roe.skill.modifier"}}</p>
 
     {{#each skills as |skill|}}
-        <div class="item flex" data-id="{{skill._id}}">
+        <div class="flex item mb-1" data-id="{{skill._id}}">
             <input class="item-edit-inline" data-field="name" type="text" value="{{skill.name}}" data-dtype="String"/>
 
             <select class="item-edit-inline" data-field="system.attribute">

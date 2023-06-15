@@ -50,8 +50,8 @@
                 "etherPointsModifier": 0
             },
             "others":{
-                "size":"",
-                "speed":""
+                "size":"medium",
+                "speed":"normal"
             },
             "resources":{
                 "healthPoints":{
@@ -125,13 +125,13 @@
             "duration":"",
             "range":"",
             "target":"",
-            "traits":""
+            "traits":[]
         },
         "action":{
             "damage": "",
             "damageCritical": "",
             "hit": "",
-            "traits":""
+            "traits":[]
         },
         "equipment":{
             "damage":0,
@@ -144,7 +144,7 @@
             "minimumBody":0,
             "quantity":0,
             "slots":0,
-            "traits":"",
+            "traits":[],
             "weaponType":""
         },
         "skill":{
@@ -169,7 +169,7 @@
             "enchants":"",
             "range":"",
             "target":"",
-            "traits":""
+            "traits":[]
         },
         "trait":{
             "description": "",

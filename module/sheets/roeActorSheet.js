@@ -159,6 +159,7 @@ export default class roeActorSheet extends ActorSheet {
 
         let element = event.currentTarget;
         let rollType = element.dataset.rollType;
+        let itemId = element.closest(".item").dataset.id;
 
         if (rollType == "attribute") {            
             Dice.AttributeRoll({
@@ -185,11 +186,8 @@ export default class roeActorSheet extends ActorSheet {
             Dice.ActionRoll({
                 actor: this.actor,
                 name: element.dataset.name,
-                hit: element.dataset.hit,
-                damage: element.dataset.damage,
-                damageCritical: element.dataset.damageCritical,
-                traits: element.dataset.traits,
-                type: rollType
+                type: rollType,
+                item: this.actor.items.get(itemId)
             })
         }
     }
@@ -212,10 +210,26 @@ export default class roeActorSheet extends ActorSheet {
         event.preventDefault();
 
         let element = event.currentTarget;
+        let type = element.dataset.type;
+        let img = ""
+
+        if (type == "action") {
+            img = "icons/skills/movement/figure-running-gray.webp"
+
+        } else if (type == "equipment") {
+            img = "icons/containers/bags/coinpouch-leather-grey.webp"
+
+        } else if (type == "spell") {
+            img = "icons/magic/symbols/runes-star-pentagon-blue.webp"
+
+        } else if (type == "ability") {
+            img = "icons/magic/symbols/chevron-elipse-circle-blue.webp"
+        }
         
         const itemData = {
             name: "-",
             type: element.dataset.type,
+            img: img
         };
 
         return await Item.create(itemData, {parent: this.actor});

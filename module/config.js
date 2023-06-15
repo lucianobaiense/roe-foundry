@@ -126,14 +126,12 @@ roe.resistances = {
 }
 
 roe.size = {
-    none: "",
     small: "roe.size.small",
     medium: "roe.size.medium",
     large: "roe.size.large"
 }
 
 roe.sizeAntagonist = {
-    none: "",
     small: "roe.sizeAntagonist.small",
     medium: "roe.sizeAntagonist.medium",
     large: "roe.sizeAntagonist.large",
@@ -152,7 +150,6 @@ roe.species = {
 }
 
 roe.speed = {
-    none: "",
     fast: "roe.speed.fast",
     normal: "roe.speed.normal",
     slow: "roe.speed.slow"

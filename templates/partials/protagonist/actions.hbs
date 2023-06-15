@@ -1,10 +1,26 @@
 <section>
-    <div class="flex">
+    <div class="flex justify-between">
         <h3 class="mb-2">{{localize 'roe.general.actions'}}</h3>
-        <a class="item-create" data-type="action" title="{{localize 'roe.general.add'}}">
-            <i class="fas fa-plus"></i>
+        <a class="item-create" data-type="action" title="{{localize 'roe.general.add'}} {{localize 'roe.general.actions'}}">
+            <i class="fas fa-square-plus"></i>
         </a>
     </div>
+
+    {{!-- <div class="grid grid-cols-5 gap-2">
+        {{#each actions as |action|}}
+            <div class="item flex flex-col" data-id="{{action._id}}">
+                <div class="flex h-8 items-center justify-center">
+                    <p class="text-center text-xs">{{action.name}}</p>
+                </div>
+
+                <a class="roll mb-1" data-roll-type="action" data-name="{{action.name}}" title="{{localize 'roe.general.roll'}}">
+                    <img data-tooltip="Acerto: {{action.system.hit}} | Dano: {{action.system.damage}} | Ressoante: {{action.system.damageCritical}}" data-tooltip-direction="DOWN" class="w-16" src="{{action.img}}" alt="{{action.name}}"/>
+                </a>
+            </div>
+        {{/each}}
+    </div> --}}
+
+    {{!--Backup Exibição InLine --}}
 
     <p class="text-sm text-stone-500">{{localize "roe.action.label"}}, {{localize "roe.action.hit"}}, {{localize "roe.action.damage"}}, {{localize "roe.action.damageCritical"}}</p>
 
@@ -12,10 +28,10 @@
         <div class="item flex" data-id="{{action._id}}">
             <input class="item-edit-inline" data-field="name" type="text" value="{{action.name}}" data-dtype="String"/>
             <input class="item-edit-inline" data-field="system.hit" type="number" value="{{action.system.hit}}" data-dtype="Number"/>
-            <input class="item-edit-inline" data-field="system.damage" type="number" value="{{action.system.damage}}" data-dtype="Number"/>
-            <input class="item-edit-inline" data-field="system.damageCritical" type="number" value="{{action.system.damageCritical}}" data-dtype="Number"/>
+            <input class="item-edit-inline" data-field="system.damage" type="text" value="{{action.system.damage}}" data-dtype="String"/>
+            <input class="item-edit-inline" data-field="system.damageCritical" type="text" value="{{action.system.damageCritical}}" data-dtype="String"/>
 
-            <a class="roll" data-roll-type="action" data-name="{{action.name}}" data-hit="{{action.system.hit}}" data-damage="{{action.system.damage}}" data-damage-critical="{{action.system.damageCritical}}" data-traits="{{action.system.traits}}" title="{{localize 'roe.general.roll'}}">
+            <a class="roll" data-roll-type="action" data-name="{{action.name}}" title="{{localize 'roe.general.roll'}}">
                 <i class="fas fa-dice"></i>
             </a>
 
@@ -29,7 +45,11 @@
         </div>
         <div class="flex mt-1 mb-2">
             {{#if action.system.traits}}
-                <p class="bg-stone-400 mr-1 px-1">{{action.system.traits}}</p>
+                {{#each action.system.traits as |trait|}}
+                    <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
+                        <p class="text-xs" data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+                    </div>
+                {{/each}}
             {{/if}}        
         </div>
     {{/each}}

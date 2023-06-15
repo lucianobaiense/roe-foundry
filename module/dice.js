@@ -39,33 +39,31 @@ export async function SkillRoll({
 export async function ActionRoll({
     name = null, 
     actor = null, 
-    hit = null, 
-    damage = null, 
-    damageCritical = null,
-    traits = null,
-    type = null
+    type = null,
+    item = null
 } = {}) {
     let roll = {}
+    let hit = item.system.hit
+    let damage = item.system.damage
+    let damageCritical = item.system.damageCritical
+    let img = item.img
+    let traits = item.system.traits
 
-    if(actor.type == "antagonist") {
+    if (actor.type == "antagonist") {
         const power = Number(actor.system.power)
         
-        hit = Number(hit) + power
-        damage = Number(damage) + power
-        damageCritical = Number(damageCritical) + (power*2)
-
-        roll = {
-            name, actor, hit, damage, damageCritical, traits
-        }
-    } else {
-        roll = {
-            name, actor, hit, damage, damageCritical, traits
-        }
+        hit = hit + power
+        damage = `[[${damage} + ${power}]]`
+        damageCritical = `[[${damageCritical} + ${power*2}]]`
+    }
+    
+    roll = {
+        name, actor, hit, damage, damageCritical, img, traits
     }
 
     const template = `systems/roe/templates/chat/${type}-item.hbs`
 
-    const a = ChatMessage.create({
+    ChatMessage.create({
         content: await renderTemplate(template, roll),
         speaker: ChatMessage.getSpeaker({actor: actor}),
         flavor: `Rolou ${name}`,

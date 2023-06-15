@@ -1,8 +1,8 @@
 <section>
-    <div class="flex">
+    <div class="flex justify-between">
         <h3 class="mb-2">{{localize 'roe.general.equipments'}}</h3>
-        <a class="item-create" data-type="equipment" title="{{localize 'roe.general.add'}}">
-            <i class="fas fa-plus"></i>
+        <a class="item-create" data-type="equipment" title="{{localize 'roe.general.add'}} {{localize 'roe.general.equipments'}}">
+            <i class="fas fa-square-plus"></i>
         </a>
     </div>
 
@@ -10,9 +10,29 @@
         <p class="text-xs text-slate-500 mb-2">Limite de Espaços {{ data.system.maxSlots }} | Sobrecarga {{data.system.overweight}}</p>
     {{/if}}
 
-    <p class="text-sm text-stone-500">{{localize "roe.equipment.label"}}, {{localize "roe.equipment.quantity"}}</p>
+    <div class="grid grid-cols-5 gap-2">
+        {{#each equipments as |equipment|}}
+            <div class="item flex flex-col justify-center" data-id="{{equipment._id}}">
+                <div class="flex h-8 items-center justify-center">
+                    <p class="text-center text-xs">{{equipment.name}}</p>
+                </div>
+                
+                <a class="item-roll" data-type="equipment" data-name="{{equipment.name}}">
+                    <img src="{{equipment.img}}" alt="{{equipment.name}}" title="{{equipment.name}}"/>
+                </a>
+                <div class="items-center flex" title="{{localize 'roe.equipment.quantity'}}">
+                    <i class="fa-solid fa-box-open"></i>
+                    <input class="item-edit-inline" data-field="system.quantity" type="number" value="{{equipment.system.quantity}}" data-dtype="Number"/>
+                </div>
+            </div>
+        {{/each}}
+    </div>
 
-    {{#each equipments as |equipment|}}
+    {{!--Backup Exibição InLine --}}
+
+    {{!-- <p class="text-sm text-stone-500">{{localize "roe.equipment.label"}}, {{localize "roe.equipment.quantity"}}</p> --}}
+
+    {{!-- {{#each equipments as |equipment|}}
         <div class="item flex" data-id="{{equipment._id}}">
             <input class="item-edit-inline" data-field="name" type="text" value="{{equipment.name}}" data-dtype="String"/>
 
@@ -43,5 +63,5 @@
                 <p class="bg-stone-400 mr-1 px-1">{{equipment.system.traits}}</p>
             {{/if}}     
         </div>
-    {{/each}}
+    {{/each}} --}}
 </section>

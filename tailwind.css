@@ -14,3 +14,22 @@
 .roe.sheet.item .sheet-content .editor {
     height: 100%;
 }
+
+.roe-section {
+    border-bottom: 1px solid #000;
+    display: flex;
+}
+
+.roe-section img {
+    border: none;
+    filter: brightness(25%);
+    margin-right: 4px;
+}
+
+.roe-section h2 {
+    border-bottom: none;
+}
+
+input[type="number"] {
+    text-align: center;
+}
