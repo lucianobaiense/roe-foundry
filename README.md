@@ -17,3 +17,11 @@ Execute o comando abaixo para o Tailwind compilar e gerar o bundle de css
 ```bash
     npx tailwindcss -i ./tailwind.css -o ./roe.css --watch
 ```
+
+## Acessando localmente
+
+Execute no seu browser
+
+```bash
+    http://localhost:30000/
+```
