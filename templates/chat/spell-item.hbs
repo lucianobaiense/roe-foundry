@@ -1,9 +1,19 @@
 <div class="flex flex-col">
-    <p class="font-bold text-base">{{name}}</p>
+    <p class="font-bold text-base mt-1">{{name}}</p>
 
-    <p class="mb-2">{{system.enchants}}</p>
+    {{#if system.enchants}}
+        <p>
+            <span class="font-bold">{{localize "roe.spell.enchants"}}:</span> {{system.enchants}}
+        </p>
+    {{/if}}
 
-    <p>
+    {{#if system.traits}}
+        <p>
+            <span class="font-bold">{{localize "roe.spell.traits"}}:</span> {{system.traits}}
+        </p>
+    {{/if}}
+
+    {{!-- <p class="mt-2">
         <span class="font-bold">{{localize "roe.spell.action"}}:</span> {{system.action}}
     </p>
 
@@ -12,22 +22,58 @@
     </p>
 
     <p>
-        <span class="font-bold">{{localize "roe.spell.duration"}}:</span>{{system.duration}}
+        <span class="font-bold">{{localize "roe.spell.duration"}}:</span> {{system.duration}}
     </p>
 
     <p>
-        <span class="font-bold">{{localize "roe.spell.range"}}:</span>{{system.range}}
+        <span class="font-bold">{{localize "roe.spell.range"}}:</span> {{system.range}}
     </p>
 
     <p>
-        <span class="font-bold">{{localize "roe.spell.target"}}:</span>{{system.target}}
+        <span class="font-bold">{{localize "roe.spell.target"}}:</span> {{system.target}}
+    </p> --}}
+
+    <p class="mt-1">
+        {{safe system.description}}
     </p>
 
-    <p>
-        <span class="font-bold">{{localize "roe.spell.traits"}}:</span>{{system.traits}}
-    </p>
+    {{!-- <div class="mt-2 border-solid border-l-4 border-green-500">
+        <p class="mt-1 mb-1 ml-2 font-bold">{{localize "roe.spellEffects.downtime"}}</p>
+        <div class="spell-effects ml-2">
+            {{editor system.spellEffects.downtime target="system.spellEffects.downtime" button=true engine="tinymce" collaborate=false}}
+        </div>
+    </div> --}}
 
-    <p>
-        <span class="font-bold">{{localize "roe.spell.description"}}:</span>{{safe system.description}}
-    </p>
+    {{#if system.spellEffects.action}}
+        <div class="border-solid border-l-4 border-red-500">
+            <p class="mt-1 ml-2">
+                <span class="font-bold">{{localize "roe.spellEffects.action"}}:</span>
+                <div class="ml-2">
+                    {{safe system.spellEffects.action}}
+                </div>
+            </p>
+        </div>
+    {{/if}}
+
+    {{#if system.spellEffects.exploration}}
+        <div class="mt-2 border-solid border-l-4 border-green-500">
+            <p class="mt-1 ml-2">
+                <span class="font-bold">{{localize "roe.spellEffects.exploration"}}:</span>
+                <div class="ml-2">
+                    {{safe system.spellEffects.exploration}}
+                </div>
+            </p>
+        </div>
+    {{/if}}
+
+    {{#if system.spellEffects.downtime}}
+        <div class="mt-2 border-solid border-l-4 border-yellow-500">
+            <p class="mt-1 ml-2">
+                <span class="font-bold">{{localize "roe.spellEffects.downtime"}}:</span>
+                <div class="ml-2">
+                    {{safe system.spellEffects.downtime}}
+                </div>
+            </p>
+        </div>
+    {{/if}}
 </div>

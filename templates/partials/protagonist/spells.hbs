@@ -6,12 +6,13 @@
         </a>
     </div>
 
-    <p class="text-sm text-stone-500">{{localize "roe.spell.label"}}, {{localize "roe.spell.enchants"}}</p>
-
+    {{!-- <p class="text-sm text-stone-500">{{localize "roe.spell.label"}}, {{localize "roe.spell.enchants"}}</p> --}}
+    <p class="text-sm text-stone-500">{{localize "roe.spell.label"}}</p>
+    
     {{#each spells as |spell|}}
         <div class="item flex" data-id="{{spell._id}}">
             <input class="item-edit-inline" data-field="name" type="text" value="{{spell.name}}" data-dtype="String"/>
-            <input class="item-edit-inline" data-field="system.enchants" type="text" value="{{spell.system.enchants}}" data-dtype="String"/>
+            {{!-- <input class="item-edit-inline" data-field="system.enchants" type="text" value="{{spell.system.enchants}}" data-dtype="String"/> --}}
 
             <a class="item-roll" data-type="spell" data-name="{{spell.name}}">
                 <i class="fas fa-dice"></i>
@@ -26,11 +27,15 @@
             </a>
         </div>
         <div class="flex mt-1 mb-2">
-            {{#if spell.system.action}}
-                <p class="bg-stone-400 mr-1 px-1">{{spell.system.action}}</p>
+            {{#if spell.system.enchants}}
+                <p class="bg-indigo-400 mr-1 px-1">{{spell.system.enchants}}</p>
             {{/if}}
 
-            {{#if spell.system.cost}}
+            {{#if spell.system.traits}}
+                <p class="bg-stone-400 mr-1 px-1">{{spell.system.traits}}</p>
+            {{/if}}
+
+            {{!-- {{#if spell.system.cost}}
                 <p class="bg-stone-400 mr-1 px-1">{{spell.system.cost}}</p>
             {{/if}}
 
@@ -44,7 +49,7 @@
 
             {{#if spell.system.target}}
                 <p class="bg-stone-400 mr-1 px-1">{{spell.system.target}}</p>
-            {{/if}}         
+            {{/if}}          --}}
         </div>
     {{/each}}
 </section>

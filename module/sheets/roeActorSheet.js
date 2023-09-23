@@ -224,6 +224,9 @@ export default class roeActorSheet extends ActorSheet {
 
         } else if (type == "ability") {
             img = "icons/magic/symbols/chevron-elipse-circle-blue.webp"
+
+        } else if (type == "skill") {
+            img = "icons/sundries/books/book-worn-red.webp"
         }
         
         const itemData = {

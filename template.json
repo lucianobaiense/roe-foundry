@@ -87,8 +87,9 @@
             "maxSlots":0,
             "notes":"",
             "origin":"",
-            "overweight": 0,
-            "slots":0
+            "overweight":0,
+            "slots":0,
+            "magicPower":0
         },
         "antagonist":{
             "templates":[
@@ -166,6 +167,11 @@
             "cost": "",
             "description": "",
             "duration":"",
+            "effects": {
+                "action": "",
+                "downtime": "",
+                "exploration": ""
+            },
             "enchants":"",
             "range":"",
             "target":"",

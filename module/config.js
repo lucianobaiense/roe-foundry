@@ -116,7 +116,8 @@ roe.general = {
     power: "roe.general.power",
     traits: "roe.general.traits",
     threat: "roe.general.threat",
-    weapon: "roe.general.weapon"
+    weapon: "roe.general.weapon",
+    magicPower: "roe.general.magicPower"
 }
 
 roe.resistances = {
@@ -179,6 +180,12 @@ roe.spell = {
     range: "roe.spell.range",
     target: "roe.spell.target",
     traits: "roe.spell.traits"
+}
+
+roe.spellEffects = {
+    action: "roe.spellEffects.action",
+    downtime: "roe.spellEffects.downtime",
+    exploration: "roe.spellEffects.exploration",
 }
 
 roe.threat = {

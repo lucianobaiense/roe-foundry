@@ -25,7 +25,11 @@
             </a>
         </div>
         <div class="flex mt-1 mb-2">
-            {{#if ability.system.action}}
+            {{#if ability.system.traits}}
+                <p class="bg-stone-400 mr-1 px-1">{{ability.system.traits}}</p>
+            {{/if}}
+
+            {{!-- {{#if ability.system.action}}
                 <p class="bg-stone-400 mr-1 px-1">{{ability.system.action}}</p>
             {{/if}}
 
@@ -47,7 +51,7 @@
 
             {{#if ability.system.target}}
                 <p class="bg-stone-400 mr-1 px-1">{{ability.system.target}}</p>
-            {{/if}}         
+            {{/if}}          --}}
         </div>
     {{/each}}
 </section>

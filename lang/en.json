@@ -107,7 +107,8 @@
             "power": "Poder",
             "threat": "Ameaça",
             "traits": "Traços",
-            "weapon": "Arma"
+            "weapon": "Arma",
+            "magicPower": "Poder Mágico"
         },
         "resistances": {
             "stamina": "Vigor",
@@ -161,6 +162,11 @@
             "range": "Alcance",
             "target": "Alvo",
             "traits": "Traços"
+        },
+        "spellEffects": {
+            "action": "Ação",
+            "downtime": "Interlúdio",
+            "exploration": "Exploração"
         },
         "threat": {
             "low": "Baixa",

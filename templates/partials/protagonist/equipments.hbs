@@ -10,7 +10,7 @@
         <p class="text-xs text-slate-500 mb-2">Limite de Espaços {{ data.system.maxSlots }} | Sobrecarga {{data.system.overweight}}</p>
     {{/if}}
 
-    <div class="grid grid-cols-5 gap-2">
+    {{!-- <div class="grid grid-cols-5 gap-2">
         {{#each equipments as |equipment|}}
             <div class="item flex flex-col justify-center" data-id="{{equipment._id}}">
                 <div class="flex h-8 items-center justify-center">
@@ -26,13 +26,13 @@
                 </div>
             </div>
         {{/each}}
-    </div>
+    </div> --}}
 
     {{!--Backup Exibição InLine --}}
 
-    {{!-- <p class="text-sm text-stone-500">{{localize "roe.equipment.label"}}, {{localize "roe.equipment.quantity"}}</p> --}}
+    <p class="text-sm text-stone-500">{{localize "roe.equipment.label"}}, {{localize "roe.equipment.quantity"}}</p>
 
-    {{!-- {{#each equipments as |equipment|}}
+    {{#each equipments as |equipment|}}
         <div class="item flex" data-id="{{equipment._id}}">
             <input class="item-edit-inline" data-field="name" type="text" value="{{equipment.name}}" data-dtype="String"/>
 
@@ -51,17 +51,21 @@
             </a>
         </div>
         <div class="flex mt-1 mb-2">
-            {{#if equipment.system.slots}}
+            {{!-- {{#if equipment.system.slots}}
                 <p class="bg-stone-400 mr-1 px-1">{{equipment.system.slots}}</p>
             {{/if}}
 
             {{#if equipment.system.geo}}
                 <p class="bg-stone-400 mr-1 px-1">G$ {{equipment.system.geo}}</p>
-            {{/if}}     
-
+            {{/if}}      --}}
+            
             {{#if equipment.system.traits}}
-                <p class="bg-stone-400 mr-1 px-1">{{equipment.system.traits}}</p>
-            {{/if}}     
+                {{#each equipment.system.traits as |equipmentTrait|}}
+                    <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
+                        <p class="text-xs" data-tooltip="{{equipmentTrait.description}}" data-tooltip-direction="UP">{{equipmentTrait.label}}</p>
+                    </div>
+                {{/each}}
+            {{/if}}                 
         </div>
-    {{/each}} --}}
+    {{/each}}
 </section>

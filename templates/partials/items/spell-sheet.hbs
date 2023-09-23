@@ -1,5 +1,5 @@
 <div class="sheet-content">
-    <table>
+    {{!-- <table>
         <tr>
             <th>{{localize "roe.spell.action"}}</th>
             <th>{{localize "roe.spell.cost"}}</th>
@@ -14,7 +14,7 @@
             <td><input name="system.range" type="text" value="{{system.range}}" data-dtype="String"/></td>
             <td><input name="system.target" type="text" value="{{system.target}}" data-dtype="String"/></td>
         </tr>
-    </table>
+    </table> --}}
 
     <p>{{localize "roe.spell.enchants"}}</p>
     <input name="system.enchants" type="text" value="{{system.enchants}}" />
@@ -24,4 +24,25 @@
     
     <p class="mt-1">{{localize "roe.spell.description"}}</p>
     {{editor system.description target="system.description" button=true engine="tinymce" collaborate=false}}
+
+    <div class="border-solid border-l-4 border-red-500">
+        <p class="mt-1 mb-1 ml-2 font-bold">{{localize "roe.spellEffects.action"}}</p>
+        <div class="spell-effects ml-2">
+            {{editor system.spellEffects.action target="system.spellEffects.action" button=true engine="tinymce" collaborate=false}}
+        </div>
+    </div>
+
+    <div class="mt-2 border-solid border-l-4 border-yellow-500">
+        <p class="mt-1 mb-1 ml-2 font-bold">{{localize "roe.spellEffects.exploration"}}</p>
+        <div class="spell-effects ml-2">
+            {{editor system.spellEffects.exploration target="system.spellEffects.exploration" button=true engine="tinymce" collaborate=false}}
+        </div>
+    </div>
+
+    <div class="mt-2 border-solid border-l-4 border-green-500">
+        <p class="mt-1 mb-1 ml-2 font-bold">{{localize "roe.spellEffects.downtime"}}</p>
+        <div class="spell-effects ml-2">
+            {{editor system.spellEffects.downtime target="system.spellEffects.downtime" button=true engine="tinymce" collaborate=false}}
+        </div>
+    </div>
 </div>
