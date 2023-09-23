@@ -1,26 +1,31 @@
 <section>
     <div class="flex flex-row">
-        <img class="mr-4" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
+        <img class="mr-4 rounded-full h-24 w-24" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
 
-        <div class="flex flex-col">
-            <div class="flex mb-2">
+        <div class="flex flex-col gap-2 pt-2">
+            <div class="columns-1 label-with-input-underline">
                 <p class="w-32">{{localize 'roe.general.level'}}</p>
-                <input class="w-24" name="system.level" type="number" value="{{data.system.level}}" data-dtype="Number"/>
+                <input class="w-24 borderless-input" name="system.level" type="number" value="{{data.system.level}}" data-dtype="Number"/>
             </div>
             
-            <div class="flex">
+            <div class="columns-1 label-with-input-underline">
                 <p class="w-32">{{localize 'roe.general.experience'}}</p>
-                <input name="system.experience" type="number" value="{{data.system.experience}}" data-dtype="Number"/>
+                <input class=" borderless-input" name="system.experience" type="number" value="{{data.system.experience}}" data-dtype="Number"/>
             </div>
         </div>
     </div>
 
-    <div class="flex my-2">
+    <div class="flex flex-col my-2 label-with-input-underline">
         <p class="w-32">{{localize 'roe.general.name'}}</p>
         <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'roe.general.protagonist'}}" data-dtype="String"/>
     </div>
 
-    <div class="flex mb-2">
+    <div class="flex flex-col mb-2 label-with-input-underline">
+        <p class="w-32">{{localize 'roe.general.origin'}}</p>
+        <input name="system.origin" type="text" value="{{data.system.origin}}" data-dtype="String"/>
+    </div>
+
+    <div class="flex flex-col mb-2 label-with-input-underline">
         <p class="w-32">{{localize 'roe.general.afinity'}}</p>
         <select name="system.afinity">
             {{#select data.system.afinity}}
@@ -31,7 +36,7 @@
         </select>
     </div>
 
-    <div class="flex mb-2">
+    <div class="flex flex-col mb-2 label-with-input-underline">
         <p class="w-32">{{localize 'roe.general.ascendant'}}</p>
         <select name="system.ascendant">
             {{#select data.system.ascendant}}
@@ -42,7 +47,7 @@
         </select>
     </div>
 
-    <div class="flex mb-2">
+    <div class="flex flex-col mb-2 label-with-input-underline">
         <p class="w-32">{{localize 'roe.general.aspect'}}</p>
         <select name="system.aspect">
             {{#select data.system.aspect}}
@@ -53,12 +58,7 @@
         </select>
     </div>
 
-    <div class="flex mb-2">
-        <p class="w-32">{{localize 'roe.general.origin'}}</p>
-        <input name="system.origin" type="text" value="{{data.system.origin}}" data-dtype="String"/>
-    </div>
-
-    <div class="flex mb-2">
+    <div class="flex flex-col mb-2 label-with-input-underline">
         <p class="w-32">{{localize 'roe.general.size'}}</p>
         <select name="system.size">
             {{#select data.system.size}}
@@ -69,7 +69,7 @@
         </select>
     </div>
 
-    <div class="flex mb-2">
+    <div class="flex flex-col mb-2 label-with-input-underline">
         <p class="w-32">{{localize 'roe.general.speed'}}</p>
         <select name="system.speed">
             {{#select data.system.speed}}
@@ -80,7 +80,7 @@
         </select>
     </div>
 
-    <div class="flex">
+    <div class="flex flex-col label-with-input-underline">
         <p class="w-32">{{localize 'roe.general.impulses'}}</p>
         <textarea name="system.impulses" rows="8">{{data.system.impulses}}</textarea>
     </div>
