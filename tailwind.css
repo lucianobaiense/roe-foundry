@@ -36,6 +36,67 @@
     border-bottom: none;
 }
 
-input[type="number"] {
+input[type="number"], input[type="text"], select {
     text-align: center;
+}
+
+.roe.sheet .label-with-input-underline p {
+    margin-bottom: -22px;
+}
+
+.roe.sheet .label-with-input-underline input, select, textarea {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: none;
+    border-radius: 0;
+}
+
+.roe.sheet .label-with-input-underline textarea {
+    padding-top: 25px;
+}
+
+.roe.sheet .label-with-input-underline input:focus, select:focus, textarea:focus {
+    box-shadow: none;
+}
+
+.roe.sheet .status {
+    border: none;
+    background: none;
+    box-shadow: none;
+    width: 10px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.roe.sheet .status.big-status {
+    width: 50px;
+}
+
+.roe.sheet .status-mod {
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: none;
+    box-shadow: none;
+    width: 1px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #889191;
+}
+
+.roe.sheet .gray-status {
+    color: #889191;
+}
+
+.box-with-ball {
+    margin-bottom: 10px;
+}
+
+.attribute-ball {
+    position: relative;
+    bottom: -9px;
+    background-color: #dddcd2;
+    right: 15px;
 }
