@@ -45,10 +45,6 @@
                     "modifier": 0
                 }
             },
-            "resourcesModifier":{
-                "healthPointsModifier": 0,
-                "etherPointsModifier": 0
-            },
             "others":{
                 "size":"medium",
                 "speed":"normal"
@@ -56,15 +52,18 @@
             "resources":{
                 "healthPoints":{
                     "value":0,
-                    "max":0
+                    "max":0,
+                    "mod":0
                 },
                 "etherPoints":{
                     "value":0,
-                    "max":0
+                    "max":0,
+                    "mod":0
                 },
                 "narrativePoints":{
                     "value":0,
-                    "max":5
+                    "max":5,
+                    "mod":0
                 }
             }
         },
@@ -73,14 +72,18 @@
                 "attributes",
                 "resistances",
                 "others",
-                "resources",
-                "resourcesModifier"
+                "resources"
             ],
             "afinity":"",
             "ascendant":"",
             "aspect":"",
-            "durability":0,
-            "damageResistance":0,
+            "armorDurability":0,
+            "armorDurabilityMax":0,
+            "shieldDurability":0,
+            "shieldDurabilityMax":0,
+            "physicalDamageResistance":0,
+            "magicalDamageResistance":0,
+            "shieldDefenseBonus":0,
             "experience":0,
             "impulses":"",
             "level":1,
@@ -94,8 +97,7 @@
         "antagonist":{
             "templates":[
                 "attributes",
-                "resistances",
-                "resourcesModifier"
+                "resistances"
             ],
             "afinity":"",
             "ascendant":"",
@@ -132,7 +134,12 @@
             "damage": "",
             "damageCritical": "",
             "hit": "",
-            "traits":[]
+            "traits":[],
+            "rollModifier":"",
+            "rollModifierList": {
+                "advantage": "VAN",
+                "disadvantage": "DES"
+            }
         },
         "equipment":{
             "damage":0,
@@ -140,16 +147,17 @@
             "defenseBonus":0,
             "description":"",
             "durability":0,
+            "equipped": false,
             "equipmentType":"",
             "geo":0,
             "minimumBody":0,
             "quantity":0,
+            "runes":0,
             "slots":0,
             "traits":[],
             "weaponType":""
         },
         "skill":{
-            "attribute":"",
             "attributeList": {
                 "body": "COR",
                 "essence": "ESS",
@@ -160,6 +168,11 @@
             },
             "description": "",
             "modifier":0,
+            "rollModifier":"",
+            "rollModifierList": {
+                "advantage": "VAN",
+                "disadvantage": "DES"
+            },
             "training":1
         },
         "spell":{
@@ -173,7 +186,13 @@
                 "exploration": ""
             },
             "enchants":"",
+            "hit":"",
             "range":"",
+            "rollModifier":"",
+            "rollModifierList": {
+                "advantage": "VAN",
+                "disadvantage": "DES"
+            },
             "target":"",
             "traits":[]
         },

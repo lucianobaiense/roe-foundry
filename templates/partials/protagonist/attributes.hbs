@@ -3,6 +3,10 @@
         <p class="text-xs text-slate-500 mb-2">Recebe +1 ponto de atributo para cada 5 níveis</p>
     {{/if}}
 
+    {{!-- attributes --}}
+
+    <h3 class="mb-2">{{localize 'roe.general.attributes'}}</h3>
+
     <div class="grid grid-cols-3 gap-4">
         <div class="flex flex-col border border-black rounded-lg p-1 items-center box-with-ball">
             <div class="flex">
@@ -101,46 +105,9 @@
         </div>
     </div>
 
-    <h3 class="mb-2 mt-4"></h3>
+    {{!-- resistances --}}
 
-    <div class="grid grid-cols-3 gap-4">
-
-        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
-            <p class="font-bold">{{localize 'roe.equipment.damageResistance'}}</p>
-            <input name="system.damageResistance" class="status big-status" type="number" value="{{data.system.damageResistance}}" data-dtype="Number"/>
-            <div class="flex flex-row">
-                <div class="border-t border-black w-2 mt-2 gray-status"></div>
-                <label class="mx-1 text-xs gray-status" for="system.healthPoints.value">RD Atual</label>
-                <div class="border-t border-black w-2 mt-2 gray-status"></div>
-            </div>
-            <input name="system.durability" class="status big-status gray-status" type="number" value="{{data.system.durability}}" data-dtype="Number"/>
-        </div>
-
-        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
-            <p class="font-bold">{{localize 'roe.general.healthPoints'}}</p>
-
-            <input name="system.healthPoints.max" class="status big-status" type="number" value="{{data.system.healthPoints.max}}" data-dtype="Number"/>
-            <div class="flex flex-row">
-                <div class="border-t border-black w-5 mt-2 gray-status"></div>
-                <label class="mx-1 gray-status" for="system.healthPoints.value">Atual</label>
-                <div class="border-t border-black w-5 mt-2 gray-status"></div>
-            </div>
-            <input name="system.healthPoints.value" class="status big-status gray-status" type="number" value="{{data.system.healthPoints.value}}" data-dtype="Number"/>
-        </div>
-        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
-            <p class="font-bold">{{localize 'roe.general.etherPoints'}}</p>
-
-            <input name="system.etherPoints.max" class="status big-status" type="number" value="{{data.system.etherPoints.max}}" data-dtype="Number"/>
-            <div class="flex flex-row">
-                <div class="border-t border-black w-5 mt-2 gray-status"></div>
-                <label class="mx-1 gray-status" for="system.healthPoints.value">Atual</label>
-                <div class="border-t border-black w-5 mt-2 gray-status"></div>
-            </div>
-            <input name="system.etherPoints.value" class="status big-status gray-status" type="number" value="{{data.system.etherPoints.value}}" data-dtype="Number"/>
-        </div>
-    </div>
-
-    <h3 class="my-2"></h3>
+    <h3 class="mb-2 mt-2">{{localize 'roe.general.resistances'}}</h3>
 
     <div class="grid grid-cols-3 gap-4">
         <div class="flex flex-col border border-black rounded-lg p-1 items-center box-with-ball">
@@ -192,11 +159,117 @@
         </div>
     </div>
 
-    <h3 class="mb-2 mt-4">{{localize 'roe.general.narrativePoints'}}</h3>
+    {{!-- resources --}}
 
-    <div class="flex">
-        <input name="system.narrativePoints" type="number" value="{{data.system.narrativePoints}}" data-dtype="Number"/>
+    <h3 class="mb-2 mt-2">{{localize 'roe.general.resources'}}</h3>
+
+    <div class="grid grid-cols-3 gap-4">
+
+        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
+            <p class="font-bold">{{localize 'roe.general.healthPoints'}}</p>
+
+            <div class="flex">
+                <input name="system.healthPoints.max" class="status big-status" type="number" value="{{data.system.healthPoints.max}}" data-dtype="Number"/>
+                <input name="system.healthPoints.mod" class="status-mod" type="number" value="{{data.system.healthPoints.mod}}" data-dtype="Number"/>
+            </div>
+
+            <div class="flex flex-row">
+                <div class="border-t border-black w-5 mt-2 gray-status"></div>
+                <label class="mx-1 gray-status" for="system.healthPoints.value">Atual</label>
+                <div class="border-t border-black w-5 mt-2 gray-status"></div>
+            </div>
+            <input name="system.healthPoints.value" class="status big-status gray-status" type="number" value="{{data.system.healthPoints.value}}" data-dtype="Number"/>
+        </div>
+
+        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
+            <p class="font-bold">{{localize 'roe.general.etherPoints'}}</p>
+
+            <div class="flex">
+                <input name="system.etherPoints.max" class="status big-status" type="number" value="{{data.system.etherPoints.max}}" data-dtype="Number"/>
+                <input name="system.etherPoints.mod" class="status-mod" type="number" value="{{data.system.etherPoints.mod}}" data-dtype="Number"/>
+            </div>
+
+            <div class="flex flex-row">
+                <div class="border-t border-black w-5 mt-2 gray-status"></div>
+                <label class="mx-1 gray-status" for="system.etherPoints.value">Atual</label>
+                <div class="border-t border-black w-5 mt-2 gray-status"></div>
+            </div>
+            <input name="system.etherPoints.value" class="status big-status gray-status" type="number" value="{{data.system.etherPoints.value}}" data-dtype="Number"/>
+        </div>
+
+        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
+            <p class="font-bold">{{localize 'roe.general.narrativePoints'}}</p>
+
+            <div class="flex">
+                <input name="system.narrativePoints.max" class="status big-status" type="number" value="{{data.system.narrativePoints.max}}" data-dtype="Number"/>
+                <input name="system.narrativePoints.mod" class="status-mod" type="number" value="{{data.system.narrativePoints.mod}}" data-dtype="Number"/>
+            </div>
+
+            <div class="flex flex-row">
+                <div class="border-t border-black w-5 mt-2 gray-status"></div>
+                <label class="mx-1 gray-status" for="system.narrativePoints.value">Atual</label>
+                <div class="border-t border-black w-5 mt-2 gray-status"></div>
+            </div>
+            <input name="system.narrativePoints.value" class="status big-status gray-status" type="number" value="{{data.system.narrativePoints.value}}" data-dtype="Number"/>
+        </div>
+
+        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
+            <p class="font-bold">{{localize 'roe.general.armor'}}</p>
+
+            <div class="flex flex-row">
+                <div class="border-t border-black w-2 mt-2 gray-status"></div>
+                <label class="mx-1 text-xs gray-status" for="system.physicalDamageResistance.value">{{localize 'roe.general.damageResistance'}}</label>
+                <div class="border-t border-black w-2 mt-2 gray-status"></div>
+            </div>
+
+            <div class="flex">
+                <input name="system.physicalDamageResistance" class="status big-status" type="number" value="{{data.system.physicalDamageResistance}}" data-dtype="Number"/> |
+                <input name="system.magicalDamageResistance" class="status big-status" type="number" value="{{data.system.magicalDamageResistance}}" data-dtype="Number"/>
+            </div>
+
+            <div class="flex flex-row">
+                <div class="border-t border-black w-2 mt-2 gray-status"></div>
+                <label class="mx-1 text-xs gray-status" for="system.armorDurability">{{localize 'roe.equipment.durability'}}</label>
+                <div class="border-t border-black w-2 mt-2 gray-status"></div>
+            </div>
+
+            <div class="flex">
+                <input name="system.armorDurability" class="status big-status gray-status" type="number" value="{{data.system.armorDurability}}" data-dtype="Number"/> |
+                <input name="system.armorDurabilityMax" class="status big-status gray-status" type="number" value="{{data.system.armorDurabilityMax}}" data-dtype="Number"/>
+            </div>
+        </div>
+
+        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
+            <p class="font-bold">{{localize 'roe.general.shield'}}</p>
+
+            <div class="flex flex-row">
+                <div class="border-t border-black w-2 mt-2 gray-status"></div>
+                <label class="mx-1 text-xs gray-status" for="system.shieldDefenseBonus">{{localize 'roe.general.defenseBonus'}}</label>
+                <div class="border-t border-black w-2 mt-2 gray-status"></div>
+            </div>
+
+            <input name="system.shieldDefenseBonus" class="status big-status" type="number" value="{{data.system.shieldDefenseBonus}}" data-dtype="Number"/>
+
+            <div class="flex flex-row">
+                <div class="border-t border-black w-2 mt-2 gray-status"></div>
+                <label class="mx-1 text-xs gray-status" for="system.shieldDurabilityMax">{{localize 'roe.equipment.durability'}}</label>
+                <div class="border-t border-black w-2 mt-2 gray-status"></div>
+            </div>
+
+            <div class="flex">
+                <input name="system.shieldDurability" class="status big-status gray-status" type="number" value="{{data.system.shieldDurability}}" data-dtype="Number"/> |
+                <input name="system.shieldDurabilityMax" class="status big-status gray-status" type="number" value="{{data.system.shieldDurabilityMax}}" data-dtype="Number"/>
+            </div>
+        </div>
     </div>
+
+    {{!-- <h3 class="my-2"></h3> --}}
+
+    {{!-- <h3 class="mb-2 mt-4">{{localize 'roe.general.narrativePoints'}}</h3> --}}
+
+    {{!-- <div class="flex">
+        <input name="system.narrativePoints" type="number" value="{{data.system.narrativePoints}}" data-dtype="Number"/>
+    </div> --}}
 
     <h3 class="mb-2 mt-4">{{localize 'roe.general.magicPower'}}</h3>
 

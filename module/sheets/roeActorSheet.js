@@ -66,8 +66,9 @@ export default class roeActorSheet extends ActorSheet {
 
         // Prepare calculated data for Protagonist Characters
         if (context.actor.type == "protagonist") {
-            context.system.healthPoints.max = (context.system.body.value * 10) + (context.system.body.value * context.system.level) + context.system.healthPointsModifier
-            context.system.etherPoints.max = (context.system.essence.value * 5) + context.system.level + context.system.etherPointsModifier
+            context.system.healthPoints.max = (context.system.body.value * 10) + (context.system.body.value * context.system.level) + context.system.healthPoints.mod
+            context.system.etherPoints.max = (context.system.essence.value * 5) + context.system.level + context.system.etherPoints.mod
+            context.system.narrativePoints.max = 5 + context.system.narrativePoints.mod
 
             if (context.system.size == "small") {
                 context.system.maxSlots = context.system.body.value + context.system.body.modifier + 6
@@ -178,7 +179,8 @@ export default class roeActorSheet extends ActorSheet {
                 name: element.dataset.name,
                 skillAttribute: this.actor.system[skillAttribute].value + this.actor.system[skillAttribute].modifier,
                 skillTraining: element.dataset.skillTraining,
-                skillModifier: element.dataset.skillModifier
+                skillModifier: element.dataset.skillModifier,
+                skillRollModifier: element.dataset.skillRollModifier
             })
         }
 
@@ -186,6 +188,7 @@ export default class roeActorSheet extends ActorSheet {
             Dice.ActionRoll({
                 actor: this.actor,
                 name: element.dataset.name,
+                rollModifier: element.dataset.rollModifier,
                 type: rollType,
                 item: this.actor.items.get(itemId)
             })
@@ -201,6 +204,7 @@ export default class roeActorSheet extends ActorSheet {
         Dice.ItemRoll({
             actor: this.actor,
             name: element.dataset.name,
+            rollModifier: element.dataset.rollModifier,
             type: element.dataset.type,
             item: this.actor.items.get(itemId)
         })
