@@ -9,98 +9,92 @@
 
     <div class="grid grid-cols-3 gap-4">
         <div class="flex flex-col border border-black rounded-lg p-1 items-center box-with-ball">
-            <div class="flex">
-                <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.body'}}</p>
-                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.body'}}" data-attribute="{{data.system.body.value}}" data-attribute-modifier="{{data.system.body.modifier}}" title="{{localize 'roe.general.roll'}}">
-                    <i class="fas fa-dice"></i>
-                </a>
-            </div>
+            <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.body'}}</p>
             <div class="flex flex-row">
                 <input name="system.body.value" class="status" type="number" value="{{data.system.body.value}}" data-dtype="Number"/>
                 <input name="system.body.modifier" class="status-mod" type="number" value="{{data.system.body.modifier}}" data-dtype="Number"/>
             </div>
             <div class="w-0 h-5">
-                <div class="rounded-full border border-black w-8 h-8 attribute-ball"></div>
+                <div class="rounded-full border border-black w-8 h-8 attribute-ball items-center content-center">
+                    <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.body'}}" data-attribute="{{data.system.body.value}}" data-attribute-modifier="{{data.system.body.modifier}}" title="{{localize 'roe.general.roll'}}">
+                        <i class="fas fa-dice"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="flex flex-col border border-black rounded-lg p-1 items-center box-with-ball">
-            <div class="flex">
-                <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.essence'}}</p>
-                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.essence'}}" data-attribute="{{data.system.essence.value}}" data-attribute-modifier="{{data.system.essence.modifier}}" title="{{localize 'roe.general.roll'}}">
-                    <i class="fas fa-dice"></i>
-                </a>
-            </div>
+            <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.essence'}}</p>
             <div class="flex">
                 <input name="system.essence.value" class="status" type="number" value="{{data.system.essence.value}}" data-dtype="Number"/>
                 <input name="system.essence.modifier" class="status-mod" type="number" value="{{data.system.essence.modifier}}" data-dtype="Number"/>
             </div>
             <div class="w-0 h-5">
-                <div class="rounded-full border border-black w-8 h-8 attribute-ball"></div>
+                <div class="rounded-full border border-black w-8 h-8 attribute-ball">
+                    <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.essence'}}" data-attribute="{{data.system.essence.value}}" data-attribute-modifier="{{data.system.essence.modifier}}" title="{{localize 'roe.general.roll'}}">
+                        <i class="fas fa-dice"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="flex flex-col border border-black rounded-lg p-1 items-center box-with-ball">
-            <div class="flex">
-                <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.dexterity'}}</p>
-                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.dexterity'}}" data-attribute="{{data.system.dexterity.value}}" data-attribute-modifier="{{data.system.dexterity.modifier}}" title="{{localize 'roe.general.roll'}}">
-                    <i class="fas fa-dice"></i>
-                </a>
-            </div>
+            <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.dexterity'}}</p>
             <div class="flex">
                 <input name="system.dexterity.value" class="status" type="number" value="{{data.system.dexterity.value}}" data-dtype="Number"/>
                 <input name="system.dexterity.modifier" class="status-mod" type="number" value="{{data.system.dexterity.modifier}}" data-dtype="Number"/>
             </div>
             <div class="w-0 h-5">
-                <div class="rounded-full border border-black w-8 h-8 attribute-ball"></div>
+                <div class="rounded-full border border-black w-8 h-8 attribute-ball">
+                    <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.dexterity'}}" data-attribute="{{data.system.dexterity.value}}" data-attribute-modifier="{{data.system.dexterity.modifier}}" title="{{localize 'roe.general.roll'}}">
+                        <i class="fas fa-dice"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="flex flex-col border border-black rounded-lg p-1 items-center box-with-ball">
-            <div class="flex">
-                <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.perception'}}</p>
-                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.perception'}}" data-attribute="{{data.system.perception.value}}" data-attribute-modifier="{{data.system.perception.modifier}}" title="{{localize 'roe.general.roll'}}">
-                    <i class="fas fa-dice"></i>
-                </a>
-            </div>
+            <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.perception'}}</p>
             <div class="flex">
                 <input name="system.perception.value" class="status" type="number" value="{{data.system.perception.value}}" data-dtype="Number"/>
                 <input name="system.perception.modifier" class="status-mod" type="number" value="{{data.system.perception.modifier}}" data-dtype="Number"/>
             </div>
             <div class="w-0 h-5">
-                <div class="rounded-full border border-black w-8 h-8 attribute-ball"></div>
+                <div class="rounded-full border border-black w-8 h-8 attribute-ball">
+                    <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.perception'}}" data-attribute="{{data.system.perception.value}}" data-attribute-modifier="{{data.system.perception.modifier}}" title="{{localize 'roe.general.roll'}}">
+                        <i class="fas fa-dice"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="flex flex-col border border-black rounded-lg p-1 items-center box-with-ball">
-            <div class="flex">
-                <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.influence'}}</p>
-                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.influence'}}" data-attribute="{{data.system.influence.value}}" data-attribute-modifier="{{data.system.influence.modifier}}" title="{{localize 'roe.general.roll'}}">
-                    <i class="fas fa-dice"></i>
-                </a>
-            </div>
+            <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.influence'}}</p>
             <div class="flex">
                 <input name="system.influence.value" class="status" type="number" value="{{data.system.influence.value}}" data-dtype="Number"/>
                 <input name="system.influence.modifier" class="status-mod" type="number" value="{{data.system.influence.modifier}}" data-dtype="Number"/>
             </div>
             <div class="w-0 h-5">
-                <div class="rounded-full border border-black w-8 h-8 attribute-ball"></div>
+                <div class="rounded-full border border-black w-8 h-8 attribute-ball">
+                    <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.influence'}}" data-attribute="{{data.system.influence.value}}" data-attribute-modifier="{{data.system.influence.modifier}}" title="{{localize 'roe.general.roll'}}">
+                        <i class="fas fa-dice"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="flex flex-col border border-black rounded-lg p-1 items-center box-with-ball">
-            <div class="flex">
-                <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.mind'}}</p>
-                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.mind'}}" data-attribute="{{data.system.mind.value}}" data-attribute-modifier="{{data.system.mind.modifier}}" title="{{localize 'roe.general.roll'}}">
-                    <i class="fas fa-dice"></i>
-                </a>
-            </div>
+            <p class="font-bold uppercase text-xs">{{localize 'roe.attributes.mind'}}</p>
             <div class="flex">
                 <input name="system.mind.value" class="status" type="number" value="{{data.system.mind.value}}" data-dtype="Number"/>
                 <input name="system.mind.modifier" class="status-mod" type="number" value="{{data.system.mind.modifier}}" data-dtype="Number"/>
             </div>
             <div class="w-0 h-5">
-                <div class="rounded-full border border-black w-8 h-8 attribute-ball"></div>
+                <div class="rounded-full border border-black w-8 h-8 attribute-ball">
+                    <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.attributes.mind'}}" data-attribute="{{data.system.mind.value}}" data-attribute-modifier="{{data.system.mind.modifier}}" title="{{localize 'roe.general.roll'}}">
+                        <i class="fas fa-dice"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -111,50 +105,47 @@
 
     <div class="grid grid-cols-3 gap-4">
         <div class="flex flex-col border border-black rounded-lg p-1 items-center box-with-ball">
-            <div class="flex">
-                <p class="font-bold uppercase text-xs">{{localize 'roe.resistances.stamina'}}</p>
-                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.resistances.stamina'}}" data-attribute="{{data.system.stamina.value}}" data-attribute-modifier="{{data.system.stamina.modifier}}" title="{{localize 'roe.general.roll'}}">
-                    <i class="fas fa-dice"></i>
-                </a>
-            </div>
+            <p class="font-bold uppercase text-xs">{{localize 'roe.resistances.stamina'}}</p>
             <div class="flex">
                 <input name="system.stamina.value" class="status" type="number" value="{{data.system.stamina.value}}" data-dtype="Number"/>
                 <input name="system.stamina.modifier" class="status-mod" type="number" value="{{data.system.stamina.modifier}}" data-dtype="Number"/>
             </div>
             <div class="w-0 h-5">
-                <div class="rounded-full border border-black w-8 h-8 attribute-ball"></div>
+                <div class="rounded-full border border-black w-8 h-8 attribute-ball">
+                    <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.resistances.stamina'}}" data-attribute="{{data.system.stamina.value}}" data-attribute-modifier="{{data.system.stamina.modifier}}" title="{{localize 'roe.general.roll'}}">
+                        <i class="fas fa-dice"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="flex flex-col border border-black rounded-lg p-1 items-center box-with-ball">
-            <div class="flex">
-                <p class="font-bold uppercase text-xs">{{localize 'roe.resistances.dodge'}}</p>
-                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.resistances.dodge'}}" data-attribute="{{data.system.dodge.value}}" data-attribute-modifier="{{data.system.dodge.modifier}}" title="{{localize 'roe.general.roll'}}">
-                    <i class="fas fa-dice"></i>
-                </a>
-            </div>
+            <p class="font-bold uppercase text-xs">{{localize 'roe.resistances.dodge'}}</p>
             <div class="flex">
                 <input name="system.dodge.value" class="status" type="number" value="{{data.system.dodge.value}}" data-dtype="Number"/>
                 <input name="system.dodge.modifier" class="status-mod" type="number" value="{{data.system.dodge.modifier}}" data-dtype="Number"/>
             </div>
             <div class="w-0 h-5">
-                <div class="rounded-full border border-black w-8 h-8 attribute-ball"></div>
+                <div class="rounded-full border border-black w-8 h-8 attribute-ball">
+                    <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.resistances.dodge'}}" data-attribute="{{data.system.dodge.value}}" data-attribute-modifier="{{data.system.dodge.modifier}}" title="{{localize 'roe.general.roll'}}">
+                        <i class="fas fa-dice"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="flex flex-col border border-black rounded-lg p-1 items-center box-with-ball">
-            <div class="flex">
-                <p class="font-bold uppercase text-xs">{{localize 'roe.resistances.will'}}</p>
-                <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.resistances.will'}}" data-attribute="{{data.system.will.value}}" data-attribute-modifier="{{data.system.will.modifier}}" title="{{localize 'roe.general.roll'}}">
-                    <i class="fas fa-dice"></i>
-                </a>
-            </div>
+            <p class="font-bold uppercase text-xs">{{localize 'roe.resistances.will'}}</p>
             <div class="flex">
                 <input name="system.will.value" class="status" type="number" value="{{data.system.will.value}}" data-dtype="Number"/>
                 <input name="system.will.modifier" class="status-mod" type="number" value="{{data.system.will.modifier}}" data-dtype="Number"/>
             </div>
             <div class="w-0 h-5">
-                <div class="rounded-full border border-black w-8 h-8 attribute-ball"></div>
+                <div class="rounded-full border border-black w-8 h-8 attribute-ball">
+                    <a class="roll" data-roll-type="attribute" data-name="{{localize 'roe.resistances.will'}}" data-attribute="{{data.system.will.value}}" data-attribute-modifier="{{data.system.will.modifier}}" title="{{localize 'roe.general.roll'}}">
+                        <i class="fas fa-dice"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -165,7 +156,7 @@
 
     <div class="grid grid-cols-3 gap-4">
 
-        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
+        <div class="flex flex-col border border-black rounded-lg p-1 items-center">
             <p class="font-bold">{{localize 'roe.general.healthPoints'}}</p>
 
             <div class="flex">
@@ -178,10 +169,10 @@
                 <label class="mx-1 gray-status" for="system.healthPoints.value">Atual</label>
                 <div class="border-t border-black w-5 mt-2 gray-status"></div>
             </div>
-            <input name="system.healthPoints.value" class="status big-status gray-status" type="number" value="{{data.system.healthPoints.value}}" data-dtype="Number"/>
+            <input name="system.healthPoints.value" class="status big-status-without-mod gray-status" type="number" value="{{data.system.healthPoints.value}}" data-dtype="Number"/>
         </div>
 
-        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
+        <div class="flex flex-col border border-black rounded-lg p-1 items-center">
             <p class="font-bold">{{localize 'roe.general.etherPoints'}}</p>
 
             <div class="flex">
@@ -194,10 +185,10 @@
                 <label class="mx-1 gray-status" for="system.etherPoints.value">Atual</label>
                 <div class="border-t border-black w-5 mt-2 gray-status"></div>
             </div>
-            <input name="system.etherPoints.value" class="status big-status gray-status" type="number" value="{{data.system.etherPoints.value}}" data-dtype="Number"/>
+            <input name="system.etherPoints.value" class="status big-status-without-mod gray-status" type="number" value="{{data.system.etherPoints.value}}" data-dtype="Number"/>
         </div>
 
-        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
+        <div class="flex flex-col border border-black rounded-lg p-1 items-center">
             <p class="font-bold">{{localize 'roe.general.narrativePoints'}}</p>
 
             <div class="flex">
@@ -210,10 +201,10 @@
                 <label class="mx-1 gray-status" for="system.narrativePoints.value">Atual</label>
                 <div class="border-t border-black w-5 mt-2 gray-status"></div>
             </div>
-            <input name="system.narrativePoints.value" class="status big-status gray-status" type="number" value="{{data.system.narrativePoints.value}}" data-dtype="Number"/>
+            <input name="system.narrativePoints.value" class="status big-status-without-mod gray-status" type="number" value="{{data.system.narrativePoints.value}}" data-dtype="Number"/>
         </div>
 
-        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
+        <div class="flex flex-col border border-black rounded-lg p-1 items-center">
             <p class="font-bold">{{localize 'roe.general.armor'}}</p>
 
             <div class="flex flex-row">
@@ -223,8 +214,8 @@
             </div>
 
             <div class="flex">
-                <input name="system.physicalDamageResistance" class="status big-status" type="number" value="{{data.system.physicalDamageResistance}}" data-dtype="Number"/> |
-                <input name="system.magicalDamageResistance" class="status big-status" type="number" value="{{data.system.magicalDamageResistance}}" data-dtype="Number"/>
+                <input name="system.physicalDamageResistance" class="status big-status-without-mod" type="number" value="{{data.system.physicalDamageResistance}}" data-dtype="Number"/> |
+                <input name="system.magicalDamageResistance" class="status big-status-without-mod" type="number" value="{{data.system.magicalDamageResistance}}" data-dtype="Number"/>
             </div>
 
             <div class="flex flex-row">
@@ -234,12 +225,12 @@
             </div>
 
             <div class="flex">
-                <input name="system.armorDurability" class="status big-status gray-status" type="number" value="{{data.system.armorDurability}}" data-dtype="Number"/> |
-                <input name="system.armorDurabilityMax" class="status big-status gray-status" type="number" value="{{data.system.armorDurabilityMax}}" data-dtype="Number"/>
+                <input name="system.armorDurability" class="status big-status-without-mod gray-status" type="number" value="{{data.system.armorDurability}}" data-dtype="Number"/> |
+                <input name="system.armorDurabilityMax" class="status big-status-without-mod gray-status" type="number" value="{{data.system.armorDurabilityMax}}" data-dtype="Number"/>
             </div>
         </div>
 
-        <div class="flex flex-col border border-black rounded-lg p-2 items-center">
+        <div class="flex flex-col border border-black rounded-lg p-1 items-center">
             <p class="font-bold">{{localize 'roe.general.shield'}}</p>
 
             <div class="flex flex-row">
@@ -248,7 +239,7 @@
                 <div class="border-t border-black w-2 mt-2 gray-status"></div>
             </div>
 
-            <input name="system.shieldDefenseBonus" class="status big-status" type="number" value="{{data.system.shieldDefenseBonus}}" data-dtype="Number"/>
+            <input name="system.shieldDefenseBonus" class="status big-status-without-mod" type="number" value="{{data.system.shieldDefenseBonus}}" data-dtype="Number"/>
 
             <div class="flex flex-row">
                 <div class="border-t border-black w-2 mt-2 gray-status"></div>
@@ -257,8 +248,8 @@
             </div>
 
             <div class="flex">
-                <input name="system.shieldDurability" class="status big-status gray-status" type="number" value="{{data.system.shieldDurability}}" data-dtype="Number"/> |
-                <input name="system.shieldDurabilityMax" class="status big-status gray-status" type="number" value="{{data.system.shieldDurabilityMax}}" data-dtype="Number"/>
+                <input name="system.shieldDurability" class="status big-status-without-mod gray-status" type="number" value="{{data.system.shieldDurability}}" data-dtype="Number"/> |
+                <input name="system.shieldDurabilityMax" class="status big-status-without-mod gray-status" type="number" value="{{data.system.shieldDurabilityMax}}" data-dtype="Number"/>
             </div>
         </div>
     </div>

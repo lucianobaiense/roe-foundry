@@ -71,6 +71,12 @@ input[type="number"], input[type="text"], select {
 
 .roe.sheet .status.big-status {
     width: 50px;
+    text-align: end;
+    margin-left: -13px
+}
+
+.roe.sheet .status.big-status-without-mod {
+    width: 50px;
 }
 
 .roe.sheet .status-mod {
@@ -99,4 +105,10 @@ input[type="number"], input[type="text"], select {
     bottom: -9px;
     background-color: #dddcd2;
     right: 15px;
+}
+
+.attribute-ball a {
+    margin-left: 5px;
+    margin-top: 5px;
+    display: block;
 }
