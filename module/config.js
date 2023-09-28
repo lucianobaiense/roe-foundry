@@ -7,6 +7,9 @@ roe.ability = {
     cost: "roe.ability.cost",
     description: "roe.ability.description",
     duration: "roe.ability.duration",
+    evolutionOne: "roe.ability.evolutionOne",
+    evolutionTwo: "roe.ability.evolutionTwo",
+    evolutionThree: "roe.ability.evolutionThree",
     range: "roe.ability.range",
     target: "roe.ability.target",
     traits: "roe.ability.traits"

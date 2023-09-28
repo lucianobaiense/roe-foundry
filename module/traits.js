@@ -1,5 +1,20 @@
 export const traits = {};
 
+traits.ability = [
+    {
+        label: "Condição Positiva",
+        description: "Você só pode manter ativo um efeito com esse traço por vez. Se você receber outro efeito que aplique esse traço, deve escolher qual deles vai ficar ativo."
+    },
+    {
+        label: "Fatigante",
+        description: "Esse traço indica que o efeito da habilidade em questões só pode acontecer uma vez por rodada."
+    },
+    {
+        label: "Preparação",
+        description: "Habilidades com esse traço só podem ser ativadas no início de uma cena de ação antes da primeira rodada. Somente uma habilidade com esse traço pode ser ativada por vez pelo mesmo personagem."
+    }
+]
+
 traits.armor = [
     {
         label: "Barulhenta",
@@ -58,6 +73,25 @@ traits.shield = [
     {
         label: "Restritivo",
         description: "Itens com esse traço são pesados e restringem os movimentos dos usuários. Você recebe Desvantagem em rolagens de Atletismo. Você recebe -1 de penalidade na rua reação de Esquiva."
+    }
+]
+
+traits.spell = [
+    {
+        label: "Ataque",
+        description: "Sortilégios que causam dano."
+    },
+    {
+        label: "Condição Positiva",
+        description: "Você só pode manter ativo um efeito com esse traço por vez. Se você receber outro efeito que aplique esse traço, deve escolher qual deles vai ficar ativo."
+    },
+    {
+        label: "Cura",
+        description: "Sortilégios que recuperam pontos de vida."
+    },
+    {
+        label: "Invocação",
+        description: "Sortilégios que invocam criaturas."
     }
 ]
 

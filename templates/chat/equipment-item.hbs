@@ -21,6 +21,10 @@
         <p>
             <span class="font-bold">{{localize "roe.equipment.minimumBody"}}:</span> {{system.minimumBody}}
         </p>
+
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.runes"}}:</span> {{system.runes}}
+        </p>
     {{/if}}
 
     {{#if (eq system.equipmentType "consumable")}}
@@ -45,6 +49,10 @@
         <p>
             <span class="font-bold">{{localize "roe.equipment.minimumBody"}}:</span> {{system.minimumBody}}
         </p>
+
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.runes"}}:</span> {{system.runes}}
+        </p>
     {{/if}}
 
     {{#if (eq system.equipmentType "weapon")}}
@@ -63,17 +71,27 @@
         <p>
             <span class="font-bold">{{localize "roe.equipment.minimumBody"}}:</span> {{system.minimumBody}}
         </p>
+
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.runes"}}:</span> {{system.runes}}
+        </p>
     {{/if}}
 
-    <p>
-        <span class="font-bold">{{localize "roe.equipment.slots"}}:</span> {{system.slots}}
-    </p>
+    {{#if system.slots}}
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.slots"}}:</span> {{system.slots}}
+        </p>
+    {{/if}}
 
-    <p>
-        <span class="font-bold">{{localize "roe.equipment.geo"}}:</span> {{system.geo}}
-    </p>
+    {{#if system.geo}}
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.geo"}}:</span> {{system.geo}}
+        </p>
+    {{/if}}
 
-    <p>
-        <span class="font-bold">{{localize "roe.equipment.description"}}:</span>{{safe system.description}}
-    </p>
+    {{#if system.description}}
+        <p>
+            <span class="font-bold">{{localize "roe.equipment.description"}}:</span>{{safe system.description}}
+        </p>
+    {{/if}}
 </div>

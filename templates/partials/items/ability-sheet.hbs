@@ -1,5 +1,5 @@
 <div class="sheet-content">
-    <table>
+    {{!-- <table>
         <tr>
             <th>{{localize "roe.ability.action"}}</th>
             <th>{{localize "roe.ability.activation"}}</th>
@@ -16,11 +16,51 @@
             <td><input name="system.range" type="text" value="{{system.range}}" data-dtype="String"/></td>
             <td><input name="system.target" type="text" value="{{system.target}}" data-dtype="String"/></td>
         </tr>
-    </table>
+    </table> --}}
 
     <p>{{localize "roe.ability.traits"}}</p>
-    <input name="system.traits" type="text" value="{{data.system.traits}}" />
+
+    <select class="trait-selected" name="traits">
+        {{#select traits}}
+            <option value="none"></option>
+            {{#each traits.ability as |trait|}}
+                <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
+            {{/each}}
+        {{/select}}
+    </select>   
+
+    <div class="flex flex-wrap my-1">
+        {{#each system.traits as |trait|}}
+            <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
+                <p data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+                <a class="ml-1 trait-delete" data-trait="{{trait.label}}">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </a>
+            </div>
+        {{/each}}
+    </div>
 
     <p class="mt-1">{{localize "roe.ability.description"}}</p>
     {{editor system.description target="system.description" button=true engine="tinymce" collaborate=false}}
+
+    <div class="border-solid border-l-4 border-gray-500">
+        <p class="mt-1 mb-1 ml-2 font-bold">{{localize "roe.ability.evolutionOne"}}</p>
+        <div class="spell-effects ml-2">
+            {{editor system.evolutionOne target="system.evolutionOne" button=true engine="tinymce" collaborate=false}}
+        </div>
+    </div>
+
+    <div class="mt-2 border-solid border-l-4 border-gray-500">
+        <p class="mt-1 mb-1 ml-2 font-bold">{{localize "roe.ability.evolutionTwo"}}</p>
+        <div class="spell-effects ml-2">
+            {{editor system.evolutionTwo target="system.evolutionTwo" button=true engine="tinymce" collaborate=false}}
+        </div>
+    </div>
+
+    <div class="mt-2 border-solid border-l-4 border-gray-500">
+        <p class="mt-1 mb-1 ml-2 font-bold">{{localize "roe.ability.evolutionThree"}}</p>
+        <div class="spell-effects ml-2">
+            {{editor system.evolutionThree target="system.evolutionThree" button=true engine="tinymce" collaborate=false}}
+        </div>
+    </div>
 </div>

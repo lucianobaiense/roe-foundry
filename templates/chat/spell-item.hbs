@@ -1,37 +1,29 @@
 <div class="flex flex-col">
     <p class="font-bold text-base mt-1">{{name}}</p>
 
+    <p>{{localize "roe.spell.enchants"}}</p>
+
     {{#if system.enchants}}
-        <p>
-            <span class="font-bold">{{localize "roe.spell.enchants"}}:</span> {{system.enchants}}
-        </p>
+        <div class="flex flex-wrap my-1">
+            {{#each system.enchants as |enchant|}}
+                <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
+                    <p class="text-xs" data-tooltip="{{enchant.description}}" data-tooltip-direction="UP">{{enchant.label}}</p>
+                </div>
+            {{/each}}
+        </div>
     {{/if}}
+
+    <p>{{localize "roe.spell.traits"}}</p>
 
     {{#if system.traits}}
-        <p>
-            <span class="font-bold">{{localize "roe.spell.traits"}}:</span> {{system.traits}}
-        </p>
+        <div class="flex flex-wrap my-1">
+            {{#each system.traits as |trait|}}
+                <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
+                    <p class="text-xs" data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+                </div>
+            {{/each}}
+        </div>
     {{/if}}
-
-    {{!-- <p class="mt-2">
-        <span class="font-bold">{{localize "roe.spell.action"}}:</span> {{system.action}}
-    </p>
-
-    <p>
-        <span class="font-bold">{{localize "roe.spell.cost"}}:</span> {{system.cost}}
-    </p>
-
-    <p>
-        <span class="font-bold">{{localize "roe.spell.duration"}}:</span> {{system.duration}}
-    </p>
-
-    <p>
-        <span class="font-bold">{{localize "roe.spell.range"}}:</span> {{system.range}}
-    </p>
-
-    <p>
-        <span class="font-bold">{{localize "roe.spell.target"}}:</span> {{system.target}}
-    </p> --}}
 
     <p class="mb-1 mt-1">
         {{safe system.description}}
