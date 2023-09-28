@@ -37,8 +37,8 @@
             <input class="item-edit-inline" data-field="name" type="text" value="{{equipment.name}}" data-dtype="String"/>
 
             <input class="item-edit-inline" data-field="system.quantity" type="number" value="{{equipment.system.quantity}}" data-dtype="Number"/>
-            
-            <input class="item-edit-inline" data-field="system.equipped" type="checkbox" name="myCheckbox" {{checked system.equipped}}/>
+
+            <input class="item-edit-inline" data-field="system.equipped" type="checkbox" value="{{equipment.system.equipped}}" {{checked equipment.system.equipped}}/>
 
             <a class="item-roll" data-type="equipment" data-name="{{equipment.name}}">
                 <i class="fas fa-dice"></i>

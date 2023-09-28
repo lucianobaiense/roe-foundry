@@ -66,6 +66,7 @@ export default class roeActorSheet extends ActorSheet {
 
         // Prepare calculated data for Protagonist Characters
         if (context.actor.type == "protagonist") {
+
             context.system.healthPoints.max = (context.system.body.value * 10) + (context.system.body.value * context.system.level) + context.system.healthPoints.mod
             context.system.etherPoints.max = (context.system.essence.value * 5) + context.system.level + context.system.etherPoints.mod
             context.system.narrativePoints.max = 5 + context.system.narrativePoints.mod
@@ -89,28 +90,28 @@ export default class roeActorSheet extends ActorSheet {
 
             if (context.system.threat == "low") {
                 context.system.power = 1
-                context.system.healthPoints.max = 10 + context.system.level + context.system.healthPointsModifier
-                context.system.etherPoints.max = 2 + context.system.level + context.system.level + context.system.etherPointsModifier
+                context.system.healthPoints.max = 10 + context.system.level + context.system.healthPoints.mod
+                context.system.etherPoints.max = 2 + context.system.level + context.system.level + context.system.etherPoints.mod
 
             } else if (context.system.threat == "moderate") {
                 context.system.power = 2
-                context.system.healthPoints.max = 20 + (context.system.level * 2) + context.system.healthPointsModifier
-                context.system.etherPoints.max = 4 + context.system.level + context.system.level + context.system.etherPointsModifier
+                context.system.healthPoints.max = 20 + (context.system.level * 2) + context.system.healthPoints.mod
+                context.system.etherPoints.max = 4 + context.system.level + context.system.level + context.system.etherPoints.mod
 
             } else if (context.system.threat == "dangerous") {
                 context.system.power = 3
-                context.system.healthPoints.max = 40 + (context.system.level * 3) + context.system.healthPointsModifier
-                context.system.etherPoints.max = 8 + context.system.level + context.system.level + context.system.etherPointsModifier
+                context.system.healthPoints.max = 40 + (context.system.level * 3) + context.system.healthPoints.mod
+                context.system.etherPoints.max = 8 + context.system.level + context.system.level + context.system.etherPoints.mod
 
             } else if (context.system.threat == "extreme") {
                 context.system.power = 4
-                context.system.healthPoints.max = 80 + (context.system.level * 4) + context.system.healthPointsModifier
-                context.system.etherPoints.max = 16 + context.system.level + context.system.level + context.system.etherPointsModifier
+                context.system.healthPoints.max = 80 + (context.system.level * 4) + context.system.healthPoints.mod
+                context.system.etherPoints.max = 16 + context.system.level + context.system.level + context.system.etherPoints.mod
 
             } else if (context.system.threat == "deadly") {
                 context.system.power = 5
-                context.system.healthPoints.max = 160 + (context.system.level * 5) + context.system.healthPointsModifier
-                context.system.etherPoints.max = 32 + context.system.level + context.system.level + context.system.etherPointsModifier
+                context.system.healthPoints.max = 160 + (context.system.level * 5) + context.system.healthPoints.mod
+                context.system.etherPoints.max = 32 + context.system.level + context.system.level + context.system.etherPoints.mod
             }
 
             if (context.system.species == "beasts") {
@@ -131,6 +132,8 @@ export default class roeActorSheet extends ActorSheet {
             } else if (context.system.species == "monsters") {
                 context.system.traitsInitial = 4
             }
+
+            context.system.magicPower = context.system.power + context.system.essence.value + context.system.essence.modifier
         }
 
         return context;
@@ -246,12 +249,22 @@ export default class roeActorSheet extends ActorSheet {
         event.preventDefault();
 
         let element = event.currentTarget;
+        let itemValue = element.value
+        let type = element.type
         let itemId = element.closest(".item").dataset.id;
         let field = element.dataset.field;
 
+        if (type == "checkbox") {
+            if (itemValue == "false") {
+                itemValue = true
+            } else {
+                itemValue = false
+            }
+        }
+
         const updates = [{
             _id: itemId,
-            [field]: element.value
+            [field]: itemValue
         }]
 
         return await Item.updateDocuments(updates, {parent: this.actor})

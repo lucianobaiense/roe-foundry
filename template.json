@@ -97,7 +97,8 @@
         "antagonist":{
             "templates":[
                 "attributes",
-                "resistances"
+                "resistances",
+                "resources"
             ],
             "afinity":"",
             "ascendant":"",
@@ -108,7 +109,8 @@
             "species": "", 
             "threat":"",
             "traits": {},
-            "traitsInitial":0
+            "traitsInitial":0,
+            "magicPower":0
         }
     },
     "Item":{

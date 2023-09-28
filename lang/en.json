@@ -42,7 +42,7 @@
         "equipment": {
             "label": "Equipamento",
             "damage": "Dano",
-            "damageResistance": "Armadura",
+            "damageResistance": "Resistência a Dano",
             "defenseBonus": "Bônus de Defesa",
             "description": "Descrição",
             "durability": "Durabilidade",
