@@ -5,7 +5,7 @@
     "version": "0.0.16",
     "compatibility": {
         "minimum": "11.311",
-        "verified": "11.31",
+        "verified": "11.311",
         "maximum": "11.311"
     },
     "manifest": "https://raw.githubusercontent.com/lucianobaiense/roe-foundry/main/system.json",
