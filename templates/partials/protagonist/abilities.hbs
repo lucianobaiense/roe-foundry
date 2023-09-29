@@ -6,11 +6,10 @@
         </a>
     </div>
 
-    <p class="text-sm text-stone-500">{{localize "roe.ability.label"}}</p>
-
     {{#each abilities as |ability|}}
-        <div class="item flex" data-id="{{ability._id}}">
-            <input class="item-edit-inline" data-field="name" type="text" value="{{ability.name}}" data-dtype="String"/>
+        <div class="item flex border-solid border-b border-black" data-id="{{ability._id}}">
+            <i class="fa-solid fa-caret-right p-[5px]" style="color: #000000;"></i>
+            <input class="item-edit-inline input-without-border !text-left !shadow-none" data-field="name" type="text" value="{{ability.name}}" data-dtype="String"/>
 
             <a class="item-roll" data-type="ability" data-name="{{ability.name}}">
                 <i class="fas fa-dice"></i>
@@ -26,7 +25,7 @@
         </div>
         <div class="flex mt-1 mb-2">
             {{#if ability.system.traits}}
-                <p class="bg-stone-400 mr-1 px-1">{{ability.system.traits}}</p>
+                <p class="text-xs gray-status">{{ability.system.traits}}</p>
             {{/if}}
 
             {{!-- {{#if ability.system.action}}

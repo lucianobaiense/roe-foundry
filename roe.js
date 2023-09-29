@@ -40,6 +40,10 @@ Hooks.once("init", async function() {
     Handlebars.registerHelper('safe', function(str) {
         return new Handlebars.SafeString(str);
     });
+
+    Handlebars.registerHelper('joinItems', function (array, field) {
+        return array.map(i => i[field]).join(', ')
+    });
     
     preloadHandlebarsTemplates();
 });

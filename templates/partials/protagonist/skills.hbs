@@ -6,21 +6,22 @@
         </a>
     </div>
 
-    <p class="text-sm text-stone-500">{{localize "roe.skill.label"}}, {{localize "roe.skill.attribute"}}, {{localize "roe.skill.training"}}, {{localize "roe.skill.modifier"}}</p>
-
     {{#each skills as |skill|}}
-        <div class="flex item mb-1" data-id="{{skill._id}}">
-            <input class="item-edit-inline" data-field="name" type="text" value="{{skill.name}}" data-dtype="String"/>
+        <div class="flex item mb-1 border-solid border-b border-black" data-id="{{skill._id}}">
+            <i class="fa-solid fa-caret-right p-[5px]" style="color: #000000;"></i>
+            <input class="item-edit-inline input-without-border !text-left !shadow-none" data-field="name" type="text" value="{{skill.name}}" data-dtype="String"/>
 
-            <select class="item-edit-inline" data-field="system.attribute">
+            <select class="item-edit-inline input-without-border" data-field="system.attribute">
                 <option></option>
                 {{selectOptions system.attributeList selected=skill.system.attribute localize=true}}
             </select>
-            
-            <input class="item-edit-inline" data-field="system.training" type="number" value="{{skill.system.training}}" data-dtype="Number"/>
-            <input class="item-edit-inline" data-field="system.modifier" type="number" value="{{skill.system.modifier}}" data-dtype="Number"/>
 
-            <select class="item-edit-inline" data-field="system.rollModifier">
+            <p class="ml-1 pt-0.5">+</p>
+            <input class="item-edit-inline input-without-border !w-5 !shadow-none" data-field="system.training" type="number" value="{{skill.system.training}}" data-dtype="Number"/>
+            <p class="gray-status pt-0.5">+</p>
+            <input class="item-edit-inline input-without-border !w-5 !shadow-none gray-status" data-field="system.modifier" type="number" value="{{skill.system.modifier}}" data-dtype="Number"/>
+
+            <select class="item-edit-inline input-without-border" data-field="system.rollModifier">
                 <option></option>
                 {{selectOptions system.rollModifierList selected=system.rollModifier localize=true}}
             </select>

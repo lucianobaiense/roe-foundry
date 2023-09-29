@@ -7,18 +7,20 @@
     </div>
 
     {{!-- <p class="text-sm text-stone-500">{{localize "roe.spell.label"}}, {{localize "roe.spell.enchants"}}</p> --}}
-    <p class="text-sm text-stone-500">{{localize "roe.spell.label"}}, {{localize "roe.spell.hit"}}, {{localize "roe.spell.cost"}}</p>
     
     {{#each spells as |spell|}}
-        <div class="item flex" data-id="{{spell._id}}">
-            <input class="item-edit-inline" data-field="name" type="text" value="{{spell.name}}" data-dtype="String"/>
+        <div class="item flex border-solid border-b border-black" data-id="{{spell._id}}">
+            <i class="fa-solid fa-caret-right p-[5px]" style="color: #000000;"></i>
+            <input class="item-edit-inline !border-none !bg-transparent !text-left !shadow-none" data-field="name" type="text" value="{{spell.name}}" data-dtype="String"/>
             {{!-- <input class="item-edit-inline" data-field="system.enchants" type="text" value="{{spell.system.enchants}}" data-dtype="String"/> --}}
   
-            <input class="item-edit-inline" data-field="system.hit" type="number" value="{{system.hit}}" data-dtype="Number"/>
+            <input class="item-edit-inline !border-none !bg-transparent !text-right !shadow-none !w-12" data-field="system.hit" type="number" value="{{system.hit}}" data-dtype="Number"/>
+            <i class="fa-solid fa-bullseye"></i>
 
-            <input class="item-edit-inline" data-field="system.cost" type="number" value="{{system.cost}}" data-dtype="Number"/>
+            <input class="item-edit-inline !border-none !bg-transparent !text-right !shadow-none !w-12" data-field="system.cost" type="number" value="{{system.cost}}" data-dtype="Number"/>
+            <i class="fa-solid fa-droplet"></i>
 
-            <select class="item-edit-inline" data-field="system.rollModifier">
+            <select class="item-edit-inline !border-none !bg-transparent !shadow-none" data-field="system.rollModifier">
                 <option></option>
                 {{selectOptions system.rollModifierList selected=system.rollModifier localize=true}}
             </select>
@@ -37,11 +39,11 @@
         </div>
         <div class="flex mt-1 mb-2">
             {{#if spell.system.enchants}}
-                <p class="bg-indigo-400 mr-1 px-1">{{spell.system.enchants}}</p>
+                <p class="text-xs gray-status mr-1 px-1">{{spell.system.enchants}}</p>
             {{/if}}
 
             {{#if spell.system.traits}}
-                <p class="bg-stone-400 mr-1 px-1">{{spell.system.traits}}</p>
+                <p class="text-xs gray-status mr-1 px-1">{{spell.system.traits}}</p>
             {{/if}}
 
             {{!-- {{#if spell.system.cost}}

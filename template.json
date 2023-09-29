@@ -131,9 +131,9 @@
             "traits":[]
         },
         "action":{
-            "damage": "",
-            "damageCritical": "",
-            "hit": "",
+            "damage": 0,
+            "damageCritical": 0,
+            "hit": 0,
             "traits":[],
             "rollModifier":"",
             "rollModifierList": {
@@ -177,7 +177,7 @@
         },
         "spell":{
             "action":"",
-            "cost": "",
+            "cost": 0,
             "description": "",
             "duration":"",
             "effects": {
@@ -186,7 +186,7 @@
                 "exploration": ""
             },
             "enchants":"",
-            "hit":"",
+            "hit":0,
             "range":"",
             "rollModifier":"",
             "rollModifierList": {
