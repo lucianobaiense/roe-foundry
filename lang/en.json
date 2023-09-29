@@ -114,6 +114,7 @@
             "power": "Poder",
             "threat": "Ameaça",
             "traits": "Traços",
+            "traitsNotes": "Notas dos Traços",
             "weapon": "Arma",
             "magicPower": "Poder Mágico"
         },

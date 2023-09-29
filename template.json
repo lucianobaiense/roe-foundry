@@ -106,10 +106,11 @@
             "damageResistance":0,
             "level":1,
             "power": 1,
-            "species": "", 
+            "species": "none", 
             "threat":"",
-            "traits": {},
+            "traits": [],
             "traitsInitial":0,
+            "traitsNotes":"",
             "magicPower":0
         }
     },

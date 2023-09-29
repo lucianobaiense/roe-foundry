@@ -120,6 +120,7 @@ roe.general = {
     spells: "roe.general.spells",
     power: "roe.general.power",
     traits: "roe.general.traits",
+    traitsNotes: "roe.general.traitsNotes",
     threat: "roe.general.threat",
     weapon: "roe.general.weapon",
     magicPower: "roe.general.magicPower"
