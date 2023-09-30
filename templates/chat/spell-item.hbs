@@ -28,25 +28,28 @@
     <p class="mb-1 mt-1">
         {{safe system.description}}
     </p>
-
+    
     {{#if (eq rollModifier "advantage")}}
         <p class="mb-2">
-            <span class="font-bold">{{localize "roe.spell.hit"}}:</span> 
-            [[3d6kh2 + {{system.hit}}]] contra DIF {{difficulty}}
+            <span class="font-bold">{{localize "roe.spell.hit"}}:</span>
+            {{#if (eq actorType "protagonist")}} [[ 3d6kh2 + {{system.hit}} ]] contra DIF {{difficulty}} {{/if}}
+            {{#if (eq actorType "antagonist")}} [[ 3d6kh2 + {{system.hit}} + {{power}} ]] contra DIF {{difficulty}} {{/if}} 
         </p>
     {{/if}}
 
     {{#if (eq rollModifier "disadvantage")}}
         <p class="mb-2">
-            <span class="font-bold">{{localize "roe.spell.hit"}}:</span> 
-            [[3d6kl2 + {{system.hit}}]] contra DIF {{difficulty}}
+            <span class="font-bold">{{localize "roe.spell.hit"}}:</span>
+            {{#if (eq actorType "protagonist")}} [[ 3d6kl2 + {{system.hit}} ]] contra DIF {{difficulty}} {{/if}}
+            {{#if (eq actorType "antagonist")}} [[ 3d6kl2 + {{system.hit}} + {{power}} ]] contra DIF {{difficulty}} {{/if}}       
         </p>
     {{/if}}
 
     {{#if (eq rollModifier "")}}
         <p class="mb-2">
-            <span class="font-bold">{{localize "roe.spell.hit"}}:</span> 
-            [[2d6 + {{system.hit}}]] contra DIF {{difficulty}}
+            <span class="font-bold">{{localize "roe.spell.hit"}}:</span>
+            {{#if (eq actorType "protagonist")}} [[ 2d6 + {{system.hit}} ]] contra DIF {{difficulty}} {{/if}}
+            {{#if (eq actorType "antagonist")}} [[ 2d6 + {{system.hit}} + {{power}} ]] contra DIF {{difficulty}} {{/if}}   
         </p>
     {{/if}}
 
