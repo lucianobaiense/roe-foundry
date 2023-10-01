@@ -7,11 +7,12 @@
         </div>
 
         <div class="col-span-2 flex flex-col justify-center">
-            {{#if system.description}}
-                <p>{{safe system.description}}</p>
-            {{/if}}
         </div>
     </div>
+
+    {{#if system.description}}
+        <p>{{safe system.description}}</p>
+    {{/if}}
 
     {{#if system.evolutionOne}}
         <div class="border-solid border-l-4 border-gray-500">
