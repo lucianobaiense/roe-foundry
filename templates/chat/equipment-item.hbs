@@ -1,5 +1,26 @@
 <div class="flex flex-col">
     <p class="font-bold text-base">{{name}}</p>
+    
+    <div class="grid grid-cols-3 gap-2 mb-2">
+        <div>
+            <img src="{{img}}" alt="{{name}}"/>
+        </div>
+
+        <div class="col-span-2 flex flex-col justify-center">
+            {{#if system.slots}}
+                <p>
+                    <span class="font-bold">{{localize "roe.equipment.slots"}}:</span> {{system.slots}}
+                </p>
+            {{/if}}
+
+            {{#if system.geo}}
+                <p>
+                    <span class="font-bold">{{localize "roe.equipment.geo"}}:</span> {{system.geo}}
+                </p>
+            {{/if}}
+        </div>
+    </div>
+    
 
     <div class="flex flex-wrap my-1">
         {{#each system.traits as |trait|}}
@@ -74,18 +95,6 @@
 
         <p>
             <span class="font-bold">{{localize "roe.equipment.runes"}}:</span> {{system.runes}}
-        </p>
-    {{/if}}
-
-    {{#if system.slots}}
-        <p>
-            <span class="font-bold">{{localize "roe.equipment.slots"}}:</span> {{system.slots}}
-        </p>
-    {{/if}}
-
-    {{#if system.geo}}
-        <p>
-            <span class="font-bold">{{localize "roe.equipment.geo"}}:</span> {{system.geo}}
         </p>
     {{/if}}
 
