@@ -30,8 +30,6 @@
 
     {{!--Backup Exibição InLine --}}
 
-    <p class="text-sm text-stone-500">{{localize "roe.equipment.label"}}, {{localize "roe.equipment.quantity"}}, {{localize "roe.equipment.equipped"}}</p>
-
     {{#each equipments as |equipment|}}
         <div class="item flex border-solid border-b border-black" data-id="{{equipment._id}}">
             <input class="item-edit-inline !border-none !bg-transparent !text-left !shadow-none" data-field="name" type="text" value="{{equipment.name}}" data-dtype="String"/>
@@ -61,10 +59,14 @@
             {{#if equipment.system.geo}}
                 <p class="bg-stone-400 mr-1 px-1">G$ {{equipment.system.geo}}</p>
             {{/if}}      --}}
-            
+
             {{#if equipment.system.traits}}
-                <p class="text-xs gray-status">{{joinItems equipment.system.traits 'label'}}</p>
-            {{/if}}                 
+                {{#each equipment.system.traits as |equipmentTrait|}}
+                    <p class="text-xs gray-status"
+                       data-tooltip="{{equipmentTrait.description}}"
+                       data-tooltip-direction="UP">{{equipmentTrait.label}}{{#unless @last}},&nbsp{{/unless}}</p>
+                {{/each}}
+            {{/if}}
         </div>
     {{/each}}
 </section>

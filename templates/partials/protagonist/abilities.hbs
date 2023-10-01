@@ -28,9 +28,9 @@
 
             {{#if ability.system.traits}}
                 {{#each ability.system.traits as |abilityTrait|}}
-                    <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
-                        <p class="text-xs" data-tooltip="{{abilityTrait.description}}" data-tooltip-direction="UP">{{abilityTrait.label}}</p>
-                    </div>
+                    <p class="text-xs gray-status"
+                       data-tooltip="{{abilityTrait.description}}"
+                       data-tooltip-direction="UP">{{abilityTrait.label}}{{#unless @last}},&nbsp{{/unless}}</p>
                 {{/each}}
             {{/if}}
 
