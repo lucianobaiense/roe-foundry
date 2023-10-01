@@ -52,6 +52,15 @@ input[type="number"], input[type="text"], select {
     border-radius: 0;
 }
 
+.roe.sheet .input-without-border {
+    border: none;
+    background: none;
+}
+
+.roe.sheet .single-digit-value {
+    width: 20px;
+}
+
 .roe.sheet .label-with-input-underline textarea {
     padding-top: 25px;
 }

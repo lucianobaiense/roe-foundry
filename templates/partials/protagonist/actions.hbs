@@ -22,16 +22,21 @@
 
     {{!--Backup Exibição InLine --}}
 
-    <p class="text-sm text-stone-500">{{localize "roe.action.label"}}, {{localize "roe.action.hit"}}, {{localize "roe.action.damage"}}, {{localize "roe.action.damageCritical"}}</p>
-
     {{#each actions as |action|}}
-        <div class="item flex" data-id="{{action._id}}">
-            <input class="item-edit-inline" data-field="name" type="text" value="{{action.name}}" data-dtype="String"/>
-            <input class="item-edit-inline" data-field="system.hit" type="number" value="{{action.system.hit}}" data-dtype="Number"/>
-            <input class="item-edit-inline" data-field="system.damage" type="text" value="{{action.system.damage}}" data-dtype="String"/>
-            <input class="item-edit-inline" data-field="system.damageCritical" type="text" value="{{action.system.damageCritical}}" data-dtype="String"/>
+        <div class="item flex border-solid border-b border-black" data-id="{{action._id}}">
+            <i class="fa-solid fa-caret-right p-[5px]" style="color: #000000;"></i>
+            <input class="item-edit-inline input-without-border !text-left !shadow-none" data-field="name" type="text" value="{{action.name}}" data-dtype="String"/>
 
-            <select class="item-edit-inline" data-field="system.rollModifier">
+            <input class="item-edit-inline input-without-border !text-right !shadow-none !w-12" data-field="system.hit" type="number" value="{{action.system.hit}}" data-dtype="Number"/>
+            <i class="fa-solid fa-bullseye" data-tooltip="{{localize "roe.action.hit"}}" data-tooltip-direction="UP"></i>
+
+            <input class="item-edit-inline input-without-border !text-right !shadow-none !w-12" data-field="system.damage" type="text" value="{{action.system.damage}}" data-dtype="String"/>
+            <i class="fa-light fa-burst" data-tooltip="{{localize "roe.action.damage"}}" data-tooltip-direction="UP"></i>
+
+            <input class="item-edit-inline input-without-border !text-right !shadow-none !w-12" data-field="system.damageCritical" type="text" value="{{action.system.damageCritical}}" data-dtype="String"/>
+            <i class="fa-solid fa-burst" data-tooltip="{{localize "roe.action.damageCritical"}}" data-tooltip-direction="UP"></i>
+
+            <select class="item-edit-inline input-without-border" data-field="system.rollModifier">
                 <option></option>
                 {{selectOptions system.rollModifierList selected=system.rollModifier localize=true}}
             </select>
@@ -51,11 +56,9 @@
         <div class="flex mt-1 mb-2">
             {{#if action.system.traits}}
                 {{#each action.system.traits as |trait|}}
-                    <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
-                        <p class="text-xs" data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
-                    </div>
+                    <p class="text-xs gray-status" data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}{{#unless @last}},&nbsp{{/unless}}</p>
                 {{/each}}
-            {{/if}}        
+            {{/if}}
         </div>
     {{/each}}
 </section>
