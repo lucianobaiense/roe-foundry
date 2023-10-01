@@ -4,7 +4,7 @@
     "description": "A system for playing Resonance of Ether RPG games in the Foundry Virtual Tabletop environment.",
     "version": "0.0.21",
     "compatibility": {
-        "minimum": "11.308",
+        "minimum": "11.311",
         "verified": "11.311",
         "maximum": "11.311"
     },
