@@ -1,60 +1,37 @@
 <div class="flex flex-col">
-    <p class="font-bold text-base mt-1">{{name}}</p>
+    <p class="text-base">{{name}}</p>
 
-    {{#if system.enchants}}
-        <p>
-            <span class="font-bold">{{localize "roe.spell.enchants"}}:</span> {{system.enchants}}
-        </p>
-    {{/if}}
+    <div class="grid grid-cols-3 gap-2 mb-2">
+        <div>
+            <img src="{{img}}" alt="{{name}}"/>
+        </div>
 
-    {{#if system.traits}}
-        <p>
-            <span class="font-bold">{{localize "roe.spell.traits"}}:</span> {{system.traits}}
-        </p>
-    {{/if}}
-
-    {{!-- <p class="mt-2">
-        <span class="font-bold">{{localize "roe.spell.action"}}:</span> {{system.action}}
-    </p>
-
-    <p>
-        <span class="font-bold">{{localize "roe.spell.cost"}}:</span> {{system.cost}}
-    </p>
-
-    <p>
-        <span class="font-bold">{{localize "roe.spell.duration"}}:</span> {{system.duration}}
-    </p>
-
-    <p>
-        <span class="font-bold">{{localize "roe.spell.range"}}:</span> {{system.range}}
-    </p>
-
-    <p>
-        <span class="font-bold">{{localize "roe.spell.target"}}:</span> {{system.target}}
-    </p> --}}
-
-    <p class="mb-1 mt-1">
-        {{safe system.description}}
-    </p>
+        <div class="col-span-2 flex flex-col justify-center">
+            <p>{{safe system.description}}</p>
+        </div>
+    </div>
 
     {{#if (eq rollModifier "advantage")}}
         <p class="mb-2">
-            <span class="font-bold">{{localize "roe.spell.hit"}}:</span> 
-            [[3d6kh2 + {{system.hit}}]] contra DIF {{difficulty}}
+            <span class="font-bold">{{localize "roe.spell.hit"}}:</span>
+            {{#if (eq actorType "protagonist")}} [[ 3d6kh2 + {{system.hit}} ]] contra DIF {{difficulty}} {{/if}}
+            {{#if (eq actorType "antagonist")}} [[ 3d6kh2 + {{system.hit}} + {{power}} ]] contra DIF {{difficulty}} {{/if}} 
         </p>
     {{/if}}
 
     {{#if (eq rollModifier "disadvantage")}}
         <p class="mb-2">
-            <span class="font-bold">{{localize "roe.spell.hit"}}:</span> 
-            [[3d6kl2 + {{system.hit}}]] contra DIF {{difficulty}}
+            <span class="font-bold">{{localize "roe.spell.hit"}}:</span>
+            {{#if (eq actorType "protagonist")}} [[ 3d6kl2 + {{system.hit}} ]] contra DIF {{difficulty}} {{/if}}
+            {{#if (eq actorType "antagonist")}} [[ 3d6kl2 + {{system.hit}} + {{power}} ]] contra DIF {{difficulty}} {{/if}}       
         </p>
     {{/if}}
 
     {{#if (eq rollModifier "")}}
-        <p class="mb-2">
-            <span class="font-bold">{{localize "roe.spell.hit"}}:</span> 
-            [[2d6 + {{system.hit}}]] contra DIF {{difficulty}}
+        <p class="mb-2"> 
+            <span class="font-bold">{{localize "roe.spell.hit"}}:</span>
+            {{#if (eq actorType "protagonist")}} [[ 2d6 + {{system.hit}} ]] contra DIF {{difficulty}} {{/if}}
+            {{#if (eq actorType "antagonist")}} [[ 2d6 + {{system.hit}} + {{power}} ]] contra DIF {{difficulty}} {{/if}}   
         </p>
     {{/if}}
 
@@ -89,5 +66,34 @@
                 </div>
             </p>
         </div>
+    {{/if}}
+
+    {{#if system.enchants}}
+        <div class="flex items-center">
+            <p class="font-bold mr-2">{{localize "roe.spell.enchants"}}</p>
+
+            <div class="flex flex-wrap my-1">
+                {{#each system.enchants as |enchant|}}
+                    <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
+                        <p class="text-xs" data-tooltip="{{enchant.description}}" data-tooltip-direction="UP">{{enchant.label}}</p>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if system.traits}}
+        <div class="flex items-center">
+            <p class="font-bold mr-2">{{localize "roe.spell.traits"}}</p>
+            
+            <div class="flex flex-wrap my-1">
+                {{#each system.traits as |trait|}}
+                    <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
+                        <p class="text-xs" data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
     {{/if}}
 </div>

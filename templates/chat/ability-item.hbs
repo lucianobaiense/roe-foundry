@@ -1,35 +1,57 @@
 <div class="flex flex-col">
-    <p class="font-bold text-base">{{name}}</p>
+    <p class="text-base">{{name}}</p>
 
-    <p>
-        <span class="font-bold">{{localize "roe.ability.action"}}:</span> {{system.action}}
-    </p>
+    <div class="grid grid-cols-3 gap-2">
+        <div>
+            <img src="{{img}}" alt="{{name}}"/>
+        </div>
 
-    <p>
-        <span class="font-bold">{{localize "roe.ability.activation"}}:</span> {{system.activation}}
-    </p>
+        <div class="col-span-2 flex flex-col justify-center">
+        </div>
+    </div>
 
-    <p>
-        <span class="font-bold">{{localize "roe.ability.cost"}}:</span> {{system.cost}}
-    </p>
+    {{#if system.description}}
+        <p>{{safe system.description}}</p>
+    {{/if}}
 
-    <p>
-        <span class="font-bold">{{localize "roe.ability.duration"}}:</span>{{system.duration}}
-    </p>
+    {{#if system.evolutionOne}}
+        <div class="border-solid border-l-4 border-gray-500">
+            <p class="mt-1 ml-2">
+                <span class="font-bold">{{localize "roe.ability.evolutionOne"}}:</span>
+                <div class="ml-2">
+                    {{safe system.evolutionOne}}
+                </div>
+            </p>
+        </div>
+    {{/if}}
 
-    <p>
-        <span class="font-bold">{{localize "roe.ability.range"}}:</span>{{system.range}}
-    </p>
+    {{#if system.evolutionTwo}}
+        <div class="mt-2 border-solid border-l-4 border-gray-500">
+            <p class="mt-1 ml-2">
+                <span class="font-bold">{{localize "roe.ability.evolutionTwo"}}:</span>
+                <div class="ml-2">
+                    {{safe system.evolutionTwo}}
+                </div>
+            </p>
+        </div>
+    {{/if}}
 
-    <p>
-        <span class="font-bold">{{localize "roe.ability.target"}}:</span>{{system.target}}
-    </p>
+    {{#if system.evolutionThree}}
+        <div class="mt-2 border-solid border-l-4 border-gray-500">
+            <p class="mt-1 ml-2">
+                <span class="font-bold">{{localize "roe.ability.evolutionThree"}}:</span>
+                <div class="ml-2">
+                    {{safe system.evolutionThree}}
+                </div>
+            </p>
+        </div>
+    {{/if}}
 
-    <p>
-        <span class="font-bold">{{localize "roe.ability.traits"}}:</span>{{system.traits}}
-    </p>
-
-    <p>
-        <span class="font-bold">{{localize "roe.ability.description"}}:</span>{{safe system.description}}
-    </p>
+    <div class="flex flex-wrap mt-2">
+        {{#each system.traits as |trait|}}
+            <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
+                <p class="text-xs" data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+            </div>
+        {{/each}}
+    </div>
 </div>

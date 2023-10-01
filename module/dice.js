@@ -60,15 +60,7 @@ export async function ActionRoll({
     let damageCritical = item.system.damageCritical
     let img = item.img
     let traits = item.system.traits
-
-    if (actor.type == "antagonist") {
-        const power = Number(actor.system.power)
-        
-        hit = hit + power
-        damage = `[[${damage} + ${power}]]`
-        damageCritical = `[[${damageCritical} + ${power*2}]]`
-    }
-
+    let power = actor.system.power
     let flavor = ""
 
     if (rollModifier == 'advantage') {
@@ -80,7 +72,7 @@ export async function ActionRoll({
     }
 
     roll = {
-        name, actor, rollModifier, hit, damage, damageCritical, img, traits
+        name, actor, rollModifier, hit, damage, damageCritical, img, power, traits
     }
 
     const template = `systems/roe/templates/chat/${type}-item.hbs`
@@ -124,10 +116,12 @@ export async function ItemRoll({
         difficulty = 18
     } else {
         difficulty = 21
-    } 
+    }
 
     item.rollModifier = rollModifier
     item.difficulty = difficulty
+    item.actorType = actor.type
+    item.power = actor.system.power
 
     const template = `systems/roe/templates/chat/${type}-item.hbs`
     

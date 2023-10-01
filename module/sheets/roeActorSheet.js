@@ -1,4 +1,5 @@
 import * as Dice from "../dice.js";
+import traits from "../traits.js"
 
 export default class roeActorSheet extends ActorSheet {
     static get defaultOptions() {
@@ -34,6 +35,7 @@ export default class roeActorSheet extends ActorSheet {
         const context = await super.getData(options);
         context.config = CONFIG.roe
         context.system = context.data.system;
+        context.antagonistTraits = traits.antagonist
 
         context.abilities = context.items.filter(function(item) {
             return item.type == "ability"
@@ -66,6 +68,7 @@ export default class roeActorSheet extends ActorSheet {
 
         // Prepare calculated data for Protagonist Characters
         if (context.actor.type == "protagonist") {
+
             context.system.healthPoints.max = (context.system.body.value * 10) + (context.system.body.value * context.system.level) + context.system.healthPoints.mod
             context.system.etherPoints.max = (context.system.essence.value * 5) + context.system.level + context.system.etherPoints.mod
             context.system.narrativePoints.max = 5 + context.system.narrativePoints.mod
@@ -89,28 +92,28 @@ export default class roeActorSheet extends ActorSheet {
 
             if (context.system.threat == "low") {
                 context.system.power = 1
-                context.system.healthPoints.max = 10 + context.system.level + context.system.healthPointsModifier
-                context.system.etherPoints.max = 2 + context.system.level + context.system.level + context.system.etherPointsModifier
+                context.system.healthPoints.max = 10 + context.system.level + context.system.healthPoints.mod
+                context.system.etherPoints.max = 2 + context.system.level + context.system.level + context.system.etherPoints.mod
 
             } else if (context.system.threat == "moderate") {
                 context.system.power = 2
-                context.system.healthPoints.max = 20 + (context.system.level * 2) + context.system.healthPointsModifier
-                context.system.etherPoints.max = 4 + context.system.level + context.system.level + context.system.etherPointsModifier
+                context.system.healthPoints.max = 20 + (context.system.level * 2) + context.system.healthPoints.mod
+                context.system.etherPoints.max = 4 + context.system.level + context.system.level + context.system.etherPoints.mod
 
             } else if (context.system.threat == "dangerous") {
                 context.system.power = 3
-                context.system.healthPoints.max = 40 + (context.system.level * 3) + context.system.healthPointsModifier
-                context.system.etherPoints.max = 8 + context.system.level + context.system.level + context.system.etherPointsModifier
+                context.system.healthPoints.max = 40 + (context.system.level * 3) + context.system.healthPoints.mod
+                context.system.etherPoints.max = 8 + context.system.level + context.system.level + context.system.etherPoints.mod
 
             } else if (context.system.threat == "extreme") {
                 context.system.power = 4
-                context.system.healthPoints.max = 80 + (context.system.level * 4) + context.system.healthPointsModifier
-                context.system.etherPoints.max = 16 + context.system.level + context.system.level + context.system.etherPointsModifier
+                context.system.healthPoints.max = 80 + (context.system.level * 4) + context.system.healthPoints.mod
+                context.system.etherPoints.max = 16 + context.system.level + context.system.level + context.system.etherPoints.mod
 
             } else if (context.system.threat == "deadly") {
                 context.system.power = 5
-                context.system.healthPoints.max = 160 + (context.system.level * 5) + context.system.healthPointsModifier
-                context.system.etherPoints.max = 32 + context.system.level + context.system.level + context.system.etherPointsModifier
+                context.system.healthPoints.max = 160 + (context.system.level * 5) + context.system.healthPoints.mod
+                context.system.etherPoints.max = 32 + context.system.level + context.system.level + context.system.etherPoints.mod
             }
 
             if (context.system.species == "beasts") {
@@ -131,6 +134,8 @@ export default class roeActorSheet extends ActorSheet {
             } else if (context.system.species == "monsters") {
                 context.system.traitsInitial = 4
             }
+
+            context.system.magicPower = context.system.power + context.system.essence.value + context.system.essence.modifier
         }
 
         return context;
@@ -142,6 +147,8 @@ export default class roeActorSheet extends ActorSheet {
         if (this.actor.isOwner) {
             html.find(".roll").click(this._onRoll.bind(this));
             html.find(".item-roll").click(this._onItemRoll.bind(this));
+            html.find(".antagonist-trait-selected").change(this._onAntagonistTraitSelected.bind(this));
+            html.find(".antagonist-trait-delete").click(this._onAntagonistTraitDelete.bind(this));
         }
 
         if (this.isEditable) {
@@ -210,6 +217,65 @@ export default class roeActorSheet extends ActorSheet {
         })
     }
 
+    async _onAntagonistTraitSelected(event) {
+        event.preventDefault();
+
+        const currentItem = this.object;
+        const value = event.currentTarget.value;
+        const traitName = value.split('|')[0];
+        const traitDescription = value.split('|')[1];
+
+        let traitsList = currentItem.system.traits;
+
+        function filterTraits(arr, value) { 
+            return arr.filter(function(trait) { 
+                return trait.label == value; 
+            });
+        }
+
+        const filter = filterTraits(traitsList, traitName)
+
+        if (filter.length == 0) {
+            if (traitName != "none") {
+                const newTrait = {
+                    "label": traitName,
+                    "description": traitDescription
+                }
+        
+                traitsList.push(newTrait)
+        
+                return await currentItem.update({
+                    system: {
+                        traits: traitsList
+                    }
+                });
+            }
+        }
+    }
+
+    async _onAntagonistTraitDelete(event) {
+        event.preventDefault();
+
+        const currentItem = this.object;
+        const traitList = currentItem.system.traits;
+        const deletedTrait = event.currentTarget.dataset.trait;
+
+        function traitRemove(arr, value) { 
+            return arr.filter(function(trait) { 
+                return trait.label != value; 
+            });
+        }
+
+        const newTraitList = traitRemove(traitList, deletedTrait);
+
+        return await currentItem.update({
+            system: {
+                traits: newTraitList
+            }
+        });
+
+    }
+
     async _onItemCreate(event) {
         event.preventDefault();
 
@@ -231,6 +297,9 @@ export default class roeActorSheet extends ActorSheet {
 
         } else if (type == "skill") {
             img = "icons/sundries/books/book-worn-red.webp"
+
+        } else if (type == "trait") {
+            img = "icons/pings/chevron.webp"
         }
         
         const itemData = {
@@ -246,12 +315,22 @@ export default class roeActorSheet extends ActorSheet {
         event.preventDefault();
 
         let element = event.currentTarget;
+        let itemValue = element.value
+        let type = element.type
         let itemId = element.closest(".item").dataset.id;
         let field = element.dataset.field;
 
+        if (type == "checkbox") {
+            if (itemValue == "false") {
+                itemValue = true
+            } else {
+                itemValue = false
+            }
+        }
+
         const updates = [{
             _id: itemId,
-            [field]: element.value
+            [field]: itemValue
         }]
 
         return await Item.updateDocuments(updates, {parent: this.actor})
@@ -278,36 +357,54 @@ export default class roeActorSheet extends ActorSheet {
 
     async _onSpeciesChange(event) {
         event.preventDefault();
-  
+
         const element = event.currentTarget;
+        let traitsList = []
+
+        console.log(traits.antagonist)
 
         if (element.value == "constructs") {
-            const traits = [
-                { name: "Imunidade a Condição (Envenenado, Sangramento)", type: "trait" },
-                { name: "Resistência a Dano (Escolha dois tipos de dano)", type: "trait" },
-                { name: "Vulnerabilidade (Escolha um tipo de dano)", type: "trait" }
-            ];
-            return await Item.createDocuments(traits, {parent: this.actor});
+            traitsList.push({ label: traits.antagonist[28].label, description: traits.antagonist[28].description })
+            traitsList.push({ label: traits.antagonist[38].label, description: traits.antagonist[38].description })
+            traitsList.push({ label: traits.antagonist[46].label, description: traits.antagonist[46].description })
 
-        } else if (element.value == "elementals") {
-            const traits = [
-                { name: "Imunidade a Dano (Escolha um tipo de dano)", type: "trait" },
-                { name: "Vulnerabilidade (Escolha um tipo de dano)", type: "trait" }
-            ];
-            return await Item.createDocuments(traits, {parent: this.actor});
+            return await this.object.update({
+                system: {
+                    traits: traitsList
+                }
+            });
+        }
 
-        } else if (element.value == "humanoids") {
-            const traits = [
-                { name: "Equipamento", type: "trait" }
-            ];
-            return await Item.createDocuments(traits, {parent: this.actor});
+        if (element.value == "elementals") {
+            traitsList.push({ label: traits.antagonist[29].label, description: traits.antagonist[29].description })
+            traitsList.push({ label: traits.antagonist[46].label, description: traits.antagonist[46].description })
 
-        } else if (element.value == "inferius") {
-            const traits = [
-                { name: "Imunidade a Condição (Envenenado, Sangramento)", type: "trait" },
-                { name: "Resistência a Dano (Corte, Perfuração)", type: "trait" }
-            ];
-            return await Item.createDocuments(traits, {parent: this.actor});
-        } 
+            return await this.object.update({
+                system: {
+                    traits: traitsList
+                }
+            });
+        }
+
+        if (element.value == "humanoids") {
+            traitsList.push({ label: traits.antagonist[18].label, description: traits.antagonist[18].description })
+
+            return await this.object.update({
+                system: {
+                    traits: traitsList
+                }
+            });
+        }
+
+        if (element.value == "inferius") {
+            traitsList.push({ label: traits.antagonist[28].label, description: traits.antagonist[28].description })
+            traitsList.push({ label: traits.antagonist[38].label, description: traits.antagonist[38].description })
+
+            return await this.object.update({
+                system: {
+                    traits: traitsList
+                }
+            });
+        }
     }
 }

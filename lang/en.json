@@ -6,6 +6,9 @@
             "activation": "Ativação",
             "cost": "Custo",
             "description": "Descrição",
+            "evolutionOne": "Evolução 1",
+            "evolutionTwo": "Evolução 2",
+            "evolutionThree": "Evolução 3",
             "duration": "Duração",
             "range": "Alcance",
             "target": "Alvo",
@@ -42,7 +45,7 @@
         "equipment": {
             "label": "Equipamento",
             "damage": "Dano",
-            "damageResistance": "Armadura",
+            "damageResistance": "Resistência a Dano",
             "defenseBonus": "Bônus de Defesa",
             "description": "Descrição",
             "durability": "Durabilidade",
@@ -111,6 +114,7 @@
             "power": "Poder",
             "threat": "Ameaça",
             "traits": "Traços",
+            "traitsNotes": "Notas dos Traços",
             "weapon": "Arma",
             "magicPower": "Poder Mágico"
         },

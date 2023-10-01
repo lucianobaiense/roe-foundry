@@ -31,6 +31,10 @@ Hooks.once("init", async function() {
 
     CONFIG.roe = roe;
 
+    CONFIG.Combat.initiative = {
+        formula: "2d6 + @dexterity.value + @dexterity.modifier"
+    };
+
     Actors.unregisterSheet("core", ActorSheet)
     Actors.registerSheet("roe", roeActorSheet, { makeDefault: true })
 

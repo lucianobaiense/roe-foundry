@@ -7,6 +7,9 @@ roe.ability = {
     cost: "roe.ability.cost",
     description: "roe.ability.description",
     duration: "roe.ability.duration",
+    evolutionOne: "roe.ability.evolutionOne",
+    evolutionTwo: "roe.ability.evolutionTwo",
+    evolutionThree: "roe.ability.evolutionThree",
     range: "roe.ability.range",
     target: "roe.ability.target",
     traits: "roe.ability.traits"
@@ -117,6 +120,7 @@ roe.general = {
     spells: "roe.general.spells",
     power: "roe.general.power",
     traits: "roe.general.traits",
+    traitsNotes: "roe.general.traitsNotes",
     threat: "roe.general.threat",
     weapon: "roe.general.weapon",
     magicPower: "roe.general.magicPower"

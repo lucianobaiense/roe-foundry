@@ -1,45 +1,58 @@
 <div class="flex flex-col">
+    <p class="text-base">{{name}}</p>
+    
     <div class="grid grid-cols-3 gap-2">
         <div>
             <img src="{{img}}" alt="{{name}}">
         </div>
 
-        <div class="flex flex-col col-span-2">
+        <div class="flex flex-col col-span-2 justify-center">
+            {{#if hit}}
+                {{#if (eq rollModifier "advantage")}}
+                    <p>
+                        <span class="font-bold">{{localize "roe.action.hit"}}:</span>
+                        {{#if (eq actor.type "protagonist")}} [[ 3d6kh2 + {{hit}} ]] {{/if}}
+                        {{#if (eq actor.type "antagonist")}} [[ 3d6kh2 + {{hit}} + {{power}} ]] {{/if}}
+                    </p>
+                {{/if}}
 
-            {{#if (eq rollModifier "advantage")}}
-                <p>
-                    <span class="font-bold">{{localize "roe.action.hit"}}:</span> [[3d6kh2 + {{hit}}]]
-                </p>
-            {{/if}}
+                {{#if (eq rollModifier "disadvantage")}}
+                    <p>
+                        <span class="font-bold">{{localize "roe.action.hit"}}:</span>
+                        {{#if (eq actor.type "protagonist")}} [[ 3d6kl2 + {{hit}} ]] {{/if}}
+                        {{#if (eq actor.type "antagonist")}} [[ 3d6kl2 + {{hit}} + {{power}} ]] {{/if}}
+                    </p>
+                {{/if}}
 
-            {{#if (eq rollModifier "disadvantage")}}
-                <p>
-                    <span class="font-bold">{{localize "roe.action.hit"}}:</span> [[3d6kl2 + {{hit}}]]
-                </p>
-            {{/if}}
-
-            {{#if (eq rollModifier "")}}
-                <p>
-                    <span class="font-bold">{{localize "roe.action.hit"}}:</span> [[2d6 + {{hit}}]]
-                </p>
+                {{#if (eq rollModifier "")}}
+                    <p>
+                        <span class="font-bold">{{localize "roe.action.hit"}}:</span> 
+                        {{#if (eq actor.type "protagonist")}} [[ 2d6 + {{hit}} ]] {{/if}}
+                        {{#if (eq actor.type "antagonist")}} [[ 2d6 + {{hit}} + {{power}} ]] {{/if}}
+                    </p>
+                {{/if}}
             {{/if}}
 
             {{#if damage}}
                 <p>
-                    <span class="font-bold">{{localize "roe.action.damage"}}:</span> [[{{damage}}]]
+                    <span class="font-bold">{{localize "roe.action.damage"}}:</span>
+                    {{#if (eq actor.type "protagonist")}} [[/r {{damage}} ]] {{/if}}
+                    {{#if (eq actor.type "antagonist")}} [[/r {{damage}} + {{power}} ]] {{/if}} 
                 </p>
             {{/if}}
 
             {{#if damageCritical}}
                 <p>
-                    <span class="font-bold">{{localize "roe.action.damageCritical"}}:</span> [[{{damageCritical}}]]
+                    <span class="font-bold">{{localize "roe.action.damageCritical"}}:</span>
+                    {{#if (eq actor.type "protagonist")}} [[/r {{damageCritical}} ]] {{/if}}
+                    {{#if (eq actor.type "antagonist")}} [[/r {{damageCritical}} + ({{power}}*2) ]] {{/if}} 
                 </p>
             {{/if}}
         </div>
     </div>
 
     {{#if traits}}
-        <div class="flex flex-wrap my-1">
+        <div class="flex flex-wrap mt-2">
             {{#each traits as |trait|}}
                 <div class="bg-stone-400 border border-stone-700 flex mr-1 mb-1 p-1">
                     <p class="text-xs" data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>

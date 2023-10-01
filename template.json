@@ -97,7 +97,8 @@
         "antagonist":{
             "templates":[
                 "attributes",
-                "resistances"
+                "resistances",
+                "resources"
             ],
             "afinity":"",
             "ascendant":"",
@@ -105,10 +106,12 @@
             "damageResistance":0,
             "level":1,
             "power": 1,
-            "species": "", 
+            "species": "none",
             "threat":"",
-            "traits": {},
-            "traitsInitial":0
+            "traits": [],
+            "traitsInitial":0,
+            "traitsNotes":"",
+            "magicPower":0
         }
     },
     "Item":{
@@ -126,6 +129,9 @@
             "cost": "",
             "description": "",
             "duration":"",
+            "evolutionOne":"",
+            "evolutionTwo":"",
+            "evolutionThree":"",
             "range":"",
             "target":"",
             "traits":[]
@@ -177,7 +183,7 @@
         },
         "spell":{
             "action":"",
-            "cost": 0,
+            "cost": 1,
             "description": "",
             "duration":"",
             "effects": {
@@ -185,7 +191,7 @@
                 "downtime": "",
                 "exploration": ""
             },
-            "enchants":"",
+            "enchants":[],
             "hit":0,
             "range":"",
             "rollModifier":"",

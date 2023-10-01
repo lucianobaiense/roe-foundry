@@ -39,7 +39,7 @@
             <input class="item-edit-inline !border-none !bg-transparent !text-right !shadow-none !w-10" data-field="system.quantity" type="number" value="{{equipment.system.quantity}}" data-dtype="Number"/>
             <i class="fa-solid fa-bag-shopping"></i>
 
-            <input class="item-edit-inline !border-none !bg-transparent !shadow-none" data-field="system.equipped" type="checkbox" name="myCheckbox" {{checked system.equipped}}/>
+            <input class="item-edit-inline !border-none !bg-transparent !shadow-none" data-field="system.equipped" type="checkbox" value="{{equipment.system.equipped}}" {{checked equipment.system.equipped}}/>
 
             <a class="item-roll" data-type="equipment" data-name="{{equipment.name}}">
                 <i class="fas fa-dice"></i>
