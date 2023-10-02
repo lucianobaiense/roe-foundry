@@ -35,6 +35,12 @@
         </p>
     {{/if}}
 
+    {{#if system.action}}
+        <p class="mb-2">
+            <span class="font-bold">{{localize "roe.spell.action"}}:</span> {{system.action}}   
+        </p>
+    {{/if}}
+
     {{#if system.spellEffects.action}}
         <div class="border-solid border-l-4 border-red-500">
             <p class="mt-1 ml-2">

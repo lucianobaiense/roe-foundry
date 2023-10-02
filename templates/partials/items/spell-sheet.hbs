@@ -46,6 +46,11 @@
     <p class="mt-1">{{localize "roe.spell.description"}}</p>
     {{editor system.description target="system.description" button=true engine="tinymce" collaborate=false}}
 
+    <div class="flex mb-2 w-40">
+        <label class="mr-2" for="system.action">{{localize "roe.spell.action"}}</label>
+        <input name="system.action" type="text" value="{{system.action}}" data-dtype="String"/>
+    </div>
+
     <div class="border-solid border-l-4 border-red-500">
         <p class="mt-1 mb-1 ml-2 font-bold">{{localize "roe.spellEffects.action"}}</p>
         <div class="spell-effects ml-2">
