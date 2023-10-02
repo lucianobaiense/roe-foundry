@@ -11,21 +11,42 @@
             <i class="fa-solid fa-caret-right p-[5px]" style="color: #000000;"></i>
             <input class="item-edit-inline input-without-border !text-left !shadow-none" data-field="name" type="text" value="{{ability.name}}" data-dtype="String"/>
 
-            <a class="item-roll" data-type="ability" data-name="{{ability.name}}">
+            {{#if ability.system.evolutionOne}}
+                <p class="mr-1" title="{{localize "roe.ability.evolutionOne"}}">
+                    <i class="fa-solid fa-circle"></i>
+                </p> 
+            {{else}}
+                <p class="mr-1" title="{{localize "roe.ability.evolutionOne"}}">
+                    <i class="fa-regular fa-circle"></i>
+                </p> 
+            {{/if}}
+
+            {{#if ability.system.evolutionTwo}}
+                <p class="mr-1" title="{{localize "roe.ability.evolutionTwo"}}">
+                    <i class="fa-solid fa-circle"></i>
+                </p> 
+            {{else}}
+                <p class="mr-1" title="{{localize "roe.ability.evolutionTwo"}}">
+                    <i class="fa-regular fa-circle"></i>
+                </p> 
+            {{/if}}
+
+            {{#if ability.system.evolutionThree}}
+                <p class="mr-1" title="{{localize "roe.ability.evolutionThree"}}">
+                    <i class="fa-solid fa-circle"></i>
+                </p> 
+            {{else}}
+                <p class="mr-1" title="{{localize "roe.ability.evolutionThree"}}">
+                    <i class="fa-regular fa-circle"></i>
+                </p> 
+            {{/if}}
+
+            <a class="item-roll ml-2" data-type="ability" data-name="{{ability.name}}">
                 <i class="fas fa-dice"></i>
             </a>
-
-            {{!-- <a class="item-edit-popup" title="{{localize 'roe.general.edit'}}">
-                <i class="fas fa-edit"></i>
-            </a>
-
-            <a class="item-delete" title="{{localize 'roe.general.delete'}}">
-                <i class="fas fa-trash"></i>
-            </a> --}}
         </div>
 
         <div class="flex mt-1 mb-2">
-
             {{#if ability.system.traits}}
                 {{#each ability.system.traits as |abilityTrait|}}
                     <p class="text-xs gray-status"
@@ -33,34 +54,6 @@
                        data-tooltip-direction="UP">{{abilityTrait.label}}{{#unless @last}},&nbsp{{/unless}}</p>
                 {{/each}}
             {{/if}}
-
-            {{!-- {{#if ability.system.traits}}
-                <p class="bg-stone-400 mr-1 px-1">{{ability.system.traits}}</p>
-            {{/if}} --}}
-
-            {{!-- {{#if ability.system.action}}
-                <p class="bg-stone-400 mr-1 px-1">{{ability.system.action}}</p>
-            {{/if}}
-
-            {{#if ability.system.activation}}
-                <p class="bg-stone-400 mr-1 px-1">{{ability.system.activation}}</p>
-            {{/if}}
-
-            {{#if ability.system.cost}}
-                <p class="bg-stone-400 mr-1 px-1">{{ability.system.cost}}</p>
-            {{/if}}
-
-            {{#if ability.system.duration}}
-                <p class="bg-stone-400 mr-1 px-1">{{ability.system.duration}}</p>
-            {{/if}}
-
-            {{#if ability.system.range}}
-                <p class="bg-stone-400 mr-1 px-1">{{ability.system.range}}</p>
-            {{/if}}
-
-            {{#if ability.system.target}}
-                <p class="bg-stone-400 mr-1 px-1">{{ability.system.target}}</p>
-            {{/if}}          --}}
         </div>
     {{/each}}
 </section>
