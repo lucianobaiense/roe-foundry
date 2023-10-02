@@ -45,7 +45,7 @@ traits.antagonist = [
         description: "O antagonista desfere um último ataque antes de morrer. Construtos que se autodestroem são um exemplo comum desse tipo de ação. Quando seu Antagonista chega a 0 PV ele imediatamente causa 1d6 pontos de dano (escolha o tipo entre as essências do antagonista) por valor de Poder que possua em todos na área, os personagens atingidos podem fazer um Teste de Esquiva (Parcial) contra DIF adequada para a Ameaça do antagonista."
     },
     {
-        label: "Ataqye Penetrante",
+        label: "Ataque Penetrante",
         description: "O antagonista consegue penetrar a proteção dos seus alvos. Escolha uma ação (que cause dano) que não tenha sido modificada por um traço, esse ataque ignora 1 de RD do alvo para cada nível de Poder do antagonista."
     },
     {
@@ -209,7 +209,7 @@ traits.antagonist = [
 traits.armor = [
     {
         label: "Barulhenta",
-        description: "Armas ou Armaduras com esse traço fazem barulho ao serem usadas. Você recebe Desvantagem em rolagens de Furtividade."
+        description: "Armaduras com esse traço fazem barulho ao serem usadas. Você recebe Desvantagem em rolagens de Furtividade."
     },
     {
         label: "Discreta",
@@ -229,6 +229,10 @@ traits.consumable = [
     {
         label: "Alquímico",
         description: "Esse item pode ser fabricado usando a perícia Alquimia."
+    },
+    {
+        label: "Barulhenta",
+        description: "Quando usa itens com esse traço todos os personagens na Cena podem fazer um teste Prontidão contra DIF 9 para perceber sua localização."
     },
     {
         label: "Consumível",
@@ -260,6 +264,10 @@ traits.shield = [
     {
         label: "Ágil",
         description: "Armas ágeis permitem escolher entre Corpo ou Destreza quando causa Dano."
+    },
+    {
+        label: "Cobertura",
+        description: "Com uma ação de Interação você se coloca em Cobertura Menor."
     },
     {
         label: "Restritivo",
@@ -309,7 +317,7 @@ traits.weapon = [
     },
     {
         label: "Barulhenta",
-        description: "Armas ou Armaduras com esse traço fazem barulho ao serem usadas. Quando ataca com uma arma com esse traço todos os personagens na Cena podem fazer um teste Prontidão contra DIF 9 para perceber sua localização."
+        description: "Armas com esse traço fazem barulho ao serem usadas. Quando ataca com uma arma com esse traço todos os personagens na Cena podem fazer um teste Prontidão contra DIF 9 para perceber sua localização."
     },
     {
         label: "Brutal",
