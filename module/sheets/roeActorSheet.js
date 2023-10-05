@@ -72,6 +72,7 @@ export default class roeActorSheet extends ActorSheet {
             context.system.healthPoints.max = (context.system.body.value * 10) + (context.system.body.value * context.system.level) + context.system.healthPoints.mod
             context.system.etherPoints.max = (context.system.essence.value * 5) + context.system.level + context.system.etherPoints.mod
             context.system.narrativePoints.max = 5 + context.system.narrativePoints.mod
+            context.system.magicPower.value = (context.system.essence.value + context.system.essence.modifier) + context.system.magicPower.mod + context.system.magicPower.focus
 
             if (context.system.size == "small") {
                 context.system.maxSlots = context.system.body.value + context.system.body.modifier + 6
@@ -135,7 +136,7 @@ export default class roeActorSheet extends ActorSheet {
                 context.system.traitsInitial = 4
             }
 
-            context.system.magicPower = context.system.power + context.system.essence.value + context.system.essence.modifier
+            context.system.magicPower.value = context.system.power + (context.system.essence.value + context.system.essence.modifier) + context.system.magicPower.mod + context.system.magicPower.focus
         }
 
         return context;

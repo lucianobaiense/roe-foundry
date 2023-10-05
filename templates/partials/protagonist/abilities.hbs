@@ -9,10 +9,11 @@
     {{#each abilities as |ability|}}
         <div class="item flex border-solid border-b border-black" data-id="{{ability._id}}">
             <i class="fa-solid fa-caret-right p-[5px]" style="color: #000000;"></i>
-            <input class="item-edit-inline input-without-border !text-left !shadow-none" data-field="name" type="text" value="{{ability.name}}" data-dtype="String"/>
+            
+            <input class="item-edit-inline input-without-border !text-left !shadow-none" data-tooltip="{{ability.system.description}}" data-tooltip-direction="UP" data-field="name" type="text" value="{{ability.name}}" data-dtype="String"/>
 
             {{#if ability.system.evolutionOne}}
-                <p class="mr-1" title="{{localize "roe.ability.evolutionOne"}}">
+                <p class="mr-1" data-tooltip="{{ability.system.evolutionOne}}" data-tooltip-direction="UP">
                     <i class="fa-solid fa-circle"></i>
                 </p> 
             {{else}}
@@ -22,7 +23,7 @@
             {{/if}}
 
             {{#if ability.system.evolutionTwo}}
-                <p class="mr-1" title="{{localize "roe.ability.evolutionTwo"}}">
+                <p class="mr-1" data-tooltip="{{ability.system.evolutionTwo}}" data-tooltip-direction="UP">
                     <i class="fa-solid fa-circle"></i>
                 </p> 
             {{else}}
@@ -32,7 +33,7 @@
             {{/if}}
 
             {{#if ability.system.evolutionThree}}
-                <p class="mr-1" title="{{localize "roe.ability.evolutionThree"}}">
+                <p class="mr-1" data-tooltip="{{ability.system.evolutionThree}}" data-tooltip-direction="UP">
                     <i class="fa-solid fa-circle"></i>
                 </p> 
             {{else}}

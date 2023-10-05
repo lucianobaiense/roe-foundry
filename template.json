@@ -64,6 +64,11 @@
                     "value":0,
                     "max":5,
                     "mod":0
+                },
+                "magicPower":{
+                    "value":0,
+                    "mod":0,
+                    "focus":0
                 }
             }
         },
@@ -91,8 +96,7 @@
             "notes":"",
             "origin":"",
             "overweight":0,
-            "slots":0,
-            "magicPower":0
+            "slots":0
         },
         "antagonist":{
             "templates":[

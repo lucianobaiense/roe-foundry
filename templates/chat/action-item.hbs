@@ -36,16 +36,16 @@
             {{#if damage}}
                 <p>
                     <span class="font-bold">{{localize "roe.action.damage"}}:</span>
-                    {{#if (eq actor.type "protagonist")}} [[/r {{damage}} ]] {{/if}}
-                    {{#if (eq actor.type "antagonist")}} [[/r {{damage}} + {{power}} ]] {{/if}} 
+                    {{#if (eq actor.type "protagonist")}} [[/r {{damage}} ]]{Rolar} {{/if}}
+                    {{#if (eq actor.type "antagonist")}} [[/r {{damage}} + {{power}} ]]{Rolar} {{/if}} 
                 </p>
             {{/if}}
 
             {{#if damageCritical}}
                 <p>
                     <span class="font-bold">{{localize "roe.action.damageCritical"}}:</span>
-                    {{#if (eq actor.type "protagonist")}} [[/r {{damageCritical}} ]] {{/if}}
-                    {{#if (eq actor.type "antagonist")}} [[/r {{damageCritical}} + ({{power}}*2) ]] {{/if}} 
+                    {{#if (eq actor.type "protagonist")}} [[/r {{damageCritical}} ]]{Rolar} {{/if}}
+                    {{#if (eq actor.type "antagonist")}} [[/r {{damageCritical}} + ({{power}}*2) ]]{Rolar} {{/if}} 
                 </p>
             {{/if}}
         </div>

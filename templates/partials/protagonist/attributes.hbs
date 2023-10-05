@@ -252,19 +252,21 @@
                 <input name="system.shieldDurabilityMax" class="status big-status-without-mod gray-status" type="number" value="{{data.system.shieldDurabilityMax}}" data-dtype="Number"/>
             </div>
         </div>
-    </div>
 
-    {{!-- <h3 class="my-2"></h3> --}}
+        <div class="flex flex-col border border-black rounded-lg p-1 items-center">
+            <p class="font-bold">{{localize 'roe.general.magicPower'}}</p>
 
-    {{!-- <h3 class="mb-2 mt-4">{{localize 'roe.general.narrativePoints'}}</h3> --}}
+            <div class="flex align-middle">
+                <input name="system.magicPower.value" class="status big-status" type="number" value="{{data.system.magicPower.value}}" data-dtype="Number"/>
+                <input name="system.magicPower.mod" class="status-mod" type="number" value="{{data.system.magicPower.mod}}" data-dtype="Number"/>
+            </div>
 
-    {{!-- <div class="flex">
-        <input name="system.narrativePoints" type="number" value="{{data.system.narrativePoints}}" data-dtype="Number"/>
-    </div> --}}
-
-    <h3 class="mb-2 mt-4">{{localize 'roe.general.magicPower'}}</h3>
-
-    <div class="flex">
-        <input name="system.magicPower" type="number" value="{{data.system.magicPower}}" data-dtype="Number"/>
+            <div class="flex flex-row">
+                <div class="border-t border-black w-5 mt-2 gray-status"></div>
+                <label class="mx-1 gray-status" for="system.magicPower.focus">Foco</label>
+                <div class="border-t border-black w-5 mt-2 gray-status"></div>
+            </div>
+            <input name="system.magicPower.focus" class="status big-status-without-mod gray-status" type="number" value="{{data.system.magicPower.focus}}" data-dtype="Number"/>
+        </div>        
     </div>
 </section>
