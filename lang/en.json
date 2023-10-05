@@ -62,6 +62,7 @@
         "equipmentTypes": {
             "armor": "Armadura",
             "consumable": "Consumível",
+            "magicFocus": "Foco Mágico",
             "shield": "Escudo",
             "weapon": "Armas"
         },

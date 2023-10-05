@@ -68,6 +68,7 @@ roe.equipmentTypes = {
     none: "",
     armor: "roe.equipmentTypes.armor",
     consumable: "roe.equipmentTypes.consumable",
+    magicFocus: "roe.equipmentTypes.magicFocus",
     shield: "roe.equipmentTypes.shield",
     weapon: "roe.equipmentTypes.weapon"
 }

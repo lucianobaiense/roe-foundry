@@ -75,10 +75,10 @@
             <td><input name="system.geo" type="number" value="{{system.geo}}" data-dtype="Number"/></td>
         </tr>
     </table>
-    
-    <p>{{localize "roe.equipment.traits"}}</p>
 
     {{#if (eq system.equipmentType "armor" )}}
+        <p>{{localize "roe.equipment.traits"}}</p>
+
         <select class="trait-selected" name="traits">
             {{#select traits}}
                 <option value="none"></option>
@@ -90,6 +90,8 @@
     {{/if}}
 
     {{#if (eq system.equipmentType "consumable" )}}
+        <p>{{localize "roe.equipment.traits"}}</p>
+
         <select class="trait-selected" name="traits">
             {{#select traits}}
                 <option value="none"></option>
@@ -101,6 +103,8 @@
     {{/if}}
 
     {{#if (eq system.equipmentType "shield" )}}
+        <p>{{localize "roe.equipment.traits"}}</p>
+
         <select class="trait-selected" name="traits">
             {{#select traits}}
                 <option value="none"></option>
@@ -112,6 +116,8 @@
     {{/if}}
 
     {{#if (eq system.equipmentType "weapon" )}}
+        <p>{{localize "roe.equipment.traits"}}</p>
+        
         <select class="trait-selected" name="traits">
             {{#select traits}}
                 <option value="none"></option>

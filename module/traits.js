@@ -360,6 +360,10 @@ traits.weapon = [
         description: "Armas longas possuem uma haste como lanças ou uma extensão como chicotes. Esse traço aumenta o alcance natural da arma para Alcance Curto."
     },
     {
+        label: "Mãos Nuas",
+        description: "Recebe Desvantagem ao usar Ataque Físico contra alvos com armaduras. Recebe Desvantagem ao usar uma Reação (Aparar) contra ataques com armas."
+    },
+    {
         label: "Munição",
         description: "Armas com esse traço precisam de munição para atacar. A primeira vez que você usar uma arma com esse traço durante uma cena, gaste 1 Munição. Durante o resto da cena você pode continuar usando ela normalmente sem gastos adicionais."
     },
