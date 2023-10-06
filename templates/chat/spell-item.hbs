@@ -1,6 +1,4 @@
 <div class="flex flex-col">
-    <p class="text-base">{{name}}</p>
-
     <div class="grid grid-cols-3 gap-2 mb-2">
         <div>
             <img src="{{img}}" alt="{{name}}"/>
@@ -13,7 +11,7 @@
 
     {{#if (eq rollModifier "advantage")}}
         <p class="mb-2">
-            <span class="font-bold">{{localize "roe.spell.hit"}}:</span>
+            <span class="font-bold">{{localize "roe.general.result"}}:</span>
             {{#if (eq actorType "protagonist")}} [[ 3d6kh2 + {{system.hit}} ]] contra DIF {{difficulty}} {{/if}}
             {{#if (eq actorType "antagonist")}} [[ 3d6kh2 + {{system.hit}} + {{power}} ]] contra DIF {{difficulty}} {{/if}} 
         </p>
@@ -21,7 +19,7 @@
 
     {{#if (eq rollModifier "disadvantage")}}
         <p class="mb-2">
-            <span class="font-bold">{{localize "roe.spell.hit"}}:</span>
+            <span class="font-bold">{{localize "roe.general.result"}}:</span>
             {{#if (eq actorType "protagonist")}} [[ 3d6kl2 + {{system.hit}} ]] contra DIF {{difficulty}} {{/if}}
             {{#if (eq actorType "antagonist")}} [[ 3d6kl2 + {{system.hit}} + {{power}} ]] contra DIF {{difficulty}} {{/if}}       
         </p>
@@ -29,9 +27,16 @@
 
     {{#if (eq rollModifier "")}}
         <p class="mb-2"> 
-            <span class="font-bold">{{localize "roe.spell.hit"}}:</span>
+            <span class="font-bold">{{localize "roe.general.result"}}:</span>
             {{#if (eq actorType "protagonist")}} [[ 2d6 + {{system.hit}} ]] contra DIF {{difficulty}} {{/if}}
             {{#if (eq actorType "antagonist")}} [[ 2d6 + {{system.hit}} + {{power}} ]] contra DIF {{difficulty}} {{/if}}   
+        </p>
+    {{/if}}
+
+    {{#if narrativePoints}}
+        <p class="mb-2">
+            <span class="font-bold">{{localize "roe.general.narrativePoints"}}:</span>
+            [[/r 1d6 ]]{Rolar}
         </p>
     {{/if}}
 

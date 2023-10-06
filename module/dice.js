@@ -28,22 +28,28 @@ export async function SkillRoll({
     skillModifier = null,
     skillRollModifier = null
 } = {}) {
-    let rollString = ''
+    let roll = {}
+    let narrativePoints = actor.system.narrativePoints.value
+    let flavor = ""
 
     if (skillRollModifier == 'advantage') {
-        rollString = `3d6kh2 + ${skillAttribute} + ${skillTraining} + ${skillModifier}`
-
+        flavor = `Rolou ${name} com Vantagem`
     } else if (skillRollModifier == 'disadvantage') {
-        rollString = `3d6kl2 + ${skillAttribute} + ${skillTraining} + ${skillModifier}`
+        flavor = `Rolou ${name} com Desvantagem`
     } else {
-        rollString = `2d6 + ${skillAttribute} + ${skillTraining} + ${skillModifier}`
+        flavor = `Rolou ${name}`
     }
 
-    const roll = await new Roll(rollString).evaluate({"async": true});
+    roll = {
+        name, actor, skillAttribute, skillTraining, skillModifier, skillRollModifier, narrativePoints
+    }
 
-    roll.toMessage({
+    const template = `systems/roe/templates/chat/skill-item.hbs`
+
+    ChatMessage.create({
+        content: await renderTemplate(template, roll),
         speaker: ChatMessage.getSpeaker({actor: actor}),
-        flavor: `Rolou ${name}`
+        flavor: flavor
     });
 }
 
@@ -61,6 +67,8 @@ export async function ActionRoll({
     let img = item.img
     let traits = item.system.traits
     let power = actor.system.power
+    let narrativePoints = actor.system.narrativePoints.value
+
     let flavor = ""
 
     if (rollModifier == 'advantage') {
@@ -72,7 +80,7 @@ export async function ActionRoll({
     }
 
     roll = {
-        name, actor, rollModifier, hit, damage, damageCritical, img, power, traits
+        name, actor, rollModifier, hit, damage, damageCritical, img, power, narrativePoints, traits
     }
 
     const template = `systems/roe/templates/chat/${type}-item.hbs`
@@ -122,6 +130,7 @@ export async function ItemRoll({
     item.difficulty = difficulty
     item.actorType = actor.type
     item.power = actor.system.power
+    item.narrativePoints = actor.system.narrativePoints.value
 
     const template = `systems/roe/templates/chat/${type}-item.hbs`
     

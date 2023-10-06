@@ -1,0 +1,43 @@
+<div class="flex flex-col">
+    {{#if (eq skillRollModifier "advantage")}}
+        <p class="my-2">
+            <span class="font-bold">{{localize "roe.general.result"}}:</span>
+
+            {{#if (eq actor.type "protagonist")}} [[ 3d6kh2 + {{skillAttribute}} + {{skillTraining}} + {{skillModifier}} ]] {{/if}}
+
+            {{#if (eq actor.type "antagonist")}} [[ 3d6kh2 + {{skillAttribute}} + {{skillTraining}} + {{skillModifier}} + {{power}} ]] {{/if}}
+
+            {{#if narrativePoints}}
+                ( <span class="font-bold">{{localize "roe.general.narrativePoints"}}:</span> [[/r 1d6 ]]{Rolar} )
+            {{/if}}
+        </p>
+    {{/if}}
+
+    {{#if (eq skillRollModifier "disadvantage")}}
+        <p class="my-2">
+            <span class="font-bold">{{localize "roe.general.result"}}:</span>
+
+            {{#if (eq actor.type "protagonist")}} [[ 3d6kl2 + {{skillAttribute}} + {{skillTraining}} + {{skillModifier}} ]] {{/if}}
+
+            {{#if (eq actor.type "antagonist")}} [[ 3d6kl2 + {{skillAttribute}} + {{skillTraining}} + {{skillModifier}} + {{power}} ]] {{/if}}
+
+            {{#if narrativePoints}}
+                ( <span class="font-bold">{{localize "roe.general.narrativePoints"}}:</span> [[/r 1d6 ]]{Rolar} )
+            {{/if}}
+        </p>
+    {{/if}}
+
+    {{#if (eq skillRollModifier "")}}
+        <p class="my-2">
+            <span class="font-bold">{{localize "roe.general.result"}}:</span> 
+            
+            {{#if (eq actor.type "protagonist")}} [[ 2d6 + {{skillAttribute}} + {{skillTraining}} + {{skillModifier}} ]] {{/if}}
+            
+            {{#if (eq actor.type "antagonist")}} [[ 2d6 + {{skillAttribute}} + {{skillTraining}} + {{skillModifier}} + {{power}} ]] {{/if}}
+
+            {{#if narrativePoints}}
+                ( <span class="font-bold">{{localize "roe.general.narrativePoints"}}:</span> [[/r 1d6 ]]{Rolar} )
+            {{/if}}
+        </p>
+    {{/if}}
+</div>
