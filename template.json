@@ -106,16 +106,20 @@
             ],
             "afinity":"",
             "ascendant":"",
-            "durability":0,
-            "damageResistance":0,
+            "armorDurability":0,
+            "armorDurabilityMax":0,
+            "shieldDurability":0,
+            "shieldDurabilityMax":0,
+            "physicalDamageResistance":0,
+            "magicalDamageResistance":0,
+            "shieldDefenseBonus":0,
             "level":1,
             "power": 1,
             "species": "none",
             "threat":"",
             "traits": [],
             "traitsInitial":0,
-            "traitsNotes":"",
-            "magicPower":0
+            "traitsNotes":""
         }
     },
     "Item":{
