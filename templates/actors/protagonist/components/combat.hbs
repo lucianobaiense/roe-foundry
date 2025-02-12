@@ -1,0 +1,140 @@
+<div class="combat">
+    <div class="section">
+        <div class="section-title">
+            <img src="https://jp.finalfantasyxvi.com/assets/images/top/news/arrow.svg" />
+            <h2>{{localize 'roe.general.combat'}}</h2>
+        </div>
+
+        <div class="section-form">
+            <label for="system.rollModifier">Rolagem</label>
+            <select name="system.rollModifier">
+                {{selectOptions config.rollModifier selected=data.system.rollModifier localize=true}}
+            </select>
+        </div>    
+    </div>
+
+    <div class="combat-col"> 
+        <div class="basic-actions">
+            <div class="sub-section">
+                <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
+                <h3>Ataques Básicos</h3>
+                <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
+            </div>
+
+            <div class="basic-actions-form">
+                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.basicAttacks.melee'}}" data-attribute="{{data.system.melee.value}}" data-attribute-modifier="{{data.system.melee.mod}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.basicAttacks.melee'}}
+                </a>
+
+                <input name="system.melee.value" type="number" value="{{data.system.melee.value}}" data-dtype="Number" />
+                <p>◆</p>
+                <input name="system.melee.mod" type="number" value="{{data.system.melee.mod}}" data-dtype="Number" />
+            </div>
+
+            <div class="basic-actions-form">
+                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.basicAttacks.distance'}}" data-attribute="{{data.system.distance.value}}" data-attribute-modifier="{{data.system.distance.mod}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.basicAttacks.distance'}}
+                </a>
+
+                <input name="system.distance.value" type="number" value="{{data.system.distance.value}}" data-dtype="Number" />
+                <p>◆</p>
+                <input name="system.distance.mod" type="number" value="{{data.system.distance.mod}}" data-dtype="Number" />
+            </div>
+
+            <div class="basic-actions-form">
+                <a class="roll ressonance-label" data-roll-type="action-basic" data-name="{{localize 'roe.basicAttacks.ressonance'}}" data-attribute="{{data.system.ressonance.value}}" data-attribute-modifier="{{data.system.ressonance.mod}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.basicAttacks.ressonance'}}
+                </a>
+
+                <select name="system.ressonance.attribute">
+                    {{selectOptions config.ressonanceAttribute selected=data.system.ressonance.attribute localize=true}}
+                </select>
+
+                <input name="system.ressonance.value" type="number" value="{{data.system.ressonance.value}}" data-dtype="Number" />
+                <p>◆</p>
+                <input name="system.ressonance.mod" type="number" value="{{data.system.ressonance.mod}}" data-dtype="Number" />
+            </div>
+        
+            <div class="sub-section mt-1">
+                <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
+                <h3>Defesas Básicas</h3>
+                <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
+            </div>
+
+            <div class="basic-actions-form">
+                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.basicDefenses.agile'}}" data-attribute="{{data.system.agile.value}}" data-attribute-modifier="{{data.system.agile.mod}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.basicDefenses.agile'}}
+                </a>
+
+                <input name="system.agile.value" type="number" value="{{data.system.agile.value}}" data-dtype="Number" />
+                <p>◆</p>
+                <input name="system.agile.mod" type="number" value="{{data.system.agile.mod}}" data-dtype="Number" />
+            </div>
+
+            <div class="basic-actions-form">
+                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.basicDefenses.physical'}}" data-attribute="{{data.system.physical.value}}" data-attribute-modifier="{{data.system.physical.mod}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.basicDefenses.physical'}}
+                </a>
+
+                <input name="system.physical.value" type="number" value="{{data.system.physical.value}}" data-dtype="Number" />
+                <p>◆</p>
+                <input name="system.physical.mod" type="number" value="{{data.system.physical.mod}}" data-dtype="Number" />
+            </div>
+
+            <div class="basic-actions-form">
+                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.basicDefenses.mental'}}" data-attribute="{{data.system.mental.value}}" data-attribute-modifier="{{data.system.mental.mod}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.basicDefenses.mental'}}
+                </a>
+
+                <input name="system.mental.value" type="number" value="{{data.system.mental.value}}" data-dtype="Number" />
+                <p>◆</p>
+                <input name="system.mental.mod" type="number" value="{{data.system.mental.mod}}" data-dtype="Number" />
+            </div>
+        </div>
+
+        <div class="actions">
+            <div class="actions-title">
+                <div class="sub-section">
+                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
+                    <h3>{{localize 'roe.general.actions'}}</h3>
+                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
+                </div>
+                <a class="item-create" data-type="action" title="{{localize 'roe.general.add'}} {{localize 'roe.general.actions'}}">
+                    <i class="fas fa-square-plus"></i>
+                </a>
+            </div>
+
+            {{#each actions as |action|}}
+                <div class="item action-item" data-id="{{action._id}}">
+                    <div class="action-item-col">
+                        <div class="action-item-row">
+                            <img src="{{action.img}}" alt="{{ability.name}}">
+
+                            <input class="item-edit-inline" data-field="name" type="text" value="{{action.name}}" data-dtype="String"/>
+                            
+                            <a class="roll" data-roll-type="action" data-name="{{action.name}}" title="{{localize 'roe.general.roll'}}">
+                                <i class="fas fa-dice"></i>
+                            </a>
+
+                            <a class="item-edit-popup" data-type="equipment" title="{{localize 'roe.general.edit'}} {{localize 'roe.general.abilities'}}">
+                                <i class="fas fa-pen-to-square"></i>
+                            </a>      
+
+                            <a class="item-delete" data-type="equipment" title="{{localize 'roe.general.delete'}} {{localize 'roe.general.abilities'}}">
+                                <i class="fas fa-trash"></i>
+                            </a>  
+                        </div>
+                        
+                        {{#if action.system.traits}}
+                            <div class="traits">
+                                {{#each action.system.traits as |trait|}}
+                                    <p data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+                                {{/each}}
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

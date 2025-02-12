@@ -1,27 +1,80 @@
 {   
     "roe": {
         "ability": {
+            "rank": "Ranque",
+            "type": "Tipo",
             "label": "Habilidade",
             "action": "Ação",
-            "activation": "Ativação",
+            "roll": "Rolagem",
+            "difficulty": "DIF",
             "cost": "Custo",
+            "flavor": "Flavor",
             "description": "Descrição",
-            "evolutionOne": "Evolução 1",
-            "evolutionTwo": "Evolução 2",
-            "evolutionThree": "Evolução 3",
+            "success": "Sucesso",
+            "successCritical": "Sucesso Ressoante ✦",
+            "prerequisite": "Pré-requisito",
             "duration": "Duração",
             "range": "Alcance",
             "target": "Alvo",
+            "resistance": "Resistência",
+            "sortilege": "É um Sortilégio?",
             "traits": "Traços"
+        },
+        "abilityTypes": {
+            "passive": "Passiva",
+            "active": "Ativa"
+        },
+        "abilitySortilege": {
+            "yes": "Sim",
+            "no": "Não"
+        },
+        "abilityCostResource": {
+            "none": "",
+            "hp": "PV",
+            "ep": "PE",
+            "np": "PN",
+            "component": "Componente",
+            "other": "Outros"
         },
         "action": {
             "label": "Ação",
             "damage": "Dano",
-            "damageCritical": "Dano Ressoante",
+            "damageCritical": "Dano ✦",
+            "damageType": "Tipo de Dano",
+            "damageTypeCritical": "Tipo de Dano ✦",
+            "flavor": "Flavor",
             "hit": "Acerto",
             "traits": "Traços"
         },
-        "aspects": {
+        "actionTypes": {
+            "simple": "▷, Ação Simples",
+            "standard": "►, 1 Ação Padrão",
+            "standardFull": "►►, 2 Ações Padrões",
+            "fast": "☈, Ação Rápida",
+            "special": "Especial"
+        },
+        "costTypes": {
+            "hp": "PV",
+            "ep": "PE",
+            "np": "PN",
+            "component": "Componente",
+            "other": "Outros"
+        },
+        "damageTypes": {
+            "cutting": "Corte",
+            "shocking": "Impacto",
+            "piercing": "Perfuração",
+            "air": "Brisa",
+            "darkness": "Escuridão",
+            "earth": "Terra",
+            "ether": "Ether",
+            "fire": "Chama",
+            "light": "Luz",
+            "moon": "Lua",
+            "nature": "Natureza",
+            "water": "Água"
+        },
+        "heritage": {
             "none": "",
             "caligem": "Caligem",
             "etherno": "Etherno",
@@ -34,37 +87,68 @@
             "vatra": "Vatra",
             "zephyr": "Zéfiro"
         },
+        "goals": {
+            "chronicle": "Crônica",
+            "personal": "Pessoal",
+            "shortTerm": "Curto Prazo (1 XP)",
+            "longTerm": "Longo Prazo (5 XP)"
+        },
         "attributes": {
             "body": "Corpo",
             "essence": "Essência",
             "dexterity": "Destreza",
             "perception": "Percepção",
             "influence": "Influência",
-            "mind": "Mente"
+            "mind": "Mente",
+            "bodyShort": "COR",
+            "essenceShort": "ESS",
+            "dexterityShort": "DES",
+            "perceptionShort": "PER",
+            "influenceShort": "INF",
+            "mindShort": "MEN"
+        },
+        "careers": {
+            "none": "",
+            "brute": "Bruto",
+            "resistant": "Resistente",
+            "alchemist": "Alquimista",
+            "mystic": "Místico",
+            "athlete": "Atleta",
+            "skillful": "Habilidoso",
+            "explorer": "Explorador",
+            "researcher": "Investigador",
+            "artist": "Artista",
+            "diplomat": "Diplomata",
+            "academic": "Acadêmico",
+            "artisan": "Artesão"
         },
         "equipment": {
+            "rank": "Ranque",
             "label": "Equipamento",
             "damage": "Dano",
-            "damageResistance": "Resistência a Dano",
+            "damageResistancePhysical": "RDF",
+            "damageResistanceMagic": "RDM",
             "defenseBonus": "Bônus de Defesa",
+            "flavor": "Flavor",
             "description": "Descrição",
             "durability": "Durabilidade",
             "equipped": "Equipado",
-            "equipmentType": "Tipo de Equipamento",
+            "equipmentType": "Tipo",
             "geo": "Geo",
             "minimumBody": "Corpo Mínimo",
             "quantity": "Quantidade",
             "runes": "Runas",
             "slots": "Espaços",
             "traits": "Traços",
-            "weaponType": "Tipo de Arma"
+            "weaponType": "Categoria"
         },
         "equipmentTypes": {
+            "none": "",
             "armor": "Armadura",
             "consumable": "Consumível",
             "magicFocus": "Foco Mágico",
-            "shield": "Escudo",
-            "weapon": "Armas"
+            "weapon": "Armas",
+            "other": "Outros"
         },
         "essences": {
             "air": "Brisa",
@@ -77,6 +161,22 @@
             "nature": "Natureza",
             "water": "Água"
         },
+        "essenceOptions": {
+            "none": "",
+            "awake": "Despertada",
+            "afinity": "Afinidade",
+            "aversion": "Aversão"
+        },
+        "ressonanceAttribute": {
+            "influence": "(INF)",
+            "mind": "(MEN)",
+            "perception": "(PER)"
+        },
+        "rollModifier": {
+            "regular": "Normal",
+            "advantage": "Vantagem",
+            "disadvantage": "Desvantagem"
+        },
         "general": {
             "abilities": "Habilidades",
             "actions": "Ações",
@@ -84,21 +184,28 @@
             "afinity": "Afinidade",
             "antagonist": "Antagonista",
             "armor": "Armadura",
+            "archetype": "Arquétipo",
             "ascendant": "Ascendente",
-            "aspect": "Aspecto",
+            "heritage": "Herança",
             "attributes": "Atributos",
+            "combat": "Combate",
             "consumable": "Consumível",
             "damageResistance": "FIS/MAG",
             "defenseBonus": "BD",
             "delete": "Excluir",
+            "dissonances": "Dissonâncias",
             "edit": "Editar",
+            "essences": "Essências",
             "equipments": "Equipamentos",
             "etherPoints": "PE",
-            "experience": "Exp.",
+            "experience": "Experiência",
+            "goals": "Objetivos",
             "healthPoints": "PV",
-            "impulses": "Impulsos",
+            "impulse": "Impulso",
+            "inventary": "Inventário",
             "level": "Nível",
             "magicPower": "Poder Mágico",
+            "magicFocus": "Foco Mágico",
             "name": "Nome",
             "narrativePoints": "PN",
             "notes": "Anotações",
@@ -118,12 +225,20 @@
             "threat": "Ameaça",
             "traits": "Traços",
             "traitsNotes": "Notas dos Traços",
-            "weapon": "Arma"
+            "weapon": "Arma",
+            "physicalDamageResistance": "RDF",
+            "magicalDamageResistance": "RDM",
+            "information": "Informações"
         },
-        "resistances": {
-            "stamina": "Vigor",
-            "dodge": "Esquiva",
-            "will": "Vontade"
+        "basicAttacks": {
+            "melee": "Ataque Corporal",
+            "distance": "Ataque à Distância",
+            "ressonance": "Ressonância"
+        },
+        "basicDefenses": {
+            "agile": "Defesa Ágil",
+            "physical": "Defesa Física",
+            "mental": "Defesa Mental"
         },
         "size": {
             "small": "Pequeno",
@@ -138,6 +253,7 @@
             "colossal": "Colossal"
         },
         "species": {
+            "none": "",
             "beasts": "Bestas",
             "constructs": "Construtos",
             "elementals": "Elementais",
@@ -145,39 +261,19 @@
             "inferius": "Inferius",
             "monsters": "Monstros"
         },
+        "archetypes": {
+            "none": "",
+            "shooter": "Atirador",
+            "attacker": "Atacante",
+            "conjurer": "Conjurador",
+            "speedy": "Rápido",
+            "tough": "Durão",
+            "smart": "Esperto"
+        },
         "speed": {
             "fast": "Rápido",
             "normal": "Normal",
             "slow": "Lento"
-        },
-        "skill": {
-            "label": "Perícia",
-            "attribute": "Atributo",
-            "description": "Descrição",
-            "modifier": "Modificador",
-            "training": "Treinamento"
-        },
-        "skillList": {
-            "none": "",
-            "alchemy": "Alquimia",
-            "athletics": "Atletismo"
-        },
-        "spell": {
-            "label": "Sortilégio",
-            "action": "Ação",
-            "cost": "Custo",
-            "description": "Descrição",
-            "duration": "Duração",
-            "enchants": "Encantos",
-            "hit": "Acerto",
-            "range": "Alcance",
-            "target": "Alvo",
-            "traits": "Traços"
-        },
-        "spellEffects": {
-            "action": "Ação",
-            "downtime": "Interlúdio",
-            "exploration": "Exploração"
         },
         "threat": {
             "low": "Baixa",
@@ -192,13 +288,15 @@
             "note": "Observações"
         },
         "weaponTypes": {
-            "unarmed": "Ataques Desarmados",
+            "martial": "Armas Marciais",
             "extensible": "Armas Extensíveis",
             "light": "Armas Leves",
             "long": "Armas Longas",
             "heavy": "Armas Pesadas",
+            "shields": "Escudos",
             "throw": "Armas Arremessáveis",
             "projectile": "Armas de Projetil",
+            "magic": "Armas Mágicas",
             "lightMechanical": "Armas Mecânicas Leves",
             "heavyMechanical": "Armas Mecânicas Pesadas"
         }

@@ -8,42 +8,70 @@
             "attributes":{
                 "body": {
                     "value": 1,
-                    "modifier": 0
+                    "modifier": 0,
+                    "evolution": 0
                 },
                 "essence":{
                     "value": 1,
-                    "modifier": 0
+                    "modifier": 0,
+                    "evolution": 0
                 },
                 "dexterity":{
                     "value": 1,
-                    "modifier": 0
+                    "modifier": 0,
+                    "evolution": 0
                 },
                 "perception":{
                     "value": 1,
-                    "modifier": 0
+                    "modifier": 0,
+                    "evolution": 0
                 },
                 "influence":{
                     "value": 1,
-                    "modifier": 0
+                    "modifier": 0,
+                    "evolution": 0
                 },
                 "mind":{
                     "value": 1,
-                    "modifier": 0
+                    "modifier": 0,
+                    "evolution": 0
                 }
             },
-            "resistances":{
-                "stamina":{
-                    "value": 0,
-                    "modifier": 0
-                },
-                "dodge":{
-                    "value": 0,
-                    "modifier": 0
-                },
-                "will":{
-                    "value": 0,
-                    "modifier": 0
-                }
+            "essences":{
+                "water": "none",
+                "air": "none",
+                "fire": "none",
+                "earth": "none",
+                "light": "none",
+                "darkness": "none",
+                "moon": "none",
+                "nature": "none"
+            },
+            "careers":{
+                "brute": 0,
+                "bruteEvolution": 0,
+                "resistant": 0,
+                "resistantEvolution": 0, 
+                "alchemist": 0,
+                "alchemistEvolution": 0,
+                "mystic": 0, 
+                "mysticEvolution": 0, 
+                "athlete": 0,
+                "athleteEvolution": 0,
+                "skillful": 0,
+                "skillfulEvolution": 0,  
+                "explorer": 0,
+                "explorerEvolution": 0,
+                "researcher": 0,
+                "researcherEvolution": 0,
+                "artist": 0,
+                "artistEvolution": 0,
+                "diplomat": 0, 
+                "diplomatEvolution": 0, 
+                "academic": 0, 
+                "academicEvolution": 0,
+                "artisan": 0, 
+                "artisanEvolution": 0
             },
             "others":{
                 "size":"medium",
@@ -61,158 +89,165 @@
                     "mod":0
                 },
                 "narrativePoints":{
+                    "one": 0,
+                    "two": 0,
+                    "three": 0,
+                    "four": 0,
+                    "five": 0,
+                    "six": 0
+                },
+                "experience":{
+                    "one": 0,
+                    "two": 0,
+                    "three": 0,
+                    "four": 0,
+                    "five": 0,
+                    "six": 0,
+                    "seven": 0,
+                    "eight": 0,
+                    "nine": 0,
+                    "ten": 0,
+                    "eleven": 0,
+                    "twelve": 0,
+                    "thirteen": 0,
+                    "fourteen": 0,
+                    "fifth": 0
+                },
+                "corruption":{
+                    "value": 0,
+                    "max": 0
+                }
+            },
+            "basicAttacks": {
+                "melee": {
                     "value":0,
-                    "max":5,
                     "mod":0
                 },
-                "magicPower":{
+                "distance": {
                     "value":0,
-                    "mod":0,
-                    "focus":0
+                    "mod":0
+                },
+                "ressonance": {
+                    "attribute": "influence",
+                    "value":0,
+                    "mod":0
+                }
+            },
+            "basicDefenses": {
+                "agile": {
+                    "value":0,
+                    "mod":0
+                },
+                "physical": {
+                    "value":0,
+                    "mod":0
+                },
+                "mental": {
+                    "value":0,
+                    "mod":0
                 }
             }
         },
         "protagonist":{
             "templates":[
                 "attributes",
-                "resistances",
+                "careers",
+                "basicAttacks",
+                "basicDefenses",
                 "others",
                 "resources"
             ],
-            "afinity":"",
-            "ascendant":"",
-            "aspect":"",
+            "level":1,
+            "heritage":"",
+            "impulse1":"",
+            "impulse2":"",
+            "goals": {
+                "chronicleShort": "",
+                "personalShort": "",
+                "chronicleLong": "",
+                "personalLong": ""
+            },
+            "slots":0,
+            "maxSlots":0,
+            "overweight":0,
             "armorDurability":0,
             "armorDurabilityMax":0,
-            "shieldDurability":0,
-            "shieldDurabilityMax":0,
             "physicalDamageResistance":0,
             "magicalDamageResistance":0,
-            "shieldDefenseBonus":0,
-            "experience":0,
-            "impulses":"",
-            "level":1,
-            "maxSlots":0,
-            "notes":"",
-            "origin":"",
-            "overweight":0,
-            "slots":0
+            "dissonances":"",
+            "rollModifier":"regular",
+            "notes":""
         },
         "antagonist":{
             "templates":[
-                "attributes",
-                "resistances",
-                "resources"
+                "essences",
+                "resources",
+                "others",
+                "basicAttacks",
+                "basicDefenses"
             ],
-            "afinity":"",
-            "ascendant":"",
-            "armorDurability":0,
-            "armorDurabilityMax":0,
-            "shieldDurability":0,
-            "shieldDurabilityMax":0,
+            "level":1,
+            "species": "none",
+            "power": 1,
+            "archetype1":"",
+            "archetype2":"",
             "physicalDamageResistance":0,
             "magicalDamageResistance":0,
-            "shieldDefenseBonus":0,
-            "level":1,
-            "power": 1,
-            "species": "none",
-            "threat":"",
             "traits": [],
-            "traitsInitial":0,
-            "traitsNotes":""
+            "traitsInitial":2,
+            "traitsNotes":"",
+            "rollModifier":"regular"
         }
     },
     "Item":{
         "types":[
             "ability",
             "action",
-            "equipment",
-            "skill",
-            "spell",
-            "trait"
+            "equipment"
         ],
         "ability":{
+            "prerequisite":"",
+            "rank": 1,
+            "type": "passive",
+            "sortilege": "no",
             "action":"",
-            "activation":"",
             "cost": "",
+            "costResource": "",
+            "roll":"",
+            "difficulty": 0,
+            "flavor": "",
             "description": "",
             "duration":"",
-            "evolutionOne":"",
-            "evolutionTwo":"",
-            "evolutionThree":"",
             "range":"",
             "target":"",
+            "resistance":"",
             "traits":[]
         },
         "action":{
             "damage": 0,
             "damageCritical": 0,
+            "damageType": "",
+            "damageTypeCritical": "",
+            "flavor": "",
             "hit": 0,
-            "traits":[],
-            "rollModifier":"",
-            "rollModifierList": {
-                "advantage": "VAN",
-                "disadvantage": "DES"
-            }
+            "traits":[]
         },
         "equipment":{
-            "damage":0,
-            "damageResistance":0,
+            "rank": 1,
+            "damage": "",
+            "damageResistancePhysical":0,
+            "damageResistanceMagic":0,
             "defenseBonus":0,
+            "flavor":"",
             "description":"",
             "durability":0,
-            "equipped": false,
             "equipmentType":"",
             "geo":0,
-            "minimumBody":0,
             "quantity":0,
             "runes":0,
             "slots":0,
             "traits":[],
             "weaponType":""
-        },
-        "skill":{
-            "attributeList": {
-                "body": "COR",
-                "essence": "ESS",
-                "dexterity": "DES",
-                "perception": "PER",
-                "influence": "INF",
-                "mind": "MEN"
-            },
-            "description": "",
-            "modifier":0,
-            "rollModifier":"",
-            "rollModifierList": {
-                "advantage": "VAN",
-                "disadvantage": "DES"
-            },
-            "training":1
-        },
-        "spell":{
-            "action":"",
-            "cost": 1,
-            "description": "",
-            "duration":"",
-            "effects": {
-                "action": "",
-                "downtime": "",
-                "exploration": ""
-            },
-            "enchants":[],
-            "hit":0,
-            "range":"",
-            "rollModifier":"",
-            "rollModifierList": {
-                "advantage": "VAN",
-                "disadvantage": "DES"
-            },
-            "target":"",
-            "traits":[]
-        },
-        "trait":{
-            "description": "",
-            "note": ""
         }
     }
 }

@@ -1,0 +1,108 @@
+<div class="chat">
+    <div class="chat-row">
+        
+        <img src="{{img}}" alt="{{name}}"/>
+
+        {{#if system.flavor}}
+            {{safe system.flavor}}
+        {{/if}}
+    </div>
+
+    {{#if system.rank}}
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.equipment.rank"}}</p>    
+                <p>{{system.rank}}</p>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if system.equipmentType}}
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.equipment.equipmentType"}}</p>
+                <p>{{localize (concat "roe.equipmentTypes." i system.equipmentType)}}</p>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if (eq system.equipmentType "armor")}} 
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.equipment.damageResistancePhysical"}}</p>
+                <p>{{system.damageResistancePhysical}}</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.equipment.damageResistanceMagic"}}</p>
+                <p>{{system.damageResistanceMagic}}</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.equipment.runes"}}</p>
+                <p>{{system.runes}}</p>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if (eq system.equipmentType "weapon")}} 
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.equipment.weaponType"}}</p>
+                <p>{{localize (concat "roe.weaponTypes." i system.weaponType)}}</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.equipment.damage"}}</p>
+                <p>{{system.damage}}</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.equipment.runes"}}</p>
+                <p>{{system.runes}}</p>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if system.description}}
+        <hr>
+
+        <div class="chat-col chat-description">
+            {{safe system.description}}
+        </div>
+    {{/if}}
+
+    {{#if system.traits}}
+        <hr>
+
+        <div class="traits">
+            {{#each system.traits as |trait|}}
+                <p data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+            {{/each}}
+        </div>
+    {{/if}}
+</div>

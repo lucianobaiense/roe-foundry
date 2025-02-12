@@ -1,0 +1,404 @@
+<div class="attributes">
+    <div class="section">
+        <div class="section-title">
+            <img src="https://jp.finalfantasyxvi.com/assets/images/top/news/arrow.svg" />
+            <h2>{{localize 'roe.general.attributes'}}</h2>
+        </div>
+
+        <a class="toggle-box" data-target="attribute-box">
+            <i class="fa-solid fa-gear"></i>
+        </a>
+    </div>
+
+    <div id="attribute-box" class="hidden-box">
+        <div class="box-row">
+            <div class="box-row">
+                <input name="system.body.evolution" type="checkbox" {{checked data.system.body.evolution}}>
+                <div class="box-col">
+                    <label for="system.body.value">{{localize 'roe.attributes.body'}}</label>
+                    <input name="system.body.value"  type="number" value="{{data.system.body.value}}" data-dtype="Number"/>
+                </div> 
+            </div>
+
+            <div class="box-col">
+                <label for="system.body.modifier">Modificador</label>
+                <input name="system.body.modifier" type="number" value="{{data.system.body.modifier}}" data-dtype="Number"/>
+            </div>
+
+            <div class="box-divider">
+                <p>Carreiras</p>
+            </div>
+
+            <div class="box-row">
+                <input name="system.bruteEvolution" type="checkbox" {{checked data.system.bruteEvolution}}>
+                <div class="box-col">
+                    <label for="system.brute">{{localize 'roe.careers.brute'}}</label>
+                    <input name="system.brute" type="number" value="{{data.system.brute}}" data-dtype="Number" />
+                </div> 
+            </div>
+
+            <div class="box-row">
+                <input type="checkbox" name="system.resistantEvolution" {{checked data.system.resistantEvolution}}>
+                <div class="box-col">
+                    <label for="system.resistant">{{localize 'roe.careers.resistant'}}</label>
+                    <input name="system.resistant" type="number" value="{{data.system.resistant}}" data-dtype="Number"/>
+                </div> 
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="box-row">
+            <div class="box-row">
+                <input name="system.essence.evolution" type="checkbox" {{checked data.system.essence.evolution}}>
+                <div class="box-col">
+                    <label for="system.essence.value">{{localize 'roe.attributes.essence'}}</label>
+                    <input name="system.essence.value" class="status" type="number" value="{{data.system.essence.value}}" data-dtype="Number"/>
+                </div> 
+            </div>
+
+            <div class="box-col">
+                <label for="system.essence.modifier">Modificador</label>
+                <input name="system.essence.modifier" class="status" type="number" value="{{data.system.essence.modifier}}" data-dtype="Number"/>
+            </div>
+
+            <div class="box-divider">
+                <p>Carreiras</p>
+            </div>
+
+            <div class="box-row">
+                <input name="system.alchemistEvolution" type="checkbox" {{checked data.system.alchemistEvolution}}>
+                <div class="box-col">
+                    <label for="system.alchemist">{{localize 'roe.careers.alchemist'}}</label>
+                    <input name="system.alchemist" type="number" value="{{data.system.alchemist}}" data-dtype="Number"/>
+                </div> 
+            </div>
+
+            <div class="box-row">
+                <input type="checkbox" name="system.mysticEvolution" {{checked data.system.mysticEvolution}}>
+                <div class="box-col">
+                    <label for="system.mystic">{{localize 'roe.careers.mystic'}}</label>
+                    <input name="system.mystic" type="number" value="{{data.system.mystic}}" data-dtype="Number"/>
+                </div> 
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="box-row">
+            <div class="box-row">
+                <input name="system.dexterity.evolution" type="checkbox" {{checked data.system.dexterity.evolution}}>
+                <div class="box-col">
+                    <label for="system.dexterity.value">{{localize 'roe.attributes.dexterity'}}</label>
+                    <input name="system.dexterity.value" class="status" type="number" value="{{data.system.dexterity.value}}" data-dtype="Number"/>
+                </div> 
+            </div>
+
+            <div class="box-col">
+                <label for="system.dexterity.modifier">Modificador</label>
+                <input name="system.dexterity.modifier" class="status" type="number" value="{{data.system.dexterity.modifier}}" data-dtype="Number"/>
+            </div>
+
+            <div class="box-divider">
+                <p>Carreiras</p>
+            </div>
+
+            <div class="box-row">
+                <input name="system.athleteEvolution" type="checkbox" {{checked data.system.athleteEvolution}}>
+                <div class="box-col">
+                    <label for="system.athlete">{{localize 'roe.careers.athlete'}}</label>
+                    <input name="system.athlete" type="number" value="{{data.system.athlete}}" data-dtype="Number"/>
+                </div> 
+            </div>
+
+            <div class="box-row">
+                <input type="checkbox" name="system.skillfulEvolution" {{checked data.system.skillfulEvolution}}>
+                <div class="box-col">
+                    <label for="system.skillful">{{localize 'roe.careers.skillful'}}</label>
+                    <input name="system.skillful" type="number" value="{{data.system.skillful}}" data-dtype="Number"/>
+                </div> 
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="box-row">
+            <div class="box-row">
+                <input name="system.perception.evolution" type="checkbox" {{checked data.system.perception.evolution}}>
+                <div class="box-col">
+                    <label for="system.perception.value">{{localize 'roe.attributes.perception'}}</label>
+                    <input name="system.perception.value" class="status" type="number" value="{{data.system.perception.value}}" data-dtype="Number"/>
+                </div> 
+            </div>
+
+            <div class="box-col">
+                <label for="system.perception.modifier">Modificador</label>
+                <input name="system.perception.modifier" class="status" type="number" value="{{data.system.perception.modifier}}" data-dtype="Number"/>
+            </div>
+
+            <div class="box-divider">
+                <p>Carreiras</p>
+            </div>
+
+            <div class="box-row">
+                <input name="system.explorerEvolution" type="checkbox" {{checked data.system.explorerEvolution}}>
+                <div class="box-col">
+                    <label for="system.explorer">{{localize 'roe.careers.explorer'}}</label>
+                    <input name="system.explorer" type="number" value="{{data.system.explorer}}" data-dtype="Number"/>
+                </div> 
+            </div>
+
+            <div class="box-row">
+                <input type="checkbox" name="system.researcherEvolution" {{checked data.system.researcherEvolution}}>
+                <div class="box-col">
+                    <label for="system.researcher">{{localize 'roe.careers.researcher'}}</label>
+                    <input name="system.researcher" type="number" value="{{data.system.researcher}}" data-dtype="Number"/>
+                </div> 
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="box-row">
+            <div class="box-row">
+                <input name="system.influence.evolution" type="checkbox" {{checked data.system.influence.evolution}}>
+                <div class="box-col">
+                    <label for="system.influence.value">{{localize 'roe.attributes.influence'}}</label>
+                    <input name="system.influence.value" class="status" type="number" value="{{data.system.influence.value}}" data-dtype="Number"/>
+                </div> 
+            </div>
+
+            <div class="box-col">
+                <label for="system.influence.modifier">Modificador</label>
+                <input name="system.influence.modifier" class="status" type="number" value="{{data.system.influence.modifier}}" data-dtype="Number"/>
+            </div>
+
+            <div class="box-divider">
+                <p>Carreiras</p>
+            </div>
+
+            <div class="box-row">
+                <input name="system.artistEvolution" type="checkbox" {{checked data.system.artistEvolution}}>
+                <div class="box-col">
+                    <label for="system.artist">{{localize 'roe.careers.artist'}}</label>
+                    <input name="system.artist" type="number" value="{{data.system.artist}}" data-dtype="Number"/>
+                </div> 
+            </div>
+
+            <div class="box-row">
+                <input type="checkbox" name="system.diplomatEvolution" {{checked data.system.diplomatEvolution}}>
+                <div class="box-col">
+                    <label for="system.diplomat">{{localize 'roe.careers.diplomat'}}</label>
+                    <input name="system.diplomat" type="number" value="{{data.system.diplomat}}" data-dtype="Number"/>
+                </div> 
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="box-row">
+            <div class="box-row">
+                <input name="system.mind.evolution" type="checkbox" {{checked data.system.mind.evolution}}>
+                <div class="box-col">
+                    <label for="system.mind.value">{{localize 'roe.attributes.mind'}}</label>
+                    <input name="system.mind.value" class="status" type="number" value="{{data.system.mind.value}}" data-dtype="Number"/>
+                </div> 
+            </div>
+
+            <div class="box-col">
+                <label for="system.mind.modifier">Modificador</label>
+                <input name="system.mind.modifier" class="status" type="number" value="{{data.system.mind.modifier}}" data-dtype="Number"/>
+            </div>
+
+            <div class="box-divider">
+                <p>Carreiras</p>
+            </div>
+
+            <div class="box-row">
+                <input name="system.academicEvolution" type="checkbox" {{checked data.system.academicEvolution}}>
+                <div class="box-col">
+                    <label for="system.academic">{{localize 'roe.careers.academic'}}</label>
+                    <input name="system.academic" type="number" value="{{data.system.academic}}" data-dtype="Number"/>
+                </div> 
+            </div>
+
+            <div class="box-row">
+                <input type="checkbox" name="system.artisanEvolution" {{checked data.system.artisanEvolution}}>
+                <div class="box-col">
+                    <label for="system.artisan">{{localize 'roe.careers.artisan'}}</label>
+                    <input name="system.artisan" type="number" value="{{data.system.artisan}}" data-dtype="Number"/>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <div class="attributes-row">
+        <ul>
+            <li class="attribute-title">
+                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.attributes.body'}}" data-attribute="{{data.system.body.value}}" data-attribute-modifier="{{data.system.body.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.attributes.body'}}
+                </a>
+                +{{data.system.body.value}} 
+                {{#unless (eq data.system.body.modifier 0)}}
+                    (+{{data.system.body.modifier}})
+                {{/unless}}
+            </li>
+
+            <ul>
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.brute'}}" data-attribute="{{data.system.body.value}}" data-attribute-modifier="{{data.system.body.modifier}}" data-career="{{data.system.brute}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.brute'}}
+                    </a>
+                    +{{data.system.brute}}
+                </li>
+
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.resistant'}}" data-attribute="{{data.system.body.value}}" data-attribute-modifier="{{data.system.body.modifier}}" data-career="{{data.system.resistant}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.resistant'}}
+                    </a>
+                    +{{data.system.resistant}}
+                </li>
+            </ul>
+        </ul>
+
+        <ul>
+            <li class="attribute-title"> 
+                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.attributes.essence'}}" data-attribute="{{data.system.essence.value}}" data-attribute-modifier="{{data.system.essence.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.attributes.essence'}}
+                </a>
+                +{{data.system.essence.value}}
+                {{#unless (eq data.system.essence.modifier 0)}}
+                    (+{{data.system.essence.modifier}})
+                {{/unless}}
+            </li>
+
+            <ul>
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.alchemist'}}" data-attribute="{{data.system.essence.value}}" data-attribute-modifier="{{data.system.essence.modifier}}" data-career="{{data.system.alchemist}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.alchemist'}}
+                    </a>
+                    +{{data.system.alchemist}}
+                </li>
+
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.mystic'}}" data-attribute="{{data.system.essence.value}}" data-attribute-modifier="{{data.system.essence.modifier}}" data-career="{{data.system.mystic}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.mystic'}}
+                    </a>
+                    +{{data.system.mystic}}
+                </li>
+            </ul>
+        </ul>
+
+        <ul>
+            <li class="attribute-title">
+                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.attributes.dexterity'}}" data-attribute="{{data.system.dexterity.value}}" data-attribute-modifier="{{data.system.dexterity.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.attributes.dexterity'}}
+                </a>
+                +{{data.system.dexterity.value}}
+                {{#unless (eq data.system.dexterity.modifier 0)}}
+                    (+{{data.system.dexterity.modifier}})
+                {{/unless}}
+            </li>
+
+            <ul>
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.athlete'}}" data-attribute="{{data.system.dexterity.value}}" data-attribute-modifier="{{data.system.dexterity.modifier}}" data-career="{{data.system.athlete}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.athlete'}}
+                    </a>
+                    +{{data.system.athlete}}
+                </li>
+
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.skillful'}}" data-attribute="{{data.system.dexterity.value}}" data-attribute-modifier="{{data.system.dexterity.modifier}}" data-career="{{data.system.resistant}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.skillful'}}
+                    </a>
+                    +{{data.system.skillful}}
+                </li>
+            </ul>
+        </ul>
+
+        <ul>
+            <li class="attribute-title">
+                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.attributes.perception'}}" data-attribute="{{data.system.perception.value}}" data-attribute-modifier="{{data.system.perception.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.attributes.perception'}}
+                </a>
+                +{{data.system.perception.value}}
+                {{#unless (eq data.system.perception.modifier 0)}}
+                    (+{{data.system.perception.modifier}})
+                {{/unless}}
+            </li>
+
+            <ul>
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.explorer'}}" data-attribute="{{data.system.perception.value}}" data-attribute-modifier="{{data.system.perception.modifier}}" data-career="{{data.system.explorer}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.explorer'}}
+                    </a>
+                    +{{data.system.explorer}}
+                </li>
+
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.researcher'}}" data-attribute="{{data.system.perception.value}}" data-attribute-modifier="{{data.system.perception.modifier}}" data-career="{{data.system.researcher}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.researcher'}}
+                    </a>
+                    +{{data.system.researcher}}
+                </li>
+            </ul>
+        </ul>
+
+        <ul>
+            <li class="attribute-title">
+                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.attributes.influence'}}" data-attribute="{{data.system.influence.value}}" data-attribute-modifier="{{data.system.influence.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.attributes.influence'}}
+                </a>
+                +{{data.system.influence.value}}
+                {{#unless (eq data.system.influence.modifier 0)}}
+                    (+{{data.system.influence.modifier}})
+                {{/unless}}
+            </li>
+
+            <ul>
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.artist'}}" data-attribute="{{data.system.influence.value}}" data-attribute-modifier="{{data.system.influence.modifier}}" data-career="{{data.system.artist}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.artist'}}
+                    </a>
+                    +{{data.system.artist}}
+                </li>
+
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.diplomat'}}" data-attribute="{{data.system.influence.value}}" data-attribute-modifier="{{data.system.influence.modifier}}" data-career="{{data.system.diplomat}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.diplomat'}}
+                    </a>
+                    +{{data.system.diplomat}}
+                </li>
+            </ul>
+        </ul>
+
+        <ul>
+            <li class="attribute-title">
+                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.attributes.mind'}}" data-attribute="{{data.system.mind.value}}" data-attribute-modifier="{{data.system.mind.modifier}}" title="{{localize 'roe.general.roll'}}">
+                    {{localize 'roe.attributes.mind'}}
+                </a>
+                +{{data.system.mind.value}}
+                {{#unless (eq data.system.mind.modifier 0)}}
+                    (+{{data.system.mind.modifier}})
+                {{/unless}}
+            </li>
+
+            <ul>
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.academic'}}" data-attribute="{{data.system.mind.value}}" data-attribute-modifier="{{data.system.mind.modifier}}" data-career="{{data.system.academic}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.academic'}}
+                    </a>
+                    +{{data.system.academic}}
+                </li>
+
+                <li>
+                    <a class="roll" data-roll-type="career" data-name="{{localize 'roe.careers.artisan'}}" data-attribute="{{data.system.mind.value}}" data-attribute-modifier="{{data.system.mind.modifier}}" data-career="{{data.system.artisan}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.careers.artisan'}}
+                    </a>
+                    +{{data.system.artisan}}
+                </li>
+            </ul>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,234 @@
+<div class="essences">
+    <div class="section">
+        <div class="section-title">
+            <img src="https://jp.finalfantasyxvi.com/assets/images/top/news/arrow.svg" />
+            <h2>{{localize 'roe.general.essences'}}</h2>
+        </div>
+
+        <a class="toggle-box" data-target="essence-box">
+            <i class="fa-solid fa-gear"></i>
+        </a>
+    </div>
+
+    <div id="essence-box" class="essence-row hidden-box">   
+        <div class="essence-col">
+            <div class="essence-form">
+                <label for="system.water">{{localize 'roe.essences.water'}}</label>
+                <select name="system.water">
+                    {{selectOptions config.essenceOptions selected=data.system.water localize=true}}
+                </select>
+            </div>
+
+            <div class="essence-form">
+                <label for="system.air">{{localize 'roe.essences.air'}}</label>
+                <select name="system.air">
+                    {{selectOptions config.essenceOptions selected=data.system.air localize=true}}
+                </select>
+            </div>
+
+            <div class="essence-form">
+                <label for="system.fire">{{localize 'roe.essences.fire'}}</label>
+                <select name="system.fire">
+                    {{selectOptions config.essenceOptions selected=data.system.fire localize=true}}
+                </select>
+            </div>
+
+            <div class="essence-form">
+                <label for="system.earth">{{localize 'roe.essences.earth'}}</label>
+                <select name="system.earth">
+                    {{selectOptions config.essenceOptions selected=data.system.earth localize=true}}
+                </select>
+            </div>
+        </div>
+
+        <div class="essence-col">
+            <div class="essence-form">
+                <label for="system.light">{{localize 'roe.essences.light'}}</label>
+                <select name="system.light">
+                    {{selectOptions config.essenceOptions selected=data.system.light localize=true}}
+                </select>
+            </div>
+
+            <div class="essence-form">
+                <label for="system.darkness">{{localize 'roe.essences.darkness'}}</label>
+                <select name="system.darkness">
+                    {{selectOptions config.essenceOptions selected=data.system.darkness localize=true}}
+                </select>
+            </div>
+
+            <div class="essence-form">
+                <label for="system.moon">{{localize 'roe.essences.moon'}}</label>
+                <select name="system.moon">
+                    {{selectOptions config.essenceOptions selected=data.system.moon localize=true}}
+                </select>
+            </div>
+
+            <div class="essence-form">
+                <label for="system.nature">{{localize 'roe.essences.nature'}}</label>
+                <select name="system.nature">
+                    {{selectOptions config.essenceOptions selected=data.system.nature localize=true}}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-essences">
+        <ul>
+            {{#unless (eq system.water "none")}}
+                {{#if (eq system.water "awake")}}
+                    <li>
+                {{/if}}
+
+                {{#if (eq system.water "afinity")}}
+                    <li class="green">
+                {{/if}}
+
+                {{#if (eq system.water "aversion")}}
+                    <li class="red">
+                {{/if}}
+                    {{localize 'roe.essences.water'}}
+                    ({{localize (concat "roe.essenceOptions." i data.system.water)}}) 
+                </li>
+            {{/unless}}
+
+            {{#unless (eq system.air "none")}}
+                {{#if (eq system.air "awake")}}
+                    <li>
+                {{/if}}
+
+                {{#if (eq system.air "afinity")}}
+                    <li class="green">
+                {{/if}}
+
+                {{#if (eq system.air "aversion")}}
+                    <li class="red">
+                {{/if}}
+                    {{localize 'roe.essences.air'}}
+                    ({{localize (concat "roe.essenceOptions." i data.system.air)}}) 
+                </li>
+            {{/unless}}
+
+            {{#unless (eq system.fire "none")}}
+                {{#if (eq system.fire "awake")}}
+                    <li>
+                {{/if}}
+
+                {{#if (eq system.fire "afinity")}}
+                    <li class="green">
+                {{/if}}
+
+                {{#if (eq system.fire "aversion")}}
+                    <li class="red">
+                {{/if}}
+                    {{localize 'roe.essences.fire'}}
+                    ({{localize (concat "roe.essenceOptions." i data.system.fire)}}) 
+                </li>
+            {{/unless}}
+
+            {{#unless (eq system.earth "none")}}
+                {{#if (eq system.earth "awake")}}
+                    <li>
+                {{/if}}
+
+                {{#if (eq system.earth "afinity")}}
+                    <li class="green">
+                {{/if}}
+
+                {{#if (eq system.earth "aversion")}}
+                    <li class="red">
+                {{/if}}
+                    {{localize 'roe.essences.earth'}}
+                    ({{localize (concat "roe.essenceOptions." i data.system.earth)}}) 
+                </li>
+            {{/unless}}
+
+            {{#unless (eq system.light "none")}}
+                {{#if (eq system.light "awake")}}
+                    <li>
+                {{/if}}
+
+                {{#if (eq system.light "afinity")}}
+                    <li class="green">
+                {{/if}}
+
+                {{#if (eq system.light "aversion")}}
+                    <li class="red">
+                {{/if}}
+                    {{localize 'roe.essences.light'}}
+                    ({{localize (concat "roe.essenceOptions." i data.system.light)}}) 
+                </li>
+            {{/unless}}
+
+            {{#unless (eq system.darkness "none")}}
+                {{#if (eq system.darkness "awake")}}
+                    <li>
+                {{/if}}
+
+                {{#if (eq system.darkness "afinity")}}
+                    <li class="green">
+                {{/if}}
+
+                {{#if (eq system.darkness "aversion")}}
+                    <li class="red">
+                {{/if}}
+                    {{localize 'roe.essences.darkness'}}
+                    ({{localize (concat "roe.essenceOptions." i data.system.darkness)}}) 
+                </li>
+            {{/unless}}
+
+            {{#unless (eq system.moon "none")}}
+                {{#if (eq system.moon "awake")}}
+                    <li>
+                {{/if}}
+
+                {{#if (eq system.moon "afinity")}}
+                    <li class="green">
+                {{/if}}
+
+                {{#if (eq system.moon "aversion")}}
+                    <li class="red">
+                {{/if}}
+                    {{localize 'roe.essences.moon'}}
+                    ({{localize (concat "roe.essenceOptions." i data.system.moon)}}) 
+                </li>
+            {{/unless}}
+
+            {{#unless (eq system.nature "none")}}
+                {{#if (eq system.nature "awake")}}
+                    <li>
+                {{/if}}
+
+                {{#if (eq system.nature "afinity")}}
+                    <li class="green">
+                {{/if}}
+
+                {{#if (eq system.nature "aversion")}}
+                    <li class="red">
+                {{/if}}
+                    {{localize 'roe.essences.nature'}}
+                    ({{localize (concat "roe.essenceOptions." i data.system.nature)}}) 
+                </li>
+            {{/unless}}
+        </ul>
+
+    </div>
+
+    <div class="dissonances">
+        <div class="dissonance-row">
+            <div class="sub-section">
+                <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
+                <h3>{{localize 'roe.general.dissonances'}}</h3>
+                <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
+            </div>
+
+            <div class="corruption">
+                <label>Corrupção</label>
+                <input name="system.corruption.value" type="number" value="{{data.system.corruption.value}}" data-dtype="Number" />
+                <p>/</p>
+                <input name="system.corruption.max" type="number" value="{{data.system.corruption.max}}" data-dtype="Number" />
+            </div>
+        </div>
+
+        <input name="system.dissonances" type="text" value="{{data.system.dissonances}}" data-dtype="String" />
+    </div>
+</div>

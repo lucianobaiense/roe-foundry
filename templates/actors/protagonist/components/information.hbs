@@ -1,0 +1,43 @@
+<div class="info">
+    <div class="info-row">
+        <div class="info-form">
+            <label for="name">{{localize 'roe.general.name'}}</label>
+            <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'roe.general.protagonist'}}" data-dtype="String" />
+        </div>
+
+        <div class="info-form">
+            <label for="system.heritage">{{localize 'roe.general.heritage'}}</label>
+            <select name="system.heritage">
+                {{selectOptions config.heritages selected=data.system.heritage localize=true}}
+            </select>
+        </div>
+    </div>
+
+    <div class="info-row">
+        <div class="info-form">
+            <label for="system.size">{{localize 'roe.general.size'}}</label>
+            <select name="system.size">
+                {{selectOptions config.size selected=data.system.size localize=true}}
+            </select>
+        </div>
+
+        <div class="info-form">
+            <label for="system.speed">{{localize 'roe.general.speed'}}</label>
+            <select name="system.speed">
+                {{selectOptions config.speed selected=data.system.speed localize=true}}
+            </select>
+        </div>
+    </div>
+
+    <div class="info-row">
+        <div class="info-form">
+            <label for="system.impulse1">{{localize 'roe.general.impulse'}} 1</label>
+            <input name="system.impulse1" type="text" value="{{data.system.impulse1}}" data-dtype="String" />
+        </div>
+
+        <div class="info-form">
+            <label for="system.impulse2">{{localize 'roe.general.impulse'}} 2</label>
+            <input name="system.impulse2" type="text" value="{{data.system.impulse2}}" data-dtype="String" />
+        </div>
+    </div>
+</div>

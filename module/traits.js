@@ -12,7 +12,11 @@ traits.ability = [
     {
         label: "Preparação",
         description: "Habilidades com esse traço só podem ser ativadas no início de uma cena de ação antes da primeira rodada. Somente uma habilidade com esse traço pode ser ativada por vez pelo mesmo personagem."
-    }
+    },
+    {
+        label: "Sortilégio",
+        description: "Uma habilidade com esse traço requer um teste de ativação para não causar surtos abissais."
+    },
 ]
 
 traits.antagonist = [
@@ -85,6 +89,10 @@ traits.antagonist = [
         description: "O antagonista suga as forças vitais de um alvo que tenha ferido. Escolha uma ação (que cause dano) que não tenha sido modificada por um traço, sempre que causa dano com ela recupera 1 PV por nível de Poder. Esse traço pode ser adquirido várias vezes para ações ou habilidades diferentes."
     },
     {
+        label: "Durão",
+        description: "Concede um bônus de +1 em rolagens de Defesa Física e +5 Pontos de Vida (PV)."
+    },
+    {
         label: "Elite",
         description: "O antagonista é mais poderoso que o comum. Possui dois turnos durante uma mesma rodada."
     },
@@ -123,6 +131,10 @@ traits.antagonist = [
     {
         label: "Força de Vontade",
         description: "O antagonista possui uma vontade sobrenatural que intensifica suas habilidades. Enquanto estiver com a condição Machucado, o Antagonista recebe algum bônus ou habilidade especial, como por exemplo: O tipo de dano causado é modificado, o dano causado ignora RD ou alguma ação recebe novos traços, como Área ou Explosivo."
+    },
+    {
+        label: "Forte",
+        description: "Concede um bônus de +1 em rolagens de Ataque Corporal e +2 de dano das mesmas."
     },
     {
         label: "Habilidade",
@@ -220,6 +232,18 @@ traits.armor = [
         description: "Esse item pode ser fabricado usando a perícia Manufatura."
     },
     {
+        label: "Pesada 1",
+        description: "Requer um mínimo de Corpo 1 para ser usada."
+    },
+    {
+        label: "Pesada 2",
+        description: "Requer um mínimo de Corpo 2 para ser usada."
+    },
+    {
+        label: "Pesada 3",
+        description: "Requer um mínimo de Corpo 3 para ser usada."
+    },
+    {
         label: "Restritivo",
         description: "Itens com esse traço são pesadas e restringem os movimentos dos usuários. Você recebe Desvantagem em rolagens de Atletismo. Você recebe -1 de penalidade na rua reação de Esquiva."
     }
@@ -260,39 +284,46 @@ traits.consumable = [
     }
 ]
 
-traits.shield = [
+traits.magicFocus = [
     {
-        label: "Ágil",
-        description: "Armas ágeis permitem escolher entre Corpo ou Destreza quando causa Dano."
-    },
-    {
-        label: "Cobertura",
-        description: "Com uma ação de Interação você se coloca em Cobertura Menor."
-    },
-    {
-        label: "Restritivo",
-        description: "Itens com esse traço são pesados e restringem os movimentos dos usuários. Você recebe Desvantagem em rolagens de Atletismo. Você recebe -1 de penalidade na rua reação de Esquiva."
+        label: "Foco Elemental",
+        description: "Quando compra um Foco Mágico você deve escolher a qual Essência Primal ele está ligado, os  bônus concedidos pelo foco só são aplicados quando você está ressoando um sortilégio relacionado com a essência escolhida."
     }
 ]
 
-traits.spell = [
-    {
-        label: "Ataque",
-        description: "Sortilégios que causam dano."
-    },
-    {
-        label: "Condição Positiva",
-        description: "Você só pode manter ativo um efeito com esse traço por vez. Se você receber outro efeito que aplique esse traço, deve escolher qual deles vai ficar ativo."
-    },
-    {
-        label: "Cura",
-        description: "Sortilégios que recuperam pontos de vida."
-    },
-    {
-        label: "Invocação",
-        description: "Sortilégios que invocam criaturas."
-    }
-]
+// traits.shield = [
+//     {
+//         label: "Ágil",
+//         description: "Armas ágeis permitem escolher entre Corpo ou Destreza quando causa Dano."
+//     },
+//     {
+//         label: "Cobertura",
+//         description: "Com uma ação de Interação você se coloca em Cobertura Menor."
+//     },
+//     {
+//         label: "Restritivo",
+//         description: "Itens com esse traço são pesados e restringem os movimentos dos usuários. Você recebe Desvantagem em rolagens de Atletismo. Você recebe -1 de penalidade na rua reação de Esquiva."
+//     }
+// ]
+
+// traits.spell = [
+//     {
+//         label: "Ataque",
+//         description: "Sortilégios que causam dano."
+//     },
+//     {
+//         label: "Condição Positiva",
+//         description: "Você só pode manter ativo um efeito com esse traço por vez. Se você receber outro efeito que aplique esse traço, deve escolher qual deles vai ficar ativo."
+//     },
+//     {
+//         label: "Cura",
+//         description: "Sortilégios que recuperam pontos de vida."
+//     },
+//     {
+//         label: "Invocação",
+//         description: "Sortilégios que invocam criaturas."
+//     }
+// ]
 
 traits.weapon = [
     {
@@ -320,8 +351,16 @@ traits.weapon = [
         description: "Armas com esse traço fazem barulho ao serem usadas. Quando ataca com uma arma com esse traço todos os personagens na Cena podem fazer um teste Prontidão contra DIF 9 para perceber sua localização."
     },
     {
+        label: "Bloquear",
+        description: "Você pode usar uma Ação Simples para erguer seu Escudo, essa ação concede o valor de Ranque do seu escudo em sua Defesa Física."
+    },
+    {
         label: "Brutal",
         description: "Armas brutais causam +1d6 de dano (do mesmo tipo do dano original) quando você consegue um Sucesso Ressonante em uma ação de Atacar."
+    },
+    {
+        label: "Cobertura",
+        description: "Com uma ação de Interação você se coloca em Cobertura Menor."
     },
     {
         label: "Combo",

@@ -1,0 +1,53 @@
+<div class="avatar">
+        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+</div>
+
+<div class="resources">
+    <hr>
+
+    <div class="resource-col">
+        <div class="resource-col">
+            <div class="resource-form">
+                <label for="system.healthPoints.max" class="red">{{localize 'roe.general.healthPoints'}}</label>
+                <input name="system.healthPoints.value" type="number" value="{{data.system.healthPoints.value}}" data-dtype="Number" />
+                <p>/</p>
+                <input name="system.healthPoints.max" type="number" value="{{data.system.healthPoints.max}}" data-dtype="Number" />
+                <p>◆</p>
+                <input name="system.healthPoints.mod" type="number" value="{{data.system.healthPoints.mod}}" data-dtype="Number" />
+            </div>
+
+            <div class="resource-bar">
+                <progress id="health-bar" max="{{data.system.healthPoints.max}}" value="{{data.system.healthPoints.value}}" class="red">{{data.system.healthPoints.value}}</progress>
+            </div>
+        </div>
+        
+        <div class="resource-col">
+            <div class="resource-form">
+                <label for="system.etherPoints.max" class="blue">{{localize 'roe.general.etherPoints'}}</label>
+                <input name="system.etherPoints.value" type="number" value="{{data.system.etherPoints.value}}" data-dtype="Number" />
+                <p>/</p>
+                <input name="system.etherPoints.max" type="number" value="{{data.system.etherPoints.max}}" data-dtype="Number" />
+                <p>◆</p>
+                <input name="system.etherPoints.mod" type="number" value="{{data.system.etherPoints.mod}}" data-dtype="Number" />
+            </div>
+
+            <div class="resource-bar">
+                <progress id="ether-bar" max="{{data.system.etherPoints.max}}" value="{{data.system.etherPoints.value}}" class="blue">{{data.system.etherPoints.value}}</progress>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="resource-row">
+        <div class="resource-narrative">
+            <label for="">{{localize 'roe.general.narrativePoints'}}</label>
+            <input type="checkbox" name="system.narrativePoints.one" {{checked data.system.narrativePoints.one}}>
+            <input type="checkbox" name="system.narrativePoints.two" {{checked data.system.narrativePoints.two}}>
+            <input type="checkbox" name="system.narrativePoints.three" {{checked data.system.narrativePoints.three}}>
+            <input type="checkbox" name="system.narrativePoints.four" {{checked data.system.narrativePoints.four}}>
+            <input type="checkbox" name="system.narrativePoints.five" {{checked data.system.narrativePoints.five}}>
+            <input type="checkbox" name="system.narrativePoints.six" {{checked data.system.narrativePoints.six}}>
+        </div>
+    </div>
+</div>

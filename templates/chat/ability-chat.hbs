@@ -1,0 +1,220 @@
+<div class="chat">
+    <div class="chat-row">
+        <img src="{{img}}" alt="{{name}}"/>
+
+        {{#if system.flavor}}
+            {{safe system.flavor}}
+        {{/if}}
+    </div>
+
+    {{#if system.rank}}
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.ability.rank"}}</p>    
+                <p>{{system.rank}}</p>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if system.type}}
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.ability.type"}}</p>    
+                <p>
+                    {{#if (eq system.type "active" )}} 
+                        Ativa
+                    {{/if}}
+                    
+                    {{#if (eq system.type "passive" )}} 
+                        Passiva
+                    {{/if}}
+                </p>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if system.action}}
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.ability.action"}}</p>    
+                <p>{{localize (concat "roe.actionTypes." i system.action)}}</p>
+            </div>
+        </div>
+    {{/if}}
+    
+    {{#if system.cost}}
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.ability.cost"}}</p>
+                <p style="margin-right: 0.3em">{{system.cost}}</p>
+
+                {{!-- {{#if system.costResource }} --}}
+                {{#unless (eq system.costResource "none")}}
+                    <p>{{localize (concat "roe.costTypes." i system.costResource)}}</p>
+                {{/unless}}
+                {{!-- {{/if}} --}}
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if system.duration}}
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.ability.duration"}}</p>    
+                <p>{{system.duration}}</p>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if system.range}}
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.ability.range"}}</p>    
+                <p>{{system.range}}</p>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if system.target}}
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.ability.target"}}</p>    
+                <p>{{system.target}}</p>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if system.resistance}}
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.ability.resistance"}}</p>    
+                <p>{{system.resistance}}</p>
+            </div>
+        </div>
+    {{/if}}
+
+    {{!-- <h1>bbb{{system.sortilege}}</h1> --}}
+
+    {{#if (eq system.sortilege "yes")}}
+        <hr>
+
+        <div class="chat-row">
+            <div class="chat-roll">
+                {{#if (eq rollModifier "advantage")}}
+                    <p class="chat-roll-title chat-roll-title-advantage">{{localize "roe.basicAttacks.ressonance"}}</p>
+                    <p>[[/r 3d6kh2 + {{ressonance}} ]]{Rolar} contra {{localize "roe.ability.difficulty"}} {{rankDif}}</p>
+                {{/if}}  
+
+                {{#if (eq rollModifier "disadvantage")}}
+                    <p class="chat-roll-title chat-roll-title-disadvantage">{{localize "roe.basicAttacks.ressonance"}}</p>
+                    <p>[[/r 3d6kl2 + {{ressonance}} ]]{Rolar} contra {{localize "roe.ability.difficulty"}} {{rankDif}}</p>
+                {{/if}}  
+
+                {{#if (eq rollModifier "regular")}}
+                    <p class="chat-roll-title">{{localize "roe.basicAttacks.ressonance"}}</p>
+                    <p>[[/r 2d6 + {{ressonance}} ]]{Rolar} contra {{localize "roe.ability.difficulty"}} {{rankDif}}</p>
+                {{/if}}  
+            </div> 
+        </div>   
+    {{/if}}
+
+    {{!-- <h1>aaa{{system.rol}}</h1> --}}
+
+    {{#if system.roll}}
+        {{#unless (eq system.roll "none")}}
+            <hr>
+            
+            <div class="chat-row">
+                <div class="chat-roll">
+                    {{#if (eq rollModifier "advantage")}}
+                        <p class="chat-roll-title chat-roll-title-advantage">{{localize (concat "roe.careers." i careerName)}}</p>
+
+                        <p>
+                            [[/r 3d6kh2 + {{careerAttributeValue}} + {{careerAttributeValueMod}} + {{careerValue}} ]]{Rolar} 
+                            
+                            {{#if system.difficulty}}
+                                ( {{localize "roe.ability.difficulty"}} {{system.difficulty}} )
+                            {{/if}}
+                        </p>
+                    {{/if}}
+
+                    {{#if (eq rollModifier "disadvantage")}}
+                        <p class="chat-roll-title chat-roll-title-disadvantage">{{localize (concat "roe.careers." i careerName)}}</p>
+
+                        <p>
+                            [[/r 3d6kl2 + {{careerAttributeValue}} + {{careerAttributeValueMod}} + {{careerValue}} ]]{Rolar} 
+
+                            {{#if system.difficulty}}
+                                ( {{localize "roe.ability.difficulty"}} {{system.difficulty}} )
+                            {{/if}}
+                        </p>
+                    {{/if}}
+
+                    {{#if (eq rollModifier "regular")}}
+                        <p class="chat-roll-title">{{localize (concat "roe.careers." i careerName)}}</p>
+
+                        <p>
+                            [[/r 2d6 + {{careerAttributeValue}} + {{careerAttributeValueMod}} + {{careerValue}} ]]{Rolar} 
+                            
+                            {{#if system.difficulty}}
+                                ( {{localize "roe.ability.difficulty"}} {{system.difficulty}} )
+                            {{/if}}
+                        </p>
+                    {{/if}}                    
+                </div>
+            </div>
+        {{/unless}}
+    {{/if}}
+ 
+    {{#if system.description}}
+        <hr>
+
+        <div class="chat-col">
+            {{safe system.description}}
+        </div>
+    {{/if}}
+    
+    {{#if system.success}}
+        <hr>
+
+        <div class="chat-success">
+            <h3>{{localize "roe.ability.success"}}</h3>
+            {{safe system.success}}
+        </div>
+    {{/if}}
+    
+    {{#if system.successCritical}}
+        <hr>
+
+        <div class="chat-success">
+            <h3>{{localize "roe.ability.successCritical"}}</h3>
+            {{safe system.successCritical}}
+        </div>
+    {{/if}}
+
+    {{#if system.traits}}
+        <hr>
+
+        <div class="traits">
+            {{#each system.traits as |trait|}}
+                <p data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+            {{/each}}
+        </div>
+    {{/if}}
+</div>

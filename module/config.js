@@ -2,39 +2,105 @@ export const roe = {};
 
 roe.ability = {
     label: "roe.ability.label",
+    rank: "roe.ability.rank",
+    prerequisite: "roe.ability.prerequisite",
+    type: "roe.ability.type",
     action: "roe.ability.action",
-    activation: "roe.ability.activation",
     cost: "roe.ability.cost",
+    roll: "roe.ability.roll",
+    difficulty: "roe.ability.difficulty",
     description: "roe.ability.description",
+    success: "roe.ability.success",
+    successCritical: "roe.ability.successCritical",
     duration: "roe.ability.duration",
-    evolutionOne: "roe.ability.evolutionOne",
-    evolutionTwo: "roe.ability.evolutionTwo",
-    evolutionThree: "roe.ability.evolutionThree",
     range: "roe.ability.range",
     target: "roe.ability.target",
+    resistance: "roe.ability.resistance",
+    sortilege: "roe.ability.sortilege",
     traits: "roe.ability.traits"
+}
+
+roe.abilityTypes = {
+    passive: "roe.abilityTypes.passive",
+    active: "roe.abilityTypes.active"
+}
+
+roe.abilitySortilege = {
+    yes: "roe.abilitySortilege.yes",
+    no: "roe.abilitySortilege.no"
+}
+
+roe.abilityCostResource = {
+    none: "roe.abilityCostResource.none",
+    hp: "roe.abilityCostResource.hp",
+    ep: "roe.abilityCostResource.ep",
+    np: "roe.abilityCostResource.np",
+    component: "roe.abilityCostResource.component",
+    other: "roe.abilityCostResource.other"
+}
+
+roe.careers = {
+    none: "roe.careers.none",
+    brute: "roe.careers.brute",
+    resistant: "roe.careers.resistant",
+    alchemist: "roe.careers.alchemist",
+    mystic: "roe.careers.mystic",
+    athlete: "roe.careers.athlete",
+    skillful: "roe.careers.skillful",
+    explorer: "roe.careers.explorer",
+    researcher: "roe.careers.researcher",
+    artist: "roe.careers.artist",
+    diplomat: "roe.careers.diplomat",
+    academic: "roe.careers.academic",
+    artisan: "roe.careers.artisan",
 }
 
 roe.action = {
     label: "roe.action.label",
     damage: "roe.action.damage",
     damageCritical: "roe.action.damageCritical",
+    damageType: "roe.action.damageType",
+    damageTypeCritical: "roe.action.damageTypeCritical",
+    flavor: "roe.action.flavor",
     hit: "roe.action.hit",
     traits: "roe.action.traits"
 }
 
-roe.aspects = {
-    none: "",
-    caligem: "roe.aspects.caligem",
-    etherno: "roe.aspects.etherno",
-    floral: "roe.aspects.floral",
-    faun: "roe.aspects.faun",
-    lumina: "roe.aspects.lumina",
-    lump: "roe.aspects.lump",
-    lunar: "roe.aspects.lunar",
-    oceanic: "roe.aspects.oceanic",
-    vatra: "roe.aspects.vatra",
-    zephyr: "roe.aspects.zephyr"
+roe.actionTypes = {
+    simple: "roe.actionTypes.simple",
+    standard: "roe.actionTypes.standard",
+    standardFull: "roe.actionTypes.standardFull",
+    fast: "roe.actionTypes.fast",
+    special: "roe.actionTypes.special"
+}
+
+roe.damageTypes = {
+    cutting: "roe.damageTypes.cutting",
+    shocking: "roe.damageTypes.shocking",
+    piercing: "roe.damageTypes.piercing",
+    air: "roe.damageTypes.air",
+    darkness: "roe.damageTypes.darkness",
+    earth: "roe.damageTypes.earth",
+    ether: "roe.damageTypes.ether",
+    fire: "roe.damageTypes.fire",
+    light: "roe.damageTypes.light",
+    moon: "roe.damageTypes.moon",
+    nature: "roe.damageTypes.nature",
+    water: "roe.damageTypes.water"
+}
+
+roe.heritages = {
+    none: "roe.heritage.none",
+    caligem: "roe.heritage.caligem",
+    etherno: "roe.heritage.etherno",
+    floral: "roe.heritage.floral",
+    faun: "roe.heritage.faun",
+    lumina: "roe.heritage.lumina",
+    lump: "roe.heritage.lump",
+    lunar: "roe.heritage.lunar",
+    oceanic: "roe.heritage.oceanic",
+    vatra: "roe.heritage.vatra",
+    zephyr: "roe.heritage.zephyr"
 }
 
 roe.attributes = {
@@ -47,10 +113,13 @@ roe.attributes = {
 }
 
 roe.equipment = {
+    rank: "roe.equipment.rank",
     label: "roe.equipment.label",
     damage: "roe.equipment.damage",
-    damageResistance: "roe.equipment.damageResistance",
+    damageResistancePhysical: "roe.equipment.damageResistancePhysical",
+    damageResistanceMagic: "roe.equipment.damageResistanceMagic",
     defenseBonus: "roe.equipment.defenseBonus",
+    flavor: "roe.equipment.flavor",
     description: "roe.equipment.description",
     durability: "roe.equipment.durability",
     equipped: "roe.equipment.equipped",
@@ -65,16 +134,15 @@ roe.equipment = {
 }
 
 roe.equipmentTypes = {
-    none: "",
+    none: "roe.equipmentTypes.none",
     armor: "roe.equipmentTypes.armor",
     consumable: "roe.equipmentTypes.consumable",
     magicFocus: "roe.equipmentTypes.magicFocus",
-    shield: "roe.equipmentTypes.shield",
-    weapon: "roe.equipmentTypes.weapon"
+    weapon: "roe.equipmentTypes.weapon",
+    other: "roe.equipmentTypes.other"
 }
 
 roe.essences = {
-    none: "",
     air: "roe.essences.air",
     darkness: "roe.essences.darkness",
     earth: "roe.essences.earth",
@@ -86,6 +154,25 @@ roe.essences = {
     water: "roe.essences.water"
 }
 
+roe.essenceOptions = {
+    none: "roe.essenceOptions.none",
+    awake: "roe.essenceOptions.awake",
+    afinity: "roe.essenceOptions.afinity",
+    aversion: "roe.essenceOptions.aversion"
+}
+
+roe.rollModifier = {
+    regular: "roe.rollModifier.regular",
+    advantage: "roe.rollModifier.advantage",
+    disadvantage: "roe.rollModifier.disadvantage"
+}
+
+roe.ressonanceAttribute = {
+    influence: "roe.ressonanceAttribute.influence",
+    mind: "roe.ressonanceAttribute.mind",
+    perception: "roe.ressonanceAttribute.perception"
+}
+
 roe.general = {
     abilities: "roe.general.abilities",
     actions: "roe.general.actions",
@@ -94,7 +181,7 @@ roe.general = {
     antagonist: "roe.general.antagonist",
     armor: "roe.general.armor",
     ascendant: "roe.general.ascendant",
-    aspect: "roe.general.aspect",
+    heritage: "roe.general.heritage",
     attributes: "roe.general.attributes",
     consumable: "roe.general.consumable",
     delete: "roe.general.delete",
@@ -127,10 +214,16 @@ roe.general = {
     magicPower: "roe.general.magicPower"
 }
 
-roe.resistances = {
-    stamina: "roe.resistances.stamina",
-    dodge: "roe.resistances.dodge",
-    will: "roe.resistances.will"
+roe.basicAttacks = {
+    melee: "roe.basicAttacks.melee",
+    distance: "roe.basicAttacks.distance",
+    ressonance: "roe.basicAttacks.ressonance"
+}
+
+roe.basicDefenses = {
+    agile: "roe.basicDefenses.agile",
+    physical: "roe.basicDefenses.physical",
+    will: "mental.basicDefenses.mental"
 }
 
 roe.size = {
@@ -148,52 +241,29 @@ roe.sizeAntagonist = {
 }
 
 roe.species = {
-    none: "",
+    none: "roe.species.none",
     beasts: "roe.species.beasts",
     constructs: "roe.species.constructs",
     elementals: "roe.species.elementals",
     humanoids: "roe.species.humanoids",
     inferius: "roe.species.inferius",
-    monsters: "roe.species.monsters",
+    monsters: "roe.species.monsters"
+}
+
+roe.archetypes = {
+    none: "roe.archetypes.none",
+    shooter: "roe.archetypes.shooter",
+    attacker: "roe.archetypes.attacker",
+    conjurer: "roe.archetypes.conjurer",
+    speedy: "roe.archetypes.speedy",
+    tough: "roe.archetypes.tough",
+    smart: "roe.archetypes.smart"
 }
 
 roe.speed = {
     fast: "roe.speed.fast",
     normal: "roe.speed.normal",
     slow: "roe.speed.slow"
-}
-
-roe.skill = {
-    label: "roe.skill.label",
-    attribute: "roe.skill.attribute",
-    description: "roe.skill.description",
-    modifier: "roe.skill.modifier",
-    training: "roe.skill.training"
-}
-
-roe.skillList = {
-    none: "",
-    alchemy: "roe.skillList.alchemy",
-    athletics: "roe.skillList.athletics"
-}
-
-roe.spell = {
-    label: "roe.spell.label",
-    action: "roe.spell.action",
-    cost: "roe.spell.cost",
-    description: "roe.spell.description",
-    duration: "roe.spell.duration",
-    enchants: "roe.spell.enchants",
-    hit: "roe.spell.hit",
-    range: "roe.spell.range",
-    target: "roe.spell.target",
-    traits: "roe.spell.traits"
-}
-
-roe.spellEffects = {
-    action: "roe.spellEffects.action",
-    downtime: "roe.spellEffects.downtime",
-    exploration: "roe.spellEffects.exploration",
 }
 
 roe.threat = {
@@ -213,13 +283,15 @@ roe.trait = {
 
 roe.weaponTypes = {
     none: "",
-    unarmed: "roe.weaponTypes.unarmed",
+    martial: "roe.weaponTypes.martial",
     extensible: "roe.weaponTypes.extensible",
     light: "roe.weaponTypes.light",
     long: "roe.weaponTypes.long",
     heavy: "roe.weaponTypes.heavy",
+    shields: "roe.weaponTypes.shields",
     throw: "roe.weaponTypes.throw",
     projectile: "roe.weaponTypes.projectile",
+    magic: "roe.weaponTypes.magic",
     lightMechanical: "roe.weaponTypes.lightMechanical",
     heavyMechanical: "roe.weaponTypes.heavyMechanical"
 }

@@ -1,0 +1,157 @@
+<div class="roe-item">
+    <div class="roe-item-row">
+        <div class="roe-item-form">
+            <label for="system.rank">{{localize "roe.equipment.rank"}}</label>
+            <input name="system.rank" type="number" value="{{data.system.rank}}" data-dtype="Number"/>    
+        </div> 
+
+        <div class="roe-item-form">
+            <label for="system.equipmentType">{{localize "roe.equipment.equipmentType"}}</label>
+            <select name="system.equipmentType">
+                {{selectOptions config.equipmentTypes selected=data.system.equipmentType localize=true}}
+            </select>   
+        </div>
+    </div>
+
+    {{#if (eq system.equipmentType "weapon" )}}
+        <hr>
+
+        <div class="roe-item-row">
+            <div class="roe-item-form">
+                <label for="system.weaponType">{{localize 'roe.equipment.weaponType'}}</label>
+                <select name="system.weaponType">
+                    {{selectOptions config.weaponTypes selected=data.system.weaponType localize=true}}
+                </select>   
+            </div>
+        </div>    
+    {{/if}}
+
+    <hr>
+
+    <div class="roe-item-row">
+        <div class="roe-item-form">
+            <label for="system.quantity">{{localize "roe.equipment.quantity"}}</label>
+            <input name="system.quantity" type="number" value="{{data.system.quantity}}" data-dtype="Number"/>    
+        </div> 
+
+        <div class="roe-item-form">
+            <label for="system.slots">{{localize "roe.equipment.slots"}}</label>
+            <input name="system.slots" type="number" value="{{data.system.slots}}" data-dtype="Number"/>    
+        </div> 
+
+        <div class="roe-item-form">
+            <label for="system.geo">{{localize "roe.equipment.geo"}}</label>
+            <input name="system.geo" type="number" value="{{data.system.geo}}" data-dtype="Number"/>    
+        </div> 
+    </div>
+
+    {{#if (eq system.equipmentType "armor" )}}
+        <hr>
+
+        <div class="roe-item-row">
+            <div class="roe-item-form">
+                <label for="system.damageResistancePhysical">{{localize "roe.equipment.damageResistancePhysical"}}</label>
+                <input name="system.damageResistancePhysical" type="number" value="{{data.system.damageResistancePhysical}}" data-dtype="Number"/>    
+            </div>
+
+            <div class="roe-item-form">
+                <label for="system.damageResistanceMagic">{{localize "roe.equipment.damageResistanceMagic"}}</label>
+                <input name="system.damageResistanceMagic" type="number" value="{{data.system.damageResistanceMagic}}" data-dtype="Number"/>    
+            </div>
+
+            <div class="roe-item-form">
+                <label for="system.durability">{{localize "roe.equipment.durability"}}</label>
+                <input name="system.durability" type="number" value="{{data.system.durability}}" data-dtype="Number"/>    
+            </div>  
+
+            <div class="roe-item-form">
+                <label for="system.runes">{{localize "roe.equipment.runes"}}</label>
+                <input name="system.runes" type="number" value="{{data.system.runes}}" data-dtype="Number"/>    
+            </div>  
+        </div>
+    {{/if}}
+
+    {{#if (eq system.equipmentType "weapon" )}}
+        <hr>
+
+        <div class="roe-item-row">
+            <div class="roe-item-form">
+                <label for="system.damage">{{localize "roe.equipment.damage"}}</label>
+                <input name="system.damage" type="text" value="{{data.system.damage}}" data-dtype="String"/>    
+            </div>
+
+            <div class="roe-item-form">
+                <label for="system.runes">{{localize "roe.equipment.runes"}}</label>
+                <input name="system.runes" type="number" value="{{data.system.runes}}" data-dtype="Number"/>    
+            </div>  
+        </div>
+    {{/if}}
+
+
+    {{#if system.equipmentType}}
+        {{#unless (or (eq system.equipmentType "none") (eq system.equipmentType "other"))}}
+            <hr>
+
+            <div class="roe-item-col">
+                <div class="roe-item-form">
+                    <label for="traits">{{localize "roe.equipment.traits"}}</label>
+                    <select class="trait-selected">
+                        <option value="none"></option>
+                        {{#if (eq system.equipmentType "armor" )}}
+                            {{#each traits.armor as |trait|}}
+                                <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
+                            {{/each}}
+                        {{/if}}
+
+                        {{#if (eq system.equipmentType "consumable" )}}
+                            {{#each traits.consumable as |trait|}}
+                                <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
+                            {{/each}}
+                        {{/if}}
+
+                        {{#if (eq system.equipmentType "weapon" )}}
+                            {{#each traits.weapon as |trait|}}
+                                <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
+                            {{/each}}
+                        {{/if}}
+
+                        {{#if (eq system.equipmentType "magicFocus" )}}
+                            {{#each traits.magicFocus as |trait|}}
+                                <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
+                            {{/each}}
+                        {{/if}}
+                    </select>
+                </div>
+
+                <div class="traits">
+                    {{#each system.traits as |trait|}}
+                        <div class="traits-action">
+                            <p data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+                            <a class="trait-delete" data-trait="{{trait.label}}">
+                                <i class="fa-regular fa-circle-xmark"></i>
+                            </a>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/unless}}
+    {{/if}}
+
+    <hr>
+
+    <div class="roe-item-row">
+        <div class="roe-item-form-col">
+            <label for="system.flavor">{{localize "roe.ability.flavor"}}</p>
+            {{editor system.flavor target="system.flavor" button=true engine="tinymce" collaborate=false}}
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="roe-item-row">
+        <div class="roe-item-form-col">
+            <label for="system.description">{{localize "roe.ability.description"}}</p>
+            {{editor system.description target="system.description" button=true engine="tinymce" collaborate=false}}
+        </div>
+    </div>
+</div>

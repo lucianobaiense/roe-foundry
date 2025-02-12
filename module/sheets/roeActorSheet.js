@@ -3,77 +3,66 @@ import traits from "../traits.js"
 
 export default class roeActorSheet extends ActorSheet {
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["roe", "sheet", "item"],
             height: 900,
-            template: "systems/roe/templates/sheets/actors/actor-sheet.hbs",
-            width: 700,
+            template: "systems/roe/templates/actors/actor-sheet.hbs",
+            width: 900,
         });
     }
-
-    itemContextMenu = [
-        {
-            name: game.i18n.localize("roe.general.edit"),
-            icon: '<i class="fas fa-pen-to-square"></i>',
-            callback: element => {
-                const itemId = element.data("id")
-                const item = this.actor.items.get(itemId);
-                item.sheet.render(true)
-            }
-        },
-        {
-            name: game.i18n.localize("roe.general.delete"),
-            icon: '<i class="fas fa-trash"></i>',
-            callback: element => {
-                const itemId = element.data("id")
-                Item.deleteDocuments([itemId], {parent: this.actor});
-            }
-        }
-    ]
 
     async getData(options) {
         const context = await super.getData(options);
         context.config = CONFIG.roe
         context.system = context.data.system;
-        context.antagonistTraits = traits.antagonist
 
-        context.abilities = context.items.filter(function(item) {
-            return item.type == "ability"
-        });
+        console.log("system", context.system)
 
-        context.actions = context.items.filter(function(item) {
-            return item.type == "action"
-        });
-
-        context.equipments = context.items.filter(function(item) {
-            return item.type == "equipment"
-        })
-
-        context.skills = context.items.filter(function(item) {
-            return item.type == "skill"
-        });
-
-        context.spells = context.items.filter(function(item) {
-            return item.type == "spell"
-        });
-
-        context.traits = context.items.filter(function(item) {
-            return item.type == "trait"
-        });
-
-        // Prepare calculated data for Characters
-        context.system.stamina.value = context.system.body.value + context.system.body.modifier + context.system.essence.value + context.system.essence.modifier
-        context.system.dodge.value = context.system.dexterity.value + context.system.dexterity.modifier + context.system.perception.value + context.system.perception.modifier
-        context.system.will.value = context.system.influence.value + context.system.influence.modifier + context.system.mind.value + context.system.mind.modifier
-
-        // Prepare calculated data for Protagonist Characters
         if (context.actor.type == "protagonist") {
+            context.abilities = context.items.filter(function(item) {
+                return item.type == "ability"
+            });
+    
+            context.actions = context.items.filter(function(item) {
+                return item.type == "action"
+            });
+    
+            context.equipments = context.items.filter(function(item) {
+                return item.type == "equipment"
+            })
+    
+            context.skills = context.items.filter(function(item) {
+                return item.type == "skill"
+            });
+    
+            context.spells = context.items.filter(function(item) {
+                return item.type == "spell"
+            });
+    
+            context.traits = context.items.filter(function(item) {
+                return item.type == "trait"
+            });
 
-            context.system.healthPoints.max = (context.system.body.value * 10) + (context.system.body.value * context.system.level) + context.system.healthPoints.mod
-            context.system.etherPoints.max = (context.system.essence.value * 5) + context.system.level + context.system.etherPoints.mod
-            context.system.narrativePoints.max = 5 + context.system.narrativePoints.mod
-            context.system.magicPower.value = (context.system.essence.value + context.system.essence.modifier) + context.system.magicPower.mod + context.system.magicPower.focus
+            // Prepare calculated basic attacks
+            context.system.melee.value = context.system.body.value + context.system.body.modifier + context.system.dexterity.value + context.system.dexterity.modifier
+            context.system.distance.value = context.system.dexterity.value + context.system.dexterity.modifier + context.system.mind.value + context.system.mind.modifier
 
+            if (context.system.ressonance.attribute == 'perception') {
+                context.system.ressonance.value = context.system.essence.value + context.system.essence.modifier + context.system.perception.value + context.system.perception.modifier
+
+            } else if (context.system.ressonance.attribute == 'influence') {
+                context.system.ressonance.value = context.system.essence.value + context.system.essence.modifier + context.system.influence.value + context.system.influence.modifier
+
+            } else {
+                context.system.ressonance.value = context.system.essence.value + context.system.essence.modifier + context.system.mind.value + context.system.mind.modifier
+            }
+
+            // Prepare calculated basic defenses
+            context.system.physical.value = context.system.body.value + context.system.body.modifier + context.system.essence.value + context.system.essence.modifier
+            context.system.agile.value = context.system.dexterity.value + context.system.dexterity.modifier + context.system.perception.value + context.system.perception.modifier
+            context.system.mental.value = context.system.influence.value + context.system.influence.modifier + context.system.mind.value + context.system.mind.modifier
+
+            // Set Max Slots
             if (context.system.size == "small") {
                 context.system.maxSlots = context.system.body.value + context.system.body.modifier + 6
                 context.system.overweight = 1
@@ -86,57 +75,21 @@ export default class roeActorSheet extends ActorSheet {
                 context.system.maxSlots = context.system.body.value + context.system.body.modifier + 10
                 context.system.overweight = 3
             }
+
+            // Set Current Slots
+            for (let item of context.equipments) {
+                let convertNumber = parseInt(item.system.slots)
+                context.system.slots = context.system.slots + convertNumber
+            }
         }
 
-        // Prepare calculated data for Antagonist Characters
         if (context.actor.type == "antagonist") {
+            console.log("antagonist")
 
-            if (context.system.threat == "low") {
-                context.system.power = 1
-                context.system.healthPoints.max = 10 + context.system.level + context.system.healthPoints.mod
-                context.system.etherPoints.max = 2 + context.system.level + context.system.level + context.system.etherPoints.mod
+            context.antagonistTraits = traits.antagonist
 
-            } else if (context.system.threat == "moderate") {
-                context.system.power = 2
-                context.system.healthPoints.max = 20 + (context.system.level * 2) + context.system.healthPoints.mod
-                context.system.etherPoints.max = 4 + context.system.level + context.system.level + context.system.etherPoints.mod
-
-            } else if (context.system.threat == "dangerous") {
-                context.system.power = 3
-                context.system.healthPoints.max = 40 + (context.system.level * 3) + context.system.healthPoints.mod
-                context.system.etherPoints.max = 8 + context.system.level + context.system.level + context.system.etherPoints.mod
-
-            } else if (context.system.threat == "extreme") {
-                context.system.power = 4
-                context.system.healthPoints.max = 80 + (context.system.level * 4) + context.system.healthPoints.mod
-                context.system.etherPoints.max = 16 + context.system.level + context.system.level + context.system.etherPoints.mod
-
-            } else if (context.system.threat == "deadly") {
-                context.system.power = 5
-                context.system.healthPoints.max = 160 + (context.system.level * 5) + context.system.healthPoints.mod
-                context.system.etherPoints.max = 32 + context.system.level + context.system.level + context.system.etherPoints.mod
-            }
-
-            if (context.system.species == "beasts") {
-                context.system.traitsInitial = 4
-
-            } else if (context.system.species == "constructs") {
-                context.system.traitsInitial = 3
-
-            } else if (context.system.species == "elementals") {
-                context.system.traitsInitial = 3
-
-            } else if (context.system.species == "humanoids") {
-                context.system.traitsInitial = 3
-
-            } else if (context.system.species == "inferius") {
-                context.system.traitsInitial = 3
-
-            } else if (context.system.species == "monsters") {
-                context.system.traitsInitial = 4
-            }
-
-            context.system.magicPower.value = context.system.power + (context.system.essence.value + context.system.essence.modifier) + context.system.magicPower.mod + context.system.magicPower.focus
+            context.system.healthPoints.max = 10 + parseInt(context.system.level) + parseInt(context.system.healthPoints.mod) + parseInt(context.system.power) 
+            context.system.etherPoints.max = parseInt(context.system.level) + parseInt(context.system.etherPoints.mod) + parseInt(context.system.power) 
         }
 
         return context;
@@ -147,7 +100,8 @@ export default class roeActorSheet extends ActorSheet {
 
         if (this.actor.isOwner) {
             html.find(".roll").click(this._onRoll.bind(this));
-            html.find(".item-roll").click(this._onItemRoll.bind(this));
+            html.find(".inventory-roll").click(this._onInventoryRoll.bind(this));
+            html.find(".ability-roll").click(this._onAbilityRoll.bind(this));
             html.find(".antagonist-trait-selected").change(this._onAntagonistTraitSelected.bind(this));
             html.find(".antagonist-trait-delete").click(this._onAntagonistTraitDelete.bind(this));
         }
@@ -157,10 +111,30 @@ export default class roeActorSheet extends ActorSheet {
             html.find(".item-edit-inline").change(this._onItemEditInline.bind(this));
             html.find(".item-edit-popup").click(this._onItemEditPopup.bind(this));
             html.find(".item-delete").click(this._onItemDelete.bind(this));
-            html.find(".species").change(this._onSpeciesChange.bind(this));
-    
-            new ContextMenu(html, ".item", this.itemContextMenu);
+            // html.find(".species").change(this._onSpeciesChange.bind(this));
         }
+
+        // Toogle Box
+        const actor = this.actor; // Obtém o ator da ficha
+
+        // Seleciona todos os botões de toggle e os respectivos boxes
+        html.find(".toggle-box").each((_, button) => {
+            const boxId = $(button).data("target"); // Obtém o ID do box
+            const box = html.find(`#${boxId}`);
+
+            // Obtém o estado salvo no flag correspondente
+            let isVisible = actor.getFlag("roe", `${boxId}Visible`) ?? false;
+
+            // Aplica a visibilidade inicial baseada no flag salvo
+            box.toggleClass("hidden-box", !isVisible);
+
+            // Evento de clique para alternar visibilidade
+            $(button).click(async () => {
+                isVisible = !isVisible;
+                box.toggleClass("hidden-box");
+                await actor.setFlag("roe", `${boxId}Visible`, isVisible);
+            });
+        });
     }
 
     async _onRoll(event) {
@@ -176,6 +150,16 @@ export default class roeActorSheet extends ActorSheet {
                 name: element.dataset.name,
                 attribute: element.dataset.attribute,
                 attributeModifier: element.dataset.attributeModifier
+            })
+        }
+
+        if (rollType == "career") {            
+            Dice.CareerRoll({
+                actor: this.actor,
+                name: element.dataset.name,
+                attribute: element.dataset.attribute,
+                attributeModifier: element.dataset.attributeModifier,
+                career: element.dataset.career,
             })
         }
 
@@ -196,26 +180,20 @@ export default class roeActorSheet extends ActorSheet {
             Dice.ActionRoll({
                 actor: this.actor,
                 name: element.dataset.name,
-                rollModifier: element.dataset.rollModifier,
+                // rollModifier: element.dataset.rollModifier,
                 type: rollType,
                 item: this.actor.items.get(itemId)
             })
         }
-    }
 
-    async _onItemRoll(event) {
-        event.preventDefault();
-
-        let element = event.currentTarget;
-        let itemId = element.closest(".item").dataset.id;
-        
-        Dice.ItemRoll({
-            actor: this.actor,
-            name: element.dataset.name,
-            rollModifier: element.dataset.rollModifier,
-            type: element.dataset.type,
-            item: this.actor.items.get(itemId)
-        })
+        if (rollType == "action-basic") { 
+            Dice.ActionBasicRoll({
+                actor: this.actor,
+                name: element.dataset.name,
+                attribute: element.dataset.attribute,
+                attributeModifier: element.dataset.attributeModifier,
+            })
+        }
     }
 
     async _onAntagonistTraitSelected(event) {
@@ -356,56 +334,84 @@ export default class roeActorSheet extends ActorSheet {
         return await Item.deleteDocuments([itemId], {parent: this.actor});
     }
 
-    async _onSpeciesChange(event) {
+    // async _onSpeciesChange(event) {
+    //     event.preventDefault();
+
+    //     const element = event.currentTarget;
+    //     let traitsList = []
+
+    //     // console.log(traits.antagonist)
+
+    //     if (element.value == "constructs") {
+    //         traitsList.push({ label: traits.antagonist[28].label, description: traits.antagonist[28].description })
+    //         traitsList.push({ label: traits.antagonist[38].label, description: traits.antagonist[38].description })
+    //         traitsList.push({ label: traits.antagonist[46].label, description: traits.antagonist[46].description })
+
+    //         return await this.object.update({
+    //             system: {
+    //                 traits: traitsList
+    //             }
+    //         });
+    //     }
+
+    //     if (element.value == "elementals") {
+    //         traitsList.push({ label: traits.antagonist[29].label, description: traits.antagonist[29].description })
+    //         traitsList.push({ label: traits.antagonist[46].label, description: traits.antagonist[46].description })
+
+    //         return await this.object.update({
+    //             system: {
+    //                 traits: traitsList
+    //             }
+    //         });
+    //     }
+
+    //     if (element.value == "humanoids") {
+    //         traitsList.push({ label: traits.antagonist[18].label, description: traits.antagonist[18].description })
+
+    //         return await this.object.update({
+    //             system: {
+    //                 traits: traitsList
+    //             }
+    //         });
+    //     }
+
+    //     if (element.value == "inferius") {
+    //         traitsList.push({ label: traits.antagonist[28].label, description: traits.antagonist[28].description })
+    //         traitsList.push({ label: traits.antagonist[38].label, description: traits.antagonist[38].description })
+
+    //         return await this.object.update({
+    //             system: {
+    //                 traits: traitsList
+    //             }
+    //         });
+    //     }
+    // }
+
+    async _onInventoryRoll(event) {
         event.preventDefault();
 
-        const element = event.currentTarget;
-        let traitsList = []
+        let element = event.currentTarget;
+        let itemId = element.closest(".item").dataset.id;
+        
+        Dice.InventoryRoll({
+            actor: this.actor,
+            name: element.dataset.name,
+            rollModifier: element.dataset.rollModifier,
+            type: element.dataset.type,
+            item: this.actor.items.get(itemId)
+        })
+    }
 
-        console.log(traits.antagonist)
+    async _onAbilityRoll(event) {
+        event.preventDefault();
 
-        if (element.value == "constructs") {
-            traitsList.push({ label: traits.antagonist[28].label, description: traits.antagonist[28].description })
-            traitsList.push({ label: traits.antagonist[38].label, description: traits.antagonist[38].description })
-            traitsList.push({ label: traits.antagonist[46].label, description: traits.antagonist[46].description })
-
-            return await this.object.update({
-                system: {
-                    traits: traitsList
-                }
-            });
-        }
-
-        if (element.value == "elementals") {
-            traitsList.push({ label: traits.antagonist[29].label, description: traits.antagonist[29].description })
-            traitsList.push({ label: traits.antagonist[46].label, description: traits.antagonist[46].description })
-
-            return await this.object.update({
-                system: {
-                    traits: traitsList
-                }
-            });
-        }
-
-        if (element.value == "humanoids") {
-            traitsList.push({ label: traits.antagonist[18].label, description: traits.antagonist[18].description })
-
-            return await this.object.update({
-                system: {
-                    traits: traitsList
-                }
-            });
-        }
-
-        if (element.value == "inferius") {
-            traitsList.push({ label: traits.antagonist[28].label, description: traits.antagonist[28].description })
-            traitsList.push({ label: traits.antagonist[38].label, description: traits.antagonist[38].description })
-
-            return await this.object.update({
-                system: {
-                    traits: traitsList
-                }
-            });
-        }
+        let element = event.currentTarget;
+        let itemId = element.closest(".item").dataset.id;
+        
+        Dice.AbilityRoll({
+            actor: this.actor,
+            name: element.dataset.name,
+            item: this.actor.items.get(itemId)
+        })
     }
 }

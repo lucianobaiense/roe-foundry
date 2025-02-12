@@ -1,0 +1,55 @@
+<div class="chat">
+    <div class="chat-row">
+        {{#if (eq rollModifier "advantage")}}
+            <div class="chat-roll">
+                <p class="chat-roll-title chat-roll-title-advantage">{{localize "roe.general.result"}}</p>
+
+                {{#if (eq actor.type "protagonist")}} 
+                    <p>[[ 3d6kh2 + {{attribute}} + {{attributeModifier}} ]] (3d6kh2 + {{attribute}} + {{attributeModifier}})</p> 
+                {{/if}}
+                
+                {{#if (eq actor.type "antagonist")}} 
+                    <p>[[ 3d6kh2 + {{attribute}} + {{attributeModifier}} + {{power}} ]]</p> 
+                {{/if}}
+            </div>
+        {{/if}}
+
+        {{#if (eq rollModifier "disadvantage")}}
+            <div class="chat-roll">
+                <p class="chat-roll-title chat-roll-title-disadvantage">{{localize "roe.general.result"}}</p>
+
+                {{#if (eq actor.type "protagonist")}}
+                    <p>[[ 3d6kl2 + {{attribute}} + {{attributeModifier}} ]] (3d6kl2 + {{attribute}} + {{attributeModifier}})</p>  
+                {{/if}}
+                
+                {{#if (eq actor.type "antagonist")}} 
+                    <p>[[ 3d6kl2 + {{attribute}} + {{attributeModifier}} + {{power}} ]]</p> 
+                {{/if}}
+            </div>
+        {{/if}}
+
+        {{#if (eq rollModifier "regular")}}
+            <div class="chat-roll">
+                <p class="chat-roll-title">{{localize "roe.general.result"}}</p> 
+                
+                {{#if (eq actor.type "protagonist")}} 
+                    <p>[[ 2d6 + {{attribute}} + {{attributeModifier}} ]] (2d6 + {{attribute}} + {{attributeModifier}}) </p>
+                {{/if}}
+                        
+                {{#if (eq actor.type "antagonist")}} 
+                    <p>[[ 2d6 + {{attribute}} + {{attributeModifier}} + {{power}} ]]</p> 
+                {{/if}}
+            </div>
+        {{/if}}
+        
+    </div>
+
+    <hr>
+    
+    <div class="chat-row">
+        <div class="chat-roll">
+            <p class="chat-roll-title">Usar {{localize "roe.general.narrativePoints"}}</p>
+            [[/r 1d6 ]]{Rolar}
+        </div>
+    </div>
+</div>

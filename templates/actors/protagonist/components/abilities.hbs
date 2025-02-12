@@ -1,0 +1,49 @@
+<div class="abilities">
+    <div class="section">
+        <div class="section-title">
+            <img src="https://jp.finalfantasyxvi.com/assets/images/top/news/arrow.svg" />
+            <h2>{{localize 'roe.general.abilities'}}</h2>
+        </div>
+
+        <a class="item-create" data-type="ability" title="{{localize 'roe.general.add'}} {{localize 'roe.general.abilities'}}">
+            <i class="fas fa-square-plus"></i>
+        </a>
+    </div>
+
+    {{#each abilities as |ability|}}
+        <div class="item ability-item" data-id="{{ability._id}}">
+            <div class="ability-col">
+                <div class="ability-row">
+                    <img src="{{ability.img}}" alt="{{ability.name}}">
+                    
+                    <input class="item-edit-inline" data-tooltip="{{ability.system.description}}" data-tooltip-direction="UP" data-field="name" type="text" value="{{ability.name}}" data-dtype="String"/>
+
+                    {{#if (eq ability.system.sortilege "yes" )}}
+                        <i style="background: rgba(0, 0, 0, 0.10); padding: 0.4em 0 0.46em 0.3em" class="fa-solid fa-star" title="{{ localize "roe.general.etherPoints"}}"></i>
+                        <input style="width:2em" class="item-edit-inline" name="system.ability.cost" data-field="system.cost" type="number" value="{{ability.system.cost}}" data-dtype="Number"/>
+                    {{/if}}
+
+                    <a class="ability-roll" data-type="ability" data-name="{{ability.name}}">
+                        <i class="fa-solid fa-comment"></i>
+                    </a>
+
+                    <a class="item-edit-popup" data-type="equipment" title="{{localize 'roe.general.edit'}} {{localize 'roe.general.abilities'}}">
+                        <i class="fas fa-pen-to-square"></i>
+                    </a>      
+
+                    <a class="item-delete" data-type="equipment" title="{{localize 'roe.general.delete'}} {{localize 'roe.general.abilities'}}">
+                        <i class="fas fa-trash"></i>
+                    </a>  
+                </div>
+                
+                {{#if ability.system.traits}}
+                    <div class="traits">
+                        {{#each ability.system.traits as |abilityTrait|}}
+                            <p data-tooltip="{{abilityTrait.description}}" data-tooltip-direction="UP">{{abilityTrait.label}}</p>
+                        {{/each}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    {{/each}}
+</div>
