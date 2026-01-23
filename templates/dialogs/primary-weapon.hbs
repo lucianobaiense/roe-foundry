@@ -1,0 +1,122 @@
+<form class="dialog-form">
+    <h3>Arma Primária</h3>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponName">Nome</label>
+        <input name="system.primaryWeaponName" type="text" value="{{actor.system.primaryWeaponName}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponTrained">Possuí Treinamento com Arma?</label>
+        <input type="checkbox" name="system.primaryWeaponTrained" {{#if actor.system.primaryWeaponTrained}}checked{{/if}}>
+    </div>
+
+    <h4>Ataque Básico ( ► )</h4>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponBasicAttack.hit">{{localize "roe.general.roll"}}</label>
+        <select name="system.primaryWeaponBasicAttack.hit">
+            <option value="">-</option>
+            {{selectOptions roe.basicAttacks selected=actor.system.primaryWeaponBasicAttack.hit localize=true}}
+        </select>  
+    </div> 
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponBasicAttack.damage">Dano</label>
+        <input name="system.primaryWeaponBasicAttack.damage" type="text" value="{{actor.system.primaryWeaponBasicAttack.damage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponBasicAttack.criticalDamage">Dano Ressoante</label>
+        <input name="system.primaryWeaponBasicAttack.criticalDamage" type="text" value="{{actor.system.primaryWeaponBasicAttack.criticalDamage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponBasicAttack.traits">Traços</label>
+        <input name="system.primaryWeaponBasicAttack.traits" type="text" value="{{actor.system.primaryWeaponBasicAttack.traits}}" data-dtype="String" />
+    </div>
+
+    <h4 class="mt-1">Ataque Especial ( ►► )</h4>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponSpecialAttack.hit">{{localize "roe.general.roll"}}</label>
+        <select name="system.primaryWeaponSpecialAttack.hit">
+            <option value="">-</option>
+            {{selectOptions roe.basicAttacks selected=actor.system.primaryWeaponSpecialAttack.hit localize=true}}
+        </select>  
+    </div> 
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponSpecialAttack.damage">Dano</label>
+        <input name="system.primaryWeaponSpecialAttack.damage" type="text" value="{{actor.system.primaryWeaponSpecialAttack.damage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponSpecialAttack.criticalDamage">Dano Ressoante</label>
+        <input name="system.primaryWeaponSpecialAttack.criticalDamage" type="text" value="{{actor.system.primaryWeaponSpecialAttack.criticalDamage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponSpecialAttack.traits">Traços</label>
+        <input name="system.primaryWeaponSpecialAttack.traits" type="text" value="{{actor.system.primaryWeaponSpecialAttack.traits}}" data-dtype="String" />
+    </div>
+
+    <h4 class="mt-1">Ataque Rápido ( ☈ )</h4>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponFastAttack.hit">{{localize "roe.general.roll"}}</label>
+        <select name="system.primaryWeaponFastAttack.hit">
+            <option value="">-</option>
+            {{selectOptions roe.basicAttacks selected=actor.system.primaryWeaponFastAttack.hit localize=true}}
+        </select>  
+    </div> 
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponFastAttack.damage">Dano</label>
+        <input name="system.primaryWeaponFastAttack.damage" type="text" value="{{actor.system.primaryWeaponFastAttack.damage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponFastAttack.criticalDamage">Dano Ressoante</label>
+        <input name="system.primaryWeaponFastAttack.criticalDamage" type="text" value="{{actor.system.primaryWeaponFastAttack.criticalDamage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponFastAttack.traits">Traços</label>
+        <input name="system.primaryWeaponFastAttack.traits" type="text" value="{{actor.system.primaryWeaponFastAttack.traits}}" data-dtype="String" />
+    </div>
+
+    <h4 class="mt-1">Contra Ataque ( ✦ )</h4>
+
+    <div class="dialog-row">
+        <label for="system.primaryWeaponCounterAttack.damage">Dano</label>
+        <input name="system.primaryWeaponCounterAttack.damage" type="text" value="{{actor.system.primaryWeaponCounterAttack.damage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row mb-1">
+        <label for="system.primaryWeaponCounterAttack.traits">Traços</label>
+        <input name="system.primaryWeaponCounterAttack.traits" type="text" value="{{actor.system.primaryWeaponCounterAttack.traits}}" data-dtype="String" />
+    </div>
+
+
+    {{!-- <div class="dialog-row">
+        <label for="system.primaryWeaponCounterAttack.traits">{{localize "roe.action.traits"}}</label>
+        <select class="trait-selected">
+            <option value="none"></option>
+            {{#each traits.weapon as |trait|}}
+                <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
+            {{/each}}
+        </select>
+    </div> --}}
+
+    <div class="traits">
+        {{#each system.traits as |trait|}}
+            <div class="traits-action">
+                <p data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+                <a class="trait-delete" data-trait="{{trait.label}}">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </a>
+            </div>
+        {{/each}}
+    </div>
+</form>

@@ -5,6 +5,7 @@ roe.ability = {
     rank: "roe.ability.rank",
     prerequisite: "roe.ability.prerequisite",
     type: "roe.ability.type",
+    category: "roe.ability.category",
     action: "roe.ability.action",
     cost: "roe.ability.cost",
     roll: "roe.ability.roll",
@@ -17,6 +18,7 @@ roe.ability = {
     target: "roe.ability.target",
     resistance: "roe.ability.resistance",
     sortilege: "roe.ability.sortilege",
+    book: "roe.ability.book",
     traits: "roe.ability.traits"
 }
 
@@ -24,6 +26,24 @@ roe.abilityTypes = {
     passive: "roe.abilityTypes.passive",
     active: "roe.abilityTypes.active"
 }
+
+roe.abilityCategory = {
+    inherited: "roe.abilityCategory.inherited",
+    battle: "roe.abilityCategory.battle",
+    hunt: "roe.abilityCategory.hunt",
+    creation: "roe.abilityCategory.creation",
+    leadership: "roe.abilityCategory.leadership",
+    knowledge: "roe.abilityCategory.knowledge",
+    subterfuge: "roe.abilityCategory.subterfuge",
+    resonance: "roe.abilityCategory.resonance"
+}
+
+// roe.abilityCategory = {
+//     inherited: "roe.abilityCategory.inherited",
+//     physical: "roe.abilityCategory.physical",
+//     mental: "roe.abilityCategory.mental",
+//     elemental: "roe.abilityCategory.elemental"
+// }
 
 roe.abilitySortilege = {
     yes: "roe.abilitySortilege.yes",
@@ -39,20 +59,40 @@ roe.abilityCostResource = {
     other: "roe.abilityCostResource.other"
 }
 
-roe.careers = {
-    none: "roe.careers.none",
-    brute: "roe.careers.brute",
-    resistant: "roe.careers.resistant",
-    alchemist: "roe.careers.alchemist",
-    mystic: "roe.careers.mystic",
-    athlete: "roe.careers.athlete",
-    skillful: "roe.careers.skillful",
-    explorer: "roe.careers.explorer",
-    researcher: "roe.careers.researcher",
-    artist: "roe.careers.artist",
-    diplomat: "roe.careers.diplomat",
-    academic: "roe.careers.academic",
-    artisan: "roe.careers.artisan",
+roe.skills = {
+    none: "roe.skills.none",
+    acrobatics: "roe.skills.acrobatics",
+    alchemy: "roe.skills.alchemy",
+    athletics: "roe.skills.athletics",
+    performance: "roe.skills.performance",
+    hunt: "roe.skills.hunt",
+    speech: "roe.skills.speech",
+    exploration: "roe.skills.exploration",
+    stealth: "roe.skills.stealth",
+    investigation: "roe.skills.investigation",
+    medicine: "roe.skills.medicine",
+    natureSkill: "roe.skills.natureSkill",
+    craft: "roe.skills.craft",
+    runic: "roe.skills.runic",
+}
+
+roe.sortileges = {
+    restoration: "roe.sortileges.restoration",
+    transformation: "roe.sortileges.transformation",
+    movement: "roe.sortileges.movement",
+    senses: "roe.sortileges.senses",
+    intensity: "roe.sortileges.intensity",
+    domain: "roe.sortileges.domain",
+    protection: "roe.sortileges.protection",
+    enchantment: "roe.sortileges.enchantment",
+    ilusion: "roe.sortileges.ilusion",
+    revelation: "roe.sortileges.revelation",
+    echoes: "roe.sortileges.echoes",
+    concealment: "roe.sortileges.concealment",
+    portal: "roe.sortileges.portal",
+    time: "roe.sortileges.time",
+    growth: "roe.sortileges.growth",
+    invocation: "roe.sortileges.invocation"
 }
 
 roe.action = {
@@ -62,43 +102,52 @@ roe.action = {
     damageType: "roe.action.damageType",
     damageTypeCritical: "roe.action.damageTypeCritical",
     flavor: "roe.action.flavor",
+    description: "roe.action.description",
     hit: "roe.action.hit",
     traits: "roe.action.traits"
 }
 
 roe.actionTypes = {
-    simple: "roe.actionTypes.simple",
-    standard: "roe.actionTypes.standard",
-    standardFull: "roe.actionTypes.standardFull",
-    fast: "roe.actionTypes.fast",
-    special: "roe.actionTypes.special"
+    none: "roe.actionTypes.none",
+    physical: "roe.actionTypes.physical",
+    magical: "roe.actionTypes.magical"
+}
+
+roe.actionUses = {
+    simple: "roe.actionUses.simple",
+    standard: "roe.actionUses.standard",
+    standardFull: "roe.actionUses.standardFull",
+    fast: "roe.actionUses.fast",
+    passive: "roe.actionUses.passive",
+    special: "roe.actionUses.special"
 }
 
 roe.damageTypes = {
-    cutting: "roe.damageTypes.cutting",
-    shocking: "roe.damageTypes.shocking",
-    piercing: "roe.damageTypes.piercing",
+    physical: "roe.damageTypes.physical",
+    water: "roe.damageTypes.water",
     air: "roe.damageTypes.air",
-    darkness: "roe.damageTypes.darkness",
-    earth: "roe.damageTypes.earth",
-    ether: "roe.damageTypes.ether",
     fire: "roe.damageTypes.fire",
+    earth: "roe.damageTypes.earth",
     light: "roe.damageTypes.light",
+    darkness: "roe.damageTypes.darkness",
     moon: "roe.damageTypes.moon",
-    nature: "roe.damageTypes.nature",
-    water: "roe.damageTypes.water"
+    nature: "roe.damageTypes.nature"
 }
 
 roe.heritages = {
     none: "roe.heritage.none",
     caligem: "roe.heritage.caligem",
     etherno: "roe.heritage.etherno",
-    floral: "roe.heritage.floral",
     faun: "roe.heritage.faun",
+    floral: "roe.heritage.floral",
+    forged: "roe.heritage.forged",
+    hagedis: "roe.heritage.hagedis",
+    jotun: "roe.heritage.jotun",
     lumina: "roe.heritage.lumina",
-    lump: "roe.heritage.lump",
     lunar: "roe.heritage.lunar",
     oceanic: "roe.heritage.oceanic",
+    lump: "roe.heritage.lump",
+    tyndur: "roe.heritage.tyndur",
     vatra: "roe.heritage.vatra",
     zephyr: "roe.heritage.zephyr"
 }
@@ -140,6 +189,12 @@ roe.equipmentTypes = {
     magicFocus: "roe.equipmentTypes.magicFocus",
     weapon: "roe.equipmentTypes.weapon",
     other: "roe.equipmentTypes.other"
+}
+
+roe.weaponDamageTypes = {
+    none: "roe.weaponDamageTypes.none",
+    physical: "roe.weaponDamageTypes.physical",
+    magical: "roe.weaponDamageTypes.magical"
 }
 
 roe.essences = {
@@ -194,6 +249,7 @@ roe.general = {
     level: "roe.general.level",
     name: "roe.general.name",
     narrativePoints: "roe.general.narrativePoints",
+    synergyPoints: "roe.general.synergyPoints",
     notes: "roe.general.notes",
     origin: "roe.general.origin",
     protagonist: "roe.general.protagonist",

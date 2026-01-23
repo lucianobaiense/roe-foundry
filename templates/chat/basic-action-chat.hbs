@@ -1,34 +1,34 @@
 <div class="chat">
     <div class="chat-row">
-        {{#if (eq rollModifier "advantage")}}
+        {{#if (eq rollMod "advantage")}}
             <div class="chat-roll">
                 <p class="chat-roll-title chat-roll-title-advantage">{{localize "roe.general.result"}}</p>
 
-                {{#if (eq actor.type "protagonist")}} 
-                    <p>[[ 3d6kh2 + {{attribute}} + {{attributeModifier}} ]] (3d6kh2 + {{attribute}} + {{attributeModifier}})</p> 
+                {{#if (eq actor.type "protagonist")}}
+                    <p>[[ 2d6 + ({{attribute}} + {{attributeModifier}}) + 1d4 ]] (2d6 + ({{attribute}} + {{attributeModifier}}) + 1d4)</p>  
                 {{/if}}
                 
                 {{#if (eq actor.type "antagonist")}} 
-                    <p>[[ 3d6kh2 + {{attribute}} + {{attributeModifier}} + {{power}} ]]</p> 
+                    <p>[[ 2d6 + ({{attribute}} + {{attributeModifier}}) + 1d4 ]]</p> 
                 {{/if}}
             </div>
         {{/if}}
 
-        {{#if (eq rollModifier "disadvantage")}}
+        {{#if (eq rollMod "disadvantage")}}
             <div class="chat-roll">
                 <p class="chat-roll-title chat-roll-title-disadvantage">{{localize "roe.general.result"}}</p>
 
                 {{#if (eq actor.type "protagonist")}}
-                    <p>[[ 3d6kl2 + {{attribute}} + {{attributeModifier}} ]] (3d6kl2 + {{attribute}} + {{attributeModifier}})</p>  
+                    <p>[[ 2d6 + ({{attribute}} + {{attributeModifier}}) - 1d4 ]] (2d6 + ({{attribute}} + {{attributeModifier}}) - 1d4)</p>  
                 {{/if}}
                 
                 {{#if (eq actor.type "antagonist")}} 
-                    <p>[[ 3d6kl2 + {{attribute}} + {{attributeModifier}} + {{power}} ]]</p> 
+                    <p>[[ 2d6 + ({{attribute}} + {{attributeModifier}}) - 1d4 ]]</p> 
                 {{/if}}
             </div>
         {{/if}}
 
-        {{#if (eq rollModifier "regular")}}
+        {{#if (eq rollMod "regular")}}
             <div class="chat-roll">
                 <p class="chat-roll-title">{{localize "roe.general.result"}}</p> 
                 
@@ -37,19 +37,66 @@
                 {{/if}}
                         
                 {{#if (eq actor.type "antagonist")}} 
-                    <p>[[ 2d6 + {{attribute}} + {{attributeModifier}} + {{power}} ]]</p> 
+                    <p>[[ 2d6 + {{attribute}} + {{attributeModifier}} ]]</p> 
                 {{/if}}
             </div>
         {{/if}}
-        
     </div>
 
     <hr>
     
     <div class="chat-row">
         <div class="chat-roll">
-            <p class="chat-roll-title">Usar {{localize "roe.general.narrativePoints"}}</p>
-            [[/r 1d6 ]]{Rolar}
+            <p class="chat-roll-title">Usar PN</p>
+            [[/r {{actor.system.narrativePoints.dice}} ]]
         </div>
     </div>
+
+    {{#if defense}}
+        {{#if counterAttack.active }}
+            <hr>
+
+            <p class="chat-section">Contra Ataque ( ✦ )</p>   
+            
+            {{#if counterAttack.primaryCounterAttackName }}
+                <div class="chat-roll">
+                    <p class="chat-roll-title">{{counterAttack.primaryCounterAttackName}}</p> 
+                    
+                    <p>[[/r {{counterAttack.primaryCounterAttackDamage}} ]] ({{counterAttack.primaryCounterAttackDamage}}) </p>
+                </div>
+
+                <div class="traits mb-1">
+                    {{getTraits counterAttack.primaryCounterAttackTraits traitsList}}
+                </div>
+            {{/if}}
+
+            <hr>
+
+            {{#if counterAttack.secondaryCounterAttackName }}
+                <div class="chat-roll">
+                    <p class="chat-roll-title">{{counterAttack.secondaryCounterAttackName}}</p> 
+                    
+                    <p>[[/r {{counterAttack.secondaryCounterAttackDamage}} ]] ({{counterAttack.secondaryCounterAttackDamage}}) </p>
+                </div>
+
+                <div class="traits">
+                    {{getTraits counterAttack.secondaryCounterAttackTraits traitsList}}
+                </div>
+            {{/if}}
+        {{/if}}
+    {{/if}}
+
+    {{#if activeConditions}}
+        <hr>
+
+        <p class="chat-section">{{localize "roe.general.conditions"}}</p>    
+
+        <div class="traits">
+            {{#each activeConditions as |condition|}}
+                <div class="traits-action">
+                    <p data-tooltip="{{condition.description}}" data-tooltip-direction="UP">{{condition.label}}</p>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
 </div>

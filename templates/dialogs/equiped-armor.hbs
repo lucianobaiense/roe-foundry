@@ -1,0 +1,35 @@
+<form class="dialog-form">
+    <h3 class="mt-1">Armadura</h3>
+
+    {{#if (eq actor.type "protagonist")}}
+        <div class="dialog-row">
+            <label for="system.armorName">Nome</label>
+            <input name="system.armorName" type="text" value="{{actor.system.armorName}}" data-dtype="String" />
+        </div>
+
+        <div class="dialog-row">
+            <label for="system.physicalResistance">Resistência Física</label>
+            <input name="system.physicalResistance" type="number" value="{{actor.system.physicalResistance}}" data-dtype="Number" />
+        </div>
+
+        <div class="dialog-row">
+            <label for="system.magicalResistance">Resistência Mágica</label>
+            <input name="system.magicalResistance" type="number" value="{{actor.system.magicalResistance}}" data-dtype="Number" />
+        </div>
+
+            <div class="dialog-row">
+            <label for="system.armorTraits">Traços</label>
+            <input name="system.armorTraits" type="text" value="{{actor.system.armorTraits}}" data-dtype="String" />
+        </div>
+    {{else}}
+        <div class="dialog-row">
+            <label for="system.physicalDamageResistance">Resistência Física</label>
+            <input name="system.physicalDamageResistance" type="number" value="{{actor.system.physicalDamageResistance}}" data-dtype="Number" />
+        </div>
+
+        <div class="dialog-row">
+            <label for="system.magicalDamageResistance">Resistência Mágica</label>
+            <input name="system.magicalDamageResistance" type="number" value="{{actor.system.magicalDamageResistance}}" data-dtype="Number" />
+        </div>
+    {{/if}}
+</form>

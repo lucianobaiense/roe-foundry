@@ -7,32 +7,13 @@
         {{/if}}
     </div>
 
-    {{#if system.rank}}
+    {{#if system.category}}
         <hr>
 
         <div class="chat-row">
             <div class="chat-roll">
-                <p class="chat-roll-title">{{localize "roe.ability.rank"}}</p>    
-                <p>{{system.rank}}</p>
-            </div>
-        </div>
-    {{/if}}
-
-    {{#if system.type}}
-        <hr>
-
-        <div class="chat-row">
-            <div class="chat-roll">
-                <p class="chat-roll-title">{{localize "roe.ability.type"}}</p>    
-                <p>
-                    {{#if (eq system.type "active" )}} 
-                        Ativa
-                    {{/if}}
-                    
-                    {{#if (eq system.type "passive" )}} 
-                        Passiva
-                    {{/if}}
-                </p>
+                <p class="chat-roll-title">Livro</p>    
+                <p>{{localize (concat "roe.abilityCategory." system.category)}}</p>
             </div>
         </div>
     {{/if}}
@@ -43,7 +24,7 @@
         <div class="chat-row">
             <div class="chat-roll">
                 <p class="chat-roll-title">{{localize "roe.ability.action"}}</p>    
-                <p>{{localize (concat "roe.actionTypes." i system.action)}}</p>
+                <p>{{localize (concat "roe.actionUses." i system.action)}}</p>
             </div>
         </div>
     {{/if}}
@@ -133,60 +114,16 @@
             </div> 
         </div>   
     {{/if}}
-
-    {{!-- <h1>aaa{{system.rol}}</h1> --}}
-
-    {{#if system.roll}}
-        {{#unless (eq system.roll "none")}}
-            <hr>
-            
-            <div class="chat-row">
-                <div class="chat-roll">
-                    {{#if (eq rollModifier "advantage")}}
-                        <p class="chat-roll-title chat-roll-title-advantage">{{localize (concat "roe.careers." i careerName)}}</p>
-
-                        <p>
-                            [[/r 3d6kh2 + {{careerAttributeValue}} + {{careerAttributeValueMod}} + {{careerValue}} ]]{Rolar} 
-                            
-                            {{#if system.difficulty}}
-                                ( {{localize "roe.ability.difficulty"}} {{system.difficulty}} )
-                            {{/if}}
-                        </p>
-                    {{/if}}
-
-                    {{#if (eq rollModifier "disadvantage")}}
-                        <p class="chat-roll-title chat-roll-title-disadvantage">{{localize (concat "roe.careers." i careerName)}}</p>
-
-                        <p>
-                            [[/r 3d6kl2 + {{careerAttributeValue}} + {{careerAttributeValueMod}} + {{careerValue}} ]]{Rolar} 
-
-                            {{#if system.difficulty}}
-                                ( {{localize "roe.ability.difficulty"}} {{system.difficulty}} )
-                            {{/if}}
-                        </p>
-                    {{/if}}
-
-                    {{#if (eq rollModifier "regular")}}
-                        <p class="chat-roll-title">{{localize (concat "roe.careers." i careerName)}}</p>
-
-                        <p>
-                            [[/r 2d6 + {{careerAttributeValue}} + {{careerAttributeValueMod}} + {{careerValue}} ]]{Rolar} 
-                            
-                            {{#if system.difficulty}}
-                                ( {{localize "roe.ability.difficulty"}} {{system.difficulty}} )
-                            {{/if}}
-                        </p>
-                    {{/if}}                    
-                </div>
-            </div>
-        {{/unless}}
-    {{/if}}
  
     {{#if system.description}}
         <hr>
 
+        <p class="chat-section">{{localize "roe.ability.description"}}</p> 
+
         <div class="chat-col">
-            {{safe system.description}}
+            <div class="chat-textarea">
+                {{safe system.description}}
+            </div>
         </div>
     {{/if}}
     
@@ -211,9 +148,25 @@
     {{#if system.traits}}
         <hr>
 
+        <p class="chat-section">{{localize "roe.general.traits"}}</p>    
+
         <div class="traits">
             {{#each system.traits as |trait|}}
                 <p data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+            {{/each}}
+        </div>
+    {{/if}}
+
+    {{#if activeConditions}}
+        <hr>
+
+        <p class="chat-section">{{localize "roe.general.conditions"}}</p>    
+
+        <div class="traits">
+            {{#each activeConditions as |condition|}}
+                <div class="traits-action">
+                    <p data-tooltip="{{condition.description}}" data-tooltip-direction="UP">{{condition.label}}</p>
+                </div>
             {{/each}}
         </div>
     {{/if}}

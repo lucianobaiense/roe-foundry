@@ -1,6 +1,6 @@
 import traits from "../traits.js"
 
-export default class roeItemSheet extends ItemSheet {
+export default class roeItemSheet extends foundry.appv1.sheets.ItemSheet {
 
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {

@@ -1,292 +1,417 @@
-<div class="antagonist-content">
-    <div class="section mt-1">
-        <div class="section-title">
-            <img src="https://jp.finalfantasyxvi.com/assets/images/top/news/arrow.svg" />
-            <h2>{{localize 'roe.general.information'}}</h2>
-        </div>
-    </div>
-
+<div class="roe-wrapper">
+    {{!-- Informações --}}
     <div class="antagonist-row">
-        <div class="antagonist-col">
-            <div class="antagonist-form-row">
-                <label for="name">{{localize 'roe.general.name'}}</label>
-                <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'roe.general.protagonist'}}" data-dtype="String" />
-            </div>
-
-            <div class="antagonist-form-row">
-                <label for="system.level">{{localize 'roe.general.level'}}</label>
-                <input name="system.level" type="number" value="{{data.system.level}}" data-dtype="Number"/>
-            </div>
-
-            <div class="antagonist-form-row">
-                <label for="system.size">{{localize 'roe.general.size'}}</label>
-                <select name="system.size">
-                    {{selectOptions config.size selected=data.system.size localize=true}}
-                </select>
-            </div>
-
-            <div class="antagonist-form-row">
-                <label for="system.speed">{{localize 'roe.general.speed'}}</label>
-                <select name="system.speed">
-                    {{selectOptions config.speed selected=data.system.speed localize=true}}
-                </select>
-            </div>
-        </div>
+        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
 
         <div class="antagonist-col">
-            <div class="antagonist-form-row">
-                <label for="system.species">{{localize 'roe.general.species'}}</label>
-                <select name="system.species">
-                    {{selectOptions config.species selected=data.system.species localize=true}}
-                </select>
+            <div class="antagonist-name">
+                <h2>{{actor.name}}</h2>
+
+                <div class="antagonist-configs">
+                    <a class="show-dialog" data-label="Informações" data-template="systems/roe/templates/dialogs/antagonist/information.hbs">
+                        <i class="fa-solid fa-cog"></i> Informações 
+                    </a>
+
+                    <a class="show-dialog" data-label="Essências" data-template="systems/roe/templates/dialogs/essences.hbs">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Essências
+                    </a>
+
+                    <a class="show-dialog" data-label="Atributos" data-template="systems/roe/templates/dialogs/attributes.hbs">
+                        <i class="fa-solid fa-table-list"></i> Atributos
+                    </a>
+
+                    <a class="show-dialog" data-label="Ataques & Defesas" data-template="systems/roe/templates/dialogs/attacks-defenses.hbs">
+                        <i class="fa-solid fa-hand-fist"></i> Ataques & Defesas
+                    </a>
+
+                    <a class="show-dialog" data-label="Ataques & Defesas" data-template="systems/roe/templates/dialogs/equiped-armor.hbs">
+                        <i class="fa-solid fa-shield"></i> Resistências
+                    </a>
+                </div>
             </div>
 
-            <div class="antagonist-form-row">
-                <label for="system.archetype1">{{localize 'roe.general.archetype'}} 1</label>
-                <select name="system.archetype1">
-                    {{selectOptions config.archetypes selected=data.system.archetype1 localize=true}}
-                </select>
+            <div class="antagonist-row">
+                <p>
+                    <span class="bold">Nível</span> 
+                    <span class="antagonist-value">{{actor.system.level}}</span> 
+                    <span class="bold">Espécies</span> 
+                    <span class="antagonist-value">{{localize (concat "roe.species." actor.system.species)}}</span>
+                    <span class="bold">Tamanho</span>
+                    <span class="antagonist-value">{{localize (concat "roe.sizeAntagonist." actor.system.size)}}</span>  
+                    <span class="bold">Velocidade</span> 
+                    <span class="antagonist-value">{{localize (concat "roe.speed." actor.system.speed)}}</span> 
+                </p>
             </div>
 
-            <div class="antagonist-form-row">
-                <label for="system.archetype2">{{localize 'roe.general.archetype'}} 2</label>
-                <select name="system.archetype2">
-                    {{selectOptions config.archetypes selected=data.system.archetype2 localize=true}}
-                </select>
-            </div>
+            <div class="antagonist-row">
+                <div class="antagonist-roll">
+                    <i class="fas fa-dice"></i>
 
-            <div class="antagonist-form-row">
-                <label for="system.power">{{localize 'roe.general.power'}}</label>
-                <input name="system.power" type="number" value="{{data.system.power}}" data-dtype="Number"/>
+                    <p>Atributos</p>
+
+                    <select name="system.rolls.attribute">
+                        {{selectOptions config.rollModifier selected=actor.system.rolls.attribute localize=true}}
+                    </select> 
+             
+                    <p>Ataques</p>
+                   
+
+                    <select name="system.rolls.attack">
+                        {{selectOptions config.rollModifier selected=actor.system.rolls.attack localize=true}}
+                    </select> 
+
+                    <p>Defesas</p>
+
+                    <select name="system.rolls.defense">
+                        {{selectOptions config.rollModifier selected=actor.system.rolls.defense localize=true}}
+                    </select> 
+                </div>  
             </div>
         </div>
     </div>
 
-    <div class="section mt-1">
-        <div class="section-title">
-            <img src="https://jp.finalfantasyxvi.com/assets/images/top/news/arrow.svg" />
-            <h2>{{localize 'roe.general.traits'}}</h2>
-        </div>
+    {{!-- Essências --}}
+    <div class="antagonist-row">
+        <p class="antagonist-title">
+            Essências
+        </p>
+        <p>
+            {{#if (gt actor.system.water 0)}}
+                <span class="bold"><i class="fa-solid fa-droplet"></i>{{localize 'roe.essences.water'}}</span>
+                <span class="antagonist-value-green">+{{actor.system.water}}</span>  
+            {{else if (lt actor.system.water 0)}}
+                <span class="bold"><i class="fa-solid fa-droplet"></i>{{localize 'roe.essences.water'}}</span>
+                <span class="antagonist-value-red">{{actor.system.water}}</span>             
+            {{/if}}
+
+            {{#if (gt actor.system.air 0)}}
+                <span class="bold"><i class="fa-solid fa-wind"></i>{{localize 'roe.essences.air'}}</span>
+                <span class="antagonist-value-green">+{{actor.system.air}}</span>
+            {{else if (lt actor.system.air 0)}}
+                <span class="bold"><i class="fa-solid fa-wind"></i>{{localize 'roe.essences.air'}}</span>
+                <span class="antagonist-value-red">{{actor.system.air}}</span>             
+            {{/if}}
+
+            {{#if (gt actor.system.fire 0)}}
+                <span class="bold"><i class="fa-solid fa-fire"></i>{{localize 'roe.essences.fire'}}</span>
+                <span class="antagonist-value-green">+{{actor.system.fire}}</span> 
+            {{else if (lt actor.system.fire 0)}}
+                <span class="bold"><i class="fa-solid fa-fire"></i>{{localize 'roe.essences.fire'}}</span>
+                <span class="antagonist-value-red">{{actor.system.fire}}</span>             
+            {{/if}}
+
+            {{#if (gt actor.system.earth 0)}}
+                <span class="bold"><i class="fa-solid fa-gem"></i>{{localize 'roe.essences.earth'}}</span>
+                <span class="antagonist-value-green">+{{actor.system.earth}}</span> 
+            {{else if (lt actor.system.earth 0)}}
+                <span class="bold"><i class="fa-solid fa-gem"></i>{{localize 'roe.essences.earth'}}</span>
+                <span class="antagonist-value-red">{{actor.system.earth}}</span>             
+            {{/if}}  
+
+            {{#if (gt actor.system.light 0)}}
+                <span class="bold"><i class="fa-solid fa-sun"></i>{{localize 'roe.essences.light'}}</span>
+                <span class="antagonist-value-green">+{{actor.system.light}}</span> 
+            {{else if (lt actor.system.light 0)}}
+                <span class="bold"><i class="fa-solid fa-sun"></i>{{localize 'roe.essences.light'}}</span>
+                <span class="antagonist-value-red">{{actor.system.light}}</span>             
+            {{/if}}  
+
+            {{#if (gt actor.system.darkness 0)}}
+                <span class="bold"><i class="fa-solid fa-circle"></i>{{localize 'roe.essences.darkness'}}</span>
+                <span class="antagonist-value-green">+{{actor.system.darkness}}</span> 
+            {{else if (lt actor.system.darkness 0)}}
+                <span class="bold"><i class="fa-solid fa-circle"></i>{{localize 'roe.essences.darkness'}}</span>
+                <span class="antagonist-value-red">{{actor.system.darkness}}</span>             
+            {{/if}} 
+
+            {{#if (gt actor.system.moon 0)}}
+                <span class="bold"><i class="fa-solid fa-moon"></i>{{localize 'roe.essences.moon'}}</span>
+                <span class="antagonist-value-green">+{{actor.system.moon}}</span> 
+            {{else if (lt actor.system.moon 0)}}
+                <span class="bold"><i class="fa-solid fa-moon"></i>{{localize 'roe.essences.moon'}}</span>
+                <span class="antagonist-value-red">{{actor.system.moon}}</span>             
+            {{/if}} 
+
+            {{#if (gt actor.system.nature 0)}}
+                <span class="bold"><i class="fa-solid fa-leaf"></i>{{localize 'roe.essences.nature'}}</span>
+                <span class="antagonist-value-green">+{{actor.system.nature}}</span> 
+            {{else if (lt actor.system.nature 0)}}
+                <span class="bold"><i class="fa-solid fa-leaf"></i>{{localize 'roe.essences.nature'}}</span>
+                <span class="antagonist-value-red">{{actor.system.nature}}</span>             
+            {{/if}} 
+        </p>
     </div>
 
-    <p>Escolha {{ data.system.traitsInitial }} traços e receba +1 por nível</p>
+    <hr>
 
-    <select class="antagonist-trait-selected mt-1">
-        <option value="none"></option>
-        {{#each antagonistTraits as |trait|}}
-            <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
-        {{/each}}
-    </select>
+    {{!-- Atributos --}}
+    <div class="antagonist-row">
+        <p class="antagonist-title">
+            Atributos
+        </p>
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.attribute}}" data-name="{{localize 'roe.attributes.body'}}" data-attribute="{{actor.system.body.value}}" data-attribute-modifier="{{actor.system.body.modifier}}">
+            <span class="bold">{{localize 'roe.attributes.body'}}</span> 
+        </a>
 
-    <div class="traits">
-        {{#each system.traits as |trait|}}
-            <div class="traits-action">
-                <p data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
-                <a class="antagonist-trait-delete" data-trait="{{trait.label}}">
-                    <i class="fa-regular fa-circle-xmark"></i>
-                </a>
-            </div>
-        {{/each}}
+        <p class="antagonist-value">
+            {{actor.system.body.value}} 
+            {{#if actor.system.body.modifier}}
+                + {{actor.system.body.modifier}}
+            {{/if}}
+        </p>
+
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.attribute}}" data-name="{{localize 'roe.attributes.essence'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}">
+            <span class="bold">{{localize 'roe.attributes.essence'}}</span> 
+        </a>
+
+        <p class="antagonist-value">
+            {{actor.system.essence.value}} 
+            {{#if actor.system.essence.modifier}}
+                + {{actor.system.essence.modifier}}
+            {{/if}}
+        </p>
+
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.attribute}}" data-name="{{localize 'roe.attributes.dexterity'}}" data-attribute="{{actor.system.dexterity.value}}" data-attribute-modifier="{{actor.system.dexterity.modifier}}">
+            <span class="bold">{{localize 'roe.attributes.dexterity'}}</span> 
+        </a>
+
+        <p class="antagonist-value">
+            {{actor.system.dexterity.value}} 
+            {{#if actor.system.dexterity.modifier}}
+                + {{actor.system.dexterity.modifier}}
+            {{/if}}
+        </p>
+
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.attribute}}" data-name="{{localize 'roe.attributes.perception'}}" data-attribute="{{actor.system.perception.value}}" data-attribute-modifier="{{actor.system.perception.modifier}}">
+            <span class="bold">{{localize 'roe.attributes.perception'}}</span> 
+        </a>
+
+        <p class="antagonist-value">
+            {{actor.system.perception.value}} 
+            {{#if actor.system.perception.modifier}}
+                + {{actor.system.perception.modifier}}
+            {{/if}}
+        </p>
+
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.attribute}}" data-name="{{localize 'roe.attributes.influence'}}" data-attribute="{{actor.system.influence.value}}" data-attribute-modifier="{{actor.system.influence.modifier}}">
+            <span class="bold">{{localize 'roe.attributes.influence'}}</span> 
+        </a>
+
+        <p class="antagonist-value">
+            {{actor.system.influence.value}} 
+            {{#if actor.system.influence.modifier}}
+                + {{actor.system.influence.modifier}}
+            {{/if}}
+        </p>
+
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.attribute}}" data-name="{{localize 'roe.attributes.mind'}}" data-attribute="{{actor.system.mind.value}}" data-attribute-modifier="{{actor.system.mind.modifier}}">
+            <span class="bold">{{localize 'roe.attributes.mind'}}</span> 
+        </a>
+
+        <p class="antagonist-value">
+            {{actor.system.mind.value}} 
+            {{#if actor.system.mind.modifier}}
+                + {{actor.system.mind.modifier}}
+            {{/if}}
+        </p>
     </div>
 
-    <div class="antagonist-form-col">
-        <label for="system.traitsNotes">{{localize 'roe.general.traitsNotes'}}</label>
-        <textarea name="system.traitsNotes" rows="8">{{data.system.traitsNotes}}</textarea>
-    </div> 
+    <hr>
 
-    <div class="section mt-1">
-        <div class="section-title">
-            <img src="https://jp.finalfantasyxvi.com/assets/images/top/news/arrow.svg" />
-            <h2>{{localize 'roe.general.combat'}}</h2>
+    {{!-- Ataques & Defesas--}}
+    <div class="antagonist-row">
+        <p class="antagonist-title">
+            Ataques
+        </p>
+
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.attack}}" data-name="{{localize 'roe.basicAttacks.melee'}}" data-attribute="{{actor.system.melee.value}}" data-attribute-modifier="{{actor.system.melee.mod}}" draggable="true">
+            <span class="bold">{{localize 'roe.basicAttacks.melee'}}</span> 
+        </a>
+
+        <p class="antagonist-value">
+            {{actor.system.melee.value}} 
+            {{#if actor.system.melee.mod}}
+                + {{actor.system.melee.mod}}
+            {{/if}}
+        </p>
+
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.attack}}" data-name="{{localize 'roe.basicAttacks.distance'}}" data-attribute="{{actor.system.distance.value}}" data-attribute-modifier="{{actor.system.distance.mod}}" draggable="true">
+            <span class="bold">{{localize 'roe.basicAttacks.distance'}}</span> 
+        </a>
+
+        <p class="antagonist-value">
+            {{actor.system.distance.value}} 
+            {{#if actor.system.distance.mod}}
+                + {{actor.system.distance.mod}}
+            {{/if}}
+        </p>
+
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.attack}}" data-name="{{localize 'roe.basicAttacks.ressonance'}}" data-attribute="{{actor.system.ressonance.value}}" data-attribute-modifier="{{actor.system.ressonance.mod}}" draggable="true">
+            <span class="bold">{{localize 'roe.basicAttacks.ressonance'}}</span> 
+        </a>
+
+        <p class="antagonist-value">
+            {{actor.system.ressonance.value}} 
+            {{#if actor.system.ressonance.mod}}
+                + {{actor.system.ressonance.mod}}
+            {{/if}}
+        </p>
+
+        <p class="antagonist-title">
+            Defesas
+        </p>
+
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.defense}}" data-name="{{localize 'roe.basicDefenses.physical'}}" data-attribute="{{actor.system.physical.value}}" data-attribute-modifier="{{actor.system.physical.mod}}" draggable="true">
+            <span class="bold">{{localize 'roe.basicDefenses.physical'}}</span> 
+        </a>
+
+        <p class="antagonist-value">
+            {{actor.system.physical.value}} 
+            {{#if actor.system.physical.mod}}
+                + {{actor.system.physical.mod}}
+            {{/if}}
+        </p>
+
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.defense}}" data-name="{{localize 'roe.basicDefenses.agile'}}" data-attribute="{{actor.system.agile.value}}" data-attribute-modifier="{{actor.system.agile.mod}}" draggable="true">
+            <span class="bold">{{localize 'roe.basicDefenses.agile'}}</span> 
+        </a>
+
+        <p class="antagonist-value">
+            {{actor.system.agile.value}} 
+            {{#if actor.system.agile.mod}}
+                + {{actor.system.agile.mod}}
+            {{/if}}
+        </p>
+
+        <a class="roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.rolls.defense}}" data-name="{{localize 'roe.basicDefenses.mental'}}" data-attribute="{{actor.system.mental.value}}" data-attribute-modifier="{{actor.system.mental.mod}}" draggable="true">
+            <span class="bold">{{localize 'roe.basicDefenses.mental'}}</span> 
+        </a>
+
+        <p class="antagonist-value">
+            {{actor.system.mental.value}} 
+            {{#if actor.system.mental.mod}}
+                + {{actor.system.mental.mod}}
+            {{/if}}
+        </p>
+    </div>
+
+    <hr>
+
+    {{!-- Recursos & Resistências --}}
+    <div class="antagonist-row">
+        <p class="antagonist-title">
+            Recursos
+        </p>
+
+        <div class="antagonist-form">
+            <label for="system.healthPoints.max" class="red">PV</label>
+            <input name="system.healthPoints.value" type="number" value="{{data.system.healthPoints.value}}" data-dtype="Number" />
+            <p>/</p>
+            <input name="system.healthPoints.max" type="number" value="{{data.system.healthPoints.max}}" data-dtype="Number" />
         </div>
 
-        <div class="section-form">
-            <label for="system.rollModifier">Rolagem</label>
-            <select name="system.rollModifier">
-                {{selectOptions config.rollModifier selected=data.system.rollModifier localize=true}}
+        {{!-- <div class="antagonist-form">
+            <label for="system.etherPoints.max" class="blue">PE</label>
+            <input name="system.etherPoints.value" type="number" value="{{data.system.etherPoints.value}}" data-dtype="Number" />
+            <p>/</p>
+            <input name="system.etherPoints.max" type="number" value="{{data.system.etherPoints.max}}" data-dtype="Number" />
+        </div> --}}
+
+        <p class="antagonist-title">
+            Resistências
+        </p>
+
+        <p>
+            <span class="bold">Física</span> 
+            <span class="antagonist-value">{{actor.system.physicalDamageResistance}}</span> 
+            <span class="bold">Mágica</span> 
+            <span class="antagonist-value">{{actor.system.magicalDamageResistance}}</span>
+        </p>
+    </div>
+
+    <hr>
+
+    {{!-- Traços --}}
+    <div class="antagonist-row">
+        <p class="antagonist-title">
+            Traços
+        </p>
+
+        <div class="antagonist-form">
+            <select class="antagonist-trait-selected">
+                <option value="none"></option>
+                {{#each antagonistTraits as |trait|}}
+                    <option value="{{trait.label}}|{{trait.description}}">{{trait.label}}</option>
+                {{/each}}
             </select>
-        </div>  
+        </div>
+
+        <div class="traits">
+            {{#each system.traits as |trait|}}
+                <div class="traits-action">
+                    <p data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
+                    <a class="antagonist-trait-delete" data-trait="{{trait.label}}">
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </a>
+                </div>
+            {{/each}}
+        </div>   
     </div>
 
+    <hr>
+
+    {{!-- Ações --}}
     <div class="antagonist-row">
+        <p class="antagonist-title">
+            Ações
+        </p>
+
+        <a class="item-create mr-1" data-type="action" title="{{localize 'roe.general.add'}} {{localize 'roe.general.actions'}}">
+            <i class="fas fa-square-plus"></i>
+        </a>
+
         <div class="antagonist-col">
-           <div class="actions-title">
-                <div class="sub-section">
-                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
-                    <h3>Recursos</h3>
-                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
-                </div>
-            </div>
-
-            <div class="antagonist-form-row">
-                <label for="system.healthPoints.max" class="red">{{localize 'roe.general.healthPoints'}}</label>
-                <input name="system.healthPoints.value" type="number" value="{{data.system.healthPoints.value}}" data-dtype="Number" />
-                <p>/</p>
-                <input name="system.healthPoints.max" type="number" value="{{data.system.healthPoints.max}}" data-dtype="Number" />
-                <p>◆</p>
-                <input name="system.healthPoints.mod" type="number" value="{{data.system.healthPoints.mod}}" data-dtype="Number" />
-            </div>
-
-            <div class="antagonist-form-row">
-                <label for="system.etherPoints.max" class="blue">{{localize 'roe.general.etherPoints'}}</label>
-                <input name="system.etherPoints.value" type="number" value="{{data.system.etherPoints.value}}" data-dtype="Number" />
-                <p>/</p>
-                <input name="system.etherPoints.max" type="number" value="{{data.system.etherPoints.max}}" data-dtype="Number" />
-                <p>◆</p>
-                <input name="system.etherPoints.mod" type="number" value="{{data.system.etherPoints.mod}}" data-dtype="Number" />
-            </div>
-
-           <div class="actions-title mt-1">
-                <div class="sub-section">
-                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
-                    <h3>Proteções</h3>
-                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
-                </div>
-            </div>
-
-            <div class="antagonist-form-row">
-                <label for="system.physicalDamageResistance">{{localize 'roe.general.physicalDamageResistance'}}</label>
-                <input name="system.physicalDamageResistance" type="number" value="{{data.system.physicalDamageResistance}}" data-dtype="Number"/>
-            </div>
-
-            <div class="antagonist-form-row">
-                <label for="system.magicalDamageResistance">{{localize 'roe.general.magicalDamageResistance'}}</label>
-                <input name="system.magicalDamageResistance" type="number" value="{{data.system.magicalDamageResistance}}" data-dtype="Number"/>
-            </div>
-
-            <div class="actions-title mt-1">
-                <div class="sub-section">
-                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
-                    <h3>{{localize 'roe.general.actions'}}</h3>
-                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
-                </div>
-                <a class="item-create" data-type="action" title="{{localize 'roe.general.add'}} {{localize 'roe.general.actions'}}">
-                    <i class="fas fa-square-plus"></i>
-                </a>
-            </div>
-
             {{#each items as |action|}}
-                <div class="item action-item" data-id="{{action._id}}">
-                    <div class="action-item-col">
-                        <div class="action-item-row">
-                            <img src="{{action.img}}" alt="{{ability.name}}">
+                <div class="item action-item antagonist-row" data-id="{{action._id}}" draggable="true">
+                    <div class="antagonist-item-row">
+                        <img src="{{action.img}}" alt="{{ability.name}}">
 
-                            <input class="item-edit-inline" data-field="name" type="text" value="{{action.name}}" data-dtype="String"/>
-                            
-                            <a class="roll" data-roll-type="action" data-name="{{action.name}}" title="{{localize 'roe.general.roll'}}">
-                                <i class="fas fa-dice"></i>
-                            </a>
+                        {{#if (and action.system.cost action.system.damage)}}
+                            <p>{{action.name}} ( {{localize (concat "roe.actionTypesShort." action.system.action)}}, {{action.system.cost}} ): Dano {{action.system.damage}} ({{action.system.damageCritical}})</p>  
+                        {{else if action.system.cost}}
+                            <p>{{action.name}} ( {{localize (concat "roe.actionTypesShort." action.system.action)}}, {{action.system.cost}})</p>  
+                        {{else if action.system.damage}}
+                            {{#if action.system.damageCritical}}
+                                <p>{{action.name}} ( {{localize (concat "roe.actionTypesShort." action.system.action)}} ): Dano {{action.system.damage}} ({{action.system.damageCritical}})</p> 
+                            {{else}}
+                                <p>{{action.name}} ( {{localize (concat "roe.actionTypesShort." action.system.action)}} ): Dano {{action.system.damage}}</p> 
+                            {{/if}} 
+                        {{else }}
+                            <p>{{action.name}} ( {{localize (concat "roe.actionTypesShort." action.system.action)}} )</p>  
+                        {{/if}}
 
-                            <a class="item-edit-popup" data-type="equipment" title="{{localize 'roe.general.edit'}} {{localize 'roe.general.abilities'}}">
-                                <i class="fas fa-pen-to-square"></i>
-                            </a>      
-
-                            <a class="item-delete" data-type="equipment" title="{{localize 'roe.general.delete'}} {{localize 'roe.general.abilities'}}">
-                                <i class="fas fa-trash"></i>
-                            </a>  
-                        </div>
-                        
                         {{#if action.system.traits}}
                             <div class="traits">
                                 {{#each action.system.traits as |trait|}}
                                     <p data-tooltip="{{trait.description}}" data-tooltip-direction="UP">{{trait.label}}</p>
                                 {{/each}}
                             </div>
-                        {{/if}}
+                        {{/if}}  
+                        
+                        <a class="roll roll-area" data-roll-type="action" data-name="{{action.name}}" data-roll-mod="{{action.system.rollMod}}" title="{{localize 'roe.general.roll'}}">
+                            <i class="fas fa-dice"></i> {{localize (concat "roe.rollModifier." action.system.rollMod)}}
+                        </a>
+
+                        <a class="item-edit-popup" data-type="equipment" title="{{localize 'roe.general.edit'}} {{localize 'roe.general.abilities'}}">
+                            <i class="fas fa-pen-to-square"></i>
+                        </a>      
+
+                        <a class="item-delete" data-type="equipment" title="{{localize 'roe.general.delete'}} {{localize 'roe.general.abilities'}}">
+                            <i class="fas fa-trash"></i>
+                        </a>
                     </div>
                 </div>
             {{/each}}
-        </div>
-
-        <div class="antagonist-col">
-            <div class="actions-title">
-                <div class="sub-section">
-                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
-                    <h3>Ataques Básicos</h3>
-                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
-                </div>
-            </div>
-
-            <div class="antagonist-form-col">
-                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.basicAttacks.melee'}}" data-attribute="{{data.system.melee.value}}" data-attribute-modifier="{{data.system.melee.mod}}" title="{{localize 'roe.general.roll'}}">
-                    {{localize 'roe.basicAttacks.melee'}}
-                </a>
-
-                <div class="antagonist-form-row">
-                    <input name="system.melee.value" type="number" value="{{data.system.melee.value}}" data-dtype="Number" />
-                    <p>◆</p>
-                    <input name="system.melee.mod" type="number" value="{{data.system.melee.mod}}" data-dtype="Number" />
-                </div>
-            </div>
-
-            <div class="antagonist-form-col">
-                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.basicAttacks.distance'}}" data-attribute="{{data.system.distance.value}}" data-attribute-modifier="{{data.system.distance.mod}}" title="{{localize 'roe.general.roll'}}">
-                    {{localize 'roe.basicAttacks.distance'}}
-                </a>
-                
-                <div class="antagonist-form-row">
-                    <input name="system.distance.value" type="number" value="{{data.system.distance.value}}" data-dtype="Number" />
-                    <p>◆</p>
-                    <input name="system.distance.mod" type="number" value="{{data.system.distance.mod}}" data-dtype="Number" />
-                </div>
-
-            </div>
-
-            <div class="antagonist-form-col">
-                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.basicAttacks.ressonance'}}" data-attribute="{{data.system.ressonance.value}}" data-attribute-modifier="{{data.system.ressonance.mod}}" title="{{localize 'roe.general.roll'}}">
-                    {{localize 'roe.basicAttacks.ressonance'}}
-                </a>
-
-                <div class="antagonist-form-row">
-                    <input name="system.ressonance.value" type="number" value="{{data.system.ressonance.value}}" data-dtype="Number" />
-                    <p>◆</p>
-                    <input name="system.ressonance.mod" type="number" value="{{data.system.ressonance.mod}}" data-dtype="Number" />
-                </div>
-            </div>
-
-            <div class="actions-title mt-1">
-                <div class="sub-section">
-                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
-                    <h3>Defesas Básicas</h3>
-                    <img src="https://jp.finalfantasyxvi.com/assets/images/common/symbol/text/marker_obj.svg" alt="{{localize 'roe.goals.shortTerm'}}">
-                </div>
-            </div>
-
-             <div class="antagonist-form-col">
-                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.basicDefenses.agile'}}" data-attribute="{{data.system.agile.value}}" data-attribute-modifier="{{data.system.agile.mod}}" title="{{localize 'roe.general.roll'}}">
-                    {{localize 'roe.basicDefenses.agile'}}
-                </a>
-
-                <div class="antagonist-form-row">
-                    <input name="system.agile.value" type="number" value="{{data.system.agile.value}}" data-dtype="Number" />
-                    <p>◆</p>
-                    <input name="system.agile.mod" type="number" value="{{data.system.agile.mod}}" data-dtype="Number" />
-                </div>
-            </div>
-
-            <div class="antagonist-form-col">
-                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.basicDefenses.physical'}}" data-attribute="{{data.system.physical.value}}" data-attribute-modifier="{{data.system.physical.mod}}" title="{{localize 'roe.general.roll'}}">
-                    {{localize 'roe.basicDefenses.physical'}}
-                </a>
-
-                <div class="antagonist-form-row">
-                    <input name="system.physical.value" type="number" value="{{data.system.physical.value}}" data-dtype="Number" />
-                    <p>◆</p>
-                    <input name="system.physical.mod" type="number" value="{{data.system.physical.mod}}" data-dtype="Number" />
-                </div>
-            </div>
-
-            <div class="antagonist-form-col">
-                <a class="roll" data-roll-type="action-basic" data-name="{{localize 'roe.basicDefenses.mental'}}" data-attribute="{{data.system.mental.value}}" data-attribute-modifier="{{data.system.mental.mod}}" title="{{localize 'roe.general.roll'}}">
-                    {{localize 'roe.basicDefenses.mental'}}
-                </a>
-
-                <div class="antagonist-form-row">
-                    <input name="system.mental.value" type="number" value="{{data.system.mental.value}}" data-dtype="Number" />
-                    <p>◆</p>
-                    <input name="system.mental.mod" type="number" value="{{data.system.mental.mod}}" data-dtype="Number" />
-                </div>
-            </div>
         </div>
     </div>
 </div>

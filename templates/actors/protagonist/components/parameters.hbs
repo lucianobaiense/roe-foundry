@@ -1,0 +1,289 @@
+<div class="content-row" style="margin-bottom: 0.5em;">
+    <div class="value-title">
+        <img src="https://br.finalfantasyxvi.com/_next/static/media/divider_decoration.3b3edfdf.png" alt="">
+        <h2>Essências</h2>
+    </div>
+
+    <a class="show-dialog" data-label="Essências" data-template="systems/roe/templates/dialogs/essences.hbs">
+        <i class="fa-solid fa-cog"></i>
+    </a>
+</div>
+
+<div class="value-row">
+    <div class="value-col">
+        {{#if (gt actor.system.water 0)}}
+            <div class="value-box mt-gap">
+                <p class="value-label"><i class="fa-solid fa-droplet"></i>{{localize 'roe.essences.water'}}</p>
+                <p class="value-number-green">+{{actor.system.water}}</p>
+            </div>
+        {{else if (lt actor.system.water 0)}}
+            <div class="value-box mt-gap">
+                <p class="value-label"><i class="fa-solid fa-droplet"></i>{{localize 'roe.essences.water'}}</p>
+                <p class="value-number-red">{{actor.system.water}}</p>
+            </div>
+        {{/if}}
+
+        {{#if (gt actor.system.air 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-wind"></i>{{localize 'roe.essences.air'}}</p>
+                <p class="value-number-green">+{{actor.system.air}}</p>
+            </div>
+        {{else if (lt actor.system.air 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-wind"></i>{{localize 'roe.essences.air'}}</p>
+                <p class="value-number-red">{{actor.system.air}}</p>
+            </div>
+        {{/if}}
+
+        {{#if (gt actor.system.fire 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-fire"></i>{{localize 'roe.essences.fire'}}</p>
+                <p class="value-number-green">+{{actor.system.fire}}</p>
+            </div>
+        {{else if (lt actor.system.fire 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-fire"></i>{{localize 'roe.essences.fire'}}</p>
+                <p class="value-number-red">{{actor.system.fire}}</p>
+            </div>
+        {{/if}}
+
+        {{#if (gt actor.system.earth 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-gem"></i>{{localize 'roe.essences.earth'}}</p>
+                <p class="value-number-green">+{{actor.system.earth}}</p>
+            </div>
+        {{else if (lt actor.system.earth 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-gem"></i>{{localize 'roe.essences.earth'}}</p>
+                <p class="value-number-red">{{actor.system.earth}}</p>
+            </div>
+        {{/if}}
+    </div>
+    <div class="value-col">
+        {{#if (gt actor.system.light 0)}}
+            <div class="value-box mt-gap">
+                <p class="value-label"><i class="fa-solid fa-sun"></i>{{localize 'roe.essences.light'}}</p>
+                <p class="value-number-green">+{{actor.system.light}}</p>
+            </div>
+        {{else if (lt actor.system.light 0)}}
+            <div class="value-box mt-gap">
+                <p class="value-label"><i class="fa-solid fa-sun"></i>{{localize 'roe.essences.light'}}</p>
+                <p class="value-number-red">{{actor.system.light}}</p>
+            </div>
+        {{/if}}
+
+        {{#if (gt actor.system.darkness 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-circle"></i>{{localize 'roe.essences.darkness'}}</p>
+                <p class="value-number-green">+{{actor.system.darkness}}</p>
+            </div>
+        {{else if (lt actor.system.darkness 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-circle"></i>{{localize 'roe.essences.darkness'}}</p>
+                <p class="value-number-red">{{actor.system.darkness}}</p>
+            </div>
+        {{/if}}
+
+        {{#if (gt actor.system.moon 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-moon"></i>{{localize 'roe.essences.moon'}}</p>
+                <p class="value-number-green">+{{actor.system.moon}}</p>
+            </div>
+        {{else if (lt actor.system.moon 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-moon"></i>{{localize 'roe.essences.moon'}}</p>
+                <p class="value-number-red">{{actor.system.moon}}</p>
+            </div>
+        {{/if}}
+
+        {{#if (gt actor.system.nature 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-leaf"></i>{{localize 'roe.essences.nature'}}</p>
+                <p class="value-number-green">+{{actor.system.nature}}</p>
+            </div>
+        {{else if (lt actor.system.nature 0)}}
+            <div class="value-box">
+                <p class="value-label"><i class="fa-solid fa-leaf"></i>{{localize 'roe.essences.nature'}}</p>
+                <p class="value-number-red">{{actor.system.nature}}</p>
+            </div>
+        {{/if}}
+    </div>
+</div>  
+
+<div class="content-row mt-gap">
+    <div class="value-title">
+        <img src="https://br.finalfantasyxvi.com/_next/static/media/divider_decoration.3b3edfdf.png" alt="">
+        <h2>Atributos</h2>
+    </div>
+    <a class="show-dialog" data-label="Atributos" data-template="systems/roe/templates/dialogs/attributes.hbs">
+        <i class="fa-solid fa-cog"></i>
+    </a>
+</div>
+
+<div class="value-row">
+    <div class="value-col mt-gap">
+        <div class="value-box">
+            <a class="value-label-short roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.body.rollMod}}" data-name="{{localize 'roe.attributes.body'}}" data-attribute="{{actor.system.body.value}}" data-attribute-modifier="{{actor.system.body.modifier}}">{{localize 'roe.attributes.bodyShort'}}</a>
+            <p class="value-number">{{actor.system.body.value}}</p>
+            <select name="system.body.rollMod">
+                {{selectOptions config.rollModifier selected=actor.system.body.rollMod localize=true}}
+            </select>
+            {{#if (gt actor.system.body.modifier 0)}}
+                <p class="value-number">({{actor.system.body.modifier}})</p>
+            {{/if}}
+        </div>
+        <div class="value-box">
+            <a class="value-label-short roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.essence.rollMod}}" data-name="{{localize 'roe.attributes.essence'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}">{{localize 'roe.attributes.essenceShort'}}</a>
+            <p class="value-number">{{actor.system.essence.value}}</p>
+            <select name="system.essence.rollMod">
+                {{selectOptions config.rollModifier selected=actor.system.essence.rollMod localize=true}}
+            </select>
+            {{#if (gt actor.system.essence.modifier 0)}}
+                <p class="value-number">({{actor.system.essence.modifier}})</p>
+            {{/if}}
+        </div>
+    </div>
+    <div class="value-col mt-gap">
+        <div class="value-box">
+            <a class="value-label-short roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.dexterity.rollMod}}" data-name="{{localize 'roe.attributes.dexterity'}}" data-attribute="{{actor.system.dexterity.value}}" data-attribute-modifier="{{actor.system.dexterity.modifier}}">{{localize 'roe.attributes.dexterityShort'}}</a>
+            <p class="value-number">{{actor.system.dexterity.value}}</p>
+            <select name="system.dexterity.rollMod">
+                {{selectOptions config.rollModifier selected=actor.system.dexterity.rollMod localize=true}}
+            </select>
+            {{#if (gt actor.system.dexterity.modifier 0)}}
+                <p class="value-number">({{actor.system.dexterity.modifier}})</p>
+            {{/if}}
+        </div>
+        <div class="value-box">
+            <a class="value-label-short roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.perception.rollMod}}" data-name="{{localize 'roe.attributes.perception'}}" data-attribute="{{actor.system.perception.value}}" data-attribute-modifier="{{actor.system.perception.modifier}}">{{localize 'roe.attributes.perceptionShort'}}</a>
+            <p class="value-number">{{actor.system.perception.value}}</p>
+            <select name="system.perception.rollMod">
+                {{selectOptions config.rollModifier selected=actor.system.perception.rollMod localize=true}}
+            </select>
+            {{#if (gt actor.system.perception.modifier 0)}}
+                <p class="value-number">({{actor.system.perception.modifier}})</p>
+            {{/if}}
+        </div>
+    </div>
+    <div class="value-col mt-gap">
+        <div class="value-box">
+            <a class="value-label-short roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.influence.rollMod}}" data-name="{{localize 'roe.attributes.influence'}}" data-attribute="{{actor.system.influence.value}}" data-attribute-modifier="{{actor.system.influence.modifier}}">{{localize 'roe.attributes.influenceShort'}}</a>
+            <p class="value-number">{{actor.system.influence.value}}</p>
+            <select name="system.influence.rollMod">
+                {{selectOptions config.rollModifier selected=actor.system.influence.rollMod localize=true}}
+            </select>
+            {{#if (gt actor.system.influence.modifier 0)}}
+                <p class="value-number">({{actor.system.influence.modifier}})</p>
+            {{/if}}
+        </div>
+        <div class="value-box">
+            <a class="value-label-short roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.mind.rollMod}}" data-name="{{localize 'roe.attributes.mindShort'}}" data-attribute="{{actor.system.mind.value}}" data-attribute-modifier="{{actor.system.mind.modifier}}">{{localize 'roe.attributes.mindShort'}}</a>
+            <p class="value-number">{{actor.system.mind.value}}</p>
+            <select name="system.mind.rollMod">
+                {{selectOptions config.rollModifier selected=actor.system.mind.rollMod localize=true}}
+            </select>
+            {{#if (gt actor.system.mind.modifier 0)}}
+                <p class="value-number">({{actor.system.mind.modifier}})</p>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<div class="value-row mt-gap">
+    <div class="value-col">
+        <div class="value-title">
+            <img src="https://br.finalfantasyxvi.com/_next/static/media/divider_decoration.3b3edfdf.png" alt="">
+            <h2>Ataques</h2>
+        </div>
+
+        <div class="value-col mt-gap">
+            <div class="value-box">
+                <a class="value-label roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.melee.rollMod}}" data-name="{{localize 'roe.basicAttacks.melee'}}" data-attribute="{{actor.system.melee.value}}" data-attribute-modifier="{{actor.system.melee.mod}}" title="{{localize 'roe.general.roll'}}" draggable="true">
+                    Impacto
+                </a>
+                <p class="value-number">{{actor.system.melee.value}}</p>
+                <select name="system.melee.rollMod">
+                    {{selectOptions config.rollModifier selected=actor.system.melee.rollMod localize=true}}
+                </select>
+                {{#if (gt actor.system.melee.mod 0)}}
+                    <p class="value-number">({{actor.system.melee.mod}})</p>
+                {{/if}}
+            </div>
+            <div class="value-box">
+                <a class="value-label roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.distance.rollMod}}" data-name="{{localize 'roe.basicAttacks.distance'}}" data-attribute="{{actor.system.distance.value}}" data-attribute-modifier="{{actor.system.distance.mod}}" title="{{localize 'roe.general.roll'}}" draggable="true">
+                    Precisão
+                </a>
+                <p class="value-number">{{actor.system.distance.value}}</p>
+                <select name="system.distance.rollMod">
+                    {{selectOptions config.rollModifier selected=actor.system.distance.rollMod localize=true}}
+                </select>
+                {{#if (gt actor.system.distance.mod 0)}}
+                    <p class="value-number">({{actor.system.distance.mod}})</p>
+                {{/if}}
+            </div>
+            <div class="value-box">
+                <a class="value-label roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.ressonance.rollMod}}" data-name="{{localize 'roe.basicAttacks.ressonance'}}" data-attribute="{{actor.system.ressonance.value}}" data-attribute-modifier="{{actor.system.ressonance.mod}}" title="{{localize 'roe.general.roll'}}" draggable="true">
+                    Energia
+                </a>
+                <p class="value-number">{{actor.system.ressonance.value}}</p>
+                <select name="system.ressonance.rollMod">
+                    {{selectOptions config.rollModifier selected=actor.system.ressonance.rollMod localize=true}}
+                </select>
+                {{#if (gt actor.system.ressonance.mod 0)}}
+                    <p class="value-number">({{actor.system.ressonance.mod}})</p>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="value-col mt-gap">
+        <div class="content-row">
+            <div class="value-title">
+                <img src="https://br.finalfantasyxvi.com/_next/static/media/divider_decoration.3b3edfdf.png" alt="">
+                <h2>Defesas</h2>
+            </div>
+
+            <a class="show-dialog" data-label="Ataques & Defesas" data-template="systems/roe/templates/dialogs/attacks-defenses.hbs">
+                <i class="fa-solid fa-cog"></i>
+            </a>
+        </div>
+
+        <div class="value-col">
+            <div class="value-box">
+                <a class="value-label roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.physical.rollMod}}" data-name="{{localize 'roe.basicDefenses.physical'}}" data-attribute="{{actor.system.physical.value}}" data-attribute-modifier="{{actor.system.physical.mod}}" data-traits-list='{{json weaponsTraits}}' title="{{localize 'roe.general.roll'}}" draggable="true">
+                    Vigor
+                </a>
+                <p class="value-number">{{actor.system.physical.value}}</p>
+                <select name="system.physical.rollMod">
+                    {{selectOptions config.rollModifier selected=actor.system.physical.rollMod localize=true}}
+                </select>
+                {{#if (gt actor.system.physical.mod 0)}}
+                  <p class="value-number">({{actor.system.physical.mod}})</p>
+                {{/if}}
+            </div>
+            <div class="value-box">
+                <a class="value-label roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.agile.rollMod}}" data-name="{{localize 'roe.basicDefenses.agile'}}" data-attribute="{{actor.system.agile.value}}" data-attribute-modifier="{{actor.system.agile.mod}}" data-traits-list='{{json weaponsTraits}}' title="{{localize 'roe.general.roll'}}" draggable="true">
+                    Reflexos
+                </a>
+                <p class="value-number">{{actor.system.agile.value}}</p>
+                <select name="system.agile.rollMod">
+                    {{selectOptions config.rollModifier selected=actor.system.agile.rollMod localize=true}}
+                </select>
+                {{#if (gt actor.system.agile.mod 0)}}
+                  <p class="value-number">({{actor.system.agile.mod}})</p>
+                {{/if}}
+            </div>
+            <div class="value-box">
+                <a class="value-label roll" data-roll-type="action-basic" data-roll-mod="{{actor.system.mental.rollMod}}" data-name="{{localize 'roe.basicDefenses.mental'}}" data-attribute="{{actor.system.mental.value}}" data-attribute-modifier="{{actor.system.mental.mod}}" data-traits-list='{{json weaponsTraits}}' title="{{localize 'roe.general.roll'}}" draggable="true">
+                    Vontade
+                </a>
+                <p class="value-number">{{actor.system.mental.value}}</p>
+                <select name="system.mental.rollMod">
+                    {{selectOptions config.rollModifier selected=actor.system.mental.rollMod localize=true}}
+                </select>
+                {{#if (gt actor.system.mental.mod 0)}}
+                    <p class="value-number">({{actor.system.mental.mod}})</p>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

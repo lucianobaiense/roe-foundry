@@ -3,6 +3,7 @@
         "ability": {
             "rank": "Ranque",
             "type": "Tipo",
+            "category": "Categoria",
             "label": "Habilidade",
             "action": "Ação",
             "roll": "Rolagem",
@@ -18,11 +19,28 @@
             "target": "Alvo",
             "resistance": "Resistência",
             "sortilege": "É um Sortilégio?",
+            "book": "Livro",
             "traits": "Traços"
         },
         "abilityTypes": {
             "passive": "Passiva",
             "active": "Ativa"
+        },
+        "abilityCategoryBackup": {
+            "inherited": "Herdada",
+            "physical": "Física",
+            "mental": "Mental",
+            "elemental": "Elemental"
+        },
+        "abilityCategory": {
+            "inherited": "Herdada",
+            "battle": "Batalha",
+            "hunt": "Caçada",
+            "creation": "Criação",
+            "leadership": "Liderança",
+            "knowledge": "Conhecimento",
+            "subterfuge": "Subterfúgio",
+            "resonance": "Ressonância"
         },
         "abilitySortilege": {
             "yes": "Sim",
@@ -37,21 +55,39 @@
             "other": "Outros"
         },
         "action": {
+            "type": "Tipo de Ação",
+            "cost": "Custo",
+            "action": "Acão",
             "label": "Ação",
             "damage": "Dano",
             "damageCritical": "Dano ✦",
             "damageType": "Tipo de Dano",
             "damageTypeCritical": "Tipo de Dano ✦",
             "flavor": "Flavor",
+            "description": "Descrição",
             "hit": "Acerto",
             "traits": "Traços"
         },
         "actionTypes": {
+            "none": "",
+            "physical": "Ataque",
+            "magical": "Sortilégio"
+        },
+        "actionUses": {
             "simple": "▷, Ação Simples",
             "standard": "►, 1 Ação Padrão",
             "standardFull": "►►, 2 Ações Padrões",
-            "fast": "☈, Ação Rápida",
-            "special": "Especial"
+            "fast": "☈, Reação",
+            "passive": "◈, Passiva",
+            "special": "★, Especial"
+        },
+        "actionTypesShort": {
+            "simple": "▷",
+            "standard": "►",
+            "standardFull": "►►",
+            "fast": "☈",
+            "passive": "◈",
+            "special": "★"
         },
         "costTypes": {
             "hp": "PV",
@@ -61,29 +97,30 @@
             "other": "Outros"
         },
         "damageTypes": {
-            "cutting": "Corte",
-            "shocking": "Impacto",
-            "piercing": "Perfuração",
-            "air": "Brisa",
-            "darkness": "Escuridão",
-            "earth": "Terra",
-            "ether": "Ether",
-            "fire": "Chama",
-            "light": "Luz",
-            "moon": "Lua",
-            "nature": "Natureza",
-            "water": "Água"
+            "physical": "Físico",
+            "water": "Mágico (Água)",
+            "air": "Mágico (Brisa)",
+            "fire": "Mágico (Chama)",
+            "earth": "Mágico (Terra)",
+            "light": "Mágico (Luz)",
+            "darkness": "Mágico (Escuridão)",
+            "moon": "Mágico (Lua)",
+            "nature": "Mágico (Natureza)"
         },
         "heritage": {
             "none": "",
             "caligem": "Caligem",
             "etherno": "Etherno",
-            "floral": "Floral",
             "faun": "Fauno",
+            "floral": "Floral",
+            "forged": "Forjado",
+            "hagedis": "Hagedis",
+            "jotun": "Jotun",
             "lumina": "Lumina",
-            "lump": "Torrão",
             "lunar": "Lunar",
             "oceanic": "Oceânico",
+            "lump": "Torrão",
+            "tyndur": "Tyndur",
             "vatra": "Vatra",
             "zephyr": "Zéfiro"
         },
@@ -95,37 +132,58 @@
         },
         "attributes": {
             "body": "Corpo",
-            "essence": "Essência",
+            "essence": "Magia",
             "dexterity": "Destreza",
             "perception": "Percepção",
             "influence": "Influência",
             "mind": "Mente",
             "bodyShort": "COR",
-            "essenceShort": "ESS",
+            "essenceShort": "MAG",
             "dexterityShort": "DES",
             "perceptionShort": "PER",
             "influenceShort": "INF",
             "mindShort": "MEN"
         },
-        "careers": {
+        "skills": {
             "none": "",
-            "brute": "Bruto",
-            "resistant": "Resistente",
-            "alchemist": "Alquimista",
-            "mystic": "Místico",
-            "athlete": "Atleta",
-            "skillful": "Habilidoso",
-            "explorer": "Explorador",
-            "researcher": "Investigador",
-            "artist": "Artista",
-            "diplomat": "Diplomata",
-            "academic": "Acadêmico",
-            "artisan": "Artesão"
+            "acrobatics": "Acrobacia",
+            "alchemy": "Alquimia",
+            "athletics": "Atletismo",
+            "performance": "Atuação",
+            "hunt": "Caça",
+            "speech": "Discurso",
+            "exploration": "Exploração",
+            "stealth": "Furtividade",
+            "investigation": "Investigação",
+            "medicine": "Medicina",
+            "natureSkill": "Natureza",
+            "craft": "Ofícios",
+            "runic": "Talharuna"
+        },
+        "sortileges": {
+            "none": "",
+            "restoration": "Restauração",
+            "transformation": "Transformação",
+            "movement": "Sopro",
+            "senses": "Sentidos",
+            "intensity": "Intensidade",
+            "domain": "Ímpeto",
+            "protection": "Proteção",
+            "enchantment": "Encantamento",
+            "ilusion": "Ilusão",
+            "revelation": "Revelação",
+            "echoes": "Ecos",
+            "concealment": "Ocultamento",
+            "portal": "Portal",
+            "time": "Tempo",
+            "growth": "Crescimento",
+            "invocation": "Invocação"
         },
         "equipment": {
             "rank": "Ranque",
             "label": "Equipamento",
             "damage": "Dano",
+            "damageType": "Tipo de Dano",
             "damageResistancePhysical": "RDF",
             "damageResistanceMagic": "RDM",
             "defenseBonus": "Bônus de Defesa",
@@ -150,6 +208,11 @@
             "weapon": "Armas",
             "other": "Outros"
         },
+        "weaponDamageTypes": {
+            "none": "",
+            "physical": "Físico",
+            "magical": "Mágico"
+        },
         "essences": {
             "air": "Brisa",
             "darkness": "Escuridão",
@@ -168,14 +231,14 @@
             "aversion": "Aversão"
         },
         "ressonanceAttribute": {
-            "influence": "(INF)",
-            "mind": "(MEN)",
-            "perception": "(PER)"
+            "influence": "Influência",
+            "mind": "Mente",
+            "perception": "Percepção"
         },
         "rollModifier": {
-            "regular": "Normal",
-            "advantage": "Vantagem",
-            "disadvantage": "Desvantagem"
+            "regular": "NOR",
+            "advantage": "VAN",
+            "disadvantage": "DES"
         },
         "general": {
             "abilities": "Habilidades",
@@ -183,13 +246,14 @@
             "add": "Adicionar",
             "afinity": "Afinidade",
             "antagonist": "Antagonista",
-            "armor": "Armadura",
             "archetype": "Arquétipo",
+            "armor": "Armadura",
             "ascendant": "Ascendente",
-            "heritage": "Herança",
             "attributes": "Atributos",
             "combat": "Combate",
+            "conditions": "Condições",
             "consumable": "Consumível",
+            "corruption": "Corrupção",
             "damageResistance": "FIS/MAG",
             "defenseBonus": "BD",
             "delete": "Excluir",
@@ -197,24 +261,29 @@
             "edit": "Editar",
             "essences": "Essências",
             "equipments": "Equipamentos",
-            "etherPoints": "PE",
+            "etherPoints": "Pontos de Ether (PE)",
             "experience": "Experiência",
             "goals": "Objetivos",
-            "healthPoints": "PV",
-            "impulse": "Impulso",
+            "healthPoints": "Pontos de Vida (PV)",
+            "heritage": "Herança",
+            "impulse": "Impulsos",
+            "information": "Informações",
             "inventary": "Inventário",
             "level": "Nível",
-            "magicPower": "Poder Mágico",
             "magicFocus": "Foco Mágico",
+            "magicPower": "Poder Mágico",
+            "magicalDamageResistance": "RDM",
             "name": "Nome",
-            "narrativePoints": "PN",
+            "narrativePoints": "Pontos Narrativos (PN)",
+            "synergyPoints": "Sinergia",
             "notes": "Anotações",
             "origin": "Origem",
+            "physicalDamageResistance": "RDF",
             "power": "Poder",
             "protagonist": "Protagonista",
             "resistances": "Resistências",
             "resources": "Recursos",
-            "result":"Resultado",
+            "result": "Resultado",
             "roll": "Rolar",
             "shield": "Escudo",
             "size": "Tamanho",
@@ -226,19 +295,18 @@
             "traits": "Traços",
             "traitsNotes": "Notas dos Traços",
             "weapon": "Arma",
-            "physicalDamageResistance": "RDF",
-            "magicalDamageResistance": "RDM",
-            "information": "Informações"
+            "sortileges": "Sortilégios"  ,
+            "geo": "Geo (G$)"      
         },
         "basicAttacks": {
-            "melee": "Ataque Corporal",
-            "distance": "Ataque à Distância",
-            "ressonance": "Ressonância"
+            "melee": "Impacto",
+            "distance": "Precisão",
+            "ressonance": "Energia"
         },
         "basicDefenses": {
-            "agile": "Defesa Ágil",
-            "physical": "Defesa Física",
-            "mental": "Defesa Mental"
+            "agile": "Reflexos",
+            "physical": "Vigor",
+            "mental": "Vontade"
         },
         "size": {
             "small": "Pequeno",

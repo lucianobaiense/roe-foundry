@@ -1,0 +1,100 @@
+<form class="dialog-form">
+    <h3>Arma Secundária</h3>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponName">Nome</label>
+        <input name="system.secondaryWeaponName" type="text" value="{{actor.system.secondaryWeaponName}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponTrained">Possuí Treinamento com Arma?</label>
+        <input type="checkbox" name="system.secondaryWeaponTrained" {{#if actor.system.secondaryWeaponTrained}}checked{{/if}}>
+    </div>
+
+    <h4>Ataque Básico ( ► )</h4>
+    
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponBasicAttack.hit">{{localize "roe.general.roll"}}</label>
+        <select name="system.secondaryWeaponBasicAttack.hit">
+            <option value="">-</option>
+            {{selectOptions roe.basicAttacks selected=actor.system.secondaryWeaponBasicAttack.hit localize=true}}
+        </select>  
+    </div> 
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponBasicAttack.damage">Dano</label>
+        <input name="system.secondaryWeaponBasicAttack.damage" type="text" value="{{actor.system.secondaryWeaponBasicAttack.damage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponBasicAttack.criticalDamage">Dano Ressoante</label>
+        <input name="system.secondaryWeaponBasicAttack.criticalDamage" type="text" value="{{actor.system.secondaryWeaponBasicAttack.criticalDamage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponBasicAttack.traits">Traços</label>
+        <input name="system.secondaryWeaponBasicAttack.traits" type="text" value="{{actor.system.secondaryWeaponBasicAttack.traits}}" data-dtype="String" />
+    </div>
+
+    <h4 class="mt-1">Ataque Especial ( ►► )</h4>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponSpecialAttack.hit">{{localize "roe.general.roll"}}</label>
+        <select name="system.secondaryWeaponSpecialAttack.hit">
+            <option value="">-</option>
+            {{selectOptions roe.basicAttacks selected=actor.system.secondaryWeaponSpecialAttack.hit localize=true}}
+        </select>  
+    </div> 
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponSpecialAttack.damage">Dano</label>
+        <input name="system.secondaryWeaponSpecialAttack.damage" type="text" value="{{actor.system.secondaryWeaponSpecialAttack.damage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponSpecialAttack.criticalDamage">Dano Ressoante</label>
+        <input name="system.secondaryWeaponSpecialAttack.criticalDamage" type="text" value="{{actor.system.secondaryWeaponSpecialAttack.criticalDamage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponSpecialAttack.traits">Traços</label>
+        <input name="system.secondaryWeaponSpecialAttack.traits" type="text" value="{{actor.system.secondaryWeaponSpecialAttack.traits}}" data-dtype="String" />
+    </div>
+
+    <h4 class="mt-1">Ataque Rápido ( ☈ )</h4>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponFastAttack.hit">{{localize "roe.general.roll"}}</label>
+        <select name="system.secondaryWeaponFastAttack.hit">
+            <option value="">-</option>
+            {{selectOptions roe.basicAttacks selected=actor.system.secondaryWeaponFastAttack.hit localize=true}}
+        </select>  
+    </div> 
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponFastAttack.damage">Dano</label>
+        <input name="system.secondaryWeaponFastAttack.damage" type="text" value="{{actor.system.secondaryWeaponFastAttack.damage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponFastAttack.criticalDamage">Dano Ressoante</label>
+        <input name="system.secondaryWeaponFastAttack.criticalDamage" type="text" value="{{actor.system.secondaryWeaponFastAttack.criticalDamage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponFastAttack.traits">Traços</label>
+        <input name="system.secondaryWeaponFastAttack.traits" type="text" value="{{actor.system.secondaryWeaponFastAttack.traits}}" data-dtype="String" />
+    </div>
+
+    <h4 class="mt-1">Contra Ataque ( ✦ )</h4>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponCounterAttack.damage">Dano</label>
+        <input name="system.secondaryWeaponCounterAttack.damage" type="text" value="{{actor.system.secondaryWeaponCounterAttack.damage}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.secondaryWeaponCounterAttack.traits">Traços</label>
+        <input name="system.secondaryWeaponCounterAttack.traits" type="text" value="{{actor.system.secondaryWeaponCounterAttack.traits}}" data-dtype="String" />
+    </div>
+</form>

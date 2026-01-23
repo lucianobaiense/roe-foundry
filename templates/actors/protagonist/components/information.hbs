@@ -1,43 +1,123 @@
-<div class="info">
-    <div class="info-row">
-        <div class="info-form">
+<div class="value-row">
+    <div class="value-col">
+        <div class="extras">
+            <a class="show-dialog" data-label="Anotações" data-template="systems/roe/templates/dialogs/notes.hbs" title="Anotações">
+                <i class="fa-solid fa-book-open"></i>
+            </a>
+
+            <a class="show-info" data-label="Ações" data-template="systems/roe/templates/dialogs/actions.hbs" title="Ações">
+                <i class="fa-solid fa-table-list"></i>
+            </a>
+
+            <a class="show-info" data-label="Corrupção" data-template="systems/roe/templates/dialogs/corruption.hbs" title="Corrupção">
+                <i class="fa-solid fa-virus"></i>
+            </a>
+        </div>
+
+        <div class="portrait">
+            <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        </div>
+
+        <div class="form-row">
+            <label for="system.level">{{localize 'roe.general.level'}}</label>
+            <input name="system.level" type="number" value="{{actor.system.level}}" data-dtype="Number"/>
+        </div>
+
+        <div class="form-row mt-1">
+            <label for="system.experience.current">{{localize 'roe.general.experience'}}</label>
+            <input name="system.experience.current" type="number" value="{{actor.system.experience.current}}" data-dtype="Number"/>
+            <input name="system.experience.next" type="number" value="{{actor.system.experience.next}}" data-dtype="Number"/>
+        </div>
+    </div>
+
+    <div class="value-col">
+        <div class="form-col">
+            <label for="system.healthPoints.max">{{localize 'roe.general.healthPoints'}}</label>
+            <div class="form-row">
+                <input name="system.healthPoints.value" type="number" value="{{actor.system.healthPoints.value}}" data-dtype="Number" />
+                <input name="system.healthPoints.max" type="number" value="{{actor.system.healthPoints.max}}" data-dtype="Number" />
+                <p>◆</p>
+                <input name="system.healthPoints.mod" type="number" value="{{actor.system.healthPoints.mod}}" data-dtype="Number" />                         
+            </div>
+        </div>
+        <div class="form-col">
+            <label for="system.healthPoints.max">{{localize 'roe.general.etherPoints'}}</label>
+            <div class="form-row">
+                <input name="system.etherPoints.value" type="number" value="{{actor.system.etherPoints.value}}" data-dtype="Number" /> 
+                <input name="system.etherPoints.max" type="number" value="{{actor.system.etherPoints.max}}" data-dtype="Number" />
+                <p>◆</p>
+                <input name="system.etherPoints.mod" type="number" value="{{actor.system.etherPoints.mod}}" data-dtype="Number" />                       
+            </div>
+        </div>
+        <div class="form-col">
+            <label for="system.narrativePoints.one">{{localize 'roe.general.narrativePoints'}} ({{actor.system.narrativePoints.dice}})</label>
+            <div class="form-row">    
+                <input type="checkbox" name="system.narrativePoints.one" {{checked actor.system.narrativePoints.one}}>
+                <input type="checkbox" name="system.narrativePoints.two" {{checked actor.system.narrativePoints.two}}>
+
+                {{#if (gt system.level 3)}}
+                    <input type="checkbox" name="system.narrativePoints.three" {{checked actor.system.narrativePoints.three}}>
+                {{/if}}
+
+                {{#if (gt system.level 6)}}
+                    <input type="checkbox" name="system.narrativePoints.four" {{checked actor.system.narrativePoints.four}}>
+                {{/if}}
+
+                {{#if (gt system.level 9)}}
+                    <input type="checkbox" name="system.narrativePoints.five" {{checked actor.system.narrativePoints.five}}>
+                {{/if}}
+            </div>
+        </div>
+        
+        <div class="form-col">
+            <label for="system.synergyPoints.one">{{localize 'roe.general.synergyPoints'}}</label>
+            <div class="form-row">
+                <input type="checkbox" name="system.synergyPoints.one" {{checked actor.system.synergyPoints.one}}>
+                <input type="checkbox" name="system.synergyPoints.two" {{checked actor.system.synergyPoints.two}}>
+                
+                {{#if (gt system.level 3)}}
+                    <input type="checkbox" name="system.synergyPoints.three" {{checked actor.system.synergyPoints.three}}>
+                {{/if}}
+
+                {{#if (gt system.level 6)}}
+                    <input type="checkbox" name="system.synergyPoints.four" {{checked actor.system.synergyPoints.four}}>
+                {{/if}}
+
+                {{#if (gt system.level 9)}}
+                    <input type="checkbox" name="system.synergyPoints.five" {{checked actor.system.synergyPoints.five}}>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="form-col">
+            <label for="system.corruption.one">{{localize 'roe.general.corruption'}}</label>
+            <div class="form-row">
+                <input type="checkbox" name="system.corruption.one" {{checked actor.system.corruption.one}}>
+                <input type="checkbox" name="system.corruption.two" {{checked actor.system.corruption.two}}>
+                <input type="checkbox" name="system.corruption.three" {{checked actor.system.corruption.three}}>
+                <input type="checkbox" name="system.corruption.four" {{checked actor.system.corruption.four}}>
+                <input type="checkbox" name="system.corruption.five" {{checked actor.system.corruption.five}}>
+            </div>
+        </div>
+    </div>
+</div>
+            
+<div class="value-row">
+    <div class="section mr-1">
+        <div class="box-form-row">
             <label for="name">{{localize 'roe.general.name'}}</label>
             <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'roe.general.protagonist'}}" data-dtype="String" />
         </div>
+    </div>
 
-        <div class="info-form">
+    <div class="section">
+        <div class="box-form-row">
+            {{!-- <label for="name">{{localize 'roe.general.heritage'}}</label>
+            <input name="system.heritage" type="text" value="{{actor.system.heritage}}" data-dtype="String" /> --}}
             <label for="system.heritage">{{localize 'roe.general.heritage'}}</label>
             <select name="system.heritage">
-                {{selectOptions config.heritages selected=data.system.heritage localize=true}}
+                {{selectOptions config.heritages selected=actor.system.heritage localize=true}}
             </select>
-        </div>
-    </div>
-
-    <div class="info-row">
-        <div class="info-form">
-            <label for="system.size">{{localize 'roe.general.size'}}</label>
-            <select name="system.size">
-                {{selectOptions config.size selected=data.system.size localize=true}}
-            </select>
-        </div>
-
-        <div class="info-form">
-            <label for="system.speed">{{localize 'roe.general.speed'}}</label>
-            <select name="system.speed">
-                {{selectOptions config.speed selected=data.system.speed localize=true}}
-            </select>
-        </div>
-    </div>
-
-    <div class="info-row">
-        <div class="info-form">
-            <label for="system.impulse1">{{localize 'roe.general.impulse'}} 1</label>
-            <input name="system.impulse1" type="text" value="{{data.system.impulse1}}" data-dtype="String" />
-        </div>
-
-        <div class="info-form">
-            <label for="system.impulse2">{{localize 'roe.general.impulse'}} 2</label>
-            <input name="system.impulse2" type="text" value="{{data.system.impulse2}}" data-dtype="String" />
         </div>
     </div>
 </div>

@@ -1,0 +1,49 @@
+<form class="dialog-form">
+    <h3>Ataques (Modificador)</h3>
+
+    <div class="dialog-row">
+        <label for="system.melee.mod">Impacto</label>
+        <input name="system.melee.mod" type="number" value="{{actor.system.melee.mod}}" data-dtype="Number" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.distance.mod">Precisão</label>
+        <input name="system.distance.mod" type="number" value="{{actor.system.distance.mod}}" data-dtype="Number" />
+    </div>  
+
+    <div class="dialog-row">
+        <label for="system.ressonance.mod">Energia</label>
+        <input name="system.ressonance.mod" type="number" value="{{actor.system.ressonance.mod}}" data-dtype="Number" />
+    </div>
+
+    {{!-- ressonanceAttribute --}}
+
+    {{!-- <div class="dialog-row">
+        <label for="system.ressonance.attribute">Atributo usado para o ataque Energia</label>
+        <input name="system.ressonance.attribute" type="text" value="{{actor.system.ressonance.attribute}}" placeholder="Perception, Influence ou Mind" data-dtype="String" />
+    </div> --}}
+
+    <div class="dialog-row">
+        <label for="system.ressonance.attribute">Atributo usado para o ataque Energia</label>
+        <select name="system.ressonance.attribute">
+            {{selectOptions roe.ressonanceAttribute selected=actor.system.ressonance.attribute localize=true}}
+        </select>     
+    </div>
+
+    <h3 class="mt-1">Defesas (Modificador)</h3>
+
+    <div class="dialog-row">
+        <label for="system.physical.mod">Vigor</label>
+        <input name="system.physical.mod" type="number" value="{{actor.system.physical.mod}}" data-dtype="Number" />
+    </div>  
+
+    <div class="dialog-row">
+        <label for="system.agile.mod">Reflexos</label>
+        <input name="system.agile.mod" type="number" value="{{actor.system.agile.mod}}" data-dtype="Number" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.mental.mod">Vontade</label>
+        <input name="system.mental.mod" type="number" value="{{actor.system.mental.mod}}" data-dtype="Number" />
+    </div>  
+</form>

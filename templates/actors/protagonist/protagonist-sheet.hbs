@@ -1,37 +1,48 @@
-{{!-- Logo, Info, Level and Experience --}}
-<div class="content">
-    {{> "systems/roe/templates/actors/protagonist/components/logo.hbs"}}
-    {{> "systems/roe/templates/actors/protagonist/components/information.hbs"}}
-    {{> "systems/roe/templates/actors/protagonist/components/level.hbs"}}
-    {{> "systems/roe/templates/actors/protagonist/components/experience.hbs"}}
-</div>
+<div class="roe-wrapper">
+    <div class="content">
+        <!-- Information and Resources  -->
+        <div class="content-left">
+            {{> "systems/roe/templates/actors/protagonist/components/information.hbs"}}
+        </div>
 
-{{!-- Avatar, Resources and Essences --}}
-<div class="content">
-    {{> "systems/roe/templates/actors/protagonist/components/resources.hbs"}}
-    {{> "systems/roe/templates/actors/protagonist/components/essences.hbs"}}
-</div>
-
-{{!-- Attributes and Careers --}}
-<div class="content">
-    {{> "systems/roe/templates/actors/protagonist/components/attributes.hbs"}}
-</div>
-
-{{!-- Goals --}}
-<div class="content">
-    {{> "systems/roe/templates/actors/protagonist/components/goals.hbs"}}
-</div>
-
-{{!-- Abilities and Combat --}}
-<div class="content">
-    <div class="abilities-and-combat">
-        {{> "systems/roe/templates/actors/protagonist/components/abilities.hbs"}}
-        {{> "systems/roe/templates/actors/protagonist/components/combat.hbs"}}
+        <!-- Parameters  -->
+        <div class="content-right">
+            {{> "systems/roe/templates/actors/protagonist/components/parameters.hbs"}}
+        </div>
     </div>
-</div>
 
-{{!-- Inventory and Notes --}}
-<div class="content">
-    {{> "systems/roe/templates/actors/protagonist/components/inventory.hbs"}}
-    {{> "systems/roe/templates/actors/protagonist/components/notes.hbs"}}
+    <!-- Impulses and Dissonances -->
+    <div class="content">
+        <div class="content-left">
+            {{> "systems/roe/templates/actors/protagonist/components/impulses.hbs"}}
+        </div>
+        
+        <div class="content-right">
+            {{> "systems/roe/templates/actors/protagonist/components/dissonances.hbs"}}
+        </div>
+    </div>
+
+    <!-- Skills and Combat -->
+    <div class="content">
+        <div class="content-left">
+            {{> "systems/roe/templates/actors/protagonist/components/skills.hbs"}}
+        </div>
+
+        <div class="content-right">
+            {{> "systems/roe/templates/actors/protagonist/components/combat.hbs"}}
+        </div>
+    </div>
+
+    <!-- Abilities and Inventory -->
+    <div class="content">
+        <div class="content-left">
+            {{> "systems/roe/templates/actors/protagonist/components/abilities.hbs"}}
+        </div>
+
+        <div class="content-right">
+            {{> "systems/roe/templates/actors/protagonist/components/inventory.hbs"}}
+        </div>
+    </div>
+
+    <p class="center mt-1">Ressonance of Ether © Playtest 0.9.3</p>
 </div>

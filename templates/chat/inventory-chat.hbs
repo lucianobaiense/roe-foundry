@@ -62,19 +62,19 @@
     {{#if (eq system.equipmentType "weapon")}} 
         <hr>
 
-        <div class="chat-row">
+        {{!-- <div class="chat-row">
             <div class="chat-roll">
                 <p class="chat-roll-title">{{localize "roe.equipment.weaponType"}}</p>
                 <p>{{localize (concat "roe.weaponTypes." i system.weaponType)}}</p>
             </div>
         </div>
 
-        <hr>
+        <hr> --}}
 
         <div class="chat-row">
             <div class="chat-roll">
-                <p class="chat-roll-title">{{localize "roe.equipment.damage"}}</p>
-                <p>{{system.damage}}</p>
+                <p class="chat-roll-title">{{localize "roe.equipment.damageType"}}</p>
+                <p>{{localize (concat "roe.weaponDamageTypes." i system.damageType)}}</p>
             </div>
         </div>
 
@@ -91,6 +91,8 @@
     {{#if system.description}}
         <hr>
 
+        <p class="chat-section">Descrição</p>    
+
         <div class="chat-col chat-description">
             {{safe system.description}}
         </div>
@@ -98,6 +100,8 @@
 
     {{#if system.traits}}
         <hr>
+
+        <p class="chat-section">{{localize "roe.general.traits"}}</p>    
 
         <div class="traits">
             {{#each system.traits as |trait|}}

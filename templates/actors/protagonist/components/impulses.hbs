@@ -1,0 +1,17 @@
+<div class="value-row">
+    <div class="section mr-1">
+        <div class="box-form-row">
+            <label for="system.size">{{localize 'roe.general.size'}}</label>
+            <select name="system.size">
+                {{selectOptions config.size selected=data.system.size localize=true}}
+            </select>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="box-form-row">
+            <label for="name">{{localize 'roe.general.impulse'}}</label>
+            <input name="system.impulse1" type="text" value="{{data.system.impulse1}}" data-dtype="String" />
+        </div>
+    </div>
+</div>

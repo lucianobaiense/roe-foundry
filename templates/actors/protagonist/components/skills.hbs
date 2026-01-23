@@ -1,0 +1,425 @@
+<div class="section">
+    <div class="section-title">
+        <img class="mirror" src="https://br.finalfantasyxvi.com/_next/static/media/decoration.d307c720.svg" alt="">
+        <h2>Perícias & Sortilégios</h2>
+        <img src="https://br.finalfantasyxvi.com/_next/static/media/decoration.d307c720.svg" alt="">
+    </div>
+
+    <div class="add-item">
+        <a class="show-dialog" data-label="Perícias & Sortilégios" data-template="systems/roe/templates/dialogs/skills.hbs">
+            <i class="fa-solid fa-cog"></i>
+        </a>
+    </div>
+
+    <div class="content-row">
+        <div class="section-col">
+            {{#if (gt data.system.acrobatics 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.acrobatics'}}" data-attribute="{{actor.system.dexterity.value}}" data-attribute-modifier="{{actor.system.dexterity.modifier}}" data-skill="{{actor.system.acrobatics}}" data-roll-mod="{{actor.system.acrobaticsRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.acrobatics'}}
+                    </a>
+                    <select name="system.acrobaticsRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.acrobaticsRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.acrobatics}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.alchemy 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.alchemy'}}" data-attribute="{{actor.system.mind.value}}" data-attribute-modifier="{{actor.system.mind.modifier}}" data-skill="{{actor.system.alchemy}}" data-roll-mod="{{actor.system.alchemyRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.alchemy'}}
+                    </a>
+                    <select name="system.alchemyRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.alchemyRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.alchemy}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.athletics 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.athletics'}}" data-attribute="{{actor.system.body.value}}" data-attribute-modifier="{{actor.system.body.modifier}}" data-skill="{{actor.system.athletics}}" data-roll-mod="{{actor.system.athleticsRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.athletics'}}
+                    </a>
+                    <select name="system.athleticsRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.athleticsRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.athletics}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.performance 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.performance'}}" data-attribute="{{actor.system.influence.value}}" data-attribute-modifier="{{actor.system.influence.modifier}}" data-skill="{{actor.system.performance}}" data-roll-mod="{{actor.system.performanceRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.performance'}}
+                    </a>
+                    <select name="system.performanceRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.performanceRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.performance}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.hunt 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.hunt'}}" data-attribute="{{actor.system.perception.value}}" data-attribute-modifier="{{actor.system.perception.modifier}}" data-skill="{{actor.system.hunt}}" data-roll-mod="{{actor.system.huntRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.hunt'}}
+                    </a>
+                    <select name="system.huntRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.huntRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.hunt}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.speech 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.speech'}}" data-attribute="{{actor.system.influence.value}}" data-attribute-modifier="{{actor.system.influence.modifier}}" data-skill="{{actor.system.speech}}" data-roll-mod="{{actor.system.speechRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.speech'}}
+                    </a>
+                    <select name="system.speechRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.speechRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.speech}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.exploration 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.exploration'}}" data-attribute="{{actor.system.perception.value}}" data-attribute-modifier="{{actor.system.perception.modifier}}" data-skill="{{actor.system.exploration}}" data-roll-mod="{{actor.system.explorationRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.exploration'}}
+                    </a>
+                    <select name="system.explorationRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.explorationRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.exploration}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.stealth 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.stealth'}}" data-attribute="{{actor.system.dexterity.value}}" data-attribute-modifier="{{actor.system.dexterity.modifier}}" data-skill="{{actor.system.stealth}}" data-roll-mod="{{actor.system.stealthRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.stealth'}}
+                    </a>
+                    <select name="system.stealthRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.stealthRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.stealth}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.investigation 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.investigation'}}" data-attribute="{{actor.system.perception.value}}" data-attribute-modifier="{{actor.system.perception.modifier}}" data-skill="{{actor.system.investigation}}" data-roll-mod="{{actor.system.investigationRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.investigation'}}
+                    </a>
+                    <select name="system.investigationRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.investigationRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.investigation}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.medicine 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.medicine'}}" data-attribute="{{actor.system.mind.value}}" data-attribute-modifier="{{actor.system.mind.modifier}}" data-skill="{{actor.system.medicine}}" data-roll-mod="{{actor.system.medicineRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.medicine'}}
+                    </a>
+                    <select name="system.medicineRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.medicineRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.medicine}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.natureSkill 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.natureSkill'}}" data-attribute="{{actor.system.perception.value}}" data-attribute-modifier="{{actor.system.perception.modifier}}" data-skill="{{actor.system.natureSkill}}" data-roll-mod="{{actor.system.natureSkillRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.natureSkill'}}
+                    </a>
+                    <select name="system.natureSkillRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.natureSkillRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.natureSkill}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.craft 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.craft'}}" data-attribute="{{actor.system.mind.value}}" data-attribute-modifier="{{actor.system.mind.modifier}}" data-skill="{{actor.system.craft}}" data-roll-mod="{{actor.system.craftRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.craft'}}
+                    </a>
+                    <select name="system.craftRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.craftRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.craft}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.runic 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.skills.runic'}}" data-attribute="{{actor.system.mind.value}}" data-attribute-modifier="{{actor.system.mind.modifier}}" data-skill="{{actor.system.runic}}" data-roll-mod="{{actor.system.runicRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.skills.runic'}}
+                    </a>
+                    <select name="system.runicRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.runicRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.runic}}</p>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+
+        <div class="section-col">
+            {{#if (gt data.system.restoration 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.restoration'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.restoration}}" data-roll-mod="{{actor.system.restorationRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.restoration'}} <i class="fa-solid fa-droplet"></i> 
+                    </a>
+                    <select name="system.restorationRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.restorationRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.restoration}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.transformation 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.transformation'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.transformation}}" data-roll-mod="{{actor.system.transformationRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.transformation'}} <i class="fa-solid fa-droplet"></i> 
+                    </a>
+                    <select name="system.transformationRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.transformationRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.transformation}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.movement 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.movement'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.movement}}" data-roll-mod="{{actor.system.movementRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.movement'}} <i class="fa-solid fa-wind"></i> 
+                    </a>
+                    <select name="system.movementRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.movementRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.movement}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.senses 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.senses'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.senses}}" data-roll-mod="{{actor.system.sensesRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.senses'}} <i class="fa-solid fa-wind"></i> 
+                    </a>
+                    <select name="system.sensesRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.sensesRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.senses}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.intensity 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.intensity'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.intensity}}" data-roll-mod="{{actor.system.intensityRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.intensity'}} <i class="fa-solid fa-fire"></i> 
+                    </a>
+                    <select name="system.intensityRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.intensityRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.intensity}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.domain 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.domain'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.domain}}" data-roll-mod="{{actor.system.domainRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.domain'}} <i class="fa-solid fa-fire"></i> 
+                    </a>
+                    <select name="system.domainRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.domainRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.domain}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.protection 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.protection'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.protection}}" data-roll-mod="{{actor.system.protectionRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.protection'}} <i class="fa-solid fa-gem"></i> 
+                    </a>
+                    <select name="system.protectionRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.protectionRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.protection}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.enchantment 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.enchantment'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.enchantment}}" data-roll-mod="{{actor.system.enchantmentRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.enchantment'}} <i class="fa-solid fa-gem"></i> 
+                    </a>
+                    <select name="system.enchantmentRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.enchantmentRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.enchantment}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.ilusion 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.ilusion'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.ilusion}}" data-roll-mod="{{actor.system.ilusionRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.ilusion'}} <i class="fa-solid fa-sun"></i> 
+                    </a>
+                    <select name="system.ilusionRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.ilusionRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.ilusion}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.revelation 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.revelation'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.revelation}}" data-roll-mod="{{actor.system.revelationRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.revelation'}} <i class="fa-solid fa-sun"></i> 
+                    </a>
+                    <select name="system.revelationRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.revelationRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.revelation}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.echoes 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.echoes'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.echoes}}" data-roll-mod="{{actor.system.echoesRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.echoes'}} <i class="fa-solid fa-circle"></i> 
+                    </a>
+                    <select name="system.echoesRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.echoesRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.echoes}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.concealment 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.concealment'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.concealment}}" data-roll-mod="{{actor.system.concealmentRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.concealment'}} <i class="fa-solid fa-circle"></i> 
+                    </a>
+                    <select name="system.concealmentRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.concealmentRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.concealment}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.portal 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.portal'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.portal}}" data-roll-mod="{{actor.system.portalRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.portal'}} <i class="fa-solid fa-moon"></i> 
+                    </a>
+                    <select name="system.portalRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.portalRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.portal}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.time 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.time'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.time}}" data-roll-mod="{{actor.system.timeRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.time'}} <i class="fa-solid fa-moon"></i> 
+                    </a>
+                    <select name="system.timeRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.timeRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.time}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.growth 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.growth'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.growth}}" data-roll-mod="{{actor.system.growthRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.growth'}} <i class="fa-solid fa-leaf"></i> 
+                    </a>
+                    <select name="system.growthRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.growthRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.growth}}</p>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if (gt data.system.invocation 0)}}
+                <div  class="section-row">
+                    <a class="roll" data-roll-type="skill" data-name="{{localize 'roe.sortileges.invocation'}}" data-attribute="{{actor.system.essence.value}}" data-attribute-modifier="{{actor.system.essence.modifier}}" data-skill="{{actor.system.invocation}}" data-roll-mod="{{actor.system.invocationRoll}}" title="{{localize 'roe.general.roll'}}">
+                        {{localize 'roe.sortileges.invocation'}} <i class="fa-solid fa-leaf"></i> 
+                    </a>
+                    <select name="system.invocationRoll">
+                        {{selectOptions config.rollModifier selected=actor.system.invocationRoll localize=true}}
+                    </select>
+                    <div class="training">
+                        <p>+{{data.system.invocation}}</p>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

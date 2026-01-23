@@ -1,0 +1,32 @@
+<form class="dialog-form">
+    <div class="dialog-row">
+        <label for="name">{{localize 'roe.general.name'}}</label>
+        <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'roe.general.antagonist'}}" data-dtype="String" />
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.level">{{localize 'roe.general.level'}}</label>
+        <input name="system.level" type="number" value="{{actor.system.level}}" data-dtype="Number"/>
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.size">{{localize 'roe.general.size'}}</label>
+        <select name="system.size">
+            {{selectOptions roe.sizeAntagonist selected=actor.system.size localize=true}}
+        </select>
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.speed">{{localize 'roe.general.speed'}}</label>
+        <select name="system.speed">
+            {{selectOptions roe.speed selected=actor.system.speed localize=true}}
+        </select>
+    </div>
+
+    <div class="dialog-row">
+        <label for="system.species">{{localize 'roe.general.species'}}</label>
+        <select name="system.species">
+            {{selectOptions roe.species selected=actor.system.species localize=true}}
+        </select>
+    </div>
+</form>

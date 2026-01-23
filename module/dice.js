@@ -1,29 +1,31 @@
-export async function CareerRoll({
+export async function SkillRoll({
     name = null, 
     actor= null, 
     attribute = null, 
     attributeModifier = null,
-    career = null
+    skill = null,
+    rollMod = null
 } = {}) {
-    let rollModifier = actor.system.rollModifier
     let flavor = ""
 
-    if (rollModifier == 'advantage') {
+    if (rollMod == 'advantage') {
         flavor = `Rolou ${name} com Vantagem`
-    } else if (rollModifier == 'disadvantage') {
+    } else if (rollMod == 'disadvantage') {
         flavor = `Rolou ${name} com Desvantagem`
     } else {
         flavor = `Rolou ${name}`
     }
 
+    let activeConditions = actor.system.activeConditions
+
     let roll = {
-        name, actor, attribute, attributeModifier, career, rollModifier
+        name, actor, attribute, attributeModifier, skill, rollMod, activeConditions
     }
     
-    const template = `systems/roe/templates/chat/career-chat.hbs`
+    const template = `systems/roe/templates/chat/skill-chat.hbs`
 
     ChatMessage.create({
-        content: await renderTemplate(template, roll),
+        content: await foundry.applications.handlebars.renderTemplate(template, roll),
         speaker: ChatMessage.getSpeaker({actor: actor}),
         flavor: flavor
     }); 
@@ -32,40 +34,98 @@ export async function CareerRoll({
 export async function ActionRoll({
     name = null, 
     actor = null, 
-    type = null,
     item = null,
+    rollMod = null
 } = {}) {
     let roll = {}
-    let rollModifier = actor.system.rollModifier
-    let hit = item.system.hit
+    let cost = item.system.cost
+    let action = item.system.action
+    // let rollMod = item.system.rollModifier
     let damage = item.system.damage
     let damageCritical = item.system.damageCritical
     let damageType = item.system.damageType
     let damageTypeCritical = item.system.damageTypeCritical
     let actionFlavor = item.system.flavor
+    let description = item.system.description
     let img = item.img
     let traits = item.system.traits
     let power = actor.system.power
     let narrativePoints = actor.system.narrativePoints.value
+    let activeConditions = actor.system.activeConditions
+
+    let actionRoll = item.system.roll
+    let hit = 0
+    
+    let magic = 0
+
+    if (actor.type == "protagonist") {
+        magic = actor.system.essence.value + actor.system.essence.modifier
+    } else {
+        magic = power
+    }
+
+    if (actionRoll == 'melee') {
+        hit = actor.system.melee.value + actor.system.melee.mod
+    } else if (actionRoll == 'distance') {
+        hit = actor.system.distance.value + actor.system.distance.mod
+    } else if (actionRoll == 'ressonance') {
+        hit = actor.system.ressonance.value + actor.system.ressonance.mod
+    } else if (actionRoll == 'restoration') {
+        hit = magic + actor.system.restoration 
+    } else if (actionRoll == 'transformation') {
+        hit = magic + actor.system.transformation 
+    } else if (actionRoll == 'movement') {
+        hit = magic + actor.system.movement 
+    } else if (actionRoll == 'senses') {
+        hit = magic + actor.system.senses 
+    } else if (actionRoll == 'intensity') {
+        hit = magic + actor.system.intensity 
+    } else if (actionRoll == 'domain') {
+        hit = magic + actor.system.domain 
+    } else if (actionRoll == 'enchantment') {
+        hit = magic + actor.system.enchantment 
+    } else if (actionRoll == 'protection') {
+        hit = magic + actor.system.protection 
+    } else if (actionRoll == 'ilusion') {
+        hit = magic + actor.system.ilusion 
+    } else if (actionRoll == 'revelation') {
+        hit = magic + actor.system.revelation 
+    } else if (actionRoll == 'echoes') {
+        hit = magic + actor.system.echoes 
+    } else if (actionRoll == 'concealment') {
+        hit = magic + actor.system.concealment 
+    } else if (actionRoll == 'portal') {
+        hit = magic + actor.system.portal 
+    } else if (actionRoll == 'time') {
+        hit = magic + actor.system.time 
+    } else if (actionRoll == 'growth') {
+        hit = magic + actor.system.growth 
+    } else if (actionRoll == 'invocation') {
+        hit = magic + actor.system.invocation 
+    } else {
+        hit = 0
+    }
 
     let flavor = ""
 
-    if (rollModifier == 'advantage') {
+    console.log("rollMod",rollMod)
+
+    if (rollMod == 'advantage') {
         flavor = `Rolou ${name} com Vantagem`
-    } else if (rollModifier == 'disadvantage') {
+    } else if (rollMod == 'disadvantage') {
         flavor = `Rolou ${name} com Desvantagem`
     } else {
         flavor = `Rolou ${name}`
     }
 
     roll = {
-        name, actor, rollModifier, hit, damage, damageCritical, damageType, damageTypeCritical, actionFlavor, img, power, narrativePoints, traits
+        name, actor, rollMod, cost, action, hit, damage, damageCritical, damageType, damageTypeCritical, actionFlavor, description, img, power, narrativePoints, traits, activeConditions
     }
 
     const template = `systems/roe/templates/chat/action-chat.hbs`
 
     ChatMessage.create({
-        content: await renderTemplate(template, roll),
+        content: await foundry.applications.handlebars.renderTemplate(template, roll),
         speaker: ChatMessage.getSpeaker({actor: actor}),
         flavor: flavor
     });
@@ -73,17 +133,18 @@ export async function ActionRoll({
 
 export async function ActionBasicRoll({
     name = null, 
-    actor= null, 
+    actor = null, 
     attribute = null, 
     attributeModifier = null,
-    career = null
+    traitsList = null,
+    rollMod = null
 } = {}) {
-    let rollModifier = actor.system.rollModifier
+    // let rollModifier = actor.system.rollModifier
     let flavor = ""
 
-    if (rollModifier == 'advantage') {
+    if (rollMod == 'advantage') {
         flavor = `Rolou ${name} com Vantagem`
-    } else if (rollModifier == 'disadvantage') {
+    } else if (rollMod == 'disadvantage') {
         flavor = `Rolou ${name} com Desvantagem`
     } else {
         flavor = `Rolou ${name}`
@@ -95,14 +156,40 @@ export async function ActionBasicRoll({
         power = actor.system.power
     }
 
+    let activeConditions = actor.system.activeConditions
+
+    let counterAttack = {}
+
+    if (actor.system.primaryWeaponTrained) {
+        counterAttack.active = true
+        counterAttack.primaryCounterAttackName = actor.system.primaryWeaponName
+        counterAttack.primaryCounterAttackDamage = actor.system.primaryWeaponCounterAttack.damage
+        counterAttack.primaryCounterAttackTraits = actor.system.primaryWeaponCounterAttack.traits
+    }
+
+    if (actor.system.secondaryWeaponTrained) {
+        counterAttack.active = true
+        counterAttack.secondaryCounterAttackName = actor.system.secondaryWeaponName
+        counterAttack.secondaryCounterAttackDamage = actor.system.secondaryWeaponCounterAttack.damage
+        counterAttack.secondaryCounterAttackTraits = actor.system.secondaryWeaponCounterAttack.traits
+    }
+
+    let defense = false
+
+    if (["Vigor", "Reflexos", "Vontade"].includes(name)) {
+        defense = true;
+    }
+
+    console.log("rollMod", rollMod)
+
     let roll = {
-        name, actor, attribute, attributeModifier, career, rollModifier, power
+        name, actor, attribute, attributeModifier, rollMod, power, activeConditions, defense, counterAttack, traitsList
     }
     
     const template = `systems/roe/templates/chat/basic-action-chat.hbs`
 
     ChatMessage.create({
-        content: await renderTemplate(template, roll),
+        content: await foundry.applications.handlebars.renderTemplate(template, roll),
         speaker: ChatMessage.getSpeaker({actor: actor}),
         flavor: flavor
     }); 
@@ -114,107 +201,12 @@ export async function InventoryRoll({
     item = null,
     type = null
 } = {}) {
-    let rank = item.system.rank
-    let rankDif = 0
-    let ressonance = 0
-
-    if (item.system.sortilege == "yes") {
-        rankDif = (rank * 3) + 3
-        item.rankDif = rankDif + item.system.cost
-        ressonance = actor.system.ressonance.value + actor.system.ressonance.mod
-        item.ressonance = ressonance
-    }
-
-    let careerName = ""
-    let careerValue = 0
-    let careerAttributeValue = 0
-    let careerAttributeValueMod = 0
-
-    if (type == "ability" && item.system.roll) {
-        const careerName = item.system.roll
-
-        let careerValue = 0
-
-        if (careerName != "none") {
-            careerValue = actor.system[careerName]
-        }
-
-        if (careerName == "brute" || careerName == "resistant") {
-            careerAttributeValue = actor.system.body.value
-            careerAttributeValueMod = actor.system.body.modifier
-
-            item.careerName = careerName
-            item.careerAttributeValue = careerAttributeValue
-            item.careerAttributeValueMod = careerAttributeValueMod
-            item.careerValue = careerValue
-        }
-
-        if (careerName == "alchemist" || careerName == "mystic") {
-            careerAttributeValue = actor.system.essence.value
-            careerAttributeValueMod = actor.system.essence.modifier
-
-            item.careerName = careerName
-            item.careerAttributeValue = careerAttributeValue
-            item.careerAttributeValueMod = careerAttributeValueMod
-            item.careerValue = careerValue
-        }
-        
-        if (careerName == "athlete" || careerName == "skillful") {
-            careerAttributeValue = actor.system.dexterity.value
-            careerAttributeValueMod = actor.system.dexterity.modifier
-
-            item.careerName = careerName
-            item.careerAttributeValue = careerAttributeValue
-            item.careerAttributeValueMod = careerAttributeValueMod
-            item.careerValue = careerValue
-        } 
-
-        if (careerName == "explorer" || careerName == "researcher") {
-            careerAttributeValue = actor.system.perception.value
-            careerAttributeValueMod = actor.system.perception.modifier
-
-            item.careerName = careerName
-            item.careerAttributeValue = careerAttributeValue
-            item.careerAttributeValueMod = careerAttributeValueMod
-            item.careerValue = careerValue
-        } 
-
-        if (careerName == "artist" || careerName == "diplomat") {
-            careerAttributeValue = actor.system.influence.value
-            careerAttributeValueMod = actor.system.influence.modifier
-
-            item.careerName = careerName
-            item.careerAttributeValue = careerAttributeValue
-            item.careerAttributeValueMod = careerAttributeValueMod
-            item.careerValue = careerValue
-        } 
-
-        if (careerName == "academic" || careerName == "artisan") {
-            careerAttributeValue = actor.system.mind.value
-            careerAttributeValueMod = actor.system.mind.modifier
-
-            item.careerName = careerName
-            item.careerAttributeValue = careerAttributeValue
-            item.careerAttributeValueMod = careerAttributeValueMod
-            item.careerValue = careerValue
-        } 
-    }
-
-    let flavor = ""
-    let rollModifier = actor.system.rollModifier
-
-    if (rollModifier == 'advantage') {
-        flavor = `Rolou ${name} com Vantagem`
-    } else if (rollModifier == 'disadvantage') {
-        flavor = `Rolou ${name} com Desvantagem`
-    } else {
-        flavor = `Rolou ${name}`
-    }
+    let flavor = item.flavor
 
     const template = `systems/roe/templates/chat/inventory-chat.hbs`
     
     ChatMessage.create({
-        content: await renderTemplate(template, item),
+        content: await foundry.applications.handlebars.renderTemplate(template, item),
         speaker: ChatMessage.getSpeaker({actor: actor}),
         flavor: flavor
     });
@@ -232,84 +224,17 @@ export async function AbilityRoll({
 
     if (sortilege == "yes") {
         rankDif = (rank * 3) + 3
-        item.rankDif = rankDif + item.system.cost
+        item.rankDif = rankDif + parseInt(item.system.cost)
         ressonance = actor.system.ressonance.value + actor.system.ressonance.mod
         item.ressonance = ressonance
     }
-
-    let careerName = item.system.roll
-    let careerValue = 0
-    let careerAttributeValue = 0
-    let careerAttributeValueMod = 0
-
-    if (careerName != "none") {
-        careerValue = actor.system[careerName]
-    }
-
-    if (careerName == "brute" || careerName == "resistant") {
-        careerAttributeValue = actor.system.body.value
-        careerAttributeValueMod = actor.system.body.modifier
-
-        item.careerName = careerName
-        item.careerAttributeValue = careerAttributeValue
-        item.careerAttributeValueMod = careerAttributeValueMod
-        item.careerValue = careerValue
-    }
-
-    if (careerName == "alchemist" || careerName == "mystic") {
-        careerAttributeValue = actor.system.essence.value
-        careerAttributeValueMod = actor.system.essence.modifier
-
-        item.careerName = careerName
-        item.careerAttributeValue = careerAttributeValue
-        item.careerAttributeValueMod = careerAttributeValueMod
-        item.careerValue = careerValue
-    }
-    
-    if (careerName == "athlete" || careerName == "skillful") {
-        careerAttributeValue = actor.system.dexterity.value
-        careerAttributeValueMod = actor.system.dexterity.modifier
-
-        item.careerName = careerName
-        item.careerAttributeValue = careerAttributeValue
-        item.careerAttributeValueMod = careerAttributeValueMod
-        item.careerValue = careerValue
-    } 
-
-    if (careerName == "explorer" || careerName == "researcher") {
-        careerAttributeValue = actor.system.perception.value
-        careerAttributeValueMod = actor.system.perception.modifier
-
-        item.careerName = careerName
-        item.careerAttributeValue = careerAttributeValue
-        item.careerAttributeValueMod = careerAttributeValueMod
-        item.careerValue = careerValue
-    } 
-
-    if (careerName == "artist" || careerName == "diplomat") {
-        careerAttributeValue = actor.system.influence.value
-        careerAttributeValueMod = actor.system.influence.modifier
-
-        item.careerName = careerName
-        item.careerAttributeValue = careerAttributeValue
-        item.careerAttributeValueMod = careerAttributeValueMod
-        item.careerValue = careerValue
-    } 
-
-    if (careerName == "academic" || careerName == "artisan") {
-        careerAttributeValue = actor.system.mind.value
-        careerAttributeValueMod = actor.system.mind.modifier
-
-        item.careerName = careerName
-        item.careerAttributeValue = careerAttributeValue
-        item.careerAttributeValueMod = careerAttributeValueMod
-        item.careerValue = careerValue
-    } 
     
     let flavor = ""
     
     const rollModifier = actor.system.rollModifier
     item.rollModifier = rollModifier
+
+    item.activeConditions = actor.system.activeConditions
 
     if (rollModifier == 'advantage') {
         flavor = `Rolou ${name} com Vantagem`
@@ -320,12 +245,67 @@ export async function AbilityRoll({
     }
 
     const template = `systems/roe/templates/chat/ability-chat.hbs`
-
-    console.log("fim", item)
     
     ChatMessage.create({
-        content: await renderTemplate(template, item),
+        content: await foundry.applications.handlebars.renderTemplate(template, item),
         speaker: ChatMessage.getSpeaker({actor: actor}),
         flavor: flavor
     });
+}
+
+export async function AttackRoll({
+    actor = null, 
+    hit = null,
+    damage = null,
+    criticalDamage = null,
+    type = null,
+    traits = null,
+    traitsList = null
+} = {}) {
+    let rollModifier = actor.system.rollModifier
+    let activeConditions = actor.system.activeConditions
+   
+    let name = ""
+    
+    if (type == 'basic-attack') {
+        name = "Ataque Básico ( ► )"
+    } else if (type == 'special-attack') {
+        name = "Ataque Especial ( ►► )"
+    } else if (type == 'fast-attack') {
+        name = "Ataque Rápido ( ☈ )"
+    } else {
+        name = "Contra Ataque ( ✦ )"
+    }
+
+    let flavor = ""
+    
+    if (rollModifier == 'advantage') {
+        flavor = `Rolou ${name} com Vantagem`
+    } else if (rollModifier == 'disadvantage') {
+        flavor = `Rolou ${name} com Desvantagem`
+    } else {
+        flavor = `Rolou ${name}`
+    }
+
+    if (hit == "melee") {
+        hit = actor.system.melee.value + actor.system.melee.mod
+    } else if (hit == "distance") {
+        hit = actor.system.distance.value + actor.system.distance.mod
+    } else if (hit == "ressonance") {
+        hit = actor.system.ressonance.value + actor.system.ressonance.mod
+    } else {
+        hit = 0
+    }
+
+    let roll = {
+        name, actor, hit, damage, criticalDamage, traits, traitsList, rollModifier , activeConditions
+    }
+    
+    const template = `systems/roe/templates/chat/attack-chat.hbs`
+
+    ChatMessage.create({
+        content: await foundry.applications.handlebars.renderTemplate(template, roll),
+        speaker: ChatMessage.getSpeaker({actor: actor}),
+        flavor: flavor
+    }); 
 }
